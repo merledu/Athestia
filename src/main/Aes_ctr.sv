@@ -3,10 +3,11 @@ module Aes_ctr(
     input logic clk,
     input logic reset
 );
+    /* verilator lint_off UNDRIVEN */
     /* verilator lint_off WIDTHEXPAND */
     /* verilator lint_off VARHIDDEN */
     
-    reg [7:0] src [0:7];  // 4-element array to hold 8-bit values
+    reg [7:0] src [0:7];  
     reg [31:0] result;
     reg [31:0] v [0:1];
     reg [1:0] num;
@@ -48,15 +49,20 @@ module Aes_ctr(
 
         
         num=2;
-         /* verilator lint_off IGNOREDRETURN */
-
+		end
+        /* verilator lint_off IGNOREDRETURN */
+        always_ff @(posedge clk or negedge reset) begin
         if (reset == 0) begin
+			br_range_dec32le(v , src, num );
+			//br_aes_ct64_ortho(src);
 
-           br_aes_ct64_bitslice_Sbox(a);
+           //br_aes_ct64_bitslice_Sbox(a);
         end
-    end
-
+        end
+	
+     
     function [31:0] brdecl32(input [7:0]  src_in [0:3]);  //not confirmed src_in size of list
+	   
         begin
             result = src_in[0] |
                        (src_in[1] << 8) |
@@ -64,7 +70,10 @@ module Aes_ctr(
                        (src_in[3] << 24);
             return result;           
         end
+		
     endfunction
+	
+
   
     function [31:0] br_range_dec32le(output [31:0] v [0:1], input [7:0]  src_in [0:7], input [1:0] num );
         begin
@@ -255,17 +264,17 @@ module Aes_ctr(
 	t65 = t61 ^ t62;
 	t66 = z1 ^ t63;
 	s0 = t59 ^ t63;
-    t62= ~t62;
-	s6 = t56 ^ t62;
-    t60 = ~t60;
-	s7 = t48 ^ t60;
+    //t62= ~t62;
+	s6 = t56 ^ ~t62;
+   // t60 = ~t60;
+	s7 = t48 ^ ~t60;
 	t67 = t64 ^ t65;
 	s3 = t53 ^ t66;
 	s4 = t51 ^ t66;
 	s5 = t47 ^ t65;
-	s1 = t64 ^ s3;
-    t67= ~t67;
-	s2 = t55 ^ t67;
+	s1 = t64 ^ ~s3;
+   // t67= ~t67;
+	s2 = t55 ^ ~t67;
 
 	q[7] = s0;
 	q[6] = s1;
@@ -275,15 +284,44 @@ module Aes_ctr(
 	q[2] = s5;
 	q[1] = s6;
 	q[0] = s7;
-
-    
-    end    
+	end    
     endfunction       
     
-      
+	// function br_aes_ct64_ortho(input [63:0]q [0:7]);
+    // begin
+    // #define SWAPN(cl, ch, s, x, y)   do { 
+	// 	uint64_t a, b; 
+	// 	a = (x); 
+	// 	b = (y); 
+	// 	(x) = (a & (uint64_t)cl) | ((b & (uint64_t)cl) << (s)); 
+	// 	(y) = ((a & (uint64_t)ch) >> (s)) | (b & (uint64_t)ch); 
+	// } while (0)
 
+    //  #define SWAP2(x, y)    SWAPN(0x5555555555555555, 0xAAAAAAAAAAAAAAAA,  1, x, y)
+    //  #define SWAP4(x, y)    SWAPN(0x3333333333333333, 0xCCCCCCCCCCCCCCCC,  2, x, y)
+    // #define SWAP8(x, y)    SWAPN(0x0F0F0F0F0F0F0F0F, 0xF0F0F0F0F0F0F0F0,  4, x, y)
 
-       
+	// SWAP2(q[0], q[1]);
+	// SWAP2(q[2], q[3]);
+	// SWAP2(q[4], q[5]);
+	// SWAP2(q[6], q[7]);
+
+	// SWAP4(q[0], q[2]);
+	// SWAP4(q[1], q[3]);
+	// SWAP4(q[4], q[6]);
+	// SWAP4(q[5], q[7]);
+
+	// SWAP8(q[0], q[4]);
+	// SWAP8(q[1], q[5]);
+	// SWAP8(q[2], q[6]);
+	// SWAP8(q[3], q[7])
+	// end
+	
+	// endfunction
+
+	
+
+	   
 
 
   

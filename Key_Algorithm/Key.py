@@ -2,345 +2,295 @@ import sys
 import random
 import numpy as np
 
-sys.path.append('/home/hafsa/Dilithium/pycryptodome/lib/Crypto/Hash')
-sys.path.append('/home/hafsa/Dilithium/pycryptodome/lib')
+sys.path.append('/home/hafsa/Athestia/pycryptodome/lib/Crypto/Hash')
+sys.path.append('/home/hafsa/Athestia/pycryptodome/lib')
+sys.path.append('/home/hafsa/Athestia/Key_Algorithm')
 
 from SHAKE256 import SHAKE256_XOF
 from Crypto.Cipher import AES
+from Crypto.Cipher import _mode_ctr
+from ntt_giacomo import PolynomialDilithiumProcessor
+
+def keygen():
+    #---------------------------------------------------- STEP 1 ----------------------------------------------------#
+    random_int = 30
+    # random_int = random.randint(1, 100)
+    # print(f"Random Int: {random_int}")
+
+    random_bytes = random_int.to_bytes((random_int.bit_length() + 7) // 8, byteorder='big')
+
+    shake = SHAKE256_XOF()
+    shake.update(random_bytes)
+    zeta_bytes = shake.read(32)  #256 bits = 32 bytes
+
+    # zeta = ''
+    # for byte in zeta_bytes:
+    #     zeta_binary = format(byte, '08b')
+    #     zeta += zeta_binary
+    # print(f"ζ: {zeta}")
 
 
-#---------------------------------------------------- STEP 1 ----------------------------------------------------#
-random_int = 30
-# random_int = random.randint(1, 100)
-# print(f"Random Int: {random_int}")
+    #---------------------------------------------------- STEP 2 ----------------------------------------------------#
+    shake.new(zeta_bytes)
+    output = shake.read(128)  # 1024 bits = 128 bytes
 
-random_bytes = random_int.to_bytes((random_int.bit_length() + 7) // 8, byteorder='big')
+    rho = output[:32]       # First 256 bits
+    rho0 = output[32:96]    # Next 512 bits (64 bytes)
+    K_bytes = output[96:]         # Last 256 bits
 
-shake = SHAKE256_XOF()
-shake.update(random_bytes)
-zeta_bytes = shake.read(32)  #256 bits = 32 bytes
-
-# zeta = ''
-# for byte in zeta_bytes:
-#     zeta_binary = format(byte, '08b')
-#     zeta += zeta_binary
-# print(f"ζ: {zeta}")
+    ρ = ''.join(format(byte, '08b') for byte in rho)
+    # print(f"\nρ : {ρ}")
+    # print("ρ':", ''.join(format(byte, '08b') for byte in rho0))
+    K = ''.join(format(byte, '08b') for byte in K_bytes)
+    # print("K : {K}")
 
 
-#---------------------------------------------------- STEP 2 ----------------------------------------------------#
-shake.new(zeta_bytes)
-output = shake.read(128)  # 1024 bits = 128 bytes
+    #---------------------------------------------------- STEP 3 ----------------------------------------------------#
+    rows, cols = 8, 7
+    coefficients_per_polynomial = 256
 
-rho = output[:32]       # First 256 bits
-rho0 = output[32:96]    # Next 512 bits (64 bytes)
-K = output[96:]         # Last 256 bits
+    def expandA(A, rho):
+        for i in range(rows):
+            for j in range(cols):
+                nonce_int = 256 * i + j
+                nonce_bytes = nonce_int.to_bytes(12, byteorder='little')  
+                
+                aes = AES.new(rho, AES.MODE_CTR, nonce=nonce_bytes)
+                stream = aes.encrypt(b'\x00' * 768) 
+                # print(f"nonce_int: {nonce_int}, nonce_bytes: {nonce_bytes}, stream: {stream}")
 
-ρ = ''.join(format(byte, '08b') for byte in rho)
-# print(f"\nρ : {ρ}")
-# print("ρ':", ''.join(format(byte, '08b') for byte in rho0))
-K = ''.join(format(byte, '08b') for byte in K)
-# print("K : {K}")
+                for k in range(coefficients_per_polynomial): # 0 to 255
+                    start_ind = k * 3
+                    block = stream[start_ind:start_ind + 3]  #246 blocks
+    
+                    block = bytes([block[0], block[1], block[2] & 0x7F])  #(01111111 in binary) that has its highest bit set to 0
+
+                    combined_int = int.from_bytes(block, byteorder='little')
+
+                    if combined_int < 8380415:  # q-1 = 8380415
+                        A[i, j, k] = combined_int
 
 
-#---------------------------------------------------- STEP 3 ----------------------------------------------------#
-rows, cols = 8, 7
-coefficients_per_polynomial = 256
+    A = np.zeros((rows, cols, coefficients_per_polynomial), dtype=np.int64)
+    expandA(A, rho)
+    # for i in range(rows):
+    #     for j in range(cols):
+    #         print(f"\nA[{i}][{j}] = {A[i][j]}")
 
-def expandA(A, rho):
+
+    #-------------------- NTT & invNTT ---------------------#
+    ntt = PolynomialDilithiumProcessor()
+
+    A_ntt = np.zeros((rows, cols, coefficients_per_polynomial), dtype=int)
     for i in range(rows):
         for j in range(cols):
-            nonce_int = 256 * i + j
-            nonce_bytes = nonce_int.to_bytes(12, byteorder='little')  
-            
-            aes = AES.new(rho, AES.MODE_CTR, nonce=nonce_bytes)
-            stream = aes.encrypt(b'\x00' * 768) 
-            # print(f"nonce_int: {nonce_int}, nonce_bytes: {nonce_bytes}, stream: {stream}")
+            A_ntt[i, j] = ntt.to_ntt(A[i, j].tolist())
 
-            for k in range(coefficients_per_polynomial): # 0 to 255
-                start_ind = k * 3
-                block = stream[start_ind:start_ind + 3]  #246 blocks
-  
-                block = bytes([block[0], block[1], block[2] & 0x7F])  #(01111111 in binary) that has its highest bit set to 0
-
-                combined_int = int.from_bytes(block, byteorder='little')
-
-                if combined_int < 8380415:  # q-1 = 8380415
-                    A[i, j, k] = combined_int
+    # for i in range(rows):
+    #     for j in range(cols):
+    #         print(f"A_NTT[{i}][{j}] = {A_ntt[i][j]}")
 
 
-A = np.zeros((rows, cols, coefficients_per_polynomial), dtype=int)
-expandA(A, rho)
-for i in range(rows):
-    for j in range(cols):
-        print(f"\nA[{i}][{j}] = {A[i][j]}")
-
-
-#---------------------- NTT ----------------------#
-q = 8380416
-root = 1753
-
-# Function to bit-reverse the indices
-def bit_reverse(value, bits):
-    result = 0
-    for i in range(bits):
-        if value & (1 << i):
-            result |= 1 << (bits - 1 - i)
-    return result
-
-# NTT function
-def ntt(a, n, q, root):
-    levels = n.bit_length() - 1
-    a = [a[bit_reverse(i, levels)] for i in range(n)]  # Bit-reversal permutation
-
-    length = 2
-    while length <= n:
-        half_length = length // 2
-        table_step = n // length
-        for i in range(0, n, length):
-            k = 0
-            for j in range(i, i + half_length):
-                u = a[j]
-                v = a[j + half_length] * pow(root, k, q) % q
-                a[j] = (u + v) % q
-                a[j + half_length] = (u - v) % q
-                k += table_step
-        length *= 2
-    return a
-
-# Function to apply NTT to the entire matrix
-def apply_ntt_to_matrix(A, n, q, root):
-    rows, cols = A.shape[:2]
-    A_ntt = np.zeros((rows, cols, n), dtype=int)
-    
+    A_invntt = np.zeros((rows, cols, coefficients_per_polynomial), dtype=int)
     for i in range(rows):
         for j in range(cols):
-            A_ntt[i, j] = ntt(list(A[i, j]), n, q, root)
-    
-    return A_ntt
+            A_invntt[i, j] = ntt.from_ntt(A_ntt[i, j].tolist())
 
-# Apply NTT to the entire matrix
-A_ntt = apply_ntt_to_matrix(A, coefficients_per_polynomial, q, root)
-
-# Print the NTT of matrix A
-# print("\nNTT of matrix A:")
-# for i in range(rows):
-#     for j in range(cols):
-#         print(f"\nA_ntt[{i}][{j}] = {A_ntt[i][j]}")
+    # for i in range(rows):
+    #     for j in range(cols):
+    #         print(f"A_InvNTT[{i}][{j}] = {A_invntt[i][j]}")
 
 
-# Inverse NTT function
-def intt(a, n, q, root):
-    inv_n = pow(n, q - 2, q)  # Modular multiplicative inverse of n under q
-    a = ntt(a, n, q, pow(root, q-2, q))  # Apply NTT with inverse root of unity
-    a = [x * inv_n % q for x in a]  # Scale by n^(-1)
-    return a
+    #---------------------------------------------------- STEP 4 ----------------------------------------------------#
+    q = 8380417
+    η = 2
 
-    # Function to apply inverse NTT to the entire matrix
-def apply_intt_to_matrix(A_ntt, n, q, root):
-    rows, cols = A_ntt.shape[:2]
-    A_original = np.zeros((rows, cols, n), dtype=int)
-    
-    for i in range(rows):
-        for j in range(cols):
-            A_original[i, j] = intt(list(A_ntt[i, j]), n, q, root)
-    
-    return A_original
+    s1 = []
+    for _ in range(cols):
+        vectors1 = [0] * coefficients_per_polynomial
+        s1.append(vectors1)
 
-    # Apply inverse NTT to get back the original matrix
-A_original = apply_intt_to_matrix(A_ntt, coefficients_per_polynomial, q, root)
+    s2 = []
+    for _ in range(rows):
+        vectors2 = [0] * coefficients_per_polynomial
+        s2.append(vectors2)
 
-# Print the reconstructed original matrix A
-# print("\nReconstructed original matrix A:")
-# for i in range(rows):
-#     for j in range(cols):
-#         print(f"\nA_original[{i}][{j}] = {A_original[i][j]}")
+    def expand_s(s1, s2, rho0):    
+        for i in range(cols + rows):
+            nonce = i.to_bytes(2, 'little') + b'\x00' * 10  # 2 bytes for i, padded to 12 bytes
 
+            aes = AES.new(rho0[:32], AES.MODE_CTR, nonce=nonce)
+            stream = aes.encrypt(b'\x00' * 128) 
+            # print("Stream:", stream)
+            # print("Stream:", len(stream))
 
-#---------------------------------------------------- STEP 4 ----------------------------------------------------#
-η = 2
+            aes_binary = ''
+            for byte in stream:
+                binary = format(byte, '08b')
+                aes_binary += binary
+            # print(f"aes_binary: {aes_binary}")
 
-s1 = []
-for _ in range(cols):
-    vectors1 = [0] * coefficients_per_polynomial
-    s1.append(vectors1)
+            positive_numbers = []
 
-s2 = []
-for _ in range(rows):
-    vectors2 = [0] * coefficients_per_polynomial
-    s2.append(vectors2)
+            for byte in stream:
+                formatted_byte = format(byte, '08b')
+                #print("byte:", formatted_byte)
 
-
-def expandS1(s1, rho0):
-    for i in range(cols):
-        nonce_int = i
-        nonce_bytes = nonce_int.to_bytes(12, byteorder='big')  
-        
-        aes = AES.new(rho0[:32], AES.MODE_CTR, nonce=nonce_bytes)
-        stream = aes.encrypt(b'\x00' * 4) 
-        # print(f"nonce_int: {nonce_int}, nonce_bytes: {nonce_bytes}, stream: {stream}")
-
-        aes_binary = ''
-        for byte in stream:
-            binary = format(byte, '08b')
-            aes_binary += binary
-        # print(f"aes_binary: {aes_binary}")
-
-
-        coefficients = []
-        for _ in range(coefficients_per_polynomial // 2):
-            lower_4_bits = aes_binary[-4:]
-            upper_4_bits = aes_binary[:4]
-
-            r1 = int(lower_4_bits, 2) % 5
-            r2 = int(upper_4_bits, 2) % 5
-
-            r1_int = η - r1
-            r2_int = η - r2 
-
-            coefficients.append(r1_int)
-            coefficients.append(r2_int)
+                low_4_bits = int(formatted_byte) & 0x0F
+                high_4_bits = (int(formatted_byte) >> 4) & 0x0F
+                # print(low_nibble)
+                if low_4_bits <= 15:
+                    positive_numbers.append(low_4_bits % 5)
+                if high_4_bits <= 15:
+                    positive_numbers.append(high_4_bits % 5)
             
-        s1[i] = coefficients
-
-
-expandS1(s1, rho0)
-
-# print("s1:")
-# for i in s1:
-#     print(i)
-
-
-def expandS2(s2, rho0):
-    for i in range(rows):
-        nonce_int = i
-        nonce_bytes = nonce_int.to_bytes(12, byteorder='big')  
-        
-        aes = AES.new(rho0[:32], AES.MODE_CTR, nonce=nonce_bytes)
-        stream = aes.encrypt(b'\x00' * 4) 
-        # print(f"nonce_int: {nonce_int}, nonce_bytes: {nonce_bytes}, stream: {stream}")
-
-        aes_binary = ''
-        for byte in stream:
-            binary = format(byte, '08b')
-            aes_binary += binary
-        # print(f"aes_binary: {aes_binary}")
-
-
-        coefficients = []
-        for _ in range(coefficients_per_polynomial // 2):
-            lower_4_bits = aes_binary[-4:]
-            upper_4_bits = aes_binary[:4]
-
-            r1 = int(lower_4_bits, 2) % 5
-            r2 = int(upper_4_bits, 2) % 5
-
-            r1_int = η - r1
-            r2_int = η - r2
-
-            coefficients.append(r1_int)
-            coefficients.append(r2_int)
+            # print("Positive numbers:", positive_numbers)
+            # print("Number of coefficients generated:", len(positive_numbers))
             
-        s2[i] = coefficients
+            if i < cols:
+                s1[i] = positive_numbers
+            else:
+                s2[i - cols] = positive_numbers
+
+        return s1, s2
+
+    expand_s(s1, s2, rho0)
+
+    # print("\ns1:")
+    # for i in s1:
+    #     print(i)
 
 
-expandS2(s2, rho0)
-
-# print("\ns2:")
-# for i in s2:
-#     print(i)
+    # print("\ns2:")
+    # for i in s2:
+    #     print(i)
 
 
-#---------------------------------------------------- STEP 5 ----------------------------------------------------#
-t = []
-for _ in range(rows):
-    vectort = [0] * coefficients_per_polynomial
-    t.append(vectort)
+    #-------------------- NTT & invNTT ---------------------#
+    s1_ntt = [ntt.to_ntt(vec) for vec in s1]
+    # print("\ns1 in NTT form:")
+    # for vec in s1_ntt:
+    #     print(vec)
 
-# print("\nt:")
-# for i in t:
-#     print(i)
-
-def compute_t(A, s1, s2):
-    for i in range(8):
-        for j in range(7):
-            t[i] += A[i][j] * s1[j]
-        t[i] += s2[i]
-
-compute_t(A, s1, s2)
-# print("\nt:")
-# for i in t:
-#     print(i)
+    s1_invntt = [ntt.from_ntt(vec1) for vec1 in s1_ntt]
+    # print("\ns1 in invNTT:")
+    # for vec1 in s1_invntt:
+    #     print(vec1)
 
 
-#---------------------------------------------------- STEP 6 ----------------------------------------------------#
-t1 = []
-for _ in range(rows):
-    vectort1 = [0] * coefficients_per_polynomial
-    t1.append(vectort1)
+    #---------------------------------------------------- STEP 5 ----------------------------------------------------#
+    t_ntt = []
+    for _ in range(rows):
+        vector_ntt_t = [0] * coefficients_per_polynomial
+        t_ntt.append(vector_ntt_t)
 
-# print("\nt1:")
-# for i in t1:
-#     print(i)
+    t = []
+    for _ in range(rows):
+        vector_invntt_t = [0] * coefficients_per_polynomial
+        t.append(vector_invntt_t)
 
-t0 = []
-for _ in range(rows):
-    vectort0 = [0] * coefficients_per_polynomial
-    t0.append(vectort0)
-
-# print("\nt0:")
-# for i in t0:
-#     print(i)
-
-d = 13
-
-def power2round(t, d, q):
-    t_mod_q = t % q
-
-    t_mod_2d = t_mod_q % (2**d)
-
-    t1 = (t_mod_q - t_mod_2d) // (2**d)
-    t0 = t_mod_2d
-
-    return t1, t0
+    # print("\nt:")
+    # for i in t:
+    #     print(i)
 
 
-for i in range(len(t)):
-    for j in range(coefficients_per_polynomial):
-        t1_coef, t0_coef = power2round(t[i][j], d, q)
-        t1[i][j] = t1_coef
-        t0[i][j] = t0_coef
+    def compute_t(A_ntt, s1_ntt, s2):
+        for i in range(8):
+            for j in range(7):
+                t_ntt[i] += A_ntt[i][j] * s1_ntt[j]
+        # print("\nt_ntt before adding s2:")
+        # for i in t_ntt:
+        #     print(i)
 
-# print("\nt1:")
-# for i in t1:
-#     print(i)
+        for i in range(8):
+            t[i] = ntt.from_ntt(t_ntt[i])
+        # print("\nt in invNTT before adding s2:")
+        # for vect in t:
+        #     print(vect)
 
-# print("\nt0:")
-# for i in t0:
-#     print(i)
+        for i in range(8):
+            t[i] += s2[i]
+    
 
-
-#---------------------------------------------------- STEP 7 ----------------------------------------------------#
-single_list = []
-for element in t1:
-    single_list.extend(element)
-# print(f"\nsingle_list of t1: {single_list}")
-
-rho_bytes = int(ρ, 2).to_bytes((len(ρ) + 7) // 8, byteorder='big')
-t1_bytes = b''.join(int(i).to_bytes((int(i).bit_length() + 7) // 8, byteorder='big') for i in single_list)
-
-concatenated_bytes = rho_bytes + t1_bytes
-# print(concatenated_bytes)
-
-shake.new(concatenated_bytes)
-tr_shake = shake.read(32)  # 256 bits = 32 bytes
-
-tr = ''.join(format(byte, '08b') for byte in tr_shake)
-# print(f"\ntr : {tr}")
+    compute_t(A_ntt, s1_ntt, s2)
+    # print("\nt:")
+    # for i in t:
+    #     print(i)
 
 
-#---------------------------------------------------- STEP 8 ----------------------------------------------------#
-pk = (ρ, t1)
-# print(f"\nPublic Key: {pk}")
+    # #---------------------------------------------------- STEP 6 ----------------------------------------------------#
+    t1 = []
+    for _ in range(rows):
+        vectort1 = [0] * coefficients_per_polynomial
+        t1.append(vectort1)
 
-sk = (ρ, K, tr, s1 , s2 , t0)
-# print(f"\nSecret Key: {sk}")
+    # print("\nt1:")
+    # for i in t1:
+    #     print(i)
+
+    t0 = []
+    for _ in range(rows):
+        vectort0 = [0] * coefficients_per_polynomial
+        t0.append(vectort0)
+
+    # print("\nt0:")
+    # for i in t0:
+    #     print(i)
+
+    d = 13
+
+    def power2round(t, d, q):
+        t_mod_q = t % q
+
+        t_mod_2d = t_mod_q % (2**d)
+
+        t1 = (t_mod_q - t_mod_2d) // (2**d)
+        t0 = t_mod_2d
+
+        return t1, t0
+
+
+    for i in range(len(t)):
+        for j in range(coefficients_per_polynomial):
+            t1_coef, t0_coef = power2round(t[i][j], d, q)
+            t1[i][j] = t1_coef
+            t0[i][j] = t0_coef
+
+    # print("\nt1:")
+    # for i in t1:
+    #     print(i)
+
+    # print("\nt0:")
+    # for i in t0:
+    #     print(i)
+
+
+    # #---------------------------------------------------- STEP 7 ----------------------------------------------------#
+    single_list = []
+    for element in t1:
+        single_list.extend(element)
+    # print(f"\nsingle_list of t1: {single_list}")
+
+    rho_bytes = int(ρ, 2).to_bytes((len(ρ) + 7) // 8, byteorder='big')
+    t1_bytes = b''.join(int(i).to_bytes((int(i).bit_length() + 7) // 8, byteorder='big') for i in single_list)
+
+    concatenated_bytes = rho_bytes + t1_bytes
+    # print(concatenated_bytes)
+
+    shake.new(concatenated_bytes)
+    tr_shake = shake.read(32)  # 256 bits = 32 bytes
+
+    tr = ''.join(format(byte, '08b') for byte in tr_shake)
+    # print(f"\ntr : {tr}")
+
+
+    # #---------------------------------------------------- STEP 8 ----------------------------------------------------#
+    pk = (ρ, t1)
+    # print(f"\nPublic Key: {pk}")
+
+    sk = (ρ, K, tr, s1 , s2 , t0)
+    # print(f"\nSecret Key: {sk}")
+
+    return pk, sk
+
+pk, sk = keygen()

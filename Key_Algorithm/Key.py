@@ -252,7 +252,7 @@ def keygen():
 
     for i in range(len(t)):
         for j in range(coefficients_per_polynomial):
-            t1_coef, t0_coef = power2round(t[i][j], d, q)
+            t1_coef, t0_coef = power2round(t[i][j], d)
             t1[i][j] = t1_coef
             t0[i][j] = t0_coef
 

@@ -1,16 +1,3 @@
-import sys
-import math
-import random
-import numpy as np
-
-sys.path.append('/home/hafsa/Athestia/pycryptodome/lib/Crypto/Hash')
-
-from SHAKE256 import SHAKE256_XOF
-from SHAKE128 import SHAKE128_XOF
-
-
-# def keygen():
-#---------------------------------------------------- PARAMETERS ----------------------------------------------------#
 q = 8380417
 rows_k = 8
 cols_l = 7
@@ -155,6 +142,7 @@ def RejBoundedPoly(rho_p):
 
         c += 1
     
+    print(f"Sample coefficients for {rho_p}: {a[:10]}")
     return a
 
 
@@ -449,7 +437,7 @@ def bytes_to_bits(z):
     return y
 
 
-#----------------------------------- Compute_tr -----------------------------------#
+# # #----------------------------------- Compute_tr -----------------------------------#
 def compute_tr(pk):
     bit_string = bytes_to_bits(list(pk))
 
@@ -468,6 +456,17 @@ tr = compute_tr(pk)
 
 #---------------------------------------------------- STEP 9 ----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
+# def BitPack(w, a, b):
+#     z = []  # Initialize an empty list to store bits
+
+#     bitlen = math.ceil(math.log2(a + b))  # Compute bit length for (a + b)
+
+#     for i in range(256):
+#         z += IntegerToBits(b - w[i], bitlen)
+
+#     byte_output = bits_to_bytes(z)
+#     return byte_output 
+
 def BitPack(w, a, b):
     z = []
     bitlen = math.ceil(math.log2(a + b))  # Compute bit length for (a + b)
@@ -477,6 +476,20 @@ def BitPack(w, a, b):
     byte_output = bits_to_bytes(z)
     # print(f"BitPack output length: {len(byte_output)} bytes")  # Add this line to log the output length
     return byte_output
+
+
+
+# def BitPack(w, a, b):
+#     max_value = max(a, b)
+#     bitlen = max_value.bit_length()  # Adjust bit length according to the max value possible
+#     z = []
+#     for value in w:
+#         z += IntegerToBits(value, bitlen)
+#     byte_output = bits_to_bytes(z)
+#     print(f"BitPack output length: {len(byte_output)} bytes")  # Add this line to log the output length
+#     return byte_output
+
+
 
 
 #----------------------------------- sk_encode -----------------------------------#
@@ -498,7 +511,8 @@ sk = skEncode(ρ, K, tr, s1, s2, t0)
 # print(f"\nsk : {sk}") 
 
 
-
-# #     return pk, sk
-
-# # pk, sk = keygen()
+# expected_length = 4896  # From the calculation above
+# actual_length = len(sk)
+# print("Expected Length:", expected_length, "bytes")
+# print("Actual Length:", actual_length, "bytes")
+# print("Verification:", "Correct" if expected_length == actual_length else "Incorrect")

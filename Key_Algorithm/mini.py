@@ -125,6 +125,12 @@ def RejNTTPoly(rho):                                                      #input
 # print("Generated polynomial coefficients:")
 # print(result)
 
+# # Check if all coefficients are within the range [0, q-1]
+# for coef in result:
+#     if not (0 <= coef < q):
+#         print(f"Coefficient {coef} is out of range.")
+
+
 
 
 

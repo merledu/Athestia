@@ -1,3 +1,6 @@
+# def keygen():
+
+
 q = 8380417
 rows_k = 8
 cols_l = 7
@@ -5,6 +8,7 @@ coefficients_per_polynomial = 256
 eta = 2
 η = 2
 d = 13
+
 
 
 #---------------------------------------------------- FUNCTIONS ----------------------------------------------------#
@@ -516,3 +520,10 @@ sk = skEncode(ρ, K, tr, s1, s2, t0)
 # print("Expected Length:", expected_length, "bytes")
 # print("Actual Length:", actual_length, "bytes")
 # print("Verification:", "Correct" if expected_length == actual_length else "Incorrect")
+
+
+
+
+# #     return pk, sk
+
+# # pk, sk = keygen()

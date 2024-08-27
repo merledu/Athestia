@@ -9,7 +9,6 @@ from SHAKE256 import SHAKE256_XOF
 from SHAKE128 import SHAKE128_XOF
 
 
-# def keygen():
 #---------------------------------------------------- PARAMETERS ----------------------------------------------------#
 q = 8380417
 rows_k = 8
@@ -21,23 +20,30 @@ d = 13
 
 
 #---------------------------------------------------- FUNCTIONS ----------------------------------------------------#
-def bits_to_bytes(y):                                                       
-    c = len(y)
-    z = [0] * math.ceil(c / 8)  
-
-    for i in range(c):
-        z[i // 8] += y[i] * (2 ** (i % 8))
-
-    return bytes(z)  
-
-
+"""
+This algorithm converts a nonnegative integer x into its binary representation 
+as a bit string of length α. The result is presented in little-endian order
+"""
 def IntegerToBits(x, α):
     y = []
 
     for i in range(α):
-        y.append(x % 2)
-        x = x // 2
+        y.append(x % 2)   #This operation extracts the least significant bit (LSB) of x.
+        x = x // 2     #This operation effectively moves to the next bit in x. (equivalent to a right shift). 
     return y
+
+
+"""
+This algorithm converts a bit string y of length c into a byte string z.
+"""
+def bits_to_bytes(y):                                                       
+    c = len(y)
+    z = [0] * math.ceil(c / 8)   #The byte string has a length of ⌈c/8⌉
+
+    for i in range(c):
+        z[i // 8] += y[i] * (2 ** (i % 8))   #Adds the bit y[i] to the appropriate position in the byte string z. The byte index is ⌊i/8⌋, 
+                                             #and y[i] is multiplied by 2^(i mod 8) to shift the bit into the correct position within the byte.
+    return bytes(z)  
 
 
 #---------------------------------------------------- STEP 1 ----------------------------------------------------#
@@ -73,22 +79,32 @@ K = [int(bit) for byte in K_bytes for bit in format(byte, '08b')]
 
 #---------------------------------------------------- STEP 3 ----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
+"""
+This algorithm convert byte strings into specific coefficients.
+It takes three bytes as input and generates an integer within the range {0,1,2,…,q−1} 
+"""
 def CoefFromThreeBytes(b0, b1, b2):
-    if b2 > 127:
-        b2 -= 128
+    if b2 > 127: #If b2 is greater than 127, it means the highest bit (the 8th bit) is 1.
+        b2 -= 128   #Set the top bit of b2 to zero, value now fits within the lower 7 bits.
 
-    z = (2**16) * b2 + (2**8) * b1 + b0
+    z = (2**16) * b2 + (2**8) * b1 + b0  # The three bytes are combined to form a single integer z. 
+                                         #The first byte b2 is shifted by 16 bits, the second byte b1 by 8 bits, 
+                                         #and the third byte b0 is added directly. This creates a 24-bit integer from the three bytes.
 
-    if z < q:
+    if z < q:  #If the resulting integer z is less than the modulus q
         return z
     else:
         return None
 
 
+"""
+This algorithm samples a polynomial a from a set Tq using a pseudorandom procedure. 
+The polynomial is generated in a domain where it can be efficiently processed using the Number Theoretic Transform (NTT).
+"""
 def RejNTTPoly(rho):                                                    
     a = [0] * 256
-    j = 0
-    c = 0
+    j = 0    #used to iterate through the coefficients of the polynomial.
+    c = 0    #used to track the position within the seed ρ when extracting random bits
 
     shake = SHAKE128_XOF()
     shake.update(bits_to_bytes(rho))
@@ -106,6 +122,9 @@ def RejNTTPoly(rho):
 
 
 #----------------------------------- ExpandA -----------------------------------#
+"""
+This algorithm generates a matrix A of polynomials, where each polynomial is sampled using the RejNTTPoly function. 
+"""
 def ExpandA(ρ):  
     A = np.zeros((rows_k, cols_l, 256), dtype=np.int32) 
     for r in range(rows_k):
@@ -123,16 +142,23 @@ A = ExpandA(ρ)
 
 #---------------------------------------------------- STEP 4 ----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
+"""
+This algorithm takes a single integer b (ranging from 0 to 15, i.e., a "half-byte") 
+and generates an element from the set {−η,−η+1,…,η}
+"""
 def CoefFromHalfByte(b):                                      
     if eta == 2 and b < 15:
-        return 2 - (b % 5)
+        return 2 - (b % 5)   #The modulus operation ensures that the result wraps around within this range.
     else:
         return None
 
 
+"""
+This algorithm samples a polynomial a with coefficients bounded within the range [−η,η]. 
+"""
 def RejBoundedPoly(rho_p):
-    j = 0
-    c = 0
+    j = 0     #used to iterate through the coefficients of the polynomial.
+    c = 0    #used to track the position within the seed ρ when extracting random bits.
     a = [0] * 256
 
     shake = SHAKE128_XOF()
@@ -142,9 +168,9 @@ def RejBoundedPoly(rho_p):
     while j < 256:
         z = output[c]
 
-        z0 = CoefFromHalfByte(z % 16) 
-        z1 = CoefFromHalfByte(z // 16)
-    
+        z0 = CoefFromHalfByte(z % 16)    #Extract the lower half-byte (4 bits)
+        z1 = CoefFromHalfByte(z // 16)   #Extract the upper half-byte (remaining 4 bits)
+      
         if z0 is not None:
             a[j] = z0
             j += 1
@@ -159,6 +185,10 @@ def RejBoundedPoly(rho_p):
 
 
 #----------------------------------- ExpandS -----------------------------------#
+"""
+This algorithm generates two vectors s1 and s2 of polynomials, 
+each with coefficients in the range [−η,η].
+"""
 def ExpandS(ρ_prime):
     s1 = []
     s2 = []
@@ -184,9 +214,12 @@ s1, s2 = ExpandS(ρ_prime)
 
 #---------------------------------------------------- STEP 5 ----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
+"""
+The Number-Theoretic Transform (NTT) is a mathematical transformation used to speed up polynomial multiplications.
+It operates in modular arithmetic, and the result is a polynomial in the transformed domain.
+"""
 def postprocess_modular(values):
     return [x if x < q//2 else x - q for x in values]
-    
 
 def bit_reversal(i, k):
     bin_i = bin(i & (2 ** k - 1))[2:].zfill(k)
@@ -220,6 +253,10 @@ def ntt(w1):
     return w_hat
 
 
+"""
+The Inverse Number-Theoretic Transform (NTT−1) computes the inverse of the NTT, 
+which transforms the polynomial back from the transformed domain to the original domain
+"""
 def ntt_inverse(w_hat):
     w = w_hat.copy()
 
@@ -283,6 +320,9 @@ for i in range(len(s1_ntt)):
 
 
 #----------------------------------- Compute_t -----------------------------------#
+"""
+ 
+"""
 def compute_t(A_ntt, s1_ntt, s2):
     t_ntt = []
     for _ in range(rows_k):
@@ -314,24 +354,21 @@ t = compute_t(A_ntt, s1_ntt, s2)
 
 #---------------------------------------------------- STEP 6 ----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
-# def power2round(t):
-#     t_mod_q = t % q
-
-#     t_mod_2d = t_mod_q % (2**d)
-
-#     t1 = (t_mod_q - t_mod_2d) // (2**d)
-#     t0 = t_mod_2d
-
-#     return t1, t0
-
-
+"""
+This algorithm decompose an integer r into two smaller integers r1 and r0
+r1 is essentially the higher bits of r, and r0 is the lower d bits.
+"""
 def power2round(t):
-    t_mod_q = t % q
-    t_mod_2d = t_mod_q % (2**d)
-    if t_mod_2d >= 2**(d-1):
+    t_mod_q = t % q    #This ensures that t is reduced to a value within the range [0, q-1].
+
+    t_mod_2d = t_mod_q % (2**d)     #ensure that t0 represents the lower d bits of t
+
+    if t_mod_2d >= 2**(d-1):    # If this value exceeds it is adjusted by subtracting to bring it into the desired range.
         t_mod_2d -= 2**d
-    t1 = (t_mod_q - t_mod_2d) // (2**d)
+
+    t1 = (t_mod_q - t_mod_2d) // (2**d)  # This extracts the higher bits of t by removing the lower d bits (t0)
     t0 = t_mod_2d
+
     return t1, t0
 
 
@@ -359,56 +396,14 @@ for i in range(len(t)):
 #     print(f"\nt0[{i}] = [{', '.join(map(str, t0[i]))}]")
 
 
-# def check_t1(t1, q=8380417, d=13, rows_k=8, coefficients_per_polynomial=256):
-#     # Calculate the maximum value for t1 coefficients
-#     bitlen = math.ceil(math.log2(q - 1)) - d
-#     max_value = (2 ** bitlen) - 1
-
-#     # Check the shape of t1
-#     if len(t1) != rows_k or any(len(row) != coefficients_per_polynomial for row in t1):
-#         print("Error: t1 matrix does not have the correct dimensions.")
-#         return False
-
-#     # Check the range of values in t1
-#     for row in t1:
-#         if any(coef < 0 or coef > max_value for coef in row):
-#             print("Error: t1 coefficients are out of the expected range [0, {}].".format(max_value))
-#             return False
-
-#     print("t1 is correctly formatted with all values within the expected range.")
-#     return True
-
-# # Example of invoking the check
-# check_result = check_t1(t1)
-
-
-
-# def check_t0(t0, q=8380417, d=13, rows_k=8, coefficients_per_polynomial=256):
-#     # Calculate the maximum value for t0 coefficients
-#     lower_bound = -2**(d-1) + 1
-#     upper_bound = 2**(d-1)
-
-#     # Check the shape of t0
-#     if len(t0) != rows_k or any(len(row) != coefficients_per_polynomial for row in t0):
-#         print("Error: t0 matrix does not have the correct dimensions.")
-#         return False
-
-#     # Check the range of values in t0
-#     for row in t0:
-#         if any(coef < lower_bound or coef > upper_bound for coef in row):
-#             print(f"Error: t0 coefficients are out of the expected range [{lower_bound}, {upper_bound}].")
-#             return False
-
-#     print("t0 is correctly formatted with all values within the expected range.")
-#     return True
-
-# # Example of invoking the check
-# check_result = check_t0(t0)
-
 #---------------------------------------------------- STEP 7 ----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
+"""
+This algorithm encodes a polynomial w into a byte string, 
+assuming that each coefficient wi of the polynomial is in the range [0,b].
+"""
 def simple_bit_pack(w, b):
-    z = []
+    z = []     # To store the bit representation of the polynomial coefficients.
     for i in range(256):
         z = z + IntegerToBits(w[i], b)
 
@@ -416,6 +411,9 @@ def simple_bit_pack(w, b):
 
 
 #----------------------------------- pk_encode -----------------------------------#
+"""
+The purpose of the pkEncode algorithm is to encode a public key  into a byte string format
+"""
 def pk_encode(rho, t1):
     pk = bits_to_bytes(rho)
 
@@ -437,14 +435,17 @@ pk = pk_encode(ρ, t1)
 
 # #---------------------------------------------------- STEP 8 ----------------------------------------------------#
 # #----------------------------------- FUNCTIONS -----------------------------------#
+"""
+This algorithm converts a byte string z of length d into a bit string y.
+"""
 def bytes_to_bits(z):
     y = []
     d = len(z)
 
     for i in range(d):
-        for j in range(rows_k):
+        for j in range(rows_k):   #For each byte, loop through its 8 bits
             y.append(z[i] % 2)  # Get the least significant bit
-            z[i] //= 2  # Shift the byte right by 1 bit
+            z[i] //= 2  #Effectively moving to the next bit.
 
     return y
 
@@ -468,11 +469,15 @@ tr = compute_tr(pk)
 
 #---------------------------------------------------- STEP 9 ----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
+"""
+This algorithm encodes a polynomial w into a byte string, 
+assuming that each coefficient wi of the polynomial is in the range [−a,b].
+"""
 def BitPack(w, a, b):
     z = []
     bitlen = math.ceil(math.log2(a + b))  # Compute bit length for (a + b)
     for i in range(256):
-        z += IntegerToBits(b - w[i], bitlen)
+        z += IntegerToBits(b - w[i], bitlen)   #subtracts each coefficient wi from b, converting it to a non-negative integer in the range [0,a+b]
 
     byte_output = bits_to_bytes(z)
     # print(f"BitPack output length: {len(byte_output)} bytes")  # Add this line to log the output length
@@ -480,6 +485,9 @@ def BitPack(w, a, b):
 
 
 #----------------------------------- sk_encode -----------------------------------#
+"""
+The skEncode algorithm encodes a secret key into a byte string.
+"""
 def skEncode(p, K, tr, s1, s2, t0):
     sk = bits_to_bytes(p) + bits_to_bytes(K) + bits_to_bytes(tr)
 
@@ -499,6 +507,3 @@ sk = skEncode(ρ, K, tr, s1, s2, t0)
 
 
 
-# #     return pk, sk
-
-# # pk, sk = keygen()

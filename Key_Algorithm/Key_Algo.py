@@ -28,8 +28,8 @@ def IntegerToBits(x, α):
     y = []
 
     for i in range(α):
-        y.append(x % 2)   #This operation extracts the least significant bit (LSB) of x. Modulo gives remainder
-        x = x // 2     #This operation effectively moves to the next bit in x. (equivalent to a right shift). Division gives quotient 
+        y.append(x % 2)   #This operation extracts the least significant bit (LSB) of x.
+        x = x // 2     #This operation effectively moves to the next bit in x. (equivalent to a right shift). 
     return y
 
 
@@ -38,7 +38,7 @@ This algorithm converts a bit string y of length c into a byte string z.
 """
 def bits_to_bytes(y):                                                       
     c = len(y)
-    z = [0] * math.ceil(c / 8)   #The byte string has a length of ⌈c/8⌉, math.ceil() method rounds a number to the nearest integer
+    z = [0] * math.ceil(c / 8)   #The byte string has a length of ⌈c/8⌉
 
     for i in range(c):
         z[i // 8] += y[i] * (2 ** (i % 8))   #Adds the bit y[i] to the appropriate position in the byte string z. The byte index is ⌊i/8⌋, 
@@ -88,7 +88,7 @@ def CoefFromThreeBytes(b0, b1, b2):
         b2 -= 128   #Set the top bit of b2 to zero, value now fits within the lower 7 bits.
 
     z = (2**16) * b2 + (2**8) * b1 + b0  # The three bytes are combined to form a single integer z. 
-                                         #The first byte b2 is shifted(left) by 16 bits, the second byte b1 by 8 bits, 
+                                         #The first byte b2 is shifted by 16 bits, the second byte b1 by 8 bits, 
                                          #and the third byte b0 is added directly. This creates a 24-bit integer from the three bytes.
 
     if z < q:  #If the resulting integer z is less than the modulus q
@@ -148,7 +148,7 @@ and generates an element from the set {−η,−η+1,…,η}
 """
 def CoefFromHalfByte(b):                                      
     if eta == 2 and b < 15:
-        return 2 - (b % 5)   #The modulus operation ensures that the result wraps around within eta range.
+        return 2 - (b % 5)   #The modulus operation ensures that the result wraps around within this range.
     else:
         return None
 
@@ -221,29 +221,23 @@ It operates in modular arithmetic, and the result is a polynomial in the transfo
 def postprocess_modular(values):
     return [x if x < q//2 else x - q for x in values]
 
-"""
-This function computes the bit-reversed value of an integer i with respect to a bit length k.
-"""
 def bit_reversal(i, k):
-    bin_i = bin(i & (2 ** k - 1))[2:].zfill(k)     #masks the integer i to ensure it fits within k bits, removes the '0b' prefix from the binary string, pads the binary string with leading zeros to ensure it has exactly k bits.
+    bin_i = bin(i & (2 ** k - 1))[2:].zfill(k)
     return int(bin_i[::-1], 2)
 
-"""
-The zeta list stores precomputed powers of a root of unity modulo q, indexed by bit-reversed order.
-"""
-zeta = [pow(1753, bit_reversal(i, 8), q) for i in range(256)]    #pow(base, exp, mod):
+zeta = [pow(1753, bit_reversal(i, 8), q) for i in range(256)] 
 
 
 def ntt(w1):
     w_hat = w1.copy()
 
-    k = 0      #Tracks the index in the zeta array.
+    k = 0
     length = 128
     
     while length >= 1:
         start = 0
         
-        while start < 256:      #This loop processes each sub-array
+        while start < 256:
             k += 1
             zeta_val = zeta[k] % q # ζ^brv(k) mod q
             
@@ -288,8 +282,7 @@ def ntt_inverse(w_hat):
 
     f = 8347681  # Modular inverse of 256 mod q
     for j in range(256):
-        w[j] = (f * w[j]) % q      #the polynomial w needs to be scaled by the modular inverse of 256 modulo q 
-                                   #to reverse the scaling that occurred during the forward NTT
+        w[j] = (f * w[j]) % q
     
     return w
 
@@ -359,7 +352,7 @@ t = compute_t(A_ntt, s1_ntt, s2)
 #---------------------------------------------------- STEP 6 ----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
 """
-This algorithm decompose an integer r into two smaller integers r1 and r0.
+This algorithm decompose an integer r into two smaller integers r1 and r0
 r1 is essentially the higher bits of r, and r0 is the lower d bits.
 """
 def power2round(t):
@@ -416,7 +409,7 @@ def simple_bit_pack(w, b):
 
 #----------------------------------- pk_encode -----------------------------------#
 """
-The purpose of the pkEncode algorithm is to encode a public key into a byte string format
+The purpose of the pkEncode algorithm is to encode a public key  into a byte string format
 """
 def pk_encode(rho, t1):
     pk = bits_to_bytes(rho)
@@ -479,7 +472,7 @@ assuming that each coefficient wi of the polynomial is in the range [−a,b].
 """
 def BitPack(w, a, b):
     z = []
-    bitlen = math.ceil(math.log2(a + b))  # The logarithm base 2 of a+b tells you how many bits are required to represent the number a+b.
+    bitlen = math.ceil(math.log2(a + b))  # Compute bit length for (a + b)
     for i in range(256):
         z += IntegerToBits(b - w[i], bitlen)   #subtracts each coefficient wi from b, converting it to a non-negative integer in the range [0,a+b]
 
@@ -507,7 +500,7 @@ def skEncode(p, K, tr, s1, s2, t0):
     return sk
 
 sk = skEncode(ρ, K, tr, s1, s2, t0)
-# print(f"\nsk : {sk}") 
+print(f"\nsk : {sk}") 
 
 
 

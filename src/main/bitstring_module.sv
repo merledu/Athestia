@@ -5,11 +5,11 @@ module bitstring_module (
 );
 
     logic [63:0] a;
-    logic [0:0] Abc [0:5][0:5][0:63];
+    logic [63:0] Abc [4:0][4:0];
 
     initial begin
         Abc[0][0][0] = 1;
-        Abc[0][0][1] = 1;
+     //   Abc[0][0][1] = 1;
 
     end
     
@@ -21,7 +21,7 @@ module bitstring_module (
             for (int i = 0; i < 5; i++) begin 
                 for (int j = 0; j < 5; j++) begin 
                     for (int k = 0; k < 64; k++) begin 
-                        a = 64 * ((4 * j) + i) + k;
+                        a = 64 * ((5 * j) + i) + k;
                         bitstring[a] = Abc[i][j][k];
                         $display("Abc[%0d][%0d][%0d] = %0d,%0d", i, j, k, Abc[i][j][k], a);
                     end

@@ -4,6 +4,7 @@ module X(
     input logic [63:0] A [4:0][4:0],
     output logic [63:0] Ab [4:0][4:0]
 );
+
 // +
 always_ff @(posedge clk or negedge reset) begin
     if (~reset) begin

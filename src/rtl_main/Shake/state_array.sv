@@ -1,5 +1,5 @@
 
-`include "src/main/config_module.sv"
+`include "config_module.sv"
 
 module state_array (
     input  logic clk,

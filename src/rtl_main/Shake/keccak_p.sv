@@ -27,8 +27,8 @@ module keccak_p (
     Rnd rnd_inst (
         .clk(clk),
         .rst(rst),
-        .start(start_round),
-        .valid(valid),
+        // .start(start_round),
+        // .valid(valid),
         .round(round_counter),
         .A(A),
         .A_final(A_final)

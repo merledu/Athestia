@@ -1,8 +1,8 @@
 module Iota(
     input logic clk,
     input logic reset,
-    input logic start,
-    output logic valid,
+    // input logic start,
+    // output logic valid,
     input logic [31:0]round,
     input logic [63:0]A[4:0][4:0], 
     output logic [63:0]Ab[4:0][4:0]   
@@ -15,7 +15,7 @@ logic [63:0]RC;
 //logic r[31:0];
 //logic [0:0] b;
 always_ff @(posedge clk or negedge reset) begin
-    if (~reset && start == 1) begin
+    //if (~reset && start == 1) begin
       
         for (int i = 0; i < 5; i++) begin// $display("i : %0d",i);
             for (int j = 0; j < 5; j++) begin //$display("j : %0d",j);
@@ -38,12 +38,12 @@ always_ff @(posedge clk or negedge reset) begin
             Ab[0][0][63-n] <= Ab[0][0][63-n] ^ RC[n];
         end
          $display("%63b", RC);
-         valid=1;  
-    end
-    else  begin
-      valid=0;
+        //valid=1;  
+    // end
+    // else  begin
+    //   valid=0;
       
-    end
+    // end
 
 
 end

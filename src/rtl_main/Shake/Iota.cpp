@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     dut->clk=0;
     dut->reset=1;
     dut->round=1;
-    dut->start=1;
+    // dut->start=1;
 
     dut->A[0][0]=9140816709921147267;
     dut->A[0][1] = 16660763579284450526ULL;

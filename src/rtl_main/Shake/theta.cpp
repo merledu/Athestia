@@ -2,27 +2,25 @@
 #include <iostream>
 #include <verilated.h>
 #include <verilated_vcd_c.h>
-#include "VRnd.h"
+#include "Vtheta.h"
 
 vluint64_t sim_time = 0;
 
 int main(int argc, char** argv) {
     Verilated::commandArgs(argc, argv);
 
-    VRnd* dut = new VRnd;
+    Vtheta* dut = new Vtheta;
 
     Verilated::traceEverOn(true);
     VerilatedVcdC* m_trace = new VerilatedVcdC;
     dut->trace(m_trace, 99);
-    m_trace->open("Rnd.vcd");
+    m_trace->open("theta.vcd");
 
     dut->clk=0;
     dut->rst=1;
-    // dut->start=1;
-    dut->round=2;
 
 
-    dut->A[0][0]=00000001997b5853;
+    dut->A[0][0]=0x00000001997b5853;
     // dut->A[0][1] = 16660763579284450526ULL;
     // dut->A[0][2] =2531690476160191240;
     // dut->A[0][3] =8592519701077706487;

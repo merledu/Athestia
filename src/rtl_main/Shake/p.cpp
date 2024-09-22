@@ -14,10 +14,11 @@ int main(int argc, char** argv) {
     Verilated::traceEverOn(true);
     VerilatedVcdC* m_trace = new VerilatedVcdC;
     dut->trace(m_trace, 99);
-    m_trace->open("matrix_transpose.vcd");
+    m_trace->open("pi.vcd");
 
     dut->clk=0;
     dut->rst=1;
+    dut->start=1;
 
     dut->A[0][0]=9140816709921147267;
     dut->A[0][1] = 16660763579284450526ULL;

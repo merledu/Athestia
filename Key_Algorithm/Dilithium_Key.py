@@ -561,7 +561,7 @@ def KeyGen_internal(ξ):
 
     #-------- Step 9: Return (pk, sk)
 
-    return pk, sk
+    return pk, sk, s1
 
 # KeyGen()
 pk, sk = KeyGen()

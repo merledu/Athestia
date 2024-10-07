@@ -3,18 +3,17 @@ module pad10_1 #(
 ) (
     input logic [32:0] m,
     output logic [x-1:0] p,
-    input logic clk,rst
+    input logic rst,clk
 );
     integer j;
 
-    initial begin
+    always_comb begin
         p = 0;
-    end
-    
-    always_ff @( posedge clk or negedge rst ) begin
         j = (-m - 2) % x;
-        p[0] =1;
-        p[j+1] = 1;    
+        p[0] = 1;
+        if (j + 1 < x) begin
+            p[j + 1] = 1;
+        end
     end
-    
-endmodule 
+
+endmodule

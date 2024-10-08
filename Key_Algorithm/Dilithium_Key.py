@@ -23,13 +23,13 @@ d = 13
 
 #---------------------------------------------------- FUNCTIONS ----------------------------------------------------#
 def IntegerToBytes(x, α):
-    y = bytearray(α) 
+    y = [0] * α
     x_prime = x
 
     for i in range(α):
         y[i] = x_prime % 256
         x_prime = x_prime // 256
-    return bytes(y)
+    return bytearray(y)
 
 
 def bits_to_bytes(y):                                                       
@@ -424,10 +424,15 @@ def KeyGen():
     # secure_random = random.StrongRandom()
     # seed_length = 32  
     # random_no = secure_random.getrandbits(seed_length * 8)   #32 * 8 = 256 bits
+
     random_no = 30
     # print(random_no)
 
-    ξ = random_no.to_bytes((random_no.bit_length() + 7) // 8, byteorder='big')
+    random_bytes = random_no.to_bytes((random_no.bit_length() + 7) // 8, byteorder='big')
+    shake = SHAKE256_XOF()
+    shake.new(random_bytes)
+    ξ = shake.read(32)  #256 bits = 32 bytes
+
     # ξ = IntegerToBytes(random_no, seed_length)
     # print(ξ)
 
@@ -435,7 +440,9 @@ def KeyGen():
         return None  
 
     # return ξ
+
     # return KeyGen_internal(ξ)
+    
     pk, sk = KeyGen_internal(ξ)
     return pk, sk
     
@@ -561,7 +568,7 @@ def KeyGen_internal(ξ):
 
     #-------- Step 9: Return (pk, sk)
 
-    return pk, sk, s1
+    return pk, sk
 
 # KeyGen()
 pk, sk = KeyGen()

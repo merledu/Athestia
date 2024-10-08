@@ -618,10 +618,10 @@ def main():
         else:
             result = "FAIL"
 
-        # print("Public Key:", public_key_hex)
-        # print("Expected Public Key:", expected_pk_hex)
-        # print("Test Result:", result)
-        # print("\n")  # New line for better readability between test cases
+        print("Public Key:", public_key_hex)
+        print("Expected Public Key:", expected_pk_hex)
+        print("Test Result:", result)
+        print("\n")  # New line for better readability between test cases
 
 if __name__ == '__main__':
     main()

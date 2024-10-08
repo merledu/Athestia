@@ -9,13 +9,16 @@ d = 13
 
 #---------------------------------------------------- KEY ----------------------------------------------------#
 def IntegerToBytes(x, α):
-    y = bytearray(α) 
+    # y = bytearray(α) 
+    y = [0] * α
     x_prime = x
 
     for i in range(α):
         y[i] = x_prime % 256
         x_prime = x_prime // 256
-    return bytes(y)
+    # return bytes(y)
+    # return y
+    return bytearray(y)
 
 x = 56758491223782255116706065660090661450792979282557094739072532684472550750973
 α = 32 

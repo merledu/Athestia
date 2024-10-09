@@ -35,7 +35,7 @@ def bits_to_bytes(y):
     for i in range(alpha):
         z[i // 8] += y[i] * (2 ** (i % 8))   #Adds the bit y[i] to the appropriate position in the byte string z. The byte index is ⌊i/8⌋, 
                                              #and y[i] is multiplied by 2^(i mod 8) to shift the bit into the correct position within the byte.
-    return bytes(z)  
+    return bytearray(z)  
 
 y = [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1]  # Example bit string
 z = bits_to_bytes(y)

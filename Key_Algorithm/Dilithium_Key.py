@@ -1,14 +1,10 @@
-import sys
 import math
 import random
 import numpy as np
 
-sys.path.append('/home/hafsa/Athestia/pycryptodome/lib/Crypto/Hash')
-sys.path.append('/home/hafsa/Athestia/pycryptodome/lib/Crypto/Random')
-
-from SHAKE256 import SHAKE256_XOF
-from SHAKE128 import SHAKE128_XOF
 from Crypto.Random import random
+from Crypto.Hash import SHAKE256
+from Crypto.Hash import SHAKE128
 
 
 #---------------------------------------------------- PARAMETERS ----------------------------------------------------#
@@ -39,7 +35,7 @@ def bits_to_bytes(y):
     for i in range(α):
         z[i // 8] += y[i] * (2 ** (i % 8))   #Adds the bit y[i] to the appropriate position in the byte string z. The byte index is ⌊i/8⌋, 
                                              #and y[i] is multiplied by 2^(i mod 8) to shift the bit into the correct position within the byte.
-    return bytes(z) 
+    return bytearray(z) 
 
 
 def IntegerToBits(x, α):
@@ -55,7 +51,7 @@ def IntegerToBits(x, α):
 def BitsToInteger(y, α):
     x = 0
     for i in range(1, α+1):
-        x = 2*x + y[α - i]  # Access the bit in little-endian order
+        x = (2*x) + y[α - i]  # Access the bit in little-endian order
     return x
 
 
@@ -78,7 +74,7 @@ def CoefFromThreeBytes(b0, b1, b2):
     if b2_prime > 127: #If b2 is greater than 127, it means the highest bit (the 8th bit) is 1.
         b2_prime -= 128   #Set the top bit of b2 to zero, value now fits within the lower 7 bits.
 
-    z = (2**16) * b2_prime + (2**8) * b1 + b0  # The three bytes are combined to form a single integer z. 
+    z = ((2**16) * b2_prime) + ((2**8) * b1) + b0  # The three bytes are combined to form a single integer z. 
                                          #The first byte b2 is shifted(left) by 16 bits, the second byte b1 by 8 bits, 
                                          #and the third byte b0 is added directly. This creates a 24-bit integer from the three bytes.
 
@@ -97,7 +93,7 @@ def RejNTTPoly(rho):
     a = [0] * 256
     j = 0    #used to iterate through the coefficients of the polynomial.
 
-    shake = SHAKE128_XOF()
+    shake = SHAKE128.new()
     shake.update(rho)
     
     while j < 256:
@@ -145,7 +141,7 @@ def RejBoundedPoly(rho_p):
     j = 0     #used to iterate through the coefficients of the polynomial.
     a = [0] * 256
 
-    shake = SHAKE256_XOF()
+    shake = SHAKE256.new()
     shake.update(rho_p)
     
     while j < 256:
@@ -378,8 +374,8 @@ def pk_encode(rho, t1):
 # #---------------------------------------------------- STEP 9 ----------------------------------------------------#
 #----------------------------------- Compute_tr -----------------------------------#
 def compute_tr(pk):
-    shake = SHAKE256_XOF()
-    shake.new(pk)  
+    shake = SHAKE256.new()
+    shake.update(pk)  
     tr = shake.read(64)  # 512 bits = 64 bytes
     return tr
 
@@ -429,8 +425,9 @@ def KeyGen():
     # print(random_no)
 
     random_bytes = random_no.to_bytes((random_no.bit_length() + 7) // 8, byteorder='big')
-    shake = SHAKE256_XOF()
-    shake.new(random_bytes)
+
+    shake = SHAKE256.new()
+    shake.update(random_bytes)
     ξ = shake.read(32)  #256 bits = 32 bytes
 
     # ξ = IntegerToBytes(random_no, seed_length)
@@ -452,7 +449,7 @@ def KeyGen():
 #---------------------------------------------------- KeyGen_internal ----------------------------------------------------#
 def KeyGen_internal(ξ):
     #--------  Step 1: (rho, rho', K) ← H(ξ || IntegerToBytes(k, 1) || IntegerToBytes(l, 1), 128)
-    shake = SHAKE256_XOF()
+    shake = SHAKE256.new()
     shake.update(ξ + IntegerToBytes(rows_k, 1) + IntegerToBytes(cols_l, 1))
     output = shake.read(128)  # 1024 bits = 128 bytes
 

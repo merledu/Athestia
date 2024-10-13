@@ -19,36 +19,21 @@ logic [r+d_len:0]h;
 
 
 logic[31:0] len=r+msg_len;
-logic [ ((r-(msg_len+2))+1)+msg_len:0]p;
+logic [ ((r-(msg_len+2))+1)+msg_len:0]k;
 logic [31:0] n;
-logic [1599:0] String;
+logic [1599:0] strng;
 
-keccak kp (
-    .clk(clk),
-    .rst(reset),
-   // .start(start),
-    .AB(str),
-    .X(str2),
-    .round_done(don)
-);
-pad10_1 #(.x(r),.m(msg_len)) pd(
-   // .clk(clk),
-   
-    //.rst(reset),
-    //.m(msg_len),
-    .p(pad)
-
-);
 
 
 
 
 always_ff @(posedge clk or posedge reset) begin
     if (reset ==0 && start == 1)begin 
-        p={pad,message}; // correct
-        n=$bits(p)/r;  // correct 
-        for(int i=0;i<n;i++ ) begin //correct
-         str = str ^ {p,512'b0};
+        k={pad,message}; // correct
+        n=$bits(k)/r;  // correct 
+        for(int i=0;i<1;i++ ) begin //correct
+          strng={512'b0,k};
+          str^=strng;
  //correct
         end
         $display("str: %0b", str);
@@ -67,5 +52,22 @@ always_ff @(posedge clk or posedge reset) begin
     end     
 
 end
+keccak kp (
+    .clk(clk),
+    .rst(reset),
+   // .start(start),
+    .AB(str),
+    .X(str2),
+    .round_done(don)
+);
+pad10_1 #(.x(r),.m(msg_len)) pd(
+   // .clk(clk),
+   
+    //.rst(reset),
+    //.m(msg_len),
+    .p(pad)
+
+);
+
 
 endmodule

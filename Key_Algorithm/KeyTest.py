@@ -286,7 +286,7 @@ def NTT_inverse(w_hat):
 
 
 #----------------------------------- Compute_t -----------------------------------#
-def compute_t(A_ntt, s1_ntt, s2):
+def compute_t(A, s1_ntt, s2):
     t_ntt = []
     for _ in range(rows_k):
         vector_ntt_t = [0] * coefficients_per_polynomial
@@ -299,7 +299,7 @@ def compute_t(A_ntt, s1_ntt, s2):
 
     for i in range(rows_k):
         for j in range(cols_l):
-            t_ntt[i] += A_ntt[i][j] * s1_ntt[j]
+            t_ntt[i] += A[i][j] * s1_ntt[j]
 
     for i in range(rows_k):
         t[i] = NTT_inverse(t_ntt[i])
@@ -316,16 +316,20 @@ def compute_t(A_ntt, s1_ntt, s2):
 This algorithm decompose an integer r into two smaller integers r1 and r0.
 r1 is essentially the higher bits of r, and r0 is the lower d bits.
 """
-def power2round(t):
-    t_mod_q = t % q    #This ensures that t is reduced to a value within the range [0, q-1].
+def power2round(a):
+    # t_mod_q = t % q    #This ensures that t is reduced to a value within the range [0, q-1].
 
-    t0 = t_mod_q % (2**d)     #ensure that t0 represents the lower d bits of t
+    # t0 = t_mod_q % (2**d)     #ensure that t0 represents the lower d bits of t
 
-    # if t_mod_2d >= 2**(d-1):    # If this value exceeds it is adjusted by subtracting to bring it into the desired range.
-    #     t_mod_2d -= 2**d
+    # # if t_mod_2d >= 2**(d-1):    # If this value exceeds it is adjusted by subtracting to bring it into the desired range.
+    # #     t_mod_2d -= 2**d
 
-    t1 = (t_mod_q - t0) // (2**d)  # This extracts the higher bits of t by removing the lower d bits (t0)
-    # t0 = t_mod_2d
+    # t1 = (t_mod_q - t0) // (2**d)  # This extracts the higher bits of t by removing the lower d bits (t0)
+    # # t0 = t_mod_2d
+
+    t1 = (a + (1 << (d - 1)) - 1) >> d
+    # Calculate a0 (returned along with a1)
+    t0 = a - (t1 << d)
 
     return t1, t0
 
@@ -428,8 +432,10 @@ def KeyGen(seed):
     # ξ = random_no.to_bytes((random_no.bit_length() + 7) // 8, byteorder='big')
     # ξ = IntegerToBytes(random_no, seed_length)
     # print(ξ)
-    ξ = seed        #for testing 
 
+    ξ = seed        #for testing 
+    # print(ξ)
+    
     if ξ is None:
         return None  
 
@@ -454,9 +460,9 @@ def KeyGen_internal(ξ):
     rho0 = output[32:96]    # Next 512 bits (64 bytes)
     K_bytes = output[96:]   # Last 256 bits
 
-    # print(f"\nρ : {rho}")
-    # print(f"\nρ' : {rho0}")
-    # print(f"\nK : {K_bytes}")
+    # print(f"\nρ : {rho.hex()}")
+    # print(f"\nρ' : {rho0.hex()}")
+    # print(f"\nK : {K_bytes.hex()}")
 
 
     #-------- Step 2: Expand A ← ExpandA(rho)
@@ -476,23 +482,23 @@ def KeyGen_internal(ξ):
 
     # print("Vector s2:")
     # for i in range(len(s2)):
-    #     print(f"\ns2[{i}] = {s2[i]}")
+        # print(f"\ns2[{i}] = {s2[i]}")
 
 
     #-------- Step 4: t ← NTT−1(A * NTT(s1)) + s2
-    A_ntt = np.zeros((rows_k, cols_l, coefficients_per_polynomial), dtype=int)
-    for i in range(rows_k):
-        for j in range(cols_l):
-            A_ntt[i, j] = NTT(A[i, j].tolist())
+    # A_ntt = np.zeros((rows_k, cols_l, coefficients_per_polynomial), dtype=int)
+    # for i in range(rows_k):
+    #     for j in range(cols_l):
+    #         A_ntt[i, j] = NTT(A[i, j].tolist())
 
     # for i in range(rows_k):
     #     for j in range(cols_l):
     #         print(f"\nA_NTT[{i}][{j}] = {A_ntt[i][j].tolist()}")
 
-    A_invntt = np.zeros((rows_k, cols_l, coefficients_per_polynomial), dtype=int)
-    for i in range(rows_k):
-        for j in range(cols_l):
-            A_invntt[i, j] = NTT_inverse(A_ntt[i, j].tolist())
+    # A_invntt = np.zeros((rows_k, cols_l, coefficients_per_polynomial), dtype=int)
+    # for i in range(rows_k):
+    #     for j in range(cols_l):
+    #         A_invntt[i, j] = NTT_inverse(A_ntt[i, j].tolist())
 
     # for i in range(rows_k):
     #     for j in range(cols_l):
@@ -512,9 +518,9 @@ def KeyGen_internal(ξ):
     # for i in range(len(s1_invntt)):
     #     print(f"\ns1_invntt[{i}] = {s1_invntt[i]}")
 
-    t = compute_t(A_ntt, s1_ntt, s2)
+    t = compute_t(A, s1_ntt, s2)
     # for i in range(len(t)):
-    #     print(f"\nt[{i}] = {', '.join(map(str, t[i]))}")
+        # print(f"\nt[{i}] = {', '.join(map(str, t[i]))}")
 
 
     #-------- Step 5: (t1, t0) ← Power2Round(t)
@@ -533,11 +539,7 @@ def KeyGen_internal(ξ):
 
     #-------- Step 6: pk ← pkEncode(rho, t1)
     pk = pk_encode(rho, t1)
-    public_key_hex = pk.hex()
-    # print(f"\npk : {pk}")
-    # print(f"\npk_len : {len(pk)}") 
-    # print(f"\npk_hex : {public_key_hex}") 
-    # print(f"\npk_hex_len : {len(public_key_hex)}") 
+    # print(f"\npk : {pk}") 
 
     expected_length = 32 + 32 * rows_k * (bitlen(q - 1) - d)
     actual_length = len(pk)
@@ -555,11 +557,7 @@ def KeyGen_internal(ξ):
 
     #-------- Step 8: sk ← skEncode(rho, K, tr, s1, s2, t0)
     sk = skEncode(rho, K_bytes, tr, s1, s2, t0)
-    secret_key_hex = sk.hex()
     # print(f"\nsk : {sk}")   
-    # print(f"\nsk_len : {len(sk)}") 
-    # print(f"\nsk_hex : {secret_key_hex}") 
-    # print(f"\nsk_hex_len : {len(secret_key_hex)}") 
 
     expected_length = 32 + 32 + 64 + 32 * ((rows_k + cols_l) * bitlen(2 * eta) + d * rows_k)
     actual_length = len(sk)
@@ -572,10 +570,15 @@ def KeyGen_internal(ξ):
 
     return pk, sk
 
-# KeyGen()
+# # KeyGen()
 # pk, sk = KeyGen()
-# print("Public Key:", pk)
-# print("\nPrivate Key:", sk)
+# # print("Public Key:", pk)
+# public_key_hex = pk.hex()
+# # print("Public Key_hex:", public_key_hex)
+# # print("\nPrivate Key:", sk)
+# secret_key_hex = sk.hex()
+# # print("secret Key_hex:", secret_key_hex)
+
 
 
 def load_expected_results():
@@ -611,7 +614,7 @@ def main():
         public_key_hex = public_key.hex()  # Assuming public_key is a bytes object and converting to hex
 
         # Check if the generated public key matches the expected public key
-        if public_key_hex == expected_pk_hex:
+        if public_key_hex.lower() == expected_pk_hex.lower():
             result = "PASS"
         else:
             result = "FAIL"
@@ -623,54 +626,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def main():
-#     # Load the JSON file
-#     with open('prompt.json', 'r') as file:
-#         data = json.load(file)
-#     with open('expectedResults.json', 'r') as file:
-#         expected_data = json.load(file)
-
-#     # Iterate over each test group and test case
-#     for test_group in data['testGroups']:
-#         for test in test_group['tests']:
-#             seed_hex = test['seed']
-#             seed_bytes = bytes.fromhex(seed_hex)  # Convert hex to bytes
-
-#             expected_pk = next(item for item in expected_data['testGroups'] if item['tgId'] == test_group['tgId'])['tests'][test['tcId']-1]['pk']
-            
-#             print(f"Processing Test Case ID: {test['tcId']} with Seed: {seed_hex}")
-            
-#             # Generate keys using the seed
-#             public_key, private_key = KeyGen(seed_bytes)
-#             pk_hex = public_key.hex()
-#             print("Public Key:", pk_hex)
-#             print("Private Key:", private_key)
-#             print("\n")  # New line for better readability between test cases
-
-#                     # Check if the generated public key matches the expected key
-#             pk_hex = public_key.hex()
-#             if pk_hex == expected_pk:
-#                 print(f"Test Case {test['tcId']}: Passed")
-#             else:
-#                 print(f"Test Case {test['tcId']}: Failed")
-
-# if __name__ == '__main__':
-#     main()

@@ -1,0 +1,4 @@
+Running: xsim.dir/tb_CoefFromThreeBytes_behav/xsimk.exe -simmode gui -wdb tb_CoefFromThreeBytes_behav.wdb -simrunnum 0 -socket 57512
+Design successfully loaded
+Design Loading Memory Usage: 6420 KB (Peak: 6420 KB)
+Design Loading CPU Usage: 15 ms

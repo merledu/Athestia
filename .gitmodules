@@ -1,3 +1,0 @@
-[submodule "src/rtl_main/SHAKE256_sv"]
-	path = src/rtl_main/SHAKE256_sv
-	url = https://github.com/NTP17/SHAKE256_sv.git

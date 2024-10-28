@@ -1,1 +1,1 @@
--wto "9eee471aa65f480dbfe2ec252980f486" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "tb_CoefFromThreeBytes_behav" "xil_defaultlib.tb_CoefFromThreeBytes" "xil_defaultlib.glbl" -log "elaborate.log" 
+-wto "9eee471aa65f480dbfe2ec252980f486" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "tb_CoefFromThreeBytes_behav" "xil_defaultlib.tb_CoefFromThreeBytes" "xil_defaultlib.glbl" -log "elaborate.log" 

@@ -317,16 +317,6 @@ This algorithm decompose an integer r into two smaller integers r1 and r0.
 r1 is essentially the higher bits of r, and r0 is the lower d bits.
 """
 def power2round(a):
-    # t_mod_q = t % q    #This ensures that t is reduced to a value within the range [0, q-1].
-
-    # t0 = t_mod_q % (2**d)     #ensure that t0 represents the lower d bits of t
-
-    # # if t_mod_2d >= 2**(d-1):    # If this value exceeds it is adjusted by subtracting to bring it into the desired range.
-    # #     t_mod_2d -= 2**d
-
-    # t1 = (t_mod_q - t0) // (2**d)  # This extracts the higher bits of t by removing the lower d bits (t0)
-    # # t0 = t_mod_2d
-
     t1 = (a + (1 << (d - 1)) - 1) >> d
     # Calculate a0 (returned along with a1)
     t0 = a - (t1 << d)
@@ -486,24 +476,6 @@ def KeyGen_internal(ξ):
 
 
     #-------- Step 4: t ← NTT−1(A * NTT(s1)) + s2
-    # A_ntt = np.zeros((rows_k, cols_l, coefficients_per_polynomial), dtype=int)
-    # for i in range(rows_k):
-    #     for j in range(cols_l):
-    #         A_ntt[i, j] = NTT(A[i, j].tolist())
-
-    # for i in range(rows_k):
-    #     for j in range(cols_l):
-    #         print(f"\nA_NTT[{i}][{j}] = {A_ntt[i][j].tolist()}")
-
-    # A_invntt = np.zeros((rows_k, cols_l, coefficients_per_polynomial), dtype=int)
-    # for i in range(rows_k):
-    #     for j in range(cols_l):
-    #         A_invntt[i, j] = NTT_inverse(A_ntt[i, j].tolist())
-
-    # for i in range(rows_k):
-    #     for j in range(cols_l):
-    #         print(f"\nA_InvNTT[{i}][{j}] = {A_invntt[i][j].tolist()}")
-
     s1_ntt = []
     for i in range(len(s1)):
         s1_ntt.append(NTT(s1[i]))

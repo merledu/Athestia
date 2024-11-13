@@ -68,64 +68,27 @@
 
 
 // ******************************************************************************************//
-//module tb;
-//    parameter int ALPHA = 16;
-//    parameter int BIT_WIDTH = 16;
-
-//    logic [ALPHA-1:0] x;             // Input integer x
-//    logic [BIT_WIDTH-1:0] y;         // Output bit array y
-
-//    IntegerToBits #(
-//        .ALPHA(ALPHA),
-//        .BIT_WIDTH(BIT_WIDTH)
-//    ) dut (
-//        .x(x),
-//        .y(y)
-//    );
-//    initial begin
-//        x = 16'd1023;            
-//        #10;
-//        $display("x = %b, y = %b", x, y);
-//        $finish;
-//    end
-
-//endmodule
-
-
-
 module tb;
     parameter int ALPHA = 16;
-    parameter int BIT_WIDTH = 16;
 
-    logic [ALPHA-1:0] x;             // Input integer x
-    logic [BIT_WIDTH-1:0] y;         // Output bit array y
+    logic [ALPHA-1:0] x;
+    logic [ALPHA-1:0] y;
 
-    IntegerToBits #(
-        .ALPHA(ALPHA),
-        .BIT_WIDTH(BIT_WIDTH)
-    ) dut (
+    IntegerToBits #(.ALPHA(ALPHA)) uut (
         .x(x),
         .y(y)
     );
 
     initial begin
-        // Initialize the input value
-        x = 16'd1023; // Binary: 0000001111111111
-        #10;          // Wait for 10 time units to allow processing
-
-        // Display the input and output values
-        $display("Input x (decimal): %d", x);
-        $display("Input x (binary): %b", x);
-        $display("Output y (bit array): %b", y);
-
-        // Check for expected output: y should be [1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0]
-        if (y === 16'b1111111111000000) begin
-            $display("Test passed: Output y is correct.");
-        end else begin
-            $display("Test failed: Output y is incorrect.");
+        x = 1023;  // Binary representation: 0000001111111111 in 16 bits
+        #10;
+        // Loop through each bit of y and display as an array of 0s and 1s
+        for (int i = 0; i < ALPHA; i = i + 1) begin
+            $write("%0d", y[i]);
+            if (i < ALPHA - 1)
+                $write(", ");
         end
-
-        $finish; // End the simulation
+        $finish;
     end
 endmodule
 

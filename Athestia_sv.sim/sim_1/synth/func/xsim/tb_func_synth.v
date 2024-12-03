@@ -1,11 +1,11 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-// Date        : Wed Nov 13 22:01:40 2024
+// Date        : Mon Dec  2 17:29:57 2024
 // Host        : merledu1 running 64-bit Ubuntu 22.04.4 LTS
 // Command     : write_verilog -mode funcsim -nolib -force -file
 //               /home/hshoaib/Athestia_sv/Athestia_sv.sim/sim_1/synth/func/xsim/tb_func_synth.v
-// Design      : ExpandS
+// Design      : BitPack
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7a50tcsg325-1
@@ -13,7 +13,7 @@
 `timescale 1 ps / 1 ps
 
 (* NotValidForBitStream *)
-module ExpandS
+module BitPack
    ();
 
 

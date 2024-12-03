@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Nov 26 11:11:44 2024
+# Process ID: 4137535
+# Current directory: /home/hshoaib/Athestia_sv/Athestia_sv.sim/sim_1/synth/func/xsim
+# Command line: wbtcv -mode batch -source /home/hshoaib/Athestia_sv/Athestia_sv.sim/sim_1/synth/func/xsim/xsim.dir/tb_func_synth/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/hshoaib/Athestia_sv/Athestia_sv.sim/sim_1/synth/func/xsim/webtalk.log
+# Journal file: /home/hshoaib/Athestia_sv/Athestia_sv.sim/sim_1/synth/func/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/hshoaib/Athestia_sv/Athestia_sv.sim/sim_1/synth/func/xsim/xsim.dir/tb_func_synth/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Nov 26 11:11:44 2024...

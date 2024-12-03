@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log ExpandS.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ExpandS.tcl
+    with args -log SimpleBitPack.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SimpleBitPack.tcl
 
 
 ****** Vivado v2018.2 (64-bit)
@@ -8,24 +8,34 @@
   **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-source ExpandS.tcl -notrace
-Command: synth_design -top ExpandS -part xc7a50tcsg325-1
+source SimpleBitPack.tcl -notrace
+Command: synth_design -top SimpleBitPack -part xc7a50tcsg325-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a50t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a50t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 894028 
+INFO: Helper process launched with PID 52802 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1308.578 ; gain = 85.883 ; free physical = 5137 ; free virtual = 215096
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1308.578 ; gain = 85.875 ; free physical = 132493 ; free virtual = 237653
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'ExpandS' [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/ExpandS.sv:4]
-INFO: [Synth 8-6155] done synthesizing module 'ExpandS' (1#1) [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/ExpandS.sv:4]
-WARNING: [Synth 8-3330] design ExpandS has an empty top module
+INFO: [Synth 8-6157] synthesizing module 'SimpleBitPack' [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/SimpleBitPack.sv:139]
+	Parameter W_WIDTH bound to: 32'sb00000000000000000000000000001000 
+	Parameter B_WIDTH bound to: 32'sb00000000000000000000000000001000 
+	Parameter Z_WIDTH bound to: 32'sb00000000000000000000100000001000 
+INFO: [Synth 8-6157] synthesizing module 'Bitlen' [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/Bitlen.sv:3]
+	Parameter MAX_WIDTH bound to: 32'sb00000000000000000000000000001000 
+INFO: [Synth 8-6155] done synthesizing module 'Bitlen' (1#1) [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/Bitlen.sv:3]
+WARNING: [Synth 8-689] width (8) of port connection 'bit_length' does not match port width (4) of module 'Bitlen' [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/SimpleBitPack.sv:159]
+INFO: [Synth 8-6157] synthesizing module 'BitsToBytes' [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/BitsToBytes.sv:3]
+	Parameter Y bound to: 32'sb00000000000000000000100000001000 
+INFO: [Synth 8-6155] done synthesizing module 'BitsToBytes' (2#1) [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/BitsToBytes.sv:3]
+WARNING: [Synth 8-689] width (2046) of port connection 'z' does not match port width (2056) of module 'BitsToBytes' [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/SimpleBitPack.sv:199]
+INFO: [Synth 8-6155] done synthesizing module 'SimpleBitPack' (3#1) [/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sources_1/new/SimpleBitPack.sv:139]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1353.203 ; gain = 130.508 ; free physical = 5134 ; free virtual = 215093
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1417.203 ; gain = 194.500 ; free physical = 132438 ; free virtual = 237620
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1353.203 ; gain = 130.508 ; free physical = 5135 ; free virtual = 215094
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1417.203 ; gain = 194.500 ; free physical = 132458 ; free virtual = 237643
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -33,10 +43,10 @@ Start Loading Part and Timing Information
 Loading part: xc7a50tcsg325-1
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a50tcsg325-1
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1361.207 ; gain = 138.512 ; free physical = 5135 ; free virtual = 215094
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1425.207 ; gain = 202.504 ; free physical = 132458 ; free virtual = 237643
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1361.207 ; gain = 138.512 ; free physical = 5134 ; free virtual = 215094
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1613.215 ; gain = 390.512 ; free physical = 132221 ; free virtual = 237447
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -49,6 +59,9 @@ No constraint files found.
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -56,6 +69,11 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module Bitlen 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -73,9 +91,8 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3330] design ExpandS has an empty top module
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:36 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5071 ; free virtual = 215031
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:43 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132103 ; free virtual = 237461
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -88,7 +105,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:36 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5071 ; free virtual = 215031
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:43 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132102 ; free virtual = 237460
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -100,7 +117,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:36 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5070 ; free virtual = 215031
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:43 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132101 ; free virtual = 237459
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -124,7 +141,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5066 ; free virtual = 215027
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:44 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132095 ; free virtual = 237457
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -137,7 +154,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5066 ; free virtual = 215027
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:44 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132095 ; free virtual = 237458
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -149,25 +166,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5066 ; free virtual = 215027
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:44 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132095 ; free virtual = 237457
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5066 ; free virtual = 215027
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:44 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132095 ; free virtual = 237457
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5066 ; free virtual = 215027
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:44 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132095 ; free virtual = 237457
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5066 ; free virtual = 215027
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:45 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132095 ; free virtual = 237458
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -180,36 +197,40 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+--------+------+
-|      |Cell    |Count |
-+------+--------+------+
-|1     |ExpandS |     1|
-+------+--------+------+
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |IBUF |  2046|
+|2     |OBUF |  2046|
++------+-----+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |     0|
+|1     |top      |       |  4092|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5066 ; free virtual = 215027
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:45 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132095 ; free virtual = 237458
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1450.277 ; gain = 227.582 ; free physical = 5066 ; free virtual = 215027
-Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1450.285 ; gain = 227.582 ; free physical = 5066 ; free virtual = 215027
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:45 . Memory (MB): peak = 1686.777 ; gain = 464.074 ; free physical = 132102 ; free virtual = 237465
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:45 . Memory (MB): peak = 1686.785 ; gain = 464.074 ; free physical = 132102 ; free virtual = 237465
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 2046 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'SimpleBitPack' is not ideal for floorplanning, since the cellview 'SimpleBitPack' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-9 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+15 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:40 . Memory (MB): peak = 1544.348 ; gain = 333.223 ; free physical = 5001 ; free virtual = 214961
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:48 . Memory (MB): peak = 1693.801 ; gain = 482.676 ; free physical = 132069 ; free virtual = 237449
 WARNING: [Constraints 18-5210] No constraint will be written out.
-INFO: [Common 17-1381] The checkpoint '/home/hshoaib/Athestia_sv/Athestia_sv.runs/synth_1/ExpandS.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file ExpandS_utilization_synth.rpt -pb ExpandS_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.18 . Memory (MB): peak = 1568.359 ; gain = 0.000 ; free physical = 4986 ; free virtual = 214947
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 14 02:14:35 2024...
+INFO: [Common 17-1381] The checkpoint '/home/hshoaib/Athestia_sv/Athestia_sv.runs/synth_1/SimpleBitPack.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file SimpleBitPack_utilization_synth.rpt -pb SimpleBitPack_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.27 . Memory (MB): peak = 1717.812 ; gain = 0.000 ; free physical = 132072 ; free virtual = 237457
+INFO: [Common 17-206] Exiting Vivado at Tue Dec  3 17:03:15 2024...

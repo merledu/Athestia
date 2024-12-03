@@ -1,0 +1,7 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Input y (binary): 101101011001
+Output z (hexadecimal): 9ad
+Byte 0: 173 (decimal)
+Byte 1: 9 (decimal)
+$finish called at time : 10 ns : File "/home/hshoaib/Athestia_sv/Athestia_sv.srcs/sim_1/new/tb.sv" Line 122

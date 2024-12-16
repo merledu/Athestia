@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log SimpleBitPack.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SimpleBitPack.tcl
+EAStep vivado -log BitPack.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source BitPack.tcl

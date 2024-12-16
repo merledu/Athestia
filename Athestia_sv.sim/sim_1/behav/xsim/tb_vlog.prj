@@ -1,7 +1,5 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  \
-"../../../../Athestia_sv.srcs/sources_1/new/Bitlen.sv" \
-"../../../../Athestia_sv.srcs/sources_1/new/BitsToBytes.sv" \
 "../../../../Athestia_sv.srcs/sources_1/new/SimpleBitPack.sv" \
 "../../../../Athestia_sv.srcs/sim_1/new/tb.sv" \
 

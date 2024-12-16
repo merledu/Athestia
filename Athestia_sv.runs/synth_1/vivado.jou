@@ -2,11 +2,11 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Dec  3 17:02:08 2024
-# Process ID: 52664
+# Start of session at: Mon Dec 16 17:42:23 2024
+# Process ID: 20032
 # Current directory: /home/hshoaib/Athestia_sv/Athestia_sv.runs/synth_1
-# Command line: vivado -log SimpleBitPack.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SimpleBitPack.tcl
-# Log file: /home/hshoaib/Athestia_sv/Athestia_sv.runs/synth_1/SimpleBitPack.vds
+# Command line: vivado -log BitPack.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source BitPack.tcl
+# Log file: /home/hshoaib/Athestia_sv/Athestia_sv.runs/synth_1/BitPack.vds
 # Journal file: /home/hshoaib/Athestia_sv/Athestia_sv.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
-source SimpleBitPack.tcl -notrace
+source BitPack.tcl -notrace

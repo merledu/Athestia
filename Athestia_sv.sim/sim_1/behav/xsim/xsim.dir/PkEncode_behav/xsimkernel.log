@@ -1,0 +1,7 @@
+Running: xsim.dir/PkEncode_behav/xsimk -simmode gui -wdb PkEncode_behav.wdb -simrunnum 0 -socket 44209
+Design successfully loaded
+Design Loading Memory Usage: 32420 KB (Peak: 32992 KB)
+Design Loading CPU Usage: 70 ms
+Simulation completed
+Simulation Memory Usage: 118256 KB (Peak: 179692 KB)
+Simulation CPU Usage: 80 ms

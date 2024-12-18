@@ -1,7 +1,460 @@
-//`timescale 1ns / 1ps
+`timescale 1ns / 1ps
 
-//import Dilithium_pkg::*;  // Import constants from the Dilithium package
+import Dilithium_pkg::*;  // Import constants from the Dilithium package
 
+//*****************************fsm optimize code (shifter)..but floorplanning warning**************
+module PkEncode (
+    input logic clk, reset,
+    input logic [255:0] rho,
+    input logic [9:0] t1[7:0][255:0],
+    output logic [20735:0] pk,
+    output logic valid
+);
+    logic [2559:0] packed_out;  // Output from the SimpleBitPack instance
+    logic [20735:0] temp_pk;
+    logic [20735:0] next_temp_pk;
+    int i, next_i;
+    enum {IDLE, PACK, CONCAT, DONE} state, next_state;
+
+    // Instantiate SimpleBitPack once
+    SimpleBitPack #(
+        .W_WIDTH(10)
+    ) pack_t1 (
+        .w(t1[i]),  // Sequential access based on index i
+        .z(packed_out)
+    );
+
+    // Combinational logic for FSM transitions and output computation
+    always_comb begin
+        next_i = i;  // Default to carrying over current index
+        next_temp_pk = temp_pk;  // Default to carrying over current temp_pk
+
+        case (state)
+            IDLE: begin
+                next_temp_pk = rho;
+                next_state = PACK;
+            end
+            PACK: begin
+                if (i < 8) begin
+                    next_state = CONCAT;
+                end else begin
+                    next_state = DONE;
+                end
+            end
+            CONCAT: begin
+                if (i < 8) begin
+                    // Compute position using shifts and addition to replace direct multiplication
+                    automatic int position = (i << 11) + (i << 9); // i * 2048 + i * 512 = i * 2560
+                    next_temp_pk[256 + position +: 2560] = packed_out; // Assign packed_out to the computed position
+                    next_i = i + 1;
+                    next_state = PACK;
+                end else begin
+                    next_state = DONE;
+                end
+            end
+            DONE: begin
+                next_state = IDLE;
+            end
+            default: begin
+                next_state = IDLE; // Reset to a known state
+            end
+        endcase
+    end
+
+    // Sequential logic for state and output registration
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            state <= IDLE;
+            i <= 0;
+            temp_pk <= 0;
+            valid <= 0;
+        end else begin
+            state <= next_state;
+            i <= next_i;
+            temp_pk <= next_temp_pk;
+            if (state == DONE) begin
+                pk <= temp_pk;
+                valid <= 1;
+            end else begin
+                pk <= 0;
+                valid <= 0; // Ensure valid is only high when truly done
+            end
+        end
+    end
+endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*****************************counter optimize code (shifters)..but floorplanning warning**************
+//module PkEncode (
+//    input logic clk, reset,
+//    input logic [255:0] rho,
+//    input logic [9:0] t1[7:0][255:0],
+//    output logic [20735:0] pk,
+//    output logic valid
+//);
+//    logic [2559:0] packed_out;  // Output from the SimpleBitPack instance
+//    logic [20735:0] temp_pk;
+//    int count = 0;  // Use a counter to track the packing index
+//    logic pack_done;  // Signal to indicate packing is complete
+
+//    // Instantiate SimpleBitPack once
+//    SimpleBitPack #(.W_WIDTH(10)) pack_t1 (
+//        .w(t1[count]),
+//        .z(packed_out)
+//    );
+
+//    // Combinational logic to update pack_done
+//    always_comb begin
+//        pack_done = (count >= 8);
+//    end
+
+//    // Optimize state machine logic using counter
+//    always_ff @(posedge clk or posedge reset) begin
+//        if (reset) begin
+//            count <= 0;
+//            temp_pk <= 0;
+//            valid <= 0;
+//        end else if (!pack_done) begin
+//            // Declare position at the beginning of the block
+//            int position = (count << 11) + (count << 9); // count * 2048 + count * 512 = count * 2560
+
+//            if (count == 0) begin
+//                temp_pk <= {rho};  // Initialize temp_pk with rho
+//            end
+//            temp_pk[256 + position +: 2560] <= packed_out; // Assign packed_out to the computed position
+//            count <= count + 1;
+//        end else begin
+//            pk <= temp_pk;
+//            valid <= 1;
+//            count <= 0;  // Reset the counter for next operation
+//        end
+//    end
+//endmodule
+
+
+
+
+
+
+
+
+
+
+
+//*****************************fsm, no logic in always_ff*************************
+//module PkEncode (
+//    input logic clk, reset,
+//    input logic [255:0] rho,
+//    input logic [9:0] t1[7:0][255:0],
+//    output logic [20735:0] pk,
+//    output logic valid
+//);
+//    logic [2559:0] packed_out;  // Output from the SimpleBitPack instance
+//    logic [20735:0] temp_pk;
+//    logic [20735:0] next_temp_pk;
+//    int i, next_i;
+//    enum {IDLE, PACK, CONCAT, DONE} state, next_state;
+
+//    // Instantiate SimpleBitPack once
+//    SimpleBitPack #(
+//        .W_WIDTH(10)
+//    ) pack_t1 (
+//        .w(t1[i]),  // Sequential access based on index i
+//        .z(packed_out)
+//    );
+
+//    // Combinational logic for FSM transitions and output computation
+//    always_comb begin
+////        next_state = state; // Default to carrying over current state
+//        next_i = i;  // Default to carrying over current index
+//        next_temp_pk = temp_pk;  // Default to carrying over current temp_pk
+
+//        case (state)
+//            IDLE: begin
+//                next_temp_pk = rho;
+//                next_state = PACK;
+//            end
+//            PACK: begin
+//                if (i < 8) begin
+//                    next_state = CONCAT;
+//                end else begin
+//                    next_state = DONE;
+//                end
+//            end
+//            CONCAT: begin
+//                if (i < 8) begin
+//                    next_temp_pk[256 + i*2560 +: 2560] = packed_out;
+//                    next_i = i + 1;
+//                    next_state = PACK;
+//                end else begin
+//                    next_state = DONE;
+//                end
+//            end
+//            DONE: begin
+//                next_state = IDLE;
+//            end
+//            default: begin
+//                next_state = IDLE; // Reset to a known state
+//            end
+//        endcase
+//    end
+
+//    // Sequential logic for state and output registration
+//    always_ff @(posedge clk or posedge reset) begin
+//        if (reset) begin
+//            state <= IDLE;
+//            i <= 0;
+//            temp_pk <= 0;
+//            valid <= 0;
+//        end else begin
+//            state <= next_state;
+//            i <= next_i;
+//            temp_pk <= next_temp_pk;
+//            if (state == DONE) begin
+//                pk <= temp_pk;
+//                valid <= 1;
+//            end else begin
+//                pk <= 0;
+//                valid <= 0; // Ensure valid is only high when truly done
+//            end
+//        end
+//    end
+//endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*****************************counter..but floorplanning warning**************
+//module PkEncode (
+//    input logic clk, reset,
+//    input logic [255:0] rho,
+//    input logic [9:0] t1[7:0][255:0],
+//    output logic [20735:0] pk,
+//    output logic valid
+//);
+//    logic [2559:0] packed_out;  // Output from the SimpleBitPack instance
+//    logic [20735:0] temp_pk;
+//    int count = 0;  // Use a counter to track the packing index
+//    logic pack_done;  // Signal to indicate packing is complete
+
+//    // Instantiate SimpleBitPack once
+//    SimpleBitPack #(
+//        .W_WIDTH(10)
+//    ) pack_t1 (
+//        .w(t1[count]),          // Sequential access based on counter
+//        .z(packed_out)
+//    );
+
+//    // Combinational logic to update pack_done
+//    always_comb begin
+//        pack_done = (count >= 8);
+//    end
+
+//    // State machine logic using counter
+//    always_ff @(posedge clk or posedge reset) begin
+//        if (reset) begin
+//            count <= 0;
+//            temp_pk <= 0;
+//            valid <= 0;
+//        end else begin
+//            if (count == 0) begin
+//                temp_pk <= {rho};  // Initialize temp_pk with rho and padding
+//            end
+//            if (!pack_done) begin
+//                temp_pk[256 + count * 2560 +: 2560] <= packed_out;
+//                count <= count + 1;
+//            end else begin
+//                pk <= temp_pk;
+//                valid <= 1;
+//                count <= 0;  // Reset the counter for next operation
+//            end
+//        end
+//    end
+//endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//****************************************** fsm ...but floorplanning warning***************************
+//module PkEncode (
+//    input logic clk, reset,
+//    input logic [255:0] rho,
+//    input logic [9:0] t1[7:0][255:0],
+//    output logic [20735:0] pk,
+//    output logic valid
+//);
+//    logic [2559:0] packed_out;  // Output from the SimpleBitPack instance
+//    logic [20735:0] temp_pk;
+//    int i = 0;
+//    enum {IDLE, PACK, CONCAT, DONE} state;
+//    // Instantiate SimpleBitPack once
+//    SimpleBitPack #(
+//        .W_WIDTH(10)
+//    ) pack_t1 (
+//        .w(t1[i]),              // Sequential access based on index i
+//        .z(packed_out)
+//    );
+//    // State machine to manage packing and concatenation
+//    always_ff @(posedge clk) begin
+//        if (reset) begin
+//            state <= IDLE;
+//            i <= 0;
+//            temp_pk <= 0;
+//            valid <= 0;
+//        end else begin
+//            case (state)
+//                IDLE: begin
+//                    temp_pk <= rho;
+//                    state <= PACK;
+//                end
+//                PACK: begin
+//                    if (i < 8) begin
+//                        state <= CONCAT;
+//                    end else begin
+//                        state <= DONE;
+//                    end
+//                end
+//                CONCAT: begin
+//                    if (i >= 8) begin
+//                        state <= DONE;
+//                    end else begin
+//                        temp_pk[256 + i*2560 +: 2560] <= packed_out;
+//                        i <= i + 1;
+//                        state <= PACK;
+//                    end
+//                end
+////                    temp_pk[256 + i*2560 +: 2560] <= packed_out;
+////                    i <= i + 1;
+////                    state <= (i < 7) ? PACK : DONE;
+////                end
+//                DONE: begin
+//                    pk <= temp_pk;
+//                    valid <= 1;
+//                    state <= IDLE;
+//                end
+//            endcase
+//        end
+//    end
+//endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//******************************************without fsm ...but floorplanning warning***************************
 //module PkEncode (
 //    input logic [255:0] rho,                              // 32 bytes input as bits
 //    input logic [9:0] t1[7:0][255:0],                     // 8 polynomials of 256 coefficients (10 bits each)
@@ -40,7 +493,7 @@
 //        end
     
 //        pk = temp_pk;  // Assign the concatenated result to pk
-////        $display("Final PK: %0h", pk);
+//        $display("Final PK: %0h", pk);
 //    end
 //endmodule
 
@@ -61,6 +514,16 @@
 ////        $display("Final PK: %0h", pk);
 //    end
 //endmodule
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -96,6 +559,9 @@
 //    assign pk = {rho, packed_out[7], packed_out[6], packed_out[5], packed_out[4], packed_out[3], packed_out[2], packed_out[1], packed_out[0]};
 
 //endmodule
+
+
+
 
 
 

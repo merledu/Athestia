@@ -1,14 +1,18 @@
+import Dilithium_pkg ::*;
 module Decompose #(
-    parameter int Q = 8380417,        
-    parameter int GAMMA = (Q - 1) / 32 
+    parameter int Q = q,        
+    parameter int GAMMA = gamma2,
+    parameter int width = 32,
+    parameter int r1_width=32,
+    parameter int r0_width=32
 )(
-    input logic [31:0] r,       
-    output logic signed [31:0] r1,     
-    output logic signed [31:0] r0      
+    input logic [width-1:0] r,       
+    output logic signed [r1_width-1:0] r1,     
+    output logic signed [r0_width-1:0] r0      
 );
 
-    logic signed [31:0] r_prime;  
-    logic signed [31:0] two_gamma;
+    logic signed [width-1:0] r_prime;  
+    logic signed [width-1:0] two_gamma;
 
     assign two_gamma = 2 * GAMMA;
 

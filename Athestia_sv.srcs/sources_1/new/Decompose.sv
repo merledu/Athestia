@@ -1,7 +1,28 @@
-import Dilithium_pkg ::*;
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12/19/2024 05:42:15 PM
+// Design Name: 
+// Module Name: decompose
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
 module Decompose #(
-    parameter int Q = q,        
-    parameter int GAMMA = gamma2,
+    parameter int Q = 8380417,        
+    parameter int GAMMA = (Q-1)/32,
     parameter int width = 32,
     parameter int r1_width=32,
     parameter int r0_width=32
@@ -19,8 +40,7 @@ module Decompose #(
     always_comb begin
         
         r_prime = r % Q;
-
-        r0 = r_prime % two_gamma;
+        r0 = (r % Q) % two_gamma;
 
         if (r_prime - r0 == Q - 1) begin
             r0 = r0 - two_gamma;
@@ -31,3 +51,4 @@ module Decompose #(
     end
 
 endmodule
+

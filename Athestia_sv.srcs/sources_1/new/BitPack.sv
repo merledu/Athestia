@@ -8,7 +8,7 @@ module BitPack #(
     parameter int b = 8,
     parameter b_len = $clog2(a + b)
 )(
-    input logic [w_len:0] w[255:0],
+    input logic [255:0] w[w_len-1:0],
     output logic [(b_len * 256) - 1:0] outputt   // Array of 256 integers
    //output logic [7:0] byte_array [((b_len*256)/8)-1:0]
  // Flattened output
@@ -17,17 +17,17 @@ module BitPack #(
 
 integer i;
 integer j;
-logic signed [31:0] z [255:0];
+logic signed [255:0] z [w_len:0];
 
 // Process the input and create the output bit-string
 always_comb begin
     // Process z array
-    for (i = 0; i < 256; i++) begin
+    for (i = 0; i < w_len; i++) begin
         z[i] = b - w[i];
     end
 
     // Concatenate z into outputt
-    for (j = 0; j < 256; j++) begin
+    for (j = 0; j < w_len; j++) begin
         outputt[j * b_len +: b_len] = z[j];
     end
 

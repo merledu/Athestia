@@ -352,11 +352,15 @@ This algorithm encodes a polynomial w into a byte string,
 assuming that each coefficient wi of the polynomial is in the range [0,b].
 """
 def simple_bit_pack(w, b):
+    # print(w)
     z = []     # To store the bit representation of the polynomial coefficients.
     for i in range(256):
         z += IntegerToBits(w[i], bitlen(b))
+    # print(len(z))
+    # print(z)
 
     return bits_to_bytes(z)
+    # print(bits_to_bytes(z).hex())
 
 
 # #----------------------------------- pk_encode -----------------------------------#
@@ -367,9 +371,14 @@ def pk_encode(rho, t1):
     pk = rho
 
     y = bitlen(q - 1)
+    # print(y)
     b = (2 ** (y - d)) - 1
+    # print(b)
 
     for i in range(rows_k):
+        # print(t1[i])
+        # h = simple_bit_pack(t1[i], b)
+        # print(h.hex())
         pk = pk + simple_bit_pack(t1[i], b)
 
     return pk
@@ -421,21 +430,20 @@ def skEncode(rho, K, tr, s1, s2, t0):
 
 #---------------------------------------------------- MAIN FUNCTION ----------------------------------------------------#
 def KeyGen():
-    secure_random = random.StrongRandom()
-    seed_length = 32  
-    random_no = secure_random.getrandbits(seed_length * 8)   #32 * 8 = 256 bits
+    # secure_random = random.StrongRandom()
+    # seed_length = 32  
+    # random_no = secure_random.getrandbits(seed_length * 8)   #32 * 8 = 256 bits
 
-    # random_no = 30
+    random_no = 30
     # print(random_no)
-
     random_bytes = random_no.to_bytes((random_no.bit_length() + 7) // 8, byteorder='big')
 
-    # shake = SHAKE256.new()
-    # shake.update(random_bytes)
-    # ξ = shake.read(32)  #256 bits = 32 bytes
+    shake = SHAKE256.new()
+    shake.update(random_bytes)
+    ξ = shake.read(32)  #256 bits = 32 bytes
 
-    ξ = IntegerToBytes(random_no, seed_length)
-    # print(ξ)
+    # ξ = IntegerToBytes(random_no, seed_length)
+    # print(ξ.hex())
 
     if ξ is None:
         return None  
@@ -462,6 +470,7 @@ def KeyGen_internal(ξ):
     K_bytes = output[96:]   # Last 256 bits
 
     # print(f"\nρ : {rho.hex()}")
+    # print(f"\nρ : {rho}")
     # print(f"\nρ' : {rho0.hex()}")
     # print(f"\nK : {K_bytes.hex()}")
 
@@ -483,7 +492,7 @@ def KeyGen_internal(ξ):
 
     # print("Vector s2:")
     # for i in range(len(s2)):
-        # print(f"\ns2[{i}] = {s2[i]}")
+    #     print(f"\ns2[{i}] = {s2[i]}")
 
 
     #-------- Step 4: t ← NTT−1(A * NTT(s1)) + s2
@@ -520,8 +529,8 @@ def KeyGen_internal(ξ):
     #     print(f"\ns1_invntt[{i}] = {s1_invntt[i]}")
 
     t = compute_t(A, s1_ntt, s2)
-    # for i in range(len(t)):
-        # print(f"\nt[{i}] = {', '.join(map(str, t[i]))}")
+    # for i in range(len(t)):             #23 bit range
+    #     print(f"\nt[{i}] = {', '.join(map(str, t[i]))}")
 
 
     #-------- Step 5: (t1, t0) ← Power2Round(t)
@@ -531,16 +540,18 @@ def KeyGen_internal(ξ):
             t1[i][j] = t1_coef
             t0[i][j] = t0_coef
     
-    # for i in range(len(t1)):
+    # for i in range(len(t1)):             #10 bit range
     #     print(f"\nt1[{i}] = [{', '.join(map(str, t1[i]))}]")
 
-    # for i in range(len(t0)):
+    # for i in range(len(t0)):               #13 bit range
     #     print(f"\nt0[{i}] = [{', '.join(map(str, t0[i]))}]")
 
 
     #-------- Step 6: pk ← pkEncode(rho, t1)
     pk = pk_encode(rho, t1)
+    # print(f"\npk : {len(pk)}") 
     # print(f"\npk : {pk}") 
+
 
     expected_length = 32 + 32 * rows_k * (bitlen(q - 1) - d)
     actual_length = len(pk)
@@ -552,7 +563,7 @@ def KeyGen_internal(ξ):
     #-------- Step 7: tr ← H(pk, 64)
     tr = compute_tr(pk)
 
-    # print(f"\ntr : {tr}") 
+    # print(f"\ntr : {tr.hex()}") 
     # print(f"\ntr : {len(tr)}") 
 
 
@@ -575,7 +586,7 @@ def KeyGen_internal(ξ):
 pk, sk = KeyGen()
 # print("Public Key:", pk)
 public_key_hex = pk.hex()
-# print("Public Key_hex:", public_key_hex)
+# print("Public Key_hex:", len(public_key_hex))
 # print("\nPrivate Key:", sk)
 secret_key_hex = sk.hex()
 # print("secret Key_hex:", secret_key_hex)

@@ -3,8 +3,8 @@
 import Dilithium_pkg::*;
 
 module Power2round (
-    input  logic signed [22:0] t,        // 23-bit input t
-    output logic signed [9:0]   t1,      // 10-bit output t1
+    input  logic unsigned [22:0] t,        // 23-bit input t
+    output logic unsigned [9:0]   t1,      // 10-bit output t1
     output logic signed [12:0]  t0       // 13-bit output t0
 );
 

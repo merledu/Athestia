@@ -44,9 +44,9 @@
 
 // ******************************************************************************************//
 //module tb;
-//    logic signed [22:0] t;
+//    logic unsigned [22:0] t;
 
-//    logic signed [9:0]  t1;
+//    logic unsigned [9:0]  t1;
 //    logic signed [12:0] t0;
 
 //    Power2round uut (
@@ -384,7 +384,129 @@
 
 
 
+
 // ******************************************************************************************//
+module tb;
+
+    // Signals
+    logic [31:0] r;
+    logic [31:0] z;
+    logic hint;
+
+    // Instantiate MakeHint
+    MakeHint uut (
+        .r    (r),
+        .z    (z),
+        .hint (hint)
+    );
+
+    // Testbench logic
+    initial begin
+        $display("Starting Testbench for MakeHint...");
+
+//        // Test 1
+//        r = 23'd1000;
+//        z = 23'd500;
+//        #10;
+//        $display("Test 1: r = %d, z = %d, hint = %b", r, z, hint);
+
+        // Test 2
+//        r = 23'd2000;
+//        z = 23'd1500;
+//        #10;
+//        $display("Test 2: r = %d, z = %d, hint = %b", r, z, hint);
+
+//        // Test 3
+        r=8380416;
+        z=1000;
+        #10;
+        $display("Test 3: r = %d, z = %d, hint = %b", r, z, hint);
+
+//        $display("Testbench completed.");
+        $finish;
+    end
+
+endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//module tb;
+//    logic clk, reset, start;
+//    logic [31:0] r;
+//    logic [31:0] z;
+//    logic hint;
+//    logic ready;
+    
+//    MakeHint UUT (
+//        .clk(clk),
+//        .reset(reset),
+//        .start(start),
+//        .r(r),
+//        .z(z),
+//        .hint(hint),
+//        .ready(ready)
+//    );
+//    // Clock generation
+//    always #5 clk = ~clk;  // 100MHz clock, 10ns period
+
+
+//    // Clock generation
+////    initial begin
+////        clk = 0;
+////        forever #5 clk = ~clk;  // Toggle clock every 5 ns for a 100 MHz clock
+////    end
+
+//    initial begin
+//        clk = 0;
+//        reset = 1;
+//        start = 0;
+//        #20;  // Wait for 10 ns to ensure reset is applied
+
+//        reset = 0; 
+////        #40;  // Wait another 10 ns to ensure stable input signals
+
+////        // Test case 1: Same high bits expected
+////        r = 1234567;  // Example within modulus
+////        z = 123456;   // Small change should not affect the high bits if r is large
+        
+//          // Test case 2: Different high bits expected
+//        r = 8380000;  // Closer to the modulus, high bits likely to change
+//        z = 1000;     // Small increment could change high bits due to wrapping around modulus
+//        // Start hint calculation
+//        #20 start = 1;
+//        #20 start = 0;
+
+//        // Wait for hint result
+//        wait (ready == 1);
+//        $display("Hint: %d", hint);
+//        $finish;
+//    end
+    
+////        #20;  // Wait another 10 ns to ensure stable input signals
+
+////        // Complete simulation
+////        $finish;
+////    end
+
+////    // Monitor output changes
+////    initial begin
+////        $monitor("Time=%t, r=%d, z=%d, hint=%b", $time, r, z, hint);
+////    end
+
+//endmodule
+
+
 
 
 

@@ -1,87 +1,208 @@
-`timescale 1ns / 1ps
+//`timescale 1ns / 1ps
 
-import Dilithium_pkg::*;  // Import constants from the Dilithium package
+//import Dilithium_pkg::*;  // Import constants from the Dilithium package
+
+
+////*****************************fsm optimize code (shifter and if combinational)..but floorplanning warning**************
+//module PkEncode (
+//    input logic clk, reset,
+//    input logic [255:0] rho,
+//    input logic [9:0] t1[7:0][255:0],
+//    output logic [20735:0] pk,
+//    output logic valid
+//);
+//    logic [2559:0] packed_out;  // Output from the SimpleBitPack instance
+//    logic [20735:0] temp_pk;
+//    logic [20735:0] next_temp_pk;
+//    int i, next_i;
+//    logic next_valid; // To handle valid signal combinatorially
+//    enum {IDLE, PACK, CONCAT, DONE} state, next_state;
+
+//    // Instantiate SimpleBitPack once
+//    SimpleBitPack #(
+//        .W_WIDTH(10)
+//    ) pack_t1 (
+//        .w(t1[i]),  // Sequential access based on index i
+//        .z(packed_out)
+//    );
+
+//    // Combinational logic for FSM transitions and output computation
+//    always_comb begin
+//        next_i = i;  // Default to carrying over current index
+//        next_temp_pk = temp_pk;  // Default to carrying over current temp_pk
+//        next_valid = valid; // Default valid handling
+
+//        case (state)
+//            IDLE: begin
+//                next_temp_pk = rho;
+//                next_state = PACK;
+//                next_valid = 0;
+//            end
+//            PACK: begin
+//                if (i < 8) begin
+//                    next_state = CONCAT;
+//                    next_valid = 0;
+//                end else begin
+//                    next_state = DONE;
+//                    next_valid = 1; // Prepare to set valid high if moving to DONE
+//                end
+//            end
+//            CONCAT: begin
+//                if (i < 8) begin
+//                    // Compute position using shifts and addition to replace direct multiplication
+//                    automatic int position = (i << 11) + (i << 9); // i * 2048 + i * 512 = i * 2560
+////                    automatic int position = {i,11'b00000000000} + {i, 9'b000000000}; // i * 2048 + i * 512 = i * 2560
+//                    next_temp_pk[256 + position +: 2560] = packed_out;
+//                    next_i = i + 1;
+////                    next_i = {i[31:1],1'b1};
+//                    next_state = PACK;
+//                    next_valid = 0;
+//                end else begin
+//                    next_state = DONE;
+//                    next_valid = 1;
+//                end
+//            end
+//            DONE: begin
+//                next_state = IDLE;
+//                next_valid = 0; // Reset valid after transitioning from DONE
+//            end
+//            default: begin
+//                next_state = IDLE;
+//                next_valid = 0; // Reset valid in any undefined state
+//            end
+//        endcase
+//    end
+
+//    // Sequential logic for state and output registration
+//    always_ff @(posedge clk or posedge reset) begin
+//        if (reset) begin
+//            state <= IDLE;
+//            i <= 0;
+//            temp_pk <= 0;
+//            valid <= 0;
+//            pk <= 0;
+//        end else begin
+//            state <= next_state;
+//            i <= next_i;
+//            temp_pk <= next_temp_pk;
+//            valid <= next_valid; // Assign valid based on combinational logic outcome
+//            if (next_state == DONE) begin
+//                pk <= next_temp_pk; // Set pk only when transitioning to DONE
+//            end else begin
+//                pk <= 0;
+//            end
+//        end
+//    end
+//endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //*****************************fsm optimize code (shifter)..but floorplanning warning**************
-module PkEncode (
-    input logic clk, reset,
-    input logic [255:0] rho,
-    input logic [9:0] t1[7:0][255:0],
-    output logic [20735:0] pk,
-    output logic valid
-);
-    logic [2559:0] packed_out;  // Output from the SimpleBitPack instance
-    logic [20735:0] temp_pk;
-    logic [20735:0] next_temp_pk;
-    int i, next_i;
-    enum {IDLE, PACK, CONCAT, DONE} state, next_state;
+//module PkEncode (
+//    input logic clk, reset,
+//    input logic [255:0] rho,
+//    input logic [9:0] t1[7:0][255:0],
+//    output logic [20735:0] pk,
+//    output logic valid
+//);
+//    logic [2559:0] packed_out;  // Output from the SimpleBitPack instance
+//    logic [20735:0] temp_pk;
+//    logic [20735:0] next_temp_pk;
+//    int i, next_i;
+//    enum {IDLE, PACK, CONCAT, DONE} state, next_state;
 
-    // Instantiate SimpleBitPack once
-    SimpleBitPack #(
-        .W_WIDTH(10)
-    ) pack_t1 (
-        .w(t1[i]),  // Sequential access based on index i
-        .z(packed_out)
-    );
+//    // Instantiate SimpleBitPack once
+//    SimpleBitPack #(
+//        .W_WIDTH(10)
+//    ) pack_t1 (
+//        .w(t1[i]),  // Sequential access based on index i
+//        .z(packed_out)
+//    );
 
-    // Combinational logic for FSM transitions and output computation
-    always_comb begin
-        next_i = i;  // Default to carrying over current index
-        next_temp_pk = temp_pk;  // Default to carrying over current temp_pk
+//    // Combinational logic for FSM transitions and output computation
+//    always_comb begin
+//        next_i = i;  // Default to carrying over current index
+//        next_temp_pk = temp_pk;  // Default to carrying over current temp_pk
 
-        case (state)
-            IDLE: begin
-                next_temp_pk = rho;
-                next_state = PACK;
-            end
-            PACK: begin
-                if (i < 8) begin
-                    next_state = CONCAT;
-                end else begin
-                    next_state = DONE;
-                end
-            end
-            CONCAT: begin
-                if (i < 8) begin
-                    // Compute position using shifts and addition to replace direct multiplication
-                    automatic int position = (i << 11) + (i << 9); // i * 2048 + i * 512 = i * 2560
-                    next_temp_pk[256 + position +: 2560] = packed_out; // Assign packed_out to the computed position
-                    next_i = i + 1;
-                    next_state = PACK;
-                end else begin
-                    next_state = DONE;
-                end
-            end
-            DONE: begin
-                next_state = IDLE;
-            end
-            default: begin
-                next_state = IDLE; // Reset to a known state
-            end
-        endcase
-    end
+//        case (state)
+//            IDLE: begin
+//                next_temp_pk = rho;
+//                next_state = PACK;
+//            end
+//            PACK: begin
+//                if (i < 8) begin
+//                    next_state = CONCAT;
+//                end else begin
+//                    next_state = DONE;
+//                end
+//            end
+//            CONCAT: begin
+//                if (i < 8) begin
+//                    // Compute position using shifts and addition to replace direct multiplication
+//                    automatic int position = (i << 11) + (i << 9); // i * 2048 + i * 512 = i * 2560
+//                    next_temp_pk[256 + position +: 2560] = packed_out; // Assign packed_out to the computed position
+//                    next_i = i + 1;
+//                    next_state = PACK;
+//                end else begin
+//                    next_state = DONE;
+//                end
+//            end
+//            DONE: begin
+//                next_state = IDLE;
+//            end
+//            default: begin
+//                next_state = IDLE; // Reset to a known state
+//            end
+//        endcase
+//    end
 
-    // Sequential logic for state and output registration
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            state <= IDLE;
-            i <= 0;
-            temp_pk <= 0;
-            valid <= 0;
-        end else begin
-            state <= next_state;
-            i <= next_i;
-            temp_pk <= next_temp_pk;
-            if (state == DONE) begin
-                pk <= temp_pk;
-                valid <= 1;
-            end else begin
-                pk <= 0;
-                valid <= 0; // Ensure valid is only high when truly done
-            end
-        end
-    end
-endmodule
+//    // Sequential logic for state and output registration
+//    always_ff @(posedge clk or posedge reset) begin
+//        if (reset) begin
+//            state <= IDLE;
+//            i <= 0;
+//            temp_pk <= 0;
+//            valid <= 0;
+//        end else begin
+//            state <= next_state;
+//            i <= next_i;
+//            temp_pk <= next_temp_pk;
+//            if (state == DONE) begin
+//                pk <= temp_pk;
+//                valid <= 1;
+//            end else begin
+//                pk <= 0;
+//                valid <= 0; // Ensure valid is only high when truly done
+//            end
+//        end
+//    end
+//endmodule
 
 
 

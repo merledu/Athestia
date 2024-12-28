@@ -1,0 +1,10 @@
+0.6
+2018.2
+Jun 14 2018
+20:07:38
+/home/hshoaib/power2round/power2round.sim/sim_1/behav/xsim/glbl.v,1653850421,verilog,,,,glbl,,,,,,,,
+/home/hshoaib/power2round/power2round.srcs/sim_1/new/tb.sv,1735405383,systemVerilog,,,,tb,,,,,,,,
+/home/hshoaib/power2round/power2round.srcs/sim_1/new/tb_Top_Power2round.sv,1734607522,systemVerilog,,,,tb_Top_Power2round,,,,,,,,
+/home/hshoaib/power2round/power2round.srcs/sources_1/new/Dilithium_pkg.sv,1734595176,systemVerilog,/home/hshoaib/power2round/power2round.srcs/sim_1/new/tb_Top_Power2round.sv;/home/hshoaib/power2round/power2round.srcs/sources_1/new/Power2round.sv;/home/hshoaib/power2round/power2round.srcs/sources_1/new/Top_Power2round.sv,/home/hshoaib/power2round/power2round.srcs/sources_1/new/Power2round.sv,,$unit_Dilithium_pkg_sv;Dilithium_pkg,,,,,,,,
+/home/hshoaib/power2round/power2round.srcs/sources_1/new/Power2round.sv,1734594807,systemVerilog,,/home/hshoaib/power2round/power2round.srcs/sim_1/new/tb.sv,,Power2round,,,,,,,,
+/home/hshoaib/power2round/power2round.srcs/sources_1/new/Top_Power2round.sv,1734607855,systemVerilog,,/home/hshoaib/power2round/power2round.srcs/sim_1/new/tb_Top_Power2round.sv,,Top_Power2round,,,,,,,,

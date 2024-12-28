@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../power2round.srcs/sources_1/new/Dilithium_pkg.sv" \
+"../../../../power2round.srcs/sources_1/new/Power2round.sv" \
+"../../../../power2round.srcs/sources_1/new/Top_Power2round.sv" \
+"../../../../power2round.srcs/sim_1/new/tb_Top_Power2round.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

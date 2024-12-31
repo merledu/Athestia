@@ -1,0 +1,4 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Time = 0 | t = x | t1 = x | t0 = x
+$finish called at time : 10 ns : File "/home/hshoaib/power2round/power2round.srcs/sim_1/new/tb.sv" Line 38

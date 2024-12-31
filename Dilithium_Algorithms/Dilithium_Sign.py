@@ -76,16 +76,18 @@ def skDecode(sk, l=cols_l, k=rows_k, eta=eta, d=d):
     return rho, K, tr, s1, s2, t0
 
 
-
-
-
-
-
-# def H(input_data, output_length):
-#     """Hash function H based on SHAKE256."""
+# #---------------------------------------------------- STEP 6 ----------------------------------------------------#
+#----------------------------------- Compute_mu -----------------------------------#
+# def compute_mu(pk):
 #     shake = SHAKE256.new()
-#     shake.update(input_data)
-#     return shake.read(output_length)
+#     shake.update(pk)  
+#     tr = shake.read(64)  # 512 bits = 64 bytes
+#     return tr
+
+
+
+
+
 
 # def ExpandMask(rho, mu, l):
 #     """ExpandMask function based on NIST MLDSA Algorithm 34.
@@ -153,50 +155,68 @@ def Sign_internal(sk, M_prime, rnd):
     # for i in range(len(t0)):
     #     print(f"\nt0[{i}] = [{', '.join(map(str, t0[i]))}]")
 
+    
+    # #--------  Step 2:
+    s1_ntt = []
+    for i in range(len(s1)):
+        s1_ntt.append(NTT(s1[i]))
+
+    # for i in range(len(s1_ntt)):
+    #     print(f"\ns1_ntt[{i}] = {s1_ntt[i]}")
 
 
+    # #--------  Step 3: 
+    s2_ntt = []
+    for i in range(len(s2)):
+        s2_ntt.append(NTT(s2[i]))
 
-    
-    # # Step 2:
-    # s1_ntt = []
-    # for i in range(len(s1)):
-    #     s1_ntt.append(NTT(s1[i]))
-    
-    # # Step 3: 
-    # s2_ntt = []
-    # for i in range(len(s2)):
-    #     s1_ntt.append(NTT(s2[i]))
-    
-    # # Step 4:
-    # t0_ntt = []
-    # for i in range(len(t0)):
-    #     s1_ntt.append(NTT(t0[i]))
-    
-    # # Step 5: 
-    # A = ExpandA(rho)
-    
-    # # Step 6: 
+    # for i in range(len(s2_ntt)):
+    #     print(f"\ns2_ntt[{i}] = {s2_ntt[i]}")
+
+
+    # #--------  Step 4:
+    t0_ntt = []
+    for i in range(len(t0)):
+        t0_ntt.append(NTT(t0[i]))
+
+    # for i in range(len(t0_ntt)):
+    #     print(f"\nt0_ntt[{i}] = {t0_ntt[i]}")
+  
+
+    # #--------  Step 5: 
+    A = ExpandA(rho)
+    # for i in range(rows_k):
+    #     for j in range(cols_l):
+    #         print(f"\nA[{i}][{j}] = {A[i][j].tolist()}")
+
+
+    # #--------  Step 6: 
     # mu_input = tr + bits_to_bytes(M_prime)
     # mu = H(mu_input, 64)
     
-    # # Step 7:
+
+    # #--------  Step 7:
     # rho_double_prime_input = K + rnd + mu
     # rho_double_prime = H(rho_double_prime_input, 64)
     
-    # # Step 8: 
+
+    # #--------  Step 8: 
     # kappa = 0
     
-    # # Step 9: 
+
+    # #--------  Step 9: 
     # z, h = None, None
 
-    # Step 11:
+
+    #--------  Step 11:
     # y = ExpandMask(rho_double_prime, kappa, l=len(s1))
     # y_ntt = [NTT(poly) for poly in y]
     # Aw_pointwise = []
     # for i in range(len(A)):
     #     Aw_pointwise.append([(A[i][j] * y_ntt[i][j]) % q for j in range(256)])
 
-    # #step 12:
+
+    # #--------  step 12:
     # w = [NTT_inverse(poly) for poly in Aw_pointwise]
 
 

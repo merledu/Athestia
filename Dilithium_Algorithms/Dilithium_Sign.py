@@ -2,8 +2,10 @@ from Dilithium_Key import *
 
 
 #---------------------------------------------------- PARAMETERS ----------------------------------------------------#
-gamma_1 = 524288
-
+gamma1 = 524288
+gamma2 = 261888
+Lambda = 256 
+hamming_weight = 60
 
 #---------------------------------------------------- FUNCTIONS ----------------------------------------------------#
 def BytesToBits(z):
@@ -78,39 +80,201 @@ def skDecode(sk, l=cols_l, k=rows_k, eta=eta, d=d):
 
 # #---------------------------------------------------- STEP 6 ----------------------------------------------------#
 #----------------------------------- Compute_mu -----------------------------------#
-# def compute_mu(pk):
-#     shake = SHAKE256.new()
-#     shake.update(pk)  
-#     tr = shake.read(64)  # 512 bits = 64 bytes
-#     return tr
+def compute_mu(tr, M_prime):
+    combined_bits = (BytesToBits(tr) + M_prime)
+    combined_bytes = bits_to_bytes(combined_bits)
+    shake = SHAKE256.new()
+    shake.update(combined_bytes)  
+    mu = shake.read(64)  # 512 bits = 64 bytes
+    return mu
 
 
-
-
-
-
-# def ExpandMask(rho, mu, l):
-#     """ExpandMask function based on NIST MLDSA Algorithm 34.
+# #---------------------------------------------------- STEP 11 ----------------------------------------------------#
+#----------------------------------- ExpandMask -----------------------------------#
+def ExpandMask(rho_doub_prime, k):
+    c = 1 + bitlen(gamma1 - 1)
+    y = []
     
-#     Args:
-#         rho (bytes): Seed of length 64 bits (8 bytes).
-#         mu (int): Nonnegative integer.
-#         l (int): The length of output vector y.
-#         gamma1 (int): Bound for polynomial coefficients, a power of 2.
+    for r in range(cols_l):
+        rho_prime = rho_doub_prime + IntegerToBytes(k + r, 2)
+        shake = SHAKE256.new()
+        shake.update(rho_prime)
+        v = shake.read(32 * c)
+        y_r = BitUnpack(v, gamma1 - 1, gamma1)
+        y.append(y_r)
+
+    return y
+
+
+# #---------------------------------------------------- STEP 12 ----------------------------------------------------#
+#----------------------------------- Compute_w -----------------------------------#
+def compute_w(A, y_ntt):
+    w_ntt = []
+    for _ in range(rows_k):
+        vector_ntt_t = [0] * coefficients_per_polynomial
+        w_ntt.append(vector_ntt_t)
+
+    w = []
+    for _ in range(rows_k):
+        vector_invntt_w = [0] * coefficients_per_polynomial
+        w.append(vector_invntt_w)
+
+    for i in range(rows_k):
+        for j in range(cols_l):
+            w_ntt[i] += A[i][j] * y_ntt[j]
+
+    for i in range(rows_k):
+        w[i] = NTT_inverse(w_ntt[i])
+
+    return w
+
+
+# #---------------------------------------------------- STEP 13 & 14----------------------------------------------------#
+#----------------------------------- FUNCTIONS -----------------------------------#
+def Decompose(r):
+    r_plus = r % q
+    r_0 = r_plus % (2*gamma2)
+
+    if r_plus - r_0 == q - 1:
+        r_1 = 0
+        r_0 = r_0 - 1
+    else:
+        r_1 = (r_plus - r_0) // (2*gamma2)
+
+    return r_1, r_0
+
+
+def HighBits(w):
+    r_1, _ = Decompose(w)
+    return r_1
+
+
+#----------------------------------- Compute_w1 -----------------------------------#
+w1 = []
+for _ in range(rows_k):
+    vectorw1 = [0] * coefficients_per_polynomial
+    w1.append(vectorw1)
+
+
+# #---------------------------------------------------- STEP 15----------------------------------------------------#
+#----------------------------------- FUNCTIONS -----------------------------------#
+def w1Encode(w1):
+    w1_encoded = []
+    for i in range(rows_k):
+        packed_coeff = simple_bit_pack(w1[i], (q - 1) // (2 * gamma2) - 1)
+        w1_encoded.extend(packed_coeff) 
+    return bytes(w1_encoded)
+
+
+#----------------------------------- Compute_commit-hash -----------------------------------#
+def compute_commit_hash(mu, w1_encoded):
+    # w1_encoded_bytes = b''.join(w1_encoded)
+    data = mu + w1_encoded
+    shake = SHAKE256.new()
+    shake.update(data)
+    commit_hash = shake.read(Lambda // 4)  
+    return commit_hash
+
+
+# #---------------------------------------------------- STEP 16----------------------------------------------------#
+#----------------------------------- compute_verfify_challenge -----------------------------------#
+def SampleInBall(seedc_h):
+    shake = SHAKE256.new()
+    shake.update(seedc_h)
+    h = BytesToBits(shake.read(64))
     
-#     Returns:
-#         list: Vector y where each entry is a polynomial with coefficients in range -gamma1+1 to gamma1.
-#     """
-#     c = 1 + bitlen(gamma_1 - 1)
-#     y = []
+    c = [0] * 256 
+    non_zero_count = 0
+    
+    for i in range(255, 255 - hamming_weight, -1):
+        while True:
+            j = int.from_bytes(shake.read(1), 'big')
+            if j <= i:
+                break
 
-#     for r in range(l):
-#         rho_prime = rho + IntegerToBytes(mu + r, 2)
-#         v = H(rho_prime, 32 * c)
-#         y_r = BitUnpack(v, gamma_1 - 1, gamma_1)
-#         y.append(y_r)
+        # Assign coefficient -1 or 1 at position j if not already assigned
+        if c[j] == 0:
+            c[j] = -1 if h[i - 256] else 1
+            non_zero_count += 1
+        
+        # Stop if we have assigned enough non-zero coefficients
+        if non_zero_count >= hamming_weight:
+            break
 
-#     return y
+    return c
+
+
+# #---------------------------------------------------- STEP 18----------------------------------------------------#
+#----------------------------------- multiply v_c_hat and s1_ntt -----------------------------------#
+def multiply_vc_hat_and_s1(v_c_hat, s1_ntt):
+    results = []
+
+    # Multiply each polynomial of s1_ntt with v_c and apply NTT
+    for poly in s1_ntt:
+        multiplied_poly = []
+        for i in range(len(poly)):
+            product = poly[i] * v_c_hat[i]
+            multiplied_poly.append(product)
+        
+        invntt_result = (postprocess_modular(NTT_inverse(multiplied_poly)))
+        
+        results.append(invntt_result)
+
+    return results
+
+
+# #---------------------------------------------------- STEP 19----------------------------------------------------#
+#----------------------------------- multiply v_c_hat and s2_ntt -----------------------------------#
+def multiply_vc_hat_and_s2(v_c_hat, s2_ntt):
+    results = []
+
+    # Multiply each polynomial of s1_ntt with v_c and apply NTT
+    for poly in s2_ntt:
+        multiplied_poly = []
+        for i in range(len(poly)):
+            product = poly[i] * v_c_hat[i]
+            multiplied_poly.append(product)
+        
+        invntt_result = (postprocess_modular(NTT_inverse(multiplied_poly)))
+        
+        results.append(invntt_result)
+
+    return results
+
+
+# #---------------------------------------------------- STEP 20----------------------------------------------------#
+#----------------------------------- compute_z -----------------------------------#
+def compute_z(y, cs1):
+    z = []
+    for i in range(len(y)):  
+        sum_poly = []
+        for j in range(len(y[i])):  
+            sum_poly.append(y[i][j] + cs1[i][j])
+        z.append(sum_poly)
+    return z
+
+
+# #---------------------------------------------------- STEP 21 & 22----------------------------------------------------#
+#----------------------------------- FUNCTIONS -----------------------------------#
+def LowBits(r):
+    _, r0 = Decompose(r)
+    return r0
+
+
+#----------------------------------- compute_r0 -----------------------------------#
+def compute_r0(w, cs2):
+    results = []
+    for i in range(len(w)):  
+        processed_polynomial = []
+        for j in range(len(w[i])): 
+            result_coefficient = LowBits(w[i][j] - cs2[i][j])
+            processed_polynomial.append(result_coefficient)
+        results.append(processed_polynomial)
+    return results
+
+
+
+
 
 
 #---------------------------------------------------- MAIN FUNCTION ----------------------------------------------------#
@@ -191,37 +355,110 @@ def Sign_internal(sk, M_prime, rnd):
 
 
     # #--------  Step 6: 
-    # mu_input = tr + bits_to_bytes(M_prime)
-    # mu = H(mu_input, 64)
-    
+    mu = compute_mu(tr, M_prime)
+    # print(f"\nmu : {mu}") 
+    # print(f"\nmu : {len(mu)}") 
+    # print(f"\nmu : {mu.hex()}") 
 
-    # #--------  Step 7:
-    # rho_double_prime_input = K + rnd + mu
-    # rho_double_prime = H(rho_double_prime_input, 64)
     
+    # #--------  Step 7:
+    combined = K + rnd + mu
+    shake = SHAKE256.new()
+    shake.update(combined)
+    rho_double_prime = shake.read(64)
+    # print(f"\rho_double_prime : {rho_double_prime}") 
+    # print(f"\rho_double_prime : {len(rho_double_prime)}") 
+    # print(f"\rho_double_prime : {rho_double_prime.hex()}") 
+
 
     # #--------  Step 8: 
-    # kappa = 0
+    k = 0
     
 
     # #--------  Step 9: 
-    # z, h = None, None
+    z, h = None, None
 
 
-    #--------  Step 11:
-    # y = ExpandMask(rho_double_prime, kappa, l=len(s1))
-    # y_ntt = [NTT(poly) for poly in y]
-    # Aw_pointwise = []
-    # for i in range(len(A)):
-    #     Aw_pointwise.append([(A[i][j] * y_ntt[i][j]) % q for j in range(256)])
+    # #--------  Step 10: 
+    # while z is None or h is None:
+
+
+    # # --------  Step 11:
+    y = ExpandMask(rho_double_prime, k)
+    # print("Vector y:")
+    # for i in range(len(y)):
+    #     print(f"\ny[{i}] = {y[i]}")
 
 
     # #--------  step 12:
-    # w = [NTT_inverse(poly) for poly in Aw_pointwise]
+    y_ntt = []
+    for i in range(len(y)):
+        y_ntt.append(NTT(y[i]))
+
+    # for i in range(len(y_ntt)):
+    #     print(f"\ny_ntt[{i}] = {y_ntt[i]}")
+
+    w = compute_w(A, y_ntt)
+    # for i in range(len(w)):
+    #     print(f"\nw[{i}] = {', '.join(map(str, w[i]))}")
 
 
-    # return w
+    # #--------  step 13 & 14:
+    for i in range(len(w)):
+        for j in range(coefficients_per_polynomial):
+            w1_coef = HighBits(w[i][j])
+            w1[i][j] = w1_coef
 
+    # for i in range(len(w1)):
+    #     print(f"\nw1[{i}] = [{', '.join(map(str, w1[i]))}]")
+
+
+    # #--------  step 15:
+    w1_encoded = w1Encode(w1)
+    # print(f"\nw1_enc : {w1_encoded}") 
+
+    c_h = compute_commit_hash(mu, w1_encoded)
+    # print(f"\nc_h : {c_h}") 
+
+
+    # #--------  step 16:
+    v_c = SampleInBall(c_h)
+    # print(f"\nv_c : {v_c}") 
+
+
+    # #--------  step 17:
+    v_c_hat = NTT(v_c)
+    # print(f"\nv_c_hat : {v_c_hat}") 
+
+
+    # #--------  step 18:
+    cs1 = multiply_vc_hat_and_s1(v_c_hat, s1_ntt)
+    # for index, poly in enumerate(cs1):
+    #     print(f"Result cs1 {index}: {poly}")
+
+
+    # #--------  step 19:
+    cs2 = multiply_vc_hat_and_s2(v_c_hat, s2_ntt)
+    # for index, poly in enumerate(cs2):
+    #     print(f"Result cs2 {index}: {poly}")
+
+
+    # #--------  step 20:
+    z = compute_z(y, cs1)
+    # for index, poly in enumerate(z):
+    #     print(f"\nz {index} = {poly}")
+
+
+    # #--------  step 21 & 22:
+    r0 = compute_r0(w, cs2)
+    # for index, poly in enumerate(r0):
+    #     print(f"\nr0 {index} = {poly}")
+
+
+    # #--------  step 23:
+
+
+    # #--------  step 24:
 
 
 M_prime = [1,0,1] 

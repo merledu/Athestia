@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Dec 29 20:51:26 2024
+# Process ID: 669307
+# Current directory: /home/mlatif/simpleBitPack/simpleBitPack.runs/impl_1
+# Command line: vivado -log SimpleBitPack.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source SimpleBitPack.tcl -notrace
+# Log file: /home/mlatif/simpleBitPack/simpleBitPack.runs/impl_1/SimpleBitPack.vdi
+# Journal file: /home/mlatif/simpleBitPack/simpleBitPack.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source SimpleBitPack.tcl -notrace

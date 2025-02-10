@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" \
+"../../../../ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

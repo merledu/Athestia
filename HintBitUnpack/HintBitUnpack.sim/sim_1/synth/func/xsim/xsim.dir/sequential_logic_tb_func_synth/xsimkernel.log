@@ -1,0 +1,4 @@
+Running: xsim.dir/sequential_logic_tb_func_synth/xsimk -simmode gui -wdb sequential_logic_tb_func_synth.wdb -simrunnum 0 -socket 58927
+Design successfully loaded
+Design Loading Memory Usage: 32388 KB (Peak: 33000 KB)
+Design Loading CPU Usage: 90 ms

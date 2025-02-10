@@ -1,0 +1,14 @@
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 87a0f9db546b49adaa94dd8c419a5e3b --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitUnpack_tb_behav xil_defaultlib.HintBitUnpack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.srcs/sources_1/new/HintBitUnpack.sv" Line 1. Module HintBitUnpack doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitUnpack
+Compiling module xil_defaultlib.HintBitUnpack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitUnpack_tb_behav

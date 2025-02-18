@@ -7,6 +7,13 @@ coefficients_per_polynomial = 256
 eta = 2
 η = 2
 d = 13
+gamma1 = 524288
+gamma2 = 261888
+Lambda = 256 
+hamming_weight = 60
+beta = 120
+omega = 75
+MAX_REJECTIONS = 814
 
 
 #---------------------------------------------------- KEY ----------------------------------------------------#
@@ -307,3 +314,24 @@ if __name__ == "__main__":
     # Convert encoed bytes to hex string
     hex_string = ''.join(format(byte, '02x') for byte in encoded_bytes)
     # print("Encoded hex string:", hex_string)
+
+
+
+#---------------------------------------------------- Lengths_calculation ----------------------------------------------------#
+sk = 32+32+64+32 * ((cols_l+rows_k) * bitlen(2*eta)+ (d * rows_k))
+# print(sk)
+
+sign = ((Lambda / 4) + (cols_l * 32 * (1 + bitlen(gamma1 - 1))) + omega + rows_k)
+# print(sign)
+
+t0_coeff = 2**(d-1)
+# print(t0_coeff)           # -4097 to 4096
+
+y = gamma1
+# print(y)                  # -524287 to 524288   
+
+w1_encoded = (Lambda / 4)
+# print(w1_encoded)           # 64
+
+z = gamma1
+# print(z)                  # -524289 to 524288   

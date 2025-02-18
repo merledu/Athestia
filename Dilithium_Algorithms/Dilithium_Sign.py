@@ -1,4 +1,5 @@
 from Dilithium_Key import *
+import hashlib
 
 
 #---------------------------------------------------- PARAMETERS ----------------------------------------------------#
@@ -6,6 +7,9 @@ gamma1 = 524288
 gamma2 = 261888
 Lambda = 256 
 hamming_weight = 60
+beta = 120
+omega = 75
+
 
 #---------------------------------------------------- FUNCTIONS ----------------------------------------------------#
 def BytesToBits(z):
@@ -18,6 +22,7 @@ def BytesToBits(z):
             y[8 * i + j] = z_prime[i] % 2
             z_prime[i] = z_prime[i] // 2
     return y
+
 
 
 #---------------------------------------------------- STEP 1 ----------------------------------------------------#
@@ -78,13 +83,13 @@ def skDecode(sk, l=cols_l, k=rows_k, eta=eta, d=d):
     return rho, K, tr, s1, s2, t0
 
 
+
 # #---------------------------------------------------- STEP 6 ----------------------------------------------------#
 #----------------------------------- Compute_mu -----------------------------------#
 def compute_mu(tr, M_prime):
-    combined_bits = (BytesToBits(tr) + M_prime)
-    combined_bytes = bits_to_bytes(combined_bits)
+    combined_bytes = tr + M_prime # Correct concatenation of bytes
     shake = SHAKE256.new()
-    shake.update(combined_bytes)  
+    shake.update(combined_bytes)
     mu = shake.read(64)  # 512 bits = 64 bytes
     return mu
 
@@ -104,6 +109,7 @@ def ExpandMask(rho_doub_prime, k):
         y.append(y_r)
 
     return y
+
 
 
 # #---------------------------------------------------- STEP 12 ----------------------------------------------------#
@@ -129,17 +135,20 @@ def compute_w(A, y_ntt):
     return w
 
 
+
 # #---------------------------------------------------- STEP 13 & 14----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
 def Decompose(r):
-    r_plus = r % q
-    r_0 = r_plus % (2*gamma2)
+    r_1 = (r + 127) >> 7
+    if gamma2 == (q - 1) // 32:
+        r_1 = (r_1 * 1025 + (1 << 21)) >> 22
+        r_1 &= 15
+    elif gamma2 == (q - 1) // 88:
+        r_1 = (r_1 * 11275 + (1 << 23)) >> 24
+        r_1 ^= ((43 - r_1) >> 31) & r_1
 
-    if r_plus - r_0 == q - 1:
-        r_1 = 0
-        r_0 = r_0 - 1
-    else:
-        r_1 = (r_plus - r_0) // (2*gamma2)
+    r_0 = r - r_1 * 2 * gamma2
+    r_0 -= (((q - 1) // 2 - r_0) >> 31) & q
 
     return r_1, r_0
 
@@ -154,6 +163,7 @@ w1 = []
 for _ in range(rows_k):
     vectorw1 = [0] * coefficients_per_polynomial
     w1.append(vectorw1)
+
 
 
 # #---------------------------------------------------- STEP 15----------------------------------------------------#
@@ -176,32 +186,36 @@ def compute_commit_hash(mu, w1_encoded):
     return commit_hash
 
 
+
 # #---------------------------------------------------- STEP 16----------------------------------------------------#
 #----------------------------------- compute_verfify_challenge -----------------------------------#
 def SampleInBall(seedc_h):
-    shake = SHAKE256.new()
+    shake = hashlib.shake_256()
     shake.update(seedc_h)
-    h = BytesToBits(shake.read(64))
-    
-    c = [0] * 256 
-    non_zero_count = 0
-    
-    for i in range(255, 255 - hamming_weight, -1):
+    buf = bytearray(shake.digest(168))
+
+    signs = int.from_bytes(buf[:8], byteorder='little')
+    pos = 8  # Start reading bytes from position 8
+
+    c = [0] * 256
+
+    for i in range(256 - hamming_weight, 256):
         while True:
-            j = int.from_bytes(shake.read(1), 'big')
-            if j <= i:
+            if pos >= 168:
+                buf = bytearray(shake.digest(168))
+                pos = 0
+            b = buf[pos]
+            pos += 1
+            if b <= i: 
                 break
 
-        # Assign coefficient -1 or 1 at position j if not already assigned
-        if c[j] == 0:
-            c[j] = -1 if h[i - 256] else 1
-            non_zero_count += 1
-        
-        # Stop if we have assigned enough non-zero coefficients
-        if non_zero_count >= hamming_weight:
-            break
+        # Swap values and set new coefficient
+        c[i] = c[b]
+        c[b] = 1 - 2 * (signs & 1) 
+        signs >>= 1  # Shift sign bits
 
     return c
+
 
 
 # #---------------------------------------------------- STEP 18----------------------------------------------------#
@@ -209,18 +223,18 @@ def SampleInBall(seedc_h):
 def multiply_vc_hat_and_s1(v_c_hat, s1_ntt):
     results = []
 
-    # Multiply each polynomial of s1_ntt with v_c and apply NTT
     for poly in s1_ntt:
         multiplied_poly = []
         for i in range(len(poly)):
-            product = poly[i] * v_c_hat[i]
+            product = (poly[i] * v_c_hat[i])
             multiplied_poly.append(product)
         
-        invntt_result = (postprocess_modular(NTT_inverse(multiplied_poly)))
-        
+        invntt_result = (NTT_inverse(multiplied_poly))
+
         results.append(invntt_result)
 
     return results
+
 
 
 # #---------------------------------------------------- STEP 19----------------------------------------------------#
@@ -228,30 +242,32 @@ def multiply_vc_hat_and_s1(v_c_hat, s1_ntt):
 def multiply_vc_hat_and_s2(v_c_hat, s2_ntt):
     results = []
 
-    # Multiply each polynomial of s1_ntt with v_c and apply NTT
     for poly in s2_ntt:
         multiplied_poly = []
         for i in range(len(poly)):
             product = poly[i] * v_c_hat[i]
             multiplied_poly.append(product)
         
-        invntt_result = (postprocess_modular(NTT_inverse(multiplied_poly)))
+        invntt_result = (NTT_inverse(multiplied_poly))
         
         results.append(invntt_result)
 
     return results
 
 
+
 # #---------------------------------------------------- STEP 20----------------------------------------------------#
 #----------------------------------- compute_z -----------------------------------#
-def compute_z(y, cs1):
+def compute_signers_response_z(y, cs1):
     z = []
     for i in range(len(y)):  
         sum_poly = []
         for j in range(len(y[i])):  
-            sum_poly.append(y[i][j] + cs1[i][j])
+            sum_result = (y[i][j] + cs1[i][j]) % q 
+            sum_poly.append(sum_result)
         z.append(sum_poly)
     return z
+
 
 
 # #---------------------------------------------------- STEP 21 & 22----------------------------------------------------#
@@ -267,46 +283,133 @@ def compute_r0(w, cs2):
     for i in range(len(w)):  
         processed_polynomial = []
         for j in range(len(w[i])): 
-            result_coefficient = LowBits(w[i][j] - cs2[i][j])
+            result_coefficient = (w[i][j] - cs2[i][j]) % q  
+            result_coefficient = LowBits(result_coefficient)  
             processed_polynomial.append(result_coefficient)
         results.append(processed_polynomial)
     return results
 
 
 
+# #---------------------------------------------------- STEP 23----------------------------------------------------#
+#----------------------------------- FUNCTIONS -----------------------------------#
+def modpm(m, alpha):
+    return -((alpha // 2 - m) % q) + (alpha // 2)
+
+def compute_infinity_norm(vector):
+    max_value = 0
+    for poly in vector:
+        for coeff in poly:
+            adjusted_coeff = modpm(coeff, q)
+            max_value = max(max_value, abs(adjusted_coeff))
+    return max_value
+
+
+
+# #---------------------------------------------------- STEP 25----------------------------------------------------#
+#----------------------------------- multiply_vc_hat_and_t0 -----------------------------------#
+def multiply_vc_hat_and_t0(v_c_hat, t0_ntt):
+    results = []
+
+    for poly in t0_ntt:
+        multiplied_poly = []
+        for i in range(len(poly)):
+            product = (poly[i] * v_c_hat[i])
+            multiplied_poly.append(product)
+        
+        invntt_result = (NTT_inverse(multiplied_poly))
+        
+        results.append(invntt_result)
+
+    return results
+
+
+
+# #---------------------------------------------------- STEP 26 & 27----------------------------------------------------#
+#----------------------------------- FUNCTIONS -----------------------------------#
+def MakeHint(x, r):
+    r1 = HighBits(r)
+    v1 = HighBits(r + x)
+    return int(r1 != v1)
+
+
+#----------------------------------- compute_hints -----------------------------------#
+def compute_hints(ct0, w, cs2):
+    hints = []
+    for i in range(len(w)):  
+        hint_poly = []
+        for j in range(len(w[i])):  
+            x = (-ct0[i][j]) % q
+            sub_result = (w[i][j] - cs2[i][j]) % q
+            r = (sub_result + ct0[i][j]) % q   
+            hint_poly.append(MakeHint(x, r))
+        hints.append(hint_poly)
+    return hints
+
+
+
+# #---------------------------------------------------- STEP 33----------------------------------------------------#
+#----------------------------------- FUNCTIONS -----------------------------------#
+def HintBitPack(h):
+    y = bytearray(omega + rows_k)
+    index = 0
+
+    for i in range(rows_k):
+        for j in range(256):
+            if h[i][j] != 0:
+                y[index] = j
+                index += 1
+        y[omega + i] = index
+
+    return y
+
+
+#----------------------------------- sigEncode -----------------------------------#
+def sigEncode(c_h, z, h):
+    sigma = c_h  
+    for i in range(cols_l):
+        sigma += BitPack(z[i], gamma1 - 1, gamma1)
+    sigma += HintBitPack(h)
+
+    return sigma
 
 
 
 #---------------------------------------------------- MAIN FUNCTION ----------------------------------------------------#
-def Sign(sk, M):
-    random_no = 30
-    # print(random_no)
-    random_bytes = random_no.to_bytes((random_no.bit_length() + 7) // 8, byteorder='big')
-    shake = SHAKE256.new()
-    shake.update(random_bytes)
-    rnd = shake.read(32)  #256 bits = 32 bytes
+def Sign(sk, M, rnd, ctx):
+    # random_no = 30
+    # # print(random_no)
+    # random_bytes = random_no.to_bytes((random_no.bit_length() + 7) // 8, byteorder='big')
+    # shake = SHAKE256.new()
+    # shake.update(random_bytes)
+    # rnd = shake.read(32)  #256 bits = 32 bytes
 
     # secure_random = random.StrongRandom()
     # seed_length = 32  
     # random_no = secure_random.getrandbits(seed_length * 8)   #32 * 8 = 256 bits
     # rnd = IntegerToBytes(random_no, seed_length)
-    
+
+
+    if len(ctx) > 255:
+        return None
+
     if rnd is None:
         return None
-    
-    M_prime = BytesToBits((IntegerToBytes(0, 1)) + bits_to_bytes(M))
-    
+
+    M_prime = (IntegerToBytes(0, 1)) + (IntegerToBytes(len(ctx), 1)) + ctx + M
+
     signature = Sign_internal(sk, M_prime, rnd)
     return signature
+
 
 
 #---------------------------------------------------- Sign_internal ----------------------------------------------------#
 def Sign_internal(sk, M_prime, rnd):
     #--------  Step 1: (𝜌, 𝐾, 𝑡𝑟, 𝐬1, 𝐬2, 𝐭0) ← skDecode(𝑠𝑘)    
     rho, K, tr, s1, s2, t0 = skDecode(sk)
-    # print(f"\nρ : {rho}")
-    # print(f"\nK : {K}")
-    # print(f"\ntr : {tr}")
+    # print(f"\nρ : {rho.hex()}")
+    # print(f"\nK : {K.hex()}")
+    # print(f"\ntr : {tr.hex()}")
 
     # print("Vector s1:")
     # for i in range(len(s1)):
@@ -366,108 +469,148 @@ def Sign_internal(sk, M_prime, rnd):
     shake = SHAKE256.new()
     shake.update(combined)
     rho_double_prime = shake.read(64)
-    # print(f"\rho_double_prime : {rho_double_prime}") 
-    # print(f"\rho_double_prime : {len(rho_double_prime)}") 
-    # print(f"\rho_double_prime : {rho_double_prime.hex()}") 
+    # print(f"\nrho_double_prime : {rho_double_prime}") 
+    # print(f"\nrho_double_prime : {len(rho_double_prime)}") 
+    # print(f"\nrho_double_prime : {rho_double_prime.hex()}") 
 
 
     # #--------  Step 8: 
-    k = 0
-    
+    kappa = 0
 
     # #--------  Step 9: 
-    z, h = None, None
+    (z, h) = (None, None)
 
 
     # #--------  Step 10: 
-    # while z is None or h is None:
+    while (z, h) == (None, None):
+
+        # # --------  Step 11:
+        y = ExpandMask(rho_double_prime, kappa)
+        # print("Vector y:")
+        # for i in range(len(y)):
+        #     print(f"\ny[{i}] = {y[i]}")
 
 
-    # # --------  Step 11:
-    y = ExpandMask(rho_double_prime, k)
-    # print("Vector y:")
-    # for i in range(len(y)):
-    #     print(f"\ny[{i}] = {y[i]}")
+        # #--------  step 12:
+        y_ntt = []
+        for i in range(len(y)):
+            y_ntt.append(NTT(y[i]))
+
+        # for i in range(len(y_ntt)):
+        #     print(f"\ny_ntt[{i}] = {y_ntt[i]}")
+
+        w = compute_w(A, y_ntt)
+        # for i in range(len(w)):
+        #     print(f"\nw[{i}] = {', '.join(map(str, w[i]))}]")
 
 
-    # #--------  step 12:
-    y_ntt = []
-    for i in range(len(y)):
-        y_ntt.append(NTT(y[i]))
+        # #--------  step 13 & 14:
+        for i in range(len(w)):
+            for j in range(coefficients_per_polynomial):
+                w1_coef = HighBits(w[i][j])
+                w1[i][j] = w1_coef
 
-    # for i in range(len(y_ntt)):
-    #     print(f"\ny_ntt[{i}] = {y_ntt[i]}")
-
-    w = compute_w(A, y_ntt)
-    # for i in range(len(w)):
-    #     print(f"\nw[{i}] = {', '.join(map(str, w[i]))}")
+        # for i in range(len(w1)):
+        #     print(f"\nw1[{i}] = [{', '.join(map(str, w1[i]))}]")
 
 
-    # #--------  step 13 & 14:
-    for i in range(len(w)):
-        for j in range(coefficients_per_polynomial):
-            w1_coef = HighBits(w[i][j])
-            w1[i][j] = w1_coef
+        # #--------  step 15:
+        w1_encoded = w1Encode(w1)
+        # print(f"\nw1_enc : {w1_encoded.hex()}") 
 
-    # for i in range(len(w1)):
-    #     print(f"\nw1[{i}] = [{', '.join(map(str, w1[i]))}]")
+        c_h = compute_commit_hash(mu, w1_encoded)
+        # print(f"\nc_h : {c_h.hex()}") 
 
 
-    # #--------  step 15:
-    w1_encoded = w1Encode(w1)
-    # print(f"\nw1_enc : {w1_encoded}") 
-
-    c_h = compute_commit_hash(mu, w1_encoded)
-    # print(f"\nc_h : {c_h}") 
+        # #--------  step 16:
+        v_c = SampleInBall(c_h)
+        # print(f"\nv_c : {v_c}") 
 
 
-    # #--------  step 16:
-    v_c = SampleInBall(c_h)
-    # print(f"\nv_c : {v_c}") 
+        # #--------  step 17:
+        v_c_hat = NTT(v_c)
+        # print(f"\nv_c_hat : {v_c_hat}") 
 
 
-    # #--------  step 17:
-    v_c_hat = NTT(v_c)
-    # print(f"\nv_c_hat : {v_c_hat}") 
+        # #--------  step 18:
+        cs1 = multiply_vc_hat_and_s1(v_c_hat, s1_ntt)
+        # for index, poly in enumerate(cs1):
+        #     print(f"Result cs1 {index}: {poly}")
 
 
-    # #--------  step 18:
-    cs1 = multiply_vc_hat_and_s1(v_c_hat, s1_ntt)
-    # for index, poly in enumerate(cs1):
-    #     print(f"Result cs1 {index}: {poly}")
+        # #--------  step 19:
+        cs2 = multiply_vc_hat_and_s2(v_c_hat, s2_ntt)
+        # for index, poly in enumerate(cs2):
+        #     print(f"\nResult cs2 {index}: {poly}")
 
 
-    # #--------  step 19:
-    cs2 = multiply_vc_hat_and_s2(v_c_hat, s2_ntt)
-    # for index, poly in enumerate(cs2):
-    #     print(f"Result cs2 {index}: {poly}")
+        # #--------  step 20:
+        z = compute_signers_response_z(y, cs1)
+        # for index, poly in enumerate(z):
+        #     print(f"\nz {index} = {poly}")
 
 
-    # #--------  step 20:
-    z = compute_z(y, cs1)
-    # for index, poly in enumerate(z):
-    #     print(f"\nz {index} = {poly}")
+        # #--------  step 21 & 22:
+        r0 = compute_r0(w, cs2)
+        # for index, poly in enumerate(r0):
+        #     print(f"\nr0 {index} = {poly}")
 
 
-    # #--------  step 21 & 22:
-    r0 = compute_r0(w, cs2)
-    # for index, poly in enumerate(r0):
-    #     print(f"\nr0 {index} = {poly}")
+        # #--------  step 23, 24 & 25:
+        # norm_z = compute_infinity_norm(z)
+        # print(f"\infinity norm s_r_z: {norm_z}") 
+        # norm_r0 = compute_infinity_norm(r0)
+        # print(f"\ninfinity norm r0: {norm_r0}") 
+
+        if (compute_infinity_norm(z) >= gamma1 - beta or compute_infinity_norm(r0) >= gamma2 - beta):
+            (z, h) = (None, None)  
+        else:
+            ct0 = multiply_vc_hat_and_t0(v_c_hat, t0_ntt)
+            # for index, poly in enumerate(ct0):
+            #     print(f"\nResult ct0 {index}: {poly}")
+
+            # #--------  step 26 & 27:
+            h = compute_hints(ct0, w, cs2) 
+            # print("Hint Vector (h):")
+            # for poly_index, hint_poly in enumerate(h):
+            #     print(f"\nh[{poly_index}]: {hint_poly}")
+
+            # #--------  step 28 - 30:
+            inf_norm_ct0 = compute_infinity_norm(ct0)
+            # print(inf_norm_ct0)
+            count_ones = sum(1 for poly in h for coeff in poly if coeff != 0)
+            # print(count_ones)
+
+            if inf_norm_ct0 >= gamma2 or count_ones > omega:
+                (z, h) = (None, None)
 
 
-    # #--------  step 23:
+        # #--------  step 31 & 32:       
+        kappa = kappa + cols_l
+
+    
+    # #--------  step 33:
+    z = [ [ modpm(x, q) for x in zi ] for zi in z ]   
+    sig = sigEncode(c_h, z, h)
+    # print("Encoded Signature:", sig)
 
 
-    # #--------  step 24:
+    # #--------  step 34:  
+    return sig
 
 
-M_prime = [1,0,1] 
+m_hex = 'BB88DE13CC6B3CE2A061816397DFF40349B8F2533D6F86AF2DC73882DC7AD854B7BEA6283F358B498E4CDD4ACE062AF74021A9FC642F7D61B01E4858B5CA2E7DAC4F6AC2D73524F3B45683BAD136CE7620ED4D0BF784A421807D5D632940A01206AF819C7D4BE58E2CA1810851FEDF0D82719955DC352D2DEBE70DBCC35095355ED4B8B04450E8B9432A4025B18F088E3920B4BE76FEE6BF60C5EC650428B86DC733975A8C182E36300F54C3F48DF2D74C12E47CBE5C68F52E44C9728619C897EE35B2A46755A01E9D721BDEF415042937737FCDBFA7A279D7FEAF2C37CCA94CEE48D9F8B62A4BCCDFA32360D640F4DE71003E3066B7DFC72E69CEB22280C2C1D3F21EE9F4752A76A3E5849F6FD1E2A6B0D1ACF98D7D3E0C32CD6EE0A0EEB164439332B8E6A5B01EF9CCADA5C412959C496FA1D3E5055405AA058FA4932342518A48B1046D2C1552A591FEE282E912C1720104E3403CADF4979FE5FCF756AFF8AE308ED6D3079D4E52E10F92F9EBA58F0186FA431CF081191F840B0B7B6833B524F8CD287913476C4421D4C155CD78A2AB60642B0BD4F17C5808EA1B73E26F26A36560728D51EF66B105180D6CDA21099F7FEDEB8ED61A856A5B796979F9725C2F409C77D61821994BF30126595BD7D2716414E63F9F673FDD368AAFEA3A59B32C716944AD936DB4652D8AF616F8BCF50B64A4D3AD9FCE98854A0B44CC86C6D5EA181E1551E2371637C1850D37ED8AE87B5636B11043CC4B87BA27E4AAA575EA3AC1E3A0E1374B4115B41779EA5653AC2FB5EA41710196CDB9FF4D9C244CCA4E3A6F648B99B99E6598A7B2A611854AD5574B3174F4B05A9F4C7D5A7F9DE4E9C85B28FE342BABF8602ADEF2CCA0E34B137FEA800D15267739A48F36921AC8438A74538A5C98CABFD858479A6BEAFE2F830F7448E16E5D1BE68597FFEB8351A7C549DCCBCF665A87C7CBEF6A310CFCD1A37BB9E3C28D8D673F23F1B720928BC8C378A767BBA2AA3DF236D66ED69C3FD73CB891774C14206CB1986D7AA44DBD9E3AC60770E4388935F206F7E2FA3FFFAD9D9505DE30C68FCAE88BA044D89C43EA18D0ADD649DC6D4196C23DDBDE09F752DC4616E738D66FE89D514D517A1FF82FE1D6EBF291DCF3B47D3DB49FAE2C1B35DC1B64D0CB25C004C23FB33D90EA7F4B62EB07FA3FD46D4117E20CF9DA3127508EDD3CF96B5A1AE9D12AC6FF1E0B9689368FD1D57CAA131915CF2BE60E912E893ED1482774B5DA34C084A452ED821143C91B8B09BB6522D705B0AF458FDB6E757DB4822F4E60A5C1988D3B9F8118CAC514BAC27D07AC3EC0009687197772C1FC23266BB84726FE8B9893B5FA26226D8CCA27B750D7929CE86DCA554CEB3D544D8761C2EFA594ECCC0B9A0FA494AB8A56E37357CCBF495EE615114C34F20925A7374AA5B079510021F4779A3678B1FAB9FE485611E58C972D123B40A5B6E044A6D087568F65899E39843C585777702156B7031536AFF62F8DD90B39178A845D4CCE11A79908B1BD147F0607141970394C52CB2A142D12B777215E40229D1D408B5172C7B0BD7421E1174349676D51EB1A2DD734CB10AFBE96C1640E2A93D457C86D7466058A672387963AC3ECA979DC2F88D4F6F4E6AD00B7775217E1FBB81CDA2FF3E04A8174EE24CB1B78106636E9D8460AE2B0AE87BC4EBFE779798BEFA30F4B2923925122396B84A57BA2FBBF9FF1CCA3D09FC868045285326DBBE073CA46BD74D00627B67B16A9AB18B3DA42802CA35AED563560841B304A48CD39E3169D5955E47CEB424BBAF906FF4C84349DCEFFA69EF710249CA2F1BC487370751CA8F79CE8771080D24151FE7AD10375D878BDB943568B0E3941CDF5FCBE849DB874D703C25CAD5B8743FD2A064A656997ED7BCD1028EAF4ABBAF895D398C3D06C5748E03A9A625346CEE12D4B37C932D6A08EC08FF0F40054129D25B0F32969704862CF7C3C0926AD0ABD05283E0749DFA989FD023419CE26C41C44C1105E03D30A6C5281A8DB609D90F4A8BE1BC471565F350FF7FD73DD9BE477589CA6B6A2B37C20EDB05EA915B881FA7512B4B29E1CB9EA77B21180F3F71DB12ABD94E19705065D71BAE12A41D6E82178F06AFA4C0F35EC7E3EBCA810EEDBCFDB9F7FFDD9F9EAE00C01C2D4093728335B226ECEC6F850AABB6EDA82E6135E338FEB626A0A4343E6BF31F39DB9F15B58C0A2BC6E216ABA3E0A89401DE0AA11FF9F7BC56590E9D61791903881365B34FC8BBA2DF813FDAF5451F353E05BD477F8B329F8EDEDE713ED9ACF6CD1BE0C315E6A9CF157A3C5299869B34CA4D670E7FD61F78D67B99E987D12D0BD3D9619089E972A5142D2D9F04091B28C866426BD570D03EBC7AAC888BBDFC4309406BB4AF639B1CA94C8F4004DBF3730425977414364C3F8E00F414F62BF1937D326AF78C2F4E5FDA669221B06E3FA09F92A47D4179757447E7E3FDB375833B7E3FAE448C8315B892D8ED99AA842761FEB79A89576FD32B86E78AA1E7E138C7F03CB5D7C03E682A2C0BED14A4FC5BC289CBDEFC4D836824077E82E4BD31C47FFD9285F656A13DDDA3D80CCF83DAAA09CC37E3AC61366A86230C88FE1C1C0228DB60FF4F06280A7D784022A8099B20807C9EF0BF6A9FE0FCD19C1E512EA61DD680166AB46B26A8CCF75E4C42234C12415DA7A429E2824F36156A75AEF4F1CBB48245E42BEC8E3810C8E341B9D60657573B0342EA6AA02C64424732934761B0390812587A935D54A0820EDA1EF6817D580DBD10A53AC3D6EAC07789312EBA2F9302483B535E55045BB88DAE418AECEBCB88615D6704B2814375A6DF97B91D2E304054FBE25D05B95B142567BC074C81901F324E5CEA6FF7FE3A885917B028811039B59E1C7D0B0DD6CE47D70CB0BBDBCEBE8FC03A3D67E5DE7178FD5ADC7792FB321877D31B401FDF7C7BB4D04E697727E3258F5313B338B198A95C9CEA8A528318157627E3BEE44DD2E3ED66198E77CE15D7D52EFABB00A8405B920F8DF2C369E1DE5EC6378CFFC8448A0E245B791D3AA8EA8FADE4345176DBBDB4D38738D7E10848EF26B920B8A575C9535C31EC55F53F293865D3CBB2D10517E6F0227581A7E64000B17E4C53D14063699705668EC2ADE75918D0BE21190A6D730CF20908EF6068C2C0AF03EC98320913F4E4BD3E8814E8F93B64F210A900BFB56AD485EA64685E5443EEA3ABA712CE0AE15721D8BFC84792EC6D613DB4BCA1645AAAFF564CEA7B26BD7D06CFB7C5669CA2B6CD4A751A606A2AC2C4DF8F0BC15ABE6B710DBF60B1AEA196E320227265A14CF04986075FDFDBB8BEB6FE992CCDA09D39421D76B38CEC3CD4AA44F61918E1C16E0C5CAC5E840078F7C14C5CFE835BDBE9394B64271F494CE5E49B6048C379FB13FD1C78A989D674B644960CD9D211600A8DB98313F5BE8A74F63624F8B6BD8DCE163F1FE3666992CC5F69E5A9CE331C19841706413811430D0FDF131C92C4102A3FCB0CFE3AF421940ACB2548BB9A540942C7CCC6E7BD99232D4AE7880DAD9774A2A134124C6ED150DDEE0EC1347047E76710CA2A48B2CB63ED596D1C450F82099C69B90371BB2A1CF21579A311767C9A572C878FB723EE5BA4A5DD668BC36657912047B10AAF13FEA0715E270E7019CACFE8DFBB571329D41AC3B295B9DA8E404C88132B313C8336E7EE92D107F91F574B97410A13A2EFA45B88ED9DD60BED435256202DD7555200F2F36E36C7855D08518891971DD0A66CB5FA80833D762A46256A5664F170EFDD2E5EDABA1F95AEDC0C2B14004202ADB8CB21AEB732705FDDAD7DDC665169237588E3A9CB89618E64B1B3039D53C7C401C0B7DE24E678C0C82A641BADFA509F1FB867C816147E609946953FF3487A31B91BD6B6F088EBDD50F9BE39F9FAD4F9E1B65C179580DFD877A85700C3C9CA86545E1672F432556BCFFD58F5ECE618E04768F9BDCEDE9FCF8ECAE945E4ABDAA9EFAB2002EB1C62EB741AE625506EA360EE3BBCAE73BA217460F18F571DC986B622A9549057072BF4177D67E052F0C11E21F70F6B620D43443B770A17107A58EC0B3926118CD567FDA71EBBC6FE6CFB6B18AFC166A581EF58CAE165BEF4D302C334664D4E6BE9BDF36DB4FD51561E25A1360EEA233D8D42588791FB3AC8C5A2946001D5240E2179F2C30EF3F7EA76EAC62C3E74A76772C5099A5B6FE5DC80F251ACD7C840D451EFAAA651960296ECB3F777D7CBBB175F6C2842A975EDDC104459018AE49E6E629DE7F99BF6D39B17A310494BF620DA03DC817626A37239D9469D25212A3A0CFD336E0895BEF3E0D24EF61BBFB722BD798A2BC4E19B91C0A68DA89FD7B5EA0DCEC0006EA3AA642FA16301B87418B781E674DB0B2808CD0DA211A309EE9553E4076A3467490922549553CDAE9943E2598797352B99E167F3374977C5FF09836F11AAFC56723F192BA074FC9FFC044729E7A2036204658F03B0A6A65234C2C981F3C9B2E06DCA0B9B09399128E528A9DDABAC98C89B7728C48B6A107DCA125541ADD1C8A5D1F2C6706A9ED93D3A1A6DD12470748A146763BC6F84D3344A6629D266DB334309CE4E2036AD3FFF2398596E9E5AE3F3F4CC2CD124C26420130D2D9A9E0CC59378FC3C086479563148987EC3B4F6316800C7DF2C7EBC4F35D6B2998CEE7897925C1E54CFC2E4CBD3F89B8D63F83AE2BC9A0C13359F11A1DDCBFEFD304D4ECCD60C770EA7A2CB7423FD7E4E208A0B34C3F2E6DBAB5E94196AB6079B4708C95236BC177F2CFED59365B771C9B88C67D56745F5F9AF8578FD8BA40D7D46313B95C726DA886F627AB9EC8651244C1FBD68334DDC729E8089113486E1A7B8C229B6DBBDE965F49B2333B8948A2896BD746D4BC64F6FF80743B09CCF2382A6335E76AEE7D1C08D092E72BDC489E24115D0580987DB1738D8AEBD8E766F231DD0F83286DB3E77158DF526DD7838A6C4C226FBE23153AE75D541ED6EF74E72200BFAF66B4EB47801C2996D2640EC7AB61DA4CCE89F2F08C763813B434039AEEB2B77B9F2FEB4699F1F9B114A2B01F710852DA8A6399DA7B5EDE51FA8538'
+M_prime = bytes.fromhex(m_hex)
 
-# rnd = b'\x01\x02\x03\x04\x05\x06\x07\x08' 
+sk_hex = 'D7E1512B8AF9E945A9B6CC64CB8C2632AA5DCB6347CE44B710813B7281F950DEB3D121D7952025BCBB7B4716F6FEE3C606A9A2BD0C8FCCAA783E810DCA0E964FFF0B72CA2E03B7895830F0E739A4159F1E45F87AB1A11C4923EC5BE72EC50EBC6B836969E8CFD7F27A4AEBFBC6E125D5153DA443A0DBFCD61E3E63A916BEDA32593426E3242C0B10505AA870084971020544C3B4040B194619844093300D41286448C6490A346084C09190C28098985114868C0CC5491C4440A4B8304292601AC628CCC605CB246214996101182D2045681A988410472E118220E0307180103209A709CC3606890626D2344423C7819B406282247298066D52228AC0428C00214A1243111006924384690229829128861B00881A047214351001A785218800C80869CC3052449008CA002A80B610D4B0605434925C161289C44902B3611889001C88854116508138720A04124CB64D0944420914200C066D64260198B2680BB3092487081A0185D22248C1A66444181220030C0345921BB851D8360E40242DC32030811682CCA8311A404C1A8340DB3465CB960840C06C12206981C04D92848099C649C014880A116618A80091C488D488306220401025641C40400805500C0829999429E4266293A2084AB23090B44CCC804413808841442A20C710C1462D1093900412864A424002938912B42C10166E53348DDCA410DB946402090420C82583428E22C7210C0444509664CB362102324264304521178E6288858CA221D9107223C710A3148A11C98909374061482940860411C180C44081C22866CC489023382D2134495B086ECB2891C4B82DA1C460141546100242834025131410C444010147280C8024509024C4B261101885494686A2207111412623012C821230CC224A98326804B96DD2440418800414918CD4A660D9C644D3A00061106A188591903024DBA2451912454C100A0C3844DC28481325325C8201138750C830018A126948B80509108C443652918671D2126EA09064A2C089483006E0260153302D8A18410A240092B630D10289C9088111A550929200D1B87143228551866D144092A128019432058904852292504A340209886DC84865A2382E010441A046600A140D13482121868DDBA2648C36660A966108A730E23645E306221C172C8B184821376E522068C9A26D93C62DC812242144109814891483840330448C1466A38004914280230249829245CC320660A629C2447024B629E0804803B00989262519A18C18C10014C411CCC44142B260D4464009040A5C0260089685C3361019924C02082AE32010C940100A908CE08205D4A08592B82503388A030069C9448042986D8A8645D2008548804CCA426890C241503612A300515294640B135100A5690C371114160D02052909214613A78C08318201C9808B402563804802A26DC1C84408160C99102CE3280ED4226250007118009023458E498048A4128D9C2229404231121932C13802A18665000752DAB22D09198503400E110852218944D4C2290312224AA0814A480E090360033946600812D4080084400203A05118382121050A22426C1A0512243586843068E0C88421032C642050433009138989DB06685428421005641029860B472CD1848952A60D24464900B78C1B480A4AA651DBC20801B80109C089221709C9120A59466D202572622608A084855A366110C70410412E10A0509CA82D92A625E444000A026CE31006599229D322800B249019C87098484A5C064520A88C943462429605A0A4041482480813219B288022408249060C13275250402E4428811A25500BA9041A020CA3207094248153260118855042C2218C22891BC16D5C482053104D204749C1044A4326290BB125C3022E10328E9B44455B04219CC60D9C4604C1C604C3162A91C40848008208C71049422AD2360192088E8C342A8B226C6218882126428C38620B150612899182C86C18A11098448211072589C68C10332C0CA17023102DD9020A19326C19A848A402000CC7298B263081B05108380122C809819261C48281C2B864A130005B402A40B06919170908327291A08912B66C0AC269D2B8044230204C100518278C41242CD0886DDBA605D83685DC347024C36913382419A265DC4020D846310A086DA3426C12C230CB3490C120920034690A2571490486CC024089A0818C925021210158026C13948DE4180574D6C76CCD106A8026F32F2A7603CBD7C430958E4A600F67A1585FDDB2800C1438AC78605A4E4F7173C6C34B55D8DD72390FBBDABAE0EB0A78F31E731197E0FA9C00519DA00353010578D75CB095BBE3371687C10A18E5D3E63C08469C7108E0395261A1477281FF77877414288304BC71EC8B76AD3A7EA2BD0398533C647ECFE4BF8101DC3F4D4B3BE197D4A6ED9CC409867467C84244A4A1B2014F16418EB2DAFC8EAC97640896D0EDDF73940987726E7DAB763150DF38F2EA263E28220612B3F5469FA0B8773F059B454C7604F7EA801CA286C169FF29C5E50400AD0F7A5C5BDFE9BD491A6FFE877F32CEE3B9829D5884656B76F628BAF0F02C0F183D466C9A2A749650C465CB63FE1514174899F5A1B3EF72E6EEBCFA6B128F7218CC67D9BE1B95D774A9261246032C504C81B432243694FA8DC492C5F69B186153C3311EE3BAA67A7222FE41D09A275FE84FC8BBA917387A6E1C05783393D067074AB63558784200EC8C4EA6DF0D4049F205B30F3FA6B03B80990147175B45626E580A2668FDAF5422E69B2DBDED5616B2EED3D4B640A1A2F0040CB29004C7B1449D015C2A8D4EAE2765291958AB847025122C8479756AAC189935CADFC6777887B21FAF885F0AFF5DE7A4884818ED8B6FBF9072773E40AB7924D2ADE96F173B77999E2A2B0D7DC1013B52BFA7004D6DD24A91A8BA80AEF1C55A728634F763812A8EA2EF138295F6854E629E4D5D6422CDEF0DEF9BA157C1235A3C1A8D871514AA1539854EE9A49A5F318ECC75622EEAE73B943763CD3A04D17D337BA048C440533E436C789E52426B35CA4DE9DB302559B269354C47B77EF254D14ADC3A05AA58B8EEF4B8EF17BAF7999E5FCE00902BF20C244F4EF2238C30CD95BB40AB3983E87BD2EE9E3F2504239E8A421D176E419B5E9D86395E3312190C6FAAFF66BF1EF589EBA6C733627B59818C8CB652E6197E71FA5D736B8F31BAC357E03270C70D153A18BD125F96688970791F48685A4C732C0423A26CC53865FC1474C76CC62306C8D70F8AE33872A085F9B7E660835036B88DC629D68D40077ED388F975656A0F1FFE4DF848F536FD86E06CAC2808D60AE3C72AF71D01A67EAE06E83385382EE13A475EDCF08A95C0834E3F7D805FFC6D6078D9D11EB5490DD45F3D56FCAEF66F1AD480C1109220CD830A66623A2CAB83E96D385AF4491725BACB1F149986949648AF605DC8BC5FC1AC0193A94609F023C906BEF494A83FFDB7741D4431FF1FDF126128D467F52D8C14F5FA419D4A7F4A3C43FD4996D194937906C9F76F68E7EC9B22E5162E4832EE5E1DF602BD1318F115D939A625D4C310E3B8FA0B15EBA06912B747BB0BBD96D3ABBAD0757676E6B4675F7319A786CFF938B6E94C5EB9DC1EEF01B70461759E8B1191E79296C99C7C7D858A7CC9085A6B7F470404A4A66D800EC3878228D4A11EF4F43F58721F58A39184989AA755BDB322988EE15C1CB13D3C7FC71F3D91B8F2A341A328455BBB0056E974A07A5184F36BA999967BF1F777D9811F92D746EED75504193E13B3E9BF072844677A8994FE36DFAF5AD5E93F6738DBDECE517D4E48C4AF8B40F0C7B5B0FDB9C21A9CD717BF0F7A74D639960F332EB747018E5A790E4BD0F8E741278DAF36B82A8180A35B98C96520CBAE36D290D0DD8A63B15CC8065C601A66F7F40F7FA94B596A08D99CAA296A9E4B063A7173E57F0283E046A37455A914E1077EBD6D2C03ADB88D19E47BCC3AE8E10B47F44385830E32BB0BFEC5318C9DB4EC9909961FB9CEA7EB2DEFECF6B5CB79B2181B5D896026C1A5020F80C6543099CFDAAD5F7AE0A3926FAC2DFDE9E109CAFA140A5F522CFA3424163333816F7E6243517C9DF6201D31620D6E2D4C8D4FDB880F3975012D14C4B68C25DA2A551921D4B98B7C8EF7BB8FCD493178433FDF9FC8A3C120D65B9765DC5E0DE1E93967059156357750C995F439E3DD596EF97F38FEADDDB8AA04EBAF6558263A2058C80DBD2AB10DDC26F71F605167EE5E7111CB3B0CDC6C695E27452F01CDE289AE2E5E1535A8C7072374E025A6CD39584CA6110C853FD8162770912FEFA40B4A3A6A89BCD21DCA7BC4E9729B3ADBA71B052AF7DE00FAD9C70DBEE422F601A1CE21DE1AF8FD6690E031A7D5FDD139077BF14679894C83867BF824F61094AAAC5C02CB2ADFD2354FEE62D57B2B6FDC632CA15619C63150D08871602CB8FCEEBC0B8E3B0E74E66CF2F85271C1851FE855A51270D4EE827C34247D3D50A85866A14C47E1378DA4BEE3F49EAB8B57245352FA014072BF1DAD398A3066BA77E1CC7C62CD2B04C7038F6F052DACDEDE5B0D285C1FD4217BDCA2106DA0ACF24E79AB59DF7865BE6CA145057949C5EFFD007526ED7173E69882B50B2098BA4CEAEDA04C5DD2AF214B3B9789E8C1E9A2B550B58A0143777EAA7607F7446D97C9B5F9D3294CE671CE61662327410380FE36861CA6C2CC3F0CF97A5976F55CB5F2622F6CBAE8D9D118D2CCDE975F447C2787143E311F8EFB98E37C514915E1A82ABA9CAF9B0685B5B057A4ABC2D47E6692A7E8541E42151946F625200CA6C47DC887B6FEFF77F25FD64233166C4701AB82F6EB915F4C05728EF28429C0A8CF23E21DED7BC674870CED01089A9361DCA8235BA552BA13CE1548612E596BF9CE86753EC5BE9ABCE246CF9366FA01C58E3E19B7DEBA4F9A00C223CF34AFAF58E81C6B1792A436F6669D354FFD62477E0A3FDF9C786997967D52B429AD8027D04842261E28077480D3DCA510427DE742DC9A5B137D01723823D0AD64C2F08F7123D3F06C4A530D69AA0B2845ADC9C49A263D8A0AAB7C2CB8D1F318228CE899C284D3ACD90E8CC6A41805E66229F3FC9141CA4BA4724F941C1CC4569A6D9F5D6EC2A3521DBDEFC791CFF03FF903B649D3493924874A328DA7FECDF20E7B85550EC9331873F1348A5A99F0943C80E7642070B89CDDF06ED0DABD95D03AE8EA78398691B48C600CB1EF5C2978B20B61A38912F15C94694506C877E96F1147449BAF52C28BBC08B97E40FC585FBF5ABD87527FD6347DA90C96D5326A1FFFB4F084A36FD5463A252F57B9C4170E85996BB6084BE1FDE0EC7A77FE3FD71AEBD1762D64093FABC37561FB44BC9FC2ABC0584BFBF56772E33BF725382E283A5F0A9CBA362C61E8BEFE8E8A319D8450EEC119B5564BF54EF5E889CC7A16FFB968E6D16B0F2BE0D2794C38281207EB11ABBF379E221546AFFFC56F12BD327A043ECC8429EC78B0EFDEEF0E5803B30656386458914B8F2621F1DCDE3E84A458EEB1362D32F8094A3219F18EC40CB126CB3259536EF41B11F4DE77DB2DB82D21AC4D0A01ADD4A03E15913C50E5A9FB04E16AF30C24BADB421BAA06C8DB22B235011D1A172C26C828111CA1F8314CC6CC0AD6E6F67FB5DC696D34CD4C3B717918CBFE9879CCBDAE883B0CAB0105C39EE2AA724C8931F7ACC03DDADC781A548469C3808498DDB9835430675B7196C74287B1BC23129DC5B73486FDC24F34834BE646932186D5AD7B9D81FB111BB43302C104F741810F9037AA3DE04A6CAF6EA8CB3BE817F7D79FE88A3833C6F50B3982A76E0C656FEEE5ABC533DD49F2E067A1C0DC15D57CDB0B82DA33AD5AE347BA07B60B2F0C36E3C0B1BB59BA93F64720A9EE7EF9E5535C801DDCDEEE9B8BB02B4FE81DC45B30B62BA855307224615BC3498BEEB0738F11C079F813C3DED243A3F70718A7576232294E642F18F57BF9AB325C28A602AC44E88D9380A21EAE9AE158322638B68FBA66107F9F0641FDC35C5F425DD9A91A84A9103B0A182659429450BD0C1E981B6BE557A5A697053200A94A28C330E03EA48C7EE5D8C3569D5C74C3486FE580D63F127BC265DDF1E636B5A745FC24568712464284F1A944A41BAB0DE7A3F3CC0557140F38273104C78D9AE33531D61A5D9B45E0071790C89A5AD5484209770FE049B0B019B159237608A2B34365D6672FBA95D1834A541D861F2DF622D9A96F0BA39431E6DD5C64AB62A6B41715C79AA5B4322BBCBEC0C9344D098D4682800213134ED403C87D74E6B6DCCD30AAF978692894B8168EA310EE4E230EEE26A784E16941B8F57315627F532BF8774928EB84DFF843107536517892B6BDC00EB1246FB07F8306A131C448CCEE98111DC0B79CA644600387A60D8B610676C11E82D5B22C3E0ED49E0E731B4C55C4B7AEEB36657A2BEF631DD78EE92CCD9DD6793C30E8FF9D9DADAE09B05990F39EDD4655B625D9E1886C38D5FC2FECA9AA1DA99EB95F7E3552C6E24067F576AF4A55034C554D3E3B4C86DF7A968C57811B9796262172C30C893B5B6A1C45D95D5BB1F289D3AD5FBD63BA7855017DDC0D1757BAC2F0B3A2AE881FB334CC275108CCB67FE17E48B66C3453B7778C647A19C7AC95F92CDE32A58F0CA3D7B03C7735E15A7E6656C0DF97B94313CA022877D50D49697199F51674621BBA4C8948730441E34F1EB3A1259687039F283B30566BD1D0138FEA410BC82226793AE20E6230539FA70D3CF980DA2D252F2D2025EBD027141FAA89128382085DECC1A1CB0837DFC8B183F60288548200A0DE3D4D7CA4FC0B2BC7BA7C023D68CDD26C04EE1CC862A00547451EFA121AD3A8AE159CC3DAC289325D99AD8C645B4D802963DEC440730A7E4777E16C2C594D25B6600E90587174AD541113FC389EB5B9A53B164C0EF4D3FAC96325E86B5D45'
+sk = bytes.fromhex(sk_hex)
 
-sk = b'm7\x8a\xd2\xe4z\x0c\x99n7\xd5,U\xcd\xa6{\xcc\xa6\xff\x8f\x1d,\xd6d9\xa8Sk\xb6\x84\xe2\x0f\xe3\x0f\x04\xb0\xa1\xa1E\x9fm\x97\x05K\xbbUx\x80\x144I\xb1\xcaP\xf5\x01\xe9\xe6)\'\xd5\x9d\xa73i\\U\xeb\x10i\x98\xa79f\x07\xe6\xd9s\xd3\xe9\xdd\x9d\xeeZ\x98yF|\x88\xc4)f\x12\xd0\x03:\x96V\xf1\xce\x19\x9bI~\x95\xcaS\xbbj;HL\xf6\xa7\x9b\x87f\x07&\xc0?h\xab\xf9\xa5\x89x\x9e\xe1\x84\r\x08\x06\x08\x9c\xa8\x8d#3f\x0b\xa7pY\x82h\xd0\x06\x89\x1c\x18\x92\xc48n@\x92\x01\x8b"a 51\x848\x92\x89H@\x187\x0c`\xa0\x01\x1a\xc5@\x00\xa3\x10\x02\xa0)\x12\xc1i#\x00B\xd1\x92`B\x18\x06A\x16b\x0cE1\x19IB\x822\x8eHD\x82 \xb8\x10\x04\x89A\x0b\x96\x11\x0b\xa9\x0cX\xc0mP\x840\x1a&A@\xb6\r\xdb \x12\xe4\x96\x88\x13GR\x11\x12\x01\x91@"\x187b\x13D\r\xe2\xb2`\x03\x05\x86D\xb0a\xc46\x81\x08\x06\x85\x1c\x05\x8e\x94$\x10!\t0\x89\x82\x85\xa3&\x0e\xc1\x92@J\xb8M\x8a\x10\x12"1b\x11% \xda0.\x94\x88(K\x00qJDh\x01E2\xe3\x04\x86\x84\x06!\x94\x18\x06\x13\x00n$B\x91\xa3F\x86\x82\x12\x0e\x1b)*\xcc\x12 $B\x01d\xb2`\x012*\x81\x00\x85\x11\x04\x02\x8c@$\xe1@0R\x98\x90\xa4\xc2\t\xda\xa01\x94\xb80\xc2\x12$J\x80l\x830\x11\x184f\xcb\x80M\x137\ta(p\x1a\x01*\x18"\x90\x1b\xb6e$I\x10\xe0\x88\x10\x01\x94M\xc1@\x8a\x10\x81@\x1c\x00\x8e\x80\x06\x84\x88\x90l\xe4\x16.\x924\t\x9a\x98\x00\x18\xa4I\x8c@i\x94\x94\x01#!P\xd22\n\\\x14\n\x19\x00\x06\x1c\xc6l\x04%"\x91Fa\xd8\xa2dY\x84\t\x14\xc5`\x191\x11\x99&JZ (\x90\x00!\xd9\x16B\x92Dq\xd4\xb8\x04b\xa81$\x87EY6DCD*\xd2\x92M$\xb7-"\x02\x8aS\x90\x81\x19\x11\x01\x1951L\xb6D\xdb\x92\x88$"\x06\xd14m\x93\xa0\x08\x94FB\x1a&p\x93&\x0e\x83$\x8e\xc0\x10(\x01\x01.#\x85@\x18\x07`\x13\x12\x8e\x14Hj\x90\x86(\x81\x901\x84\x16"D\x94)\x12Gq!\tj\x9c\xa4\x00PBm $R\x99D\x0c\x9b\xc20\xc8\xc2q\x94\xc6\x89\x18(H\x13\x07\x85J$l$\x19\x90A@Q\x19$&\x01\xa4-\x11\xa2\t`\x060\xd2\x96\x00\x0c\xa0$\x1b\xb6-$"\x81\x9b\xb0D\x14G\x05!\x00(\x8a\xc0(K\x94A\xa14\x08\x8a6*\x11\xb5\x8db\x00(\xcc \x8d\xc20j\xa3H\x06\xdb\x901\n8\x85\xcc\xb6\x04J\xc4\x11\x14\x12A\x01F!\x1c\xa4E\xc48A\x10\x07B[H\x88L\x10\x8dR\xb4e\x92\x12H\n\x12\x92\n!dD&\x85B\x041\x0b\x16QQ\xc0\x81\n%\x90P\x10\x05\xe0\x86a!\x11ba2\x06I \x81\x1421\x029f\t `\xc9\x00\x11K\x08\x11\x11\xa0\x88\x914 \xe4Fe\xc0H.\xc9\x88\x11\x83\x82\x01b\xb0$\x80\x86\x10\x11\x96\t`\x88M`\xb2m\x1a\x19QP8,\x84\x14\tA2p#\x06Q\x01)\x10$\xc7\x8d\x92@\x08\xc9\x98\x84\xd8FA\xd1\xa0M\x0c\x08m\x93\xa4 \x0c\xb6\x91\t"2\x98\x86q\x8c\x96Q\x19\x04nK\x04"\x81 N\x10(0\x00\x92I\xa24NC\x08B\x01\x13j\x0cE!\xc4&i\x00\x93A\x0c\'\x12\xe36\x8a\x19\x17\x12\x98\x94%\x14%L\xcc\xc4,\x92\x14\x12\x1a\xa5e\xdaH\rI\xb4\x8d\xc2\x90e\xc9\x86\x10\x8b"qT\xb2a\x93\x92\x81\x02\x14RJ\x18\x01\\\xb2L\xc0\x881"A\x91\xd88\x84\x81\xa2d\x00$d\x02\x08\x01"6a\x12\'\x90\\BE\x19\x02\x88\xe1\xb2`\x1c\xc1\t\xc9(\n\xa0\xb0\x85A\xb0p\x1c\x11j\x01\x18\x8d\x04H\x05\x0321\nDe\x18\x12$Y\x04\x89\x10\x90A\x12\x11\x82aD\x0e\xa0H\x88\x9c@%\x14\xa4$ \x84eD$\x01\x1b\xc6!\x994m\x00\xc81\xa46\x82\xe2\x84m\x89@\x85\xd92*\xe2\x12\x08\xd1\xa4M\x1b\x07\x91\x12\xb3H\xa4\xb2\x8c\xe2@\x91\x18\t@\x04\x15RY\x84\x11\x1b\xb2\x89\x1c\x84\x00\xe0\xc2L\x08\x19%$#&\xe40N#\xc5\x89$\x84H\xc4\x16\x02\x90\xc0\x01\x99\xa2hX\x16\x89\x82\x02\x85\x08\x15)b\x96%\x99\x821\xe4\x92\x8c\x9c\x06R\xa2\x06\x08#\x17a\x1b\x86\x05c\xc4A\x00\xb6$[F\x81\x98@!\x03\x16b!F%\xa4Bn \x18\x84\xc4\x161\x12\x90p\xe2\x00M#HF\x99\x08\x8e\xe2F\x82HF@\x01C`\xd0\xb0\x89\x9cH\r\xe36\x8ca\x18N\xd4\xc8mK\x06J\x01\xc7(\x03\xc9\x10 \xc9\x0c$\x88\x8c\x01%$\xd14,\x04\')\x123&\x08\x10D\x94\xb0H\x82\x02M\xe4\xa0,\x928\r\xc10f!\xb0\x85S\x960\xe12Q\t8\x90\x1bCl\x11BP\x18\x13P\x08)\x01\x18\xb0\x85\x92\x94%a\x90L\xd0\x08\x84\x044q\x0c\xc5l\xe4\xc4e\xdb\xb4\x01J$\x04\x12\xb5M`@\x11\xa4\x06\x91\x00\x89h\x12\x11I!\xa2\t#\x83 \xdc$\x80 \xa4\t\xcc\x94\x90K4I\x123b\xe1\x98QQ\xb6E\xa3@\x12\x0bF\x00\x123j\x1b\xb3\x0c\x83\x04 C\xc0M$D*$D2\x90\x00\x0ed"h\xcb\xa4%\x02F%R\xc4\x04\x92\x06\x00D\xb8M\x0c\xc4\x0c\xa1\x82\x10\xa0\x86A\x005\x89\x824\x80\x84@*\x82\x102@"\n\x98\xc0(\x12E\x80\x1c\x00\x0c\x99\x86\x04L\x12!\x19\x82p\xd0\xa6$\xc1\x04L\xc0BR\xe0\x84,\xa34!\x18\x97E\x1bBN\xa3\x82\x08\x9c\xa4\x88\xd0\x08\x85\x1a2B\t\xa8,P\x02a\xa08J[\x82m\tEh\xdc\xb8e\xd8\x90\x01\xdb\x94`\\\x18\ra\xb4!\xd9\xa2a\x8cF\x02\x10\xb1d\x02&(\x0c"\x0e\xe3\x14(\x84$B!\xa3!\t\x12\x81P\x04\x84\xa0\xb4\r \x05\x8d\n\xc7\x08\x9a20\x0c8&\x03\x00E\x93$-\xe0@P\x91FA\x08@q\x010\x82\x13\xa9m5PN|\xbc.&[p\x13\x1f||xmPY,\x04k2\xd95\x04\xdbcT\xec\xec\xbdy\xa0_\xc0BC\xe8\x01HQi\xa1m\xc8Y\xcb\x01\xb3s\x0f\x8fe\xfc(\xe5\x90\xd7<y\x0c\xf7\xc1\x8be\xf3\xac\xb1\xa5\x071\xecU\x056\x13\x85\x1e"\xae=0|\x82\xa3\xa2\xcc\x1a\xe8\xeb\x13\x07\x16\xdbo\x19\x1eB\xb7%\xc3\xc4\x17%\xfc\xdb\xa5\x10\r\x85F\xeeM\xd6\xfe,\xd0\xe0m]\xd6H\xc7\xa4;gWq\xff\xebJ\x15\xd2\x1b\n\xaf\xf4\xe2\'\xcb\xccZ$\x9e\xcfF\xde\xc3\x96\xfeF4\x19MC\xe55f1\xb7B\x16\xb5\xeb\xf9v[~\x8bQ\x12\xc2\x8e\xc1_\xab;\xc4\xc15\xbc\xcc\x1d1_-x=\xa1T\x10\xaaWg\xaa\xc4\x1f\xcce\x0b\xed\xe3==+\x9e\x95)\xe4RX\x1d\xc0]\xa0\xb2P/2\xb6\xb3c\xb0\xfa\x89\x88\x90\x91\x07\\\xc6\xc4uO\x9b!\xa8\xcd\xb4s\xfa\x84V\x8fGw\xef\xfc\xd0\xe7^\x1e\xe8#\x9b\xcd\x19\x02-\x82\x10\x01\xfc\x0c\xa7\x9bW%\xa4eo\xaf~\xf16<m\xf9\xdf\x9c\xa8S\xceU\xe2Ew\xf7\x9d\xe7\x18O\xa7\\\x85r\x9d\x81\xbd\xa0>q\xed\xd1a\x13\xdc9\xaf\xfb\xf8\xa8\x8a2\x92Eu\xde9\xaf\x05Ls\xf6\x14\xb1\x92\x9a\xe4\xb2\xbcnn\xfa\xff[cK\xa3\x8f\x16\xe5:\x06\xa3D\xba\xe49\xcc\xac:\xa8\xd7\xf5\xf3\x0e1\x93\xe7Qz\x8fs\xa6\xec\x80\xa2\xebq2}\x8a\xd9$.s\xden\x84XQ2c\xb5\xde\x9f\x915\x9c\xb9\xbd\xed\xdf\x7f\xf7\xfc\x1a\xef\xe8\x969N\x94\xaa\xb9&}SM\xd7\xf9\x8e\xe7\xb4\xed\xebL\xa6\xb20\xa4\xc6\xddH\xabI,Mt\xac\xa4\xa1\x8e\x8fG\x18;\x01B3GT\x120\xd5?P\xbf{\xe8{{y\\\xa55.l\xa1%\xfb\xca`K&\x92O\x10\xbf\xd6\x9b1TgwO\xad\xeb\x84h"\xe0\xb6\xa3\xb4|-R\xbfO\xd6\x1a\xf9\x1dQ\x98-\x13@\'\x98t\x93\x8f\xb6\r\xed.\x89\xb8>,G\xc3\x8f\xf5\xcc:(zG\x08\x1a\x03\x1c\xab$\xf3\xbeH?\xcb\xcf\xa4\xe6\xe7r\x02\xc8\xbc\x9a\xe1\x80h\xa3\xe2T7\xd8\xc0\x7fWwe\x12^\xbayC(\xa7\xe54\x0c\x90\x18\x98\x87\x7f\xea\xfcv\x99\x04\xc4\x9a\x0eP\xa9\'\x88\xda\x8fm\x03\xc3h\x91\xef\xc4\x91\x1557\x86\x08j\xf7\xc2\xc9\xb5Q\xcf\xa9\xc1\xaf\x9dE9\x1b\xda\xc8\xee\x1cX\xb5\xa7\xda\x08\xf4\xa3\xa4(1a\x18\xdc7\xa9\xa8\x14\xee\x97\xd6\x9c\xe3\xf25\x9cbb\xa0\xb5\x9b\x17#[\xfd/\t.\x12z\xf4&\x99\xb8\xce\xc2#\xfa\x9d\x0e]7M\xa6~\xe4\x1a\xfaQ\x8f"\xd2\x1c\xbc*\xd2\xf5k#\x19\xbb!\xe7%Fs4\x88\xdcW\x81.f\xc6r\x1e\xe2\xb4x\xa0\x87\x9a6\x8aY\x8d\xb0\x07J\xc8\x8b\r\xaa\x7f\x8d\xb2|\xe7C\xee\xe9\x18~\xbb\xe4\x0f\x85Y\xd3\xa1<\x1eO\x8dp\xde\xa1 w`W\x9bG\xd0\x00\x8e\x19#\xb0qV\xf3\xb4\x1fP\x1aI\x02\xc0\x04\x1fa\x97\xdf\x9b;\xb5\xe5\xe3\xdb|t\x08\x00\xa2\xad\x05\x1c]\xdd}\xff\xe1D\x07\xd3|j\x93lC\xe1l\xa4\x05\x83\xba)IPUBr\xeb~{\xf5\xd6\xac\xa3\x97|\xb903\x13\xf6BexR\t\x07\xd6\xeeV#\x9c\xdb:\xd8% \xbb_\xe7;\x1d\xb2cJR;6d\xe3 \xa6\xb1I\xed^h\x8e!;\'\xf3\xaan\xdc\xbf\xf67\x02^\xc69):\x117\n\xec3!|i\xd8>\xd7Z*\xe7\x99q\xd8\xb2\xd5n\xdb\x1c[\xab\xa0+\xdd\x1c|\xe8;\x19kx\xfcd[\'F_\x05^\x91\x80l\x82\xfb\xda\xb4\x1d\t[\xa8G\xfc,\x17%5r\xac{\xe3\xdf\xdb\xce\x8c\xe5\x82\xb5[\xa17\xcc\x8a\x14\xb0L\xd6\x1eS\rcb\x1d\xdc\x88\xb4F\x9bU\xf0/\x11\x931\x10\xba\x9c\xb6E\xd67e\x82\xa5\xbb\x8bq.\xc0\xf0\xba\xec(\x08\xaa\xe2\x8c\x9a\r\xf2+\xa9Jf\xea\xeb\xe6\xb4f\xc8\x0e*y\x9d\xc0#\xc46z\xbc\xca\xb0\xf4X\xc2\xac\x94\xa7\x04\xc1\x8f\xc6\x99 \xc6\x9e\xb88\xac\xc1\xb7\x03\xf2H>s\xa5I\xd4[9\xf5\xb4fL\xf5thT\x15\xc7ax\xa2\xd0\x90\xbe\x8ev\x9c\xa0\xcfK\x1f\xa2@+H.\x82pT\x1cg\xf1\x1a\xf8\xbf\x98\x8el\x8fFY\x0f\xa3\xd3\xda!M\xfbqp\xce\xed\xcbDd\x8b\x8d\xc6~[$/\xb45\xc9t/\xf6\xc4\xb8~M\x1b9\xa1$J\xc0\xa0M\xc5Y\xf5\xd1\x1d\xc7\xc5\xb9\xf3\xc3\xa3\x12{7\x0602\x17m\x7f\xaf\x8c/\xe6\xd9\xcb6/\xdd\xf6`X\xe4\x0c\xa2\xb6\xcf\xbe\xecT\xe6g\xcb8\xd8\xa4\xf2\xe9)\xa5L\x1a\xbbc\xd6\xc668\x1f\x1b}\x88\x0cb\xcb\xd8\xc0\xa7\x96\xca\xfe\xf4\xc5Ut\x17,`\x12k&\xca\x8385\x07D\x1f\xe67\xca[7\xe1\x92\x00.\xab\xc5\x08\xbb\x97\xe4$\x88\xf9b\xba\xe9\xeb\x08\x1d\xea\xbfw\xdd\x890\xd1\xb8"\xb9R\xb0\x1e\xdfj\xfd\x9c\xa4\xb0)\x07\xe7d\xb3T\x13\x82S\xcb\x83\xeaqas\xddgY\xa2-7Y\x07\x8e\xe2]Q\x816\x8eh\x8b3\x9eg\x80U\xa7\x08\x8e_J\xa2\xe3\x96\xfb\xa2\x8b\xa0\xac\xbb\x1c\xdbx\xd4LW\xa3"S\xfa\xce!`ZR\xf8E\x99\xe3\xcbM?\x084\xc7 \xaf\xa3[z\xf2\xe6G\x87\x9b\xab\xe0\x92\xd9\x03\xd5/\xde\x89\xaa\xf9\xcd\xd4\xc6\xdc\xe9\xca\x8d4O\x7f=]4\xb42\x9b\xf1\xe1\xc3\x18\xaa\xb4\xbfV)*\xa1\x8aJ2sZ0\x0fV\x9a4\xf6?\xff\xb9:\x85_\xb9z\xe0`\xa8\x1fI\x81u\xbf\r\xf4\xb3\x0e\xd3j!|\x1a\x1c\x8bj\xea\xc9\xcb\xf1\xdc\x1a\x8e\x99\xf6\x9a]<\x86W\xe2\xa92y\x9f\x8fF3\xd9\x0f\xf9\t\xd8\xd8\xefY`d\xdfY\xcbQ\x82\xba\xa9\x066\xe9\xfe\xd0v\x81oW\x86\xe9o\x02=\xdf}\x89\xf4\x9ap\x11\x95\x08\x1d\xfa\x08:\x04\xc8\x1a\xb4\t\xbe\xe6a\xcb\x1b\xc5vJL\n\x14\x8a\x87\x8f\xe8P\xe0\x8e\x9b\x89\xb4\xa4Y\xc3-vG-\xb6\xfaD\x8568\x98\xfa\xa5\xf8\xf7v{&\x97\x12\x10\xbc\xa5i\xd6\xb9\xfd\x9b\x1c\xa24\x10\xfe\x9aC\x1e\xd3:\x9f\x88iG\'\x9d\xdcMv\xd75]\x01Qm\x04\xb2\xa2\xdd\xab\xa2>.\x18\xd9)\x0c\x92P&y\xcd\x05\x97\xca\xcd\xa7/\xd6\xea\xf0\xf1\xf4\x87\x9b\xe9\x83\xc5\xe3mPf\xff\xb4\xe7\x86\xd8\xfa6_\x0f\xeadn\xa5,K\xb4y\x97\x94$\xc81\xab\xfc\xf7!\x82,\x91\xb72\xa4\xc4=^fW \xa4\x94\xe2\xf4K\xc4\xaan\xc7\xc9`\x0c\x80*\xe1\x05\xad1\xb26A=\x9b.l\xce\x93\x073\xc5\x80\x12\x91\xd0\xd4z\xef\xbc;s\x8d\ts\x9cKt\xfeIh\x9c\xae6\xc6O\xffo\x80\xe6\x82}\xbd\xc1\xe5\\\xa17z\xe6]vT/\xb0\x05\xd8\xa1)\x1f\xf3\x05\\y\x0e\xce\x87\xf7\x82\xc9\xbf\xbcs\x9f\x94`\x9f\xb7\xd0\x8fi\x06\xc0\xca\x10H5[\xa2\xd6t\xfa\x0f\xca\xd1\xf5\xaa\xea,\x1a\xe8\xabV\xa1D\xcc\x10\xe8\xf5\xbd\xe8\x92m=u\xd0\x0f\x1f\x03\x17\xdb"d\x07M\xadr\xdf\xa9\xac\x88\x17\r\'9\xfap\xc8a\xd6\x86m\t\x9c\xcb\x80>\xa2\xf1q\x95a.c\x05\x1e\xfeR\xe8\x02\x93\x87\x846\xb1\xe6\x08\xa3(\x99\x8eL9\x8ew^,\xee(\x07\x82\xbc\xff\x88\x8bafN\x07\xb2\xb2\x17\xd3\x0ej%E\xd8\xb5\xe7\xc2\xf1..\xad\xa2\xa2\x04\x18z)\x0c8\x1eh\x93\x07P\xb4\xbaY\xfe\x96\x17\x19\x0b\xd9\xfek`\xe6b*\xb3\x1a\xc2V\'\x87T\xd8{C\xfa\x08\xa9\x92\xac\x99\xbe_mz\xe0M+\xca\x9c\xcb)\x07\x1fs)\xd4\xc3\x00\xe5\x87\x16f\xc6\xcb\te\xdf\xec\'<\xc3i\x84\xb7\xc8\xe6\xaf\xf9\x1a\xdd\xa5\xd6qeRS\xd5\xc6#\xbbC\xf3\x9b\xb5\x1b|\xbb\x06y\x8d\xdb\xd32\xc5\x96P\xde\x02\x98;\xc3\xc5@\x83OYN\x1aX\xa05\x0e\xca\xb7\xcd\x85;d\xf5\x013+\xc7\x86\xe7#}\xf3\xd2\xfc\x89\xfd\x002mP\xa8\xbb\xce\xf5[\x11\x100\xa0\xd4+\xd8G\xc0\xec\xcc\xf7\xcb\xfa\xb6\xaf\x8eL\xfb\xecg\x08j\n\xb5\xe2\xefA\x93\x96\xe2\x9fn\xe7%\x1ec\xa5\xe8\xb2\xa6\xdb\xd8\xd9N\xf2uY\x14\xdd\xf6\xd7{\xfdxW\xb8e\x0c\x89H\'tte\xfa\x1f\xfcr2\x9b+\x99^U\x03ij-\xf1\xe4\xaa\xa3Nu\xb4\xd8\xe4\\F\x8c\xc4\xf9[\xb4\x1c#\x84<\xb3X\x03\xc3U\xef\xf5\xaf\x8f\x9b2\x1cN\x02\x90e3\xd2(\xce\x97c\xc6[\xe5\x15a\xe91\r%\xb8\xdczizQS:\x9b\x89\x0fB,\x02\x12\xb1\x94\xe7%~\xd3 \x1fQ\xc9\xe0=+\x121\x81q\xab\xfbJI!\n\xd0\xb2\xef\xf0\xbdI\x1e\r\xc5\x08\xa6]\x87\x86\t\xea\x14-\x83c>\xab\xe7\xfd\xc4o9\xf4\x9d\xeed\x1cY;\xfa\xd4"\x89+\xe5\xbe\xbc_0\xa8\xb8\xfb\xb4!<U\xe0\xd7Q\x0c\xb2\xd1wJ\x83)]E\xe7\xd5\x9dN\x86-\xb0\xbe\x19S\xb0\x84_\xa6\x80\xf5P% \x91\xc6\xca\n\x83"m\xbc\x03\x98\xc1\x1fL,\xe2\xa8f\x08\x8da\xf6@\x1e\xbfs\xdf\xeb\xeee\xd3\xea[\xbc\xb1E:\xf5B\xc6f\xdck\xedZ\x8e\\\xdbsb|\xb0b+\x87\x93\xefJ>\xdfJ9;\x98yG\xf4\xbbo#(\xfc\xc8H\x81k \x99\x9b\xcaB\x89\xd0\xf6\x9e:\x11\x81Hx\xa5b\x9f\xda#\xcaV\x17X\x16\xf10\xfe\x86\xdf\x9d\x92\xaa\xa9\xaa\xee\xabW\'[\x07\xd6\x18\x8e(\x95]\x887\xc4\ru\xf5)\xf6\xe4\xfbF\x1d\xa0\xadkJZ\xf3\xb5\x81\x10o\x93!+\xef \xc2\xf1\x8fyp1\xd1\x82\xbf\xd2\x05X\x90\xd8p\xf2OJ-\x1c\xb6^M\x14\xcf\xceC\x11Y5\xea\xaa\xacv\xc2$\xd9\x9c;\xb90\x05\xfc\xc1#\x10\xa9\x1fVXrv\xff\xb9\x97\x89v\x82\xe1H\xd3\x92I\t@4B\\T\xd0l\xa2\x81\xbaX\xfal\x08N`xt\x16L\xb7\xc7:\x99\xcb\xde\xa1\x98\xd6\xc9X\x1dsp\xe5&\xfc\xe9[\xbb\x08\xa88\xa8\xeb\x9a\xe8\x80\xf3!\xc2\xd7\xe6a\x1b\xa8\xcc\xb5\t\xa5\x11\x8d">\xf0\x8d\x11\xed\x8eY\xbeRRU\x01\x17\x82\x87+\x7f?]\xc2\xa1a\xda\x81\x8c=Dp>}}\xedM\xf1\x93:\\~\x18\xdc E\x9aO\x06\xf8\xfb[\x17\xa1\xbb\x81?k\tq#E\xa9\xd4\x04<E5)\xa8\xbd\xdf\xe6=\xc4\x06\xae\x0eY]\x17\x1d,\x9c\xfb\xcfyK\x8am\xeb/`\xac\x18}+D\xcb\x8f\xea\xf8b`q\xe8^\xf8!\xbf\xe9$?\xd7\xb0\x9d=\xc9q\x19A\xe5\xdd\xc8\xa6\xb3\xf4\xf5\xa3\xae=\x99\x98\xca\xf6\xa5\xefJ\xae\xee\xf3~\xdf\xb0C\xe3\xb4-\x1d\x99\xdc\xc1\xd1\x86\x93\xe3\x9f\x8e\x1cP\xfcja\x9d\xab\x80\x02 \xcfg\x92\xfb}6\xa9\xd3\xf0;\x13X\xc75-Y]\xba\x0e8<\xcd\x8b\xc07\xe8\xfa\x80\xba1\xce\xa1\xae\xb6\xd9\xb7\xbbL\xbe\x90gZ3\r\x84\xf5J\xbe\x1dwG-V\x0e\xaaeENo \xbd(\xe9s\x9dp\x1b\x9b\xcfm>\xf1%\x16\x95g\x1b[\x07\xa6\xf9\xda\x91\x82[d\xf6t\xc6\xbf\x97B\xd6\xfah\xcd\xack\x1e\xd7?\xb6w@\xa3h\x90/\xe9\xb7y\xb0H\xd5j\x15R\xb4B\xb8\xd4\xdcr\xe7m\x81F7\x16\xd3\xac\xbd\x04\xe8\x8c\xd8\xdf\x11\x90\xcb\x8c\x0b\xe9\xcb\x8f\xf1\xc7g\x1bh\xc3-I\x1dk\x7f\xe1\x92Jar\x15\xfd\xc2\xb6\x9b\xc5\xb9\xf3\x98K]\x96\x07e\x14\x9a;\xa1\xc3b#\x9b\xe0-L\xeb\x9f\xb59\x9a\x03\xf3\n\xce\xeai\xb0\x1a\xf7S\xf5\xa9\xf0\x98|\xfe\xfd\xdeR\xd0\x9c\xa2G\x9b"v\xd7\x1f\xd3s\xbe\x86\x87\xc4u\xf50\x89lk\x83i0\x985A\xde\xcf:\x8e\xd0A\xda\xd5\xbf\x02xs\x15\x05vN\x13\xfdf\x97\x96dO7\x80E2\x04\xc6\xfaY\x8b\xeb\x15\x06\xe5`\xf2\x87\xf1\xf4W\xf5\x19\xfe\xea\xc8\xa4\x9dQ\xd9\x8b{\x8en\r\x93o[;\xde\xf7;\x8c\x048bar/p\x89\xd3_\xf7\xcc\xfa\\\xc1,\x10g\xae\x15\x80?\xcd\x95GE\x94L\xef`\xae?7\xc3\xc7N\xb1\xff\x11\x0c\x8a\xe3*$\xd2:m\x1d\xdc=~\x97\xb0\xee\xe9\xd6\xc2\x0c\xa3\x97\xf4q\x91\x85U\xe5\x15>\x11\xdc\xb4\x13\xe8\xa4\xa2\x13\xaaIy\xfd\xc9\xe4)\xe9\x8f\xe8@>jYb\xc5\xd3?\x8f\xfd\x18\xdc\xc6\xe5\xf5\xcb09\x93\xa6\x05\x8dj\xa5\x86\xa5\x1bgm\x1b\xd9\x9d\xd9o2U\x9e\xce\xf3\\\xeb\x06\xd1\'\xaa\x9b\n\xed\xe6\xf0\xbfs+\xbe~\xe8n\xa4\x08\xe0o\xa5\xbc\x0f\xf8\xb1(\x8bUw\xf3\x12^\xfe\xcd\xd9\xdd\x8d\xed\xcd\xd8\x97\x90\x95\x94Q\xc7{^\xfb\x1crS\x13\xf7\xc1\xe2<\xdfs6#t\x95\xdd$\xa8p\xeb\t\r\xce.hX\xa3\xae}\x1b@\x88\x1f\xf0\xd2\x90\x05,\xab\xbcK\xeb\x93!o\xf1\x15\xec\x13s\xa7#7\x7f\xf1\x846\xe6\x031\x98\xee\x9a\x11\x86\x1bs\xd7\xaf\xe6\xea\xc5r\xc2\xdej\\n\xe0\xdd\x02O~\xeb~\xcb\x83\xa0\x8e\x84<\x7f\x0e\x07sha\xfb\xa7\xbb\xeb]f\x0e\xcc\xed\x1c\xbd\xa4\x02\xc9\x8aod\x03B\xfe\x9fB\xc0\x153\xb1A\xf3\x8f|\xd1d"3\xb9\xe5q\tRV;\xa1\xa1'
+rnd_h = '1C8F427ED06E6179DB1D1B4A61D2FA9B7DB8F60062F98E4F1613DD59446D4F09'
+rnd = bytes.fromhex(rnd_h)
 
-Sign(sk, M_prime)
-# signature_result = ML_DSA_Sign_internal(sk, M_prime, rnd)
-# print(signature_result)
+ctx_h = '9A471AA2E12F035BFB29743B090C58CCA8A8FB1D1ECC68373124ADD3CA5CA350592457B99FA24378D615CDCA30C073C4E7A7B6E7BEA82EF201B94525A7D971C8F3A4FB7DD13F745E90B9C64DBE'
+ctx = bytes.fromhex(ctx_h)
+
+signature = Sign(sk, M_prime, rnd, ctx)
+# print("Signature:", signature.hex())
 

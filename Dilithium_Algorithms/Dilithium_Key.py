@@ -300,6 +300,9 @@ def compute_t(A, s1_ntt, s2):
         for j in range(cols_l):
             t_ntt[i] += A[i][j] * s1_ntt[j]
 
+    # for i in range(rows_k):            
+    #     print(f"\nt_ntt[{i}] = {', '.join(map(str, t_ntt[i]))}")
+
     for i in range(rows_k):
         t[i] = NTT_inverse(t_ntt[i])
 
@@ -434,16 +437,21 @@ def KeyGen():
     # seed_length = 32  
     # random_no = secure_random.getrandbits(seed_length * 8)   #32 * 8 = 256 bits
 
-    random_no = 30
-    # print(random_no)
-    random_bytes = random_no.to_bytes((random_no.bit_length() + 7) // 8, byteorder='big')
+    # random_no = 30
+    # # print(random_no)
+    # random_bytes = random_no.to_bytes((random_no.bit_length() + 7) // 8, byteorder='big')
 
-    shake = SHAKE256.new()
-    shake.update(random_bytes)
-    ξ = shake.read(32)  #256 bits = 32 bytes
+    # shake = SHAKE256.new()
+    # shake.update(random_bytes)
+    # ξ = shake.read(32)  #256 bits = 32 bytes
 
-    # ξ = IntegerToBytes(random_no, seed_length)
-    # print(ξ.hex())
+    # # ξ = IntegerToBytes(random_no, seed_length)
+    # print(ξ)
+
+    # ξ = bytes([0] * 32)
+
+    see = '5AC4D695186486C11D21F0300DBDA6F38B8D1FA07A254549B64422D44B1AAC42'
+    ξ = bytes.fromhex(see)
 
     if ξ is None:
         return None  
@@ -550,7 +558,7 @@ def KeyGen_internal(ξ):
     #-------- Step 6: pk ← pkEncode(rho, t1)
     pk = pk_encode(rho, t1)
     # print(f"\npk : {len(pk)}") 
-    # print(f"\npk : {pk}") 
+    # print(f"\npk : {pk.hex()}") 
 
 
     expected_length = 32 + 32 * rows_k * (bitlen(q - 1) - d)
@@ -569,7 +577,7 @@ def KeyGen_internal(ξ):
 
     #-------- Step 8: sk ← skEncode(rho, K, tr, s1, s2, t0)
     sk = skEncode(rho, K_bytes, tr, s1, s2, t0)
-    # print(f"\nsk : {sk}")   
+    # print(f"\nsk : {sk.hex()}")   
 
     expected_length = 32 + 32 + 64 + 32 * ((rows_k + cols_l) * bitlen(2 * eta) + d * rows_k)
     actual_length = len(sk)
@@ -579,7 +587,6 @@ def KeyGen_internal(ξ):
 
 
     #-------- Step 9: Return (pk, sk)
-
     return pk, sk
 
 # KeyGen()

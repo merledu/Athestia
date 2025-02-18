@@ -577,6 +577,7 @@ def main():
         seed_hex = test['seed']
         # print(seed_hex)
         expected_pk_hex = expected['pk']
+        expected_sk_hex = expected['sk']
         seed_bytes = bytes.fromhex(seed_hex)  # Convert hex to bytes
 
         print(f"Processing Test Case ID: {test['tcId']} with Seed: {seed_hex}")
@@ -584,15 +585,16 @@ def main():
         # Generate keys using the seed
         public_key, private_key = KeyGen(seed_bytes)
         public_key_hex = public_key.hex()  # Assuming public_key is a bytes object and converting to hex
+        private_key_hex = private_key.hex() 
 
         # Check if the generated public key matches the expected public key
-        if public_key_hex.lower() == expected_pk_hex.lower():
+        if public_key_hex.lower() == expected_pk_hex.lower() and private_key_hex.lower() == expected_sk_hex.lower():
             result = "PASS"
         else:
             result = "FAIL"
 
-        print("Public Key:", public_key_hex)
-        print("Expected Public Key:", expected_pk_hex)
+        # print("Public Key:", public_key_hex)
+        # print("Expected Public Key:", expected_pk_hex)
         print("Test Result:", result)
         print("\n")  # New line for better readability between test cases
 

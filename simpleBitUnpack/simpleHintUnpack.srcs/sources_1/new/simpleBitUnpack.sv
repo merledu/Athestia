@@ -36,19 +36,19 @@ module PolynomialConverter #(
     input logic clk,
     input logic reset,
     input logic [256*bitlen_b-1:0] v, // Byte string of length 32 * bitlen(b)
-    output logic [bitlen_b-1:0] w[255:0] // Polynomial coefficients using unpacked array
+    output logic [255:0][bitlen_b-1:0] w // Polynomial coefficients using unpacked array
 );
 
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset) begin
-            for (int i = 0; i < 256; i++) begin
-                w[i] <= '0;
-            end
-        end else begin
-            for (int i = 0; i < 256; i++) begin
-//            z_bits[(j * W_WIDTH) +: W_WIDTH] = w[255 - j];
-                w[i] <= v[(i)*bitlen_b +: bitlen_b];
-            end
+    localparam int C = $clog2(bitlen_b); // bitlen b
+
+    // Generate block to assign coefficients
+    genvar i;
+    generate
+        for (i = 0; i < 256; i = i + 1) begin : gen_coeff
+            assign w[i] = v[i*C +: C]; // Directly extract bits from v
         end
-    end
+    endgenerate
 endmodule
+
+//note used packed array for optimization of code because packed array is complete string in bytes form
+//all bits packed in one string 

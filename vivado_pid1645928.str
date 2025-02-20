@@ -1,0 +1,1080 @@
+/*
+
+Xilinx Vivado v2018.2 (64-bit) [Major: 2018, Minor: 2]
+SW Build: 2258646 on Thu Jun 14 20:02:38 MDT 2018
+IP Build: 2256618 on Thu Jun 14 22:10:49 MDT 2018
+
+Process ID: 1645928
+License: Customer
+
+Current time: 	Sat Feb 15 08:31:12 PKT 2025
+Time zone: 	Pakistan Time (Asia/Karachi)
+
+OS: Ubuntu
+OS Version: 5.15.0-130-generic
+OS Architecture: amd64
+Available processors (cores): 16
+
+Display: :4
+Screen size: 1920x1200
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 1,375 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	/merledu1/tools/Xilinx/Vivado/2018.2/tps/lnx64/jre
+Java executable location: 	/merledu1/tools/Xilinx/Vivado/2018.2/tps/lnx64/jre/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	mlatif
+User home directory: /home/mlatif
+User working directory: /home/mlatif/Athestia
+User country: 	null
+User language: 	en
+User locale: 	en
+
+RDI_BASEROOT: /merledu1/tools/Xilinx/Vivado
+HDI_APPROOT: /merledu1/tools/Xilinx/Vivado/2018.2
+RDI_DATADIR: /merledu1/tools/Xilinx/Vivado/2018.2/data
+RDI_BINDIR: /merledu1/tools/Xilinx/Vivado/2018.2/bin
+
+Vivado preferences file location: /home/mlatif/.Xilinx/Vivado/2018.2/vivado.xml
+Vivado preferences directory: /home/mlatif/.Xilinx/Vivado/2018.2/
+Vivado layouts directory: /home/mlatif/.Xilinx/Vivado/2018.2/layouts
+PlanAhead jar file location: 	/merledu1/tools/Xilinx/Vivado/2018.2/lib/classes/planAhead.jar
+Vivado log file location: 	/home/mlatif/Athestia/vivado.log
+Vivado journal file location: 	/home/mlatif/Athestia/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-1645928-merledu1
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /merledu1/tools/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_DSP: /merledu1/tools/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_PLANAHEAD: /merledu1/tools/Xilinx/Vivado/2018.2
+XILINX_SDK: /merledu1/tools/Xilinx/SDK/2018.2
+XILINX_VIVADO: /merledu1/tools/Xilinx/Vivado/2018.2
+XILINX_VIVADO_HLS: /merledu1/tools/Xilinx/Vivado/2018.2
+
+
+GUI allocated memory:	154 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 952 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// [GUI Memory]: 47 MB (+46336kb) [00:00:16]
+// [Engine Memory]: 908 MB (+800664kb) [00:00:16]
+// Tcl Message: start_gui 
+// [GUI Memory]: 85 MB (+37883kb) [00:00:20]
+// HMemoryUtils.trashcanNow. Engine heap size: 953 MB. GUI used memory: 38 MB. Current time: 2/15/25 8:31:15 AM PKT
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // x (w, ck)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+// [Engine Memory]: 960 MB (+7158kb) [00:01:20]
+// Elapsed time: 23 seconds
+setFileChooser("/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.xpr");
+// Opening Vivado Project: /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.xpr. Version: Vivado v2018.2 
+// bx (ck):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from '/home/mlatif/simpleBitUnpack' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,069 MB. GUI used memory: 38 MB. Current time: 2/15/25 8:32:45 AM PKT
+// [Engine Memory]: 1,069 MB (+63229kb) [00:01:51]
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/merledu1/tools/Xilinx/Vivado/2018.2/data/ip'. 
+// TclEventType: PROJECT_NEW
+// Project name: simpleHintUnpack; location: /home/mlatif/Athestia/simpleBitUnpack; part: xc7a100tcsg324-1
+// 'i' command handler elapsed time: 38 seconds
+// Tcl Message: open_project: Time (s): cpu = 00:00:25 ; elapsed = 00:00:14 . Memory (MB): peak = 6241.242 ; gain = 142.492 ; free physical = 100804 ; free virtual = 193445 
+// Elapsed time: 15 seconds
+dismissDialog("Open Project"); // bx (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// [Engine Memory]: 1,133 MB (+11100kb) [00:01:58]
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 275 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (O, ck)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ad (aj, ck)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// e (ck):  Run Simulation : addNotify
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim' INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [SIM-utils-54] Inspecting design source files for 'tb_PolynomialConverter' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim' 
+// Tcl Message: xvlog --incr --relax -prj tb_PolynomialConverter_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.srcs/sources_1/new/simpleBitUnpack.sv" into library xil_defaultlib INFO: [VRFC 10-311] analyzing module PolynomialConverter INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.srcs/sim_1/new/simpleBitUnpack_tb.sv" into library xil_defaultlib INFO: [VRFC 10-311] analyzing module tb_PolynomialConverter INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib INFO: [VRFC 10-311] analyzing module glbl 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '2' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim' 
+// Tcl Message: Built simulation snapshot tb_PolynomialConverter_behav 
+// Tcl Message:  ****** Webtalk v2018.2 (64-bit)   **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018   **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.  source /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim/xsim.dir/tb_PolynomialConverter_behav/webtalk/xsim_webtalk.tcl -notrace INFO: [Common 17-206] Exiting Webtalk at Sat Feb 15 08:37:37 2025... 
+// TclEventType: LAUNCH_SIM
+// TclEventType: LOAD_FEATURE
+// Tcl Message: run_program: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 6259.250 ; gain = 0.000 ; free physical = 100755 ; free virtual = 193520 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_PolynomialConverter_behav -key {Behavioral:sim_1:Functional:tb_PolynomialConverter} -tclbatch {tb_PolynomialConverter.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2018.2 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,186 MB. GUI used memory: 41 MB. Current time: 2/15/25 8:37:40 AM PKT
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// [Engine Memory]: 1,192 MB (+2373kb) [00:06:47]
+// Waveform: addNotify
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: source tb_PolynomialConverter.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,198 MB. GUI used memory: 46 MB. Current time: 2/15/25 8:37:42 AM PKT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: # run 1000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_PolynomialConverter_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:20 ; elapsed = 00:00:15 . Memory (MB): peak = 6342.879 ; gain = 83.629 ; free physical = 100723 ; free virtual = 193494 
+// 'd' command handler elapsed time: 14 seconds
+// Elapsed time: 15 seconds
+dismissDialog("Run Simulation"); // e (ck)
+// Elapsed time: 30 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Untitled 1", 0); // k (j, ck)
+// Elapsed time: 434 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation]", 2); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 16 
+// Tcl Message: [Sat Feb 15 08:45:32 2025] Launched synth_1... Run output will be captured here: /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 3 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_FAILED
+// ah (ck): Synthesis Failed: addNotify
+// Elapsed time: 28 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (ck)
+// [Engine Memory]: 1,256 MB (+4592kb) [00:15:10]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,256 MB. GUI used memory: 47 MB. Current time: 2/15/25 8:46:05 AM PKT
+// Elapsed time: 75 seconds
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-1031] h is not declared [/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.srcs/sources_1/new/SimpleBitUnpack_top.sv:64]. ]", 1); // ah (O, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,257 MB. GUI used memory: 47 MB. Current time: 2/15/25 9:16:05 AM PKT
+// [GUI Memory]: 90 MB (+598kb) [00:53:20]
+// Elapsed time: 3489 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack_tb.sv", 1); // k (j, ck)
+selectTab((HResource) null, (HResource) null, "Sources", 1); // aE (Q, ck)
+// PAPropertyPanels.initPanels (SimpleBitUnpack_top.sv) elapsed time: 0.3s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (SimpleBitUnpack_top.sv)]", 1, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (SimpleBitUnpack_top.sv)]", 1, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (SimpleBitUnpack_top.sv)]", 1, true, false, false, false, false, true); // B (D, ck) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (SimpleBitUnpack_top.sv), dut : PolynomialConverter (simpleBitUnpack.sv)]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (SimpleBitUnpack_top.sv), dut : PolynomialConverter (simpleBitUnpack.sv)]", 2, false, false, false, false, false, true); // B (D, ck) - Double Click
+// [GUI Memory]: 96 MB (+1724kb) [01:14:45]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,290 MB. GUI used memory: 47 MB. Current time: 2/15/25 9:45:40 AM PKT
+selectCodeEditor("simpleBitUnpack.sv", 303, 633); // ce (w, ck)
+// Elapsed time: 1105 seconds
+selectCodeEditor("simpleBitUnpack.sv", 142, 546); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 238, 635); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 238, 635); // ce (w, ck)
+// Elapsed time: 168 seconds
+selectCodeEditor("simpleBitUnpack.sv", 108, 575); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 92, 563); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 92, 563); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 233, 398); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 233, 398, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("simpleBitUnpack.sv", 153, 242); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 153, 242, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'c'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 224, 397); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 224, 397, false, false, false, false, true); // ce (w, ck) - Double Click
+// WARNING: HTimer (HSTRUtils Dump STR Log Timer) is taking 845ms to process. Increasing delay to 4000 ms.
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+// Elapsed time: 19 seconds
+selectCodeEditor("simpleBitUnpack.sv", 182, 542); // ce (w, ck)
+// Elapsed time: 163 seconds
+selectCodeEditor("simpleBitUnpack.sv", 112, 518); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 112, 518); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 123, 449); // ce (w, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,293 MB. GUI used memory: 49 MB. Current time: 2/15/25 10:15:40 AM PKT
+// Elapsed time: 844 seconds
+selectCodeEditor("simpleBitUnpack.sv", 476, 571); // ce (w, ck)
+// Elapsed time: 24 seconds
+selectCodeEditor("simpleBitUnpack.sv", 214, 288); // ce (w, ck)
+// Elapsed time: 13 seconds
+selectCodeEditor("simpleBitUnpack.sv", 101, 305); // ce (w, ck)
+// Elapsed time: 47 seconds
+selectCodeEditor("simpleBitUnpack.sv", 374, 441); // ce (w, ck)
+// Elapsed time: 24 seconds
+selectCodeEditor("simpleBitUnpack.sv", 418, 324); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,309 MB. GUI used memory: 48 MB. Current time: 2/15/25 10:26:55 AM PKT
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 16 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack_tb.sv", 1); // k (j, ck)
+// Elapsed time: 13 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (O, ck)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ad (aj, ck)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: WAVEFORM_CLOSE_WCFG
+// TclEventType: SIMULATION_CLOSE_SIMULATION
+// PAPropertyPanels.initPanels (simpleBitUnpack.sv) elapsed time: 0.2s
+// e (ck):  Run Simulation : addNotify
+selectButton("PAResourceQtoS.SimulationRun_SIMULATION_ALREADY_RUNNING_DO_YOU_Yes", "Yes"); // JButton (A, G)
+// Tcl Message: close_sim 
+// Tcl Message: INFO: [Simtcl 6-16] Simulation closed 
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim' INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [SIM-utils-54] Inspecting design source files for 'tb_PolynomialConverter' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim' 
+// Tcl Message: xvlog --incr --relax -prj tb_PolynomialConverter_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.srcs/sources_1/new/simpleBitUnpack.sv" into library xil_defaultlib INFO: [VRFC 10-311] analyzing module PolynomialConverter INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.srcs/sim_1/new/simpleBitUnpack_tb.sv" into library xil_defaultlib INFO: [VRFC 10-311] analyzing module tb_PolynomialConverter 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '2' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim' 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: Built simulation snapshot tb_PolynomialConverter_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "tb_PolynomialConverter_behav -key {Behavioral:sim_1:Functional:tb_PolynomialConverter} -tclbatch {tb_PolynomialConverter.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2018.2 
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// PAPropertyPanels.initPanels (simpleBitUnpack.sv) elapsed time: 0.2s
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// Waveform: addNotify
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,313 MB. GUI used memory: 66 MB. Current time: 2/15/25 10:27:38 AM PKT
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source tb_PolynomialConverter.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 1000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_PolynomialConverter_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 6434.727 ; gain = 0.777 ; free physical = 100732 ; free virtual = 193876 
+// 'd' command handler elapsed time: 17 seconds
+dismissDialog("Run Simulation"); // e (ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Untitled 2", 3); // k (j, ck)
+// [GUI Memory]: 102 MB (+823kb) [01:56:48]
+// Elapsed time: 12 seconds
+selectButton(RDIResource.GraphicalView_ZOOM_FIT, "Waveform Viewer_zoom_fit"); // B (f, ck)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 19 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 1); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 2); // k (j, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// Tcl Message: launch_runs synth_1 -jobs 16 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Sat Feb 15 10:28:37 2025] Launched synth_1... Run output will be captured here: /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 5 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_FAILED
+// ah (ck): Synthesis Failed: addNotify
+// Elapsed time: 28 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (ck)
+selectCodeEditor("simpleBitUnpack.sv", 624, 158); // ce (w, ck)
+// Elapsed time: 14 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 1); // k (j, ck)
+// Elapsed time: 53 seconds
+selectButton(PAResourceAtoD.AbstractFileView_CLOSE, (String) null); // k (B, ck)
+// Elapsed time: 213 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 146, 81); // ce (w, ck)
+// Elapsed time: 14 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 234, 115); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 301, 214); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 180, 206); // ce (w, ck)
+// Elapsed time: 22 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 83, 358); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 70, 354); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 70, 354, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("SimpleBitUnpack_top.sv", 70, 354); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 70, 354, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("SimpleBitUnpack_top.sv", 74, 351); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 74, 351, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("SimpleBitUnpack_top.sv", 409, 383); // ce (w, ck)
+// Elapsed time: 20 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 169, 389); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 169, 389, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("SimpleBitUnpack_top.sv", 173, 384); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 173, 384, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("SimpleBitUnpack_top.sv", 255, 320); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 255, 320); // ce (w, ck)
+// Elapsed time: 35 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 202, 320); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 181, 293); // ce (w, ck)
+// Elapsed time: 46 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 2); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 1); // k (j, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 210, 371); // ce (w, ck)
+// Elapsed time: 18 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 147, 425); // ce (w, ck)
+// Elapsed time: 12 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 172, 389); // ce (w, ck)
+// Elapsed time: 27 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 203, 515); // ce (w, ck)
+// Elapsed time: 12 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 148, 517); // ce (w, ck)
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+// k (ck): Text Changed: addNotify
+// Elapsed time: 19 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B (k, ck)
+selectButton(RDIResource.ConfirmSaveTextEditsDialog_NO, "No"); // a (k)
+dismissDialog("Text Changed"); // k (ck)
+selectTab((HResource) null, (HResource) null, "Sources", 1); // aE (Q, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (SimpleBitUnpack_top.sv), dut : PolynomialConverter (simpleBitUnpack.sv)]", 2, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (SimpleBitUnpack_top.sv), dut : PolynomialConverter (simpleBitUnpack.sv)]", 2, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (SimpleBitUnpack_top.sv)]", 1, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top (SimpleBitUnpack_top.sv)]", 1, true, false, false, false, false, true); // B (D, ck) - Double Click - Node
+// Elapsed time: 20 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 209, 323); // ce (w, ck)
+// Elapsed time: 20 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 145, 397); // ce (w, ck)
+// Elapsed time: 18 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 146, 410); // ce (w, ck)
+// Elapsed time: 15 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 253, 52); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 253, 52, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "SimpleBitUnpack_top.sv", 'c'); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 173, 504); // ce (w, ck)
+typeControlKey((HResource) null, "SimpleBitUnpack_top.sv", 'v'); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 172, 551); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 154, 125); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 154, 125, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "SimpleBitUnpack_top.sv", 'c'); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 217, 548); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 217, 548, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "SimpleBitUnpack_top.sv", 'v'); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 329, 533); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 329, 533); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 329, 533); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 146, 546); // ce (w, ck)
+// Elapsed time: 13 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 292, 542); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 87, 554); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 87, 554); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 87, 554); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 87, 554); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 87, 554); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 87, 554); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 87, 554); // ce (w, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// aj (ck): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+// bx (ck):  Save Constraints : addNotify
+// TclEventType: DG_GRAPH_STALE
+// bx (ck):  Resetting Runs : addNotify
+dismissDialog("Save Project"); // aj (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: RUN_MODIFY
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: RUN_MODIFY
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// [GUI Memory]: 109 MB (+1853kb) [02:11:19]
+// Elapsed time: 160 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 16 
+// Tcl Message: [Sat Feb 15 10:43:45 2025] Launched synth_1... Run output will be captured here: /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 163 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 610ms to process. Increasing delay to 2000 ms.
+// [Engine Memory]: 1,319 MB (+275kb) [02:13:59]
+// ah (ck): Synthesis Completed: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 1,335 MB. GUI used memory: 55 MB. Current time: 2/15/25 10:44:55 AM PKT
+// Elapsed time: 116 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// Tcl Message: launch_runs impl_1 -jobs 16 
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Sat Feb 15 10:45:44 2025] Launched impl_1... Run output will be captured here: /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.runs/impl_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+// Elapsed time: 12 seconds
+collapseTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15); // u (O, ck)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15); // u (O, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Constraints Wizard]", 16, false); // u (O, ck)
+// bx (ck):  Open Synthesized Design : addNotify
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7a100tcsg324-1 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,374 MB. GUI used memory: 54 MB. Current time: 2/15/25 10:46:05 AM PKT
+// [Engine Memory]: 1,390 MB (+5750kb) [02:15:15]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,424 MB. GUI used memory: 54 MB. Current time: 2/15/25 10:46:30 AM PKT
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,533 MB. GUI used memory: 54 MB. Current time: 2/15/25 10:46:36 AM PKT
+// [Engine Memory]: 1,556 MB (+100645kb) [02:15:42]
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Xgd.load filename: /merledu1/tools/Xilinx/Vivado/2018.2/data/parts/xilinx/artix7/devint/artix7/xc7a100t/xc7a100t.xgd; ZipEntry: xc7a100t_detail.xgd elapsed time: 0.7s
+// [Engine Memory]: 1,699 MB (+68894kb) [02:15:43]
+// Device: addNotify
+// DeviceView Instantiated
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Device 21-403] Loading part xc7a100tcsg324-1 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Device view-level: 0.0
+// Tcl Message: open_run: Time (s): cpu = 00:00:42 ; elapsed = 00:00:40 . Memory (MB): peak = 6842.930 ; gain = 391.188 ; free physical = 99897 ; free virtual = 193078 
+// ExpRunCommands.openSynthResults elapsed time: 40.5s
+// Run Command: PAResourceCommand.PACommandNames_TIMING_CONSTRAINTS_WIZARD
+// Run Command: PAResourceCommand.PACommandNames_FILESET_WINDOW
+// 'c' command handler elapsed time: 13 seconds
+// [GUI Memory]: 115 MB (+1036kb) [02:16:01]
+// Elapsed time: 54 seconds
+selectButton("PAResourceTtoZ.TimingConstraintsWizardHandler_THERE_NO_TARGET_CONSTRAINTS_FILE_Cancel", "Cancel"); // JButton (A, G)
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // k (j, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,762 MB. GUI used memory: 85 MB. Current time: 2/15/25 10:47:10 AM PKT
+// Elapsed time: 13 seconds
+selectTab(PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_IMPLEMENTATION, "Post-Implementation", 1); // b (C, ck)
+selectTab(PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_SYNTHESIS, "Post-Synthesis", 0); // b (C, ck)
+// [Engine Memory]: 1,995 MB (+221041kb) [02:16:32]
+// RouteApi::initDelayMediator elapsed time: 45.4s
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Elapsed time: 38 seconds
+selectButton(PAResourceQtoS.RunGadget_SHOW_WARNING_AND_ERROR_MESSAGES_IN_MESSAGES, "205 warnings"); // h (Q, ck)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+selectCheckBox(PAResourceItoN.MsgView_WARNING_MESSAGES, (String) null, false); // g (aQ, ck): FALSE
+selectCheckBox(PAResourceItoN.MsgView_WARNING_MESSAGES, (String) null, true); // g (aQ, ck): TRUE
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ExpRunMgr Pending Runs Timer) is taking 500ms to process. Increasing delay to 3000 ms.
+// ah (ck): Implementation Completed: addNotify
+// Elapsed time: 24 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_IMPLEMENTED_DESIGN
+// e (ck): Close Design: addNotify
+// Elapsed time: 13 seconds
+selectButton(PAResourceAtoD.ClosePlanner_YES, "Yes"); // a (e)
+// TclEventType: DESIGN_CLOSE
+// Waveform: addNotify
+// Waveform: addNotify
+// Waveform: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 1,986 MB. GUI used memory: 83 MB. Current time: 2/15/25 10:48:46 AM PKT
+// Engine heap size: 1,986 MB. GUI used memory: 83 MB. Current time: 2/15/25 10:48:46 AM PKT
+// TclEventType: CURR_DESIGN_SET
+// TclEventType: DESIGN_CLOSE
+// bx (ck):  Open Implemented Design : addNotify
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// Tcl Message: close_design 
+dismissDialog("Close Design"); // e (ck)
+// Tcl Message: open_run impl_1 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,986 MB. GUI used memory: 60 MB. Current time: 2/15/25 10:48:48 AM PKT
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Reading XDEF placement. Reading placer database... Reading XDEF routing. 
+// Tcl Message: Read XDEF File: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7105.105 ; gain = 0.000 ; free physical = 100058 ; free virtual = 193264 
+// Tcl Message: Restored from archive | CPU: 0.030000 secs | Memory: 0.013535 MB | 
+// Tcl Message: Finished XDEF File Restore: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7105.105 ; gain = 0.000 ; free physical = 100058 ; free virtual = 193264 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// TclEventType: DRC_ADDED
+// TclEventType: METHODOLOGY_ADDED
+// TclEventType: POWER_UPDATED
+// TclEventType: TIMING_SUMMARY_UPDATED
+// [GUI Memory]: 121 MB (+226kb) [02:18:00]
+// 'dP' command handler elapsed time: 22 seconds
+dismissDialog("Open Implemented Design"); // bx (ck)
+selectTab((HResource) null, (HResource) null, "DRC", 6); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Power", 5); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Reports", 3); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Power", 5); // aE (Q, ck)
+// Elapsed time: 117 seconds
+selectTab((HResource) null, (HResource) null, "DRC", 6); // aE (Q, ck)
+// [GUI Memory]: 129 MB (+2497kb) [02:20:13]
+// Elapsed time: 12 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Open Implemented Design, Schematic]", 41, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_SCHEMATIC
+// Schematic: addNotify
+// [GUI Memory]: 139 MB (+3450kb) [02:20:26]
+// PAPropertyPanels.initPanels (btn) elapsed time: 0.2s
+// PAPropertyPanels.initPanels (led_OBUF_inst (OBUF)) elapsed time: 0.3s
+// [GUI Memory]: 147 MB (+755kb) [02:20:54]
+// PAPropertyPanels.initPanels (<const0>) elapsed time: 0.2s
+// Elapsed time: 50 seconds
+closeView(PAResourceOtoP.PAViews_SCHEMATIC, "Schematic"); // f
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Open Implemented Design, Schematic]", 41, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_SCHEMATIC
+// Schematic: addNotify
+// Elapsed time: 42 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 4); // k (j, ck)
+// Elapsed time: 14 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 3); // k (j, ck)
+// [GUI Memory]: 156 MB (+1514kb) [02:32:45]
+// Elapsed time: 1195 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 4); // k (j, ck)
+// Elapsed time: 162 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // k (j, ck)
+selectTab(PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_SYNTHESIS, "Post-Synthesis", 0); // b (C, ck)
+selectTab(PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_IMPLEMENTATION, "Post-Implementation", 1); // b (C, ck)
+selectTab(PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_SYNTHESIS, "Post-Synthesis", 0); // b (C, ck)
+selectTab(PAResourceOtoP.ProjectSummaryUtilizationGadget_PROJECT_SUMMARY_UTILIZATION_GADGET_TABBED, PAResourceOtoP.ProjectSummaryUtilizationGadget_POST_IMPLEMENTATION, "Post-Implementation", 1); // b (C, ck)
+// Elapsed time: 11 seconds
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aE (Q, ck)
+// Elapsed time: 15 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 4); // k (j, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 627, 156); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 3); // k (j, ck)
+// [GUI Memory]: 164 MB (+491kb) [02:46:16]
+// Elapsed time: 22 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 4); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 3); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 4); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 3); // k (j, ck)
+selectCodeEditor("simpleBitUnpack.sv", 174, 322); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 174, 322, false, false, false, false, true); // ce (w, ck) - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 4); // k (j, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 133, 201); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 133, 201, false, false, false, false, true); // ce (w, ck) - Double Click
+// Elapsed time: 38 seconds
+selectTab((HResource) null, (HResource) null, "Sources", 0); // aE (Q, ck)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 4); // B (D, ck)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 5); // B (D, ck)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, top (SimpleBitUnpack_top.sv)]", 7); // B (D, ck)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_PolynomialConverter (simpleBitUnpack_tb.sv)]", 6); // B (D, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,048 MB. GUI used memory: 99 MB. Current time: 2/15/25 11:18:50 AM PKT
+// Elapsed time: 18 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, top (SimpleBitUnpack_top.sv)]", 8, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, top (SimpleBitUnpack_top.sv)]", 8, true, false, false, false, false, true); // B (D, ck) - Double Click - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, top (SimpleBitUnpack_top.sv)]", 8); // B (D, ck)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, top (SimpleBitUnpack_top.sv)]", 8); // B (D, ck)
+// Elapsed time: 23 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 3); // k (j, ck)
+// Elapsed time: 114 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 4); // k (j, ck)
+// Elapsed time: 35 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 3); // k (j, ck)
+// Elapsed time: 57 seconds
+selectCodeEditor("simpleBitUnpack.sv", 277, 339); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 277, 339); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 184, 320); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 184, 320, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'c'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 187, 336); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 187, 336, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 309, 341); // ce (w, ck)
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 4); // k (j, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 227, 288); // ce (w, ck)
+typeControlKey((HResource) null, "SimpleBitUnpack_top.sv", 'v'); // ce (w, ck)
+typeControlKey(null, null, 'z');
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 3); // k (j, ck)
+selectCodeEditor("simpleBitUnpack.sv", 117, 335); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'c'); // ce (w, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SimpleBitUnpack_top.sv", 4); // k (j, ck)
+typeControlKey((HResource) null, "SimpleBitUnpack_top.sv", 'v'); // ce (w, ck)
+// Elapsed time: 18 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// A (ck): Run Synthesis: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (A)
+// aj (ck): Save Project: addNotify
+dismissDialog("Run Synthesis"); // A (ck)
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+// bx (ck):  Save Constraints : addNotify
+// TclEventType: DG_GRAPH_STALE
+// bx (ck):  Resetting Runs : addNotify
+dismissDialog("Save Project"); // aj (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: RUN_MODIFY
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (ck): Launch Runs: addNotify
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// Tcl Message: launch_runs synth_1 -jobs 16 
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Sat Feb 15 11:24:37 2025] Launched synth_1... Run output will be captured here: /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 15 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_FAILED
+// ah (ck): Synthesis Failed: addNotify
+// Elapsed time: 40 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-2158] illegal operand for operator == [/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.srcs/sources_1/new/SimpleBitUnpack_top.sv:67]. ]", 1, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.srcs/sources_1/new/SimpleBitUnpack_top.sv;-;;-;16;-;line;-;67;-;;-;16;-;"); // ah (O, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 232, 416); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 232, 416, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("SimpleBitUnpack_top.sv", 259, 225); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 235, 305); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 235, 305); // ce (w, ck)
+typeControlKey((HResource) null, "SimpleBitUnpack_top.sv", 'v'); // ce (w, ck)
+// Elapsed time: 11 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 228, 275); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 228, 275, false, false, false, false, true); // ce (w, ck) - Double Click
+typeControlKey((HResource) null, "SimpleBitUnpack_top.sv", 'c'); // ce (w, ck)
+selectCodeEditor("SimpleBitUnpack_top.sv", 221, 129); // ce (w, ck)
+typeControlKey((HResource) null, "SimpleBitUnpack_top.sv", 'v'); // ce (w, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// aj (ck): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+// bx (ck):  Save Constraints : addNotify
+// TclEventType: DG_GRAPH_STALE
+// bx (ck):  Resetting Runs : addNotify
+dismissDialog("Save Project"); // aj (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: RUN_MODIFY
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// Tcl Message: launch_runs synth_1 -jobs 16 
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Sat Feb 15 11:26:25 2025] Launched synth_1... Run output will be captured here: /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 6 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_FAILED
+// ah (ck): Synthesis Failed: addNotify
+// Elapsed time: 39 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (ck)
+// Elapsed time: 34 seconds
+selectCodeEditor("SimpleBitUnpack_top.sv", 195, 176); // ce (w, ck)
+// Elapsed time: 11 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// aj (ck): Save Project: addNotify
+// Elapsed time: 306 seconds
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+// bx (ck):  Save Constraints : addNotify
+// TclEventType: DG_GRAPH_STALE
+// bx (ck):  Resetting Runs : addNotify
+dismissDialog("Save Project"); // aj (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: RUN_MODIFY
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (ck): Launch Runs: addNotify
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 102 MB. Current time: 2/15/25 11:33:00 AM PKT
+// TclEventType: DG_GRAPH_GENERATED
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 16 
+// Tcl Message: [Sat Feb 15 11:33:06 2025] Launched synth_1... Run output will be captured here: /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 316 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_FAILED
+// ah (ck): Synthesis Failed: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/15/25 12:03:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 12:33:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 1:03:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 1:33:00 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 2:03:00 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 2:33:00 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 3:03:01 PM PKT
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 337ms to process. Increasing delay to 2000 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 3:33:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 4:03:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 4:33:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 5:03:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/15/25 5:33:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 6:03:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 6:33:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 7:03:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 7:33:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 8:03:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 8:33:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 9:03:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 9:33:01 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 10:03:02 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 10:33:02 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 11:03:02 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/15/25 11:33:02 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 12:03:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 12:33:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 1:03:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/16/25 1:33:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 2:03:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 2:33:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 3:03:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 3:33:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 4:03:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 4:33:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/16/25 5:03:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 5:33:02 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 6:03:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/16/25 6:33:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 7:03:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 7:33:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 8:03:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/16/25 8:33:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/16/25 9:03:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 9:33:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/16/25 10:03:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 10:33:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/16/25 11:03:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 11:33:03 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 12:03:03 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 12:33:03 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 1:03:03 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 1:33:03 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 2:03:03 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 2:33:03 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 3:03:03 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/16/25 3:33:03 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 4:03:04 PM PKT
+// Elapsed time: 103013 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// WARNING: updateGUI() is taking  4137 ms.
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ah (ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 4:33:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 5:03:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 5:33:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 6:03:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 6:33:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 7:03:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 7:33:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 8:03:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 8:33:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 9:03:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 9:33:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 10:03:04 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 10:33:05 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 11:03:05 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/16/25 11:33:05 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 12:03:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 12:33:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 1:03:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 1:33:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 2:03:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 2:33:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 3:03:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 3:33:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 4:03:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 4:33:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 5:03:05 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 5:33:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 6:03:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 6:33:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 7:03:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 7:33:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 8:03:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 8:33:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 9:03:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 9:33:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 10:03:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 10:33:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 11:03:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 11:33:06 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 12:03:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 12:33:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 1:03:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 1:33:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 2:03:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 2:33:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 3:03:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 3:33:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 111 MB. Current time: 2/17/25 4:03:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 4:33:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 5:03:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 5:33:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 6:03:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 6:33:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 7:03:07 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 7:33:08 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 8:03:08 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 8:33:08 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 9:03:08 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 9:33:08 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 10:03:08 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 10:33:08 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 11:03:08 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/17/25 11:33:08 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 12:03:08 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 12:33:08 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 1:03:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 1:33:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 2:03:08 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 2:33:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 3:03:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 3:33:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 4:03:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 4:33:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 5:03:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 5:33:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 6:03:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 6:33:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 7:03:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 7:33:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 8:03:09 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 8:33:10 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 9:03:10 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 9:33:10 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 10:03:10 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 10:33:10 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 11:03:10 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 11:33:10 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 12:03:10 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 12:33:10 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 1:03:10 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/18/25 1:33:10 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 2:03:10 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 2:33:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 3:03:10 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 3:33:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 4:03:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 4:33:10 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 5:03:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 5:33:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 6:03:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 6:33:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 7:03:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 7:33:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 8:03:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 8:33:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 9:03:11 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 9:33:12 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 10:03:12 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 10:33:12 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 11:03:12 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/18/25 11:33:12 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 12:03:12 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 12:33:12 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 1:03:12 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 1:33:12 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/19/25 2:03:12 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 2:33:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 3:03:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 3:33:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 4:03:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 4:33:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 5:03:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 5:33:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 6:03:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 6:33:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 7:03:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 7:33:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 8:03:13 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 8:33:14 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 9:03:14 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 9:33:14 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 10:03:14 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 10:33:14 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 11:03:14 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 11:33:14 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 12:03:14 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 12:33:14 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 1:03:14 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 1:33:14 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/19/25 2:03:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 2:33:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 3:03:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 3:33:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 4:03:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 4:33:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 5:03:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 5:33:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 6:03:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 6:33:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 7:03:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 7:33:15 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 8:03:16 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 8:33:16 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 9:03:16 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 9:33:16 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 10:03:16 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 10:33:16 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 11:03:16 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/19/25 11:33:16 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 12:03:16 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 12:33:16 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 1:03:16 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 1:33:16 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/20/25 2:03:16 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 2:33:16 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 3:03:16 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 3:33:16 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 4:03:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 4:33:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 5:03:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 5:33:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 6:03:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 6:33:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 7:03:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 7:33:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 8:03:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 8:33:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 98 MB. Current time: 2/20/25 9:03:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,076 MB. GUI used memory: 99 MB. Current time: 2/20/25 9:33:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 10:03:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 10:33:17 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 11:03:18 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 11:33:18 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 99 MB. Current time: 2/20/25 12:03:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 12:33:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 1:03:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 1:33:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 2:03:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 2:33:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 3:03:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 3:33:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 99 MB. Current time: 2/20/25 4:03:18 PM PKT

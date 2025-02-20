@@ -4,4 +4,10 @@ Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PolynomialConverter_default
+Compiling module xil_defaultlib.tb_PolynomialConverter
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_PolynomialConverter_behav

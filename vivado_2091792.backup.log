@@ -1,0 +1,904 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Feb 16 16:10:07 2025
+# Process ID: 2091792
+# Current directory: /home/mlatif/Athestia
+# Command line: vivado
+# Log file: /home/mlatif/Athestia/vivado.log
+# Journal file: /home/mlatif/Athestia/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/mlatif/v_vaquita128/v_vaquita128.xpr
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-344] 'open_project' was cancelled
+open_project /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/merledu1/tools/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:29 ; elapsed = 00:00:18 . Memory (MB): peak = 6268.504 ; gain = 91.445 ; free physical = 2918 ; free virtual = 94379
+update_compile_order -fileset sources_1
+open_run impl_1
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.03 . Memory (MB): peak = 6946.035 ; gain = 0.000 ; free physical = 2305 ; free virtual = 93772
+Restored from archive | CPU: 0.050000 secs | Memory: 1.178749 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.03 . Memory (MB): peak = 6946.035 ; gain = 0.000 ; free physical = 2305 ; free virtual = 93772
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:01:05 ; elapsed = 00:01:50 . Memory (MB): peak = 7121.547 ; gain = 835.027 ; free physical = 2213 ; free virtual = 93665
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Feb 17 11:15:18 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Feb 17 11:22:06 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Mon Feb 17 11:24:36 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Feb 17 11:39:12 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+set_property is_enabled false [get_files  /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/top.sv]
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Feb 17 11:42:54 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Mon Feb 17 11:46:01 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+set_property is_enabled true [get_files  /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/top.sv]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Feb 17 11:52:49 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Mon Feb 17 11:55:03 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+refresh_design
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.12 . Memory (MB): peak = 7248.113 ; gain = 0.000 ; free physical = 7942 ; free virtual = 93488
+Restored from archive | CPU: 0.110000 secs | Memory: 0.920296 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.12 . Memory (MB): peak = 7248.113 ; gain = 0.000 ; free physical = 7942 ; free virtual = 93488
+refresh_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 7249.117 ; gain = 1.004 ; free physical = 7986 ; free virtual = 93532
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Feb 17 12:04:56 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Mon Feb 17 12:06:46 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Feb 17 14:54:29 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Mon Feb 17 14:56:18 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 11:35:23 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+reset_run synth_1
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 11:38:33 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 11:45:55 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 11:51:45 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 12:09:51 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Wed Feb 19 12:11:45 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 12:16:48 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Wed Feb 19 12:21:53 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7357.141 ; gain = 0.000 ; free physical = 72990 ; free virtual = 197163
+Restored from archive | CPU: 0.030000 secs | Memory: 0.013535 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7357.141 ; gain = 0.000 ; free physical = 72990 ; free virtual = 197163
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 12:37:11 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Wed Feb 19 12:38:55 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 12:49:34 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Wed Feb 19 12:51:24 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 13:00:04 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Wed Feb 19 13:02:45 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 7421.305 ; gain = 0.000 ; free physical = 72912 ; free virtual = 197095
+Restored from archive | CPU: 0.040000 secs | Memory: 0.013535 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7421.305 ; gain = 0.000 ; free physical = 72912 ; free virtual = 197095
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Wed Feb 19 13:13:48 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Wed Feb 19 13:15:42 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+set_property is_enabled false [get_files  /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/top.sv]
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 09:12:42 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 09:14:51 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 09:20:05 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 09:21:43 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 09:23:58 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 09:25:41 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 09:29:47 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 09:31:51 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+set_property is_enabled true [get_files  /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/top.sv]
+update_compile_order -fileset sources_1
+reset_run impl_1 -prev_step 
+close_design
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 09:33:42 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 09:35:25 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7618.023 ; gain = 0.000 ; free physical = 70285 ; free virtual = 196324
+Restored from archive | CPU: 0.040000 secs | Memory: 0.025131 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7618.023 ; gain = 0.000 ; free physical = 70285 ; free virtual = 196324
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 11:15:24 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 11:24:01 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 11:25:45 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 11:30:00 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 11:32:40 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 12:51:19 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 12:52:35 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 12:54:21 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim/xsim.dir/HintBitPack_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Feb 20 13:11:44 2025...
+run_program: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 7719.070 ; gain = 0.000 ; free physical = 70637 ; free virtual = 196965
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "HintBitPack_tb_behav -key {Behavioral:sim_1:Functional:HintBitPack_tb} -tclbatch {HintBitPack_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source HintBitPack_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 420 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 72
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'HintBitPack_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 7777.883 ; gain = 58.812 ; free physical = 70594 ; free virtual = 196939
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 13:15:55 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 13:18:30 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.30 ; elapsed = 00:00:00.04 . Memory (MB): peak = 7916.391 ; gain = 0.000 ; free physical = 70563 ; free virtual = 196910
+Restored from archive | CPU: 0.350000 secs | Memory: 0.025200 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.30 ; elapsed = 00:00:00.04 . Memory (MB): peak = 7916.391 ; gain = 0.000 ; free physical = 70563 ; free virtual = 196910
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 7916.391 ; gain = 0.000 ; free physical = 70553 ; free virtual = 196900
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 13:24:25 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 13:27:16 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+set_property is_enabled false [get_files  /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/top.sv]
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 13:32:36 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 13:34:17 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.10 . Memory (MB): peak = 7916.391 ; gain = 0.000 ; free physical = 70514 ; free virtual = 196866
+Restored from archive | CPU: 0.040000 secs | Memory: 0.093071 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.10 . Memory (MB): peak = 7916.391 ; gain = 0.000 ; free physical = 70514 ; free virtual = 196866
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 7967.832 ; gain = 51.441 ; free physical = 70500 ; free virtual = 196853
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-323] array element widths (6, 256) don't match [/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv:23]
+ERROR: [VRFC 10-323] array element widths (8, 3) don't match [/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv:26]
+ERROR: [VRFC 10-323] array element widths (8, 3) don't match [/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv:13]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 70470 ; free virtual = 196824
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "HintBitPack_tb_behav -key {Behavioral:sim_1:Functional:HintBitPack_tb} -tclbatch {HintBitPack_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source HintBitPack_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 420 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'HintBitPack_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 70510 ; free virtual = 196864
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "HintBitPack_tb_behav -key {Behavioral:sim_1:Functional:HintBitPack_tb} -tclbatch {HintBitPack_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source HintBitPack_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 420 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'HintBitPack_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 70507 ; free virtual = 196861
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "HintBitPack_tb_behav -key {Behavioral:sim_1:Functional:HintBitPack_tb} -tclbatch {HintBitPack_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source HintBitPack_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 430 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'HintBitPack_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 67299 ; free virtual = 194763
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "HintBitPack_tb_behav -key {Behavioral:sim_1:Functional:HintBitPack_tb} -tclbatch {HintBitPack_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source HintBitPack_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 430 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'HintBitPack_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 57044 ; free virtual = 184754
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+$finish called at time : 430 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+relaunch_sim: Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 57004 ; free virtual = 184715
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 56970 ; free virtual = 184682
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+$finish called at time : 430 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+relaunch_sim: Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 56958 ; free virtual = 184670
+reset_run synth_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "HintBitPack_tb_behav -key {Behavioral:sim_1:Functional:HintBitPack_tb} -tclbatch {HintBitPack_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source HintBitPack_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 430 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'HintBitPack_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 56986 ; free virtual = 184700
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "HintBitPack_tb_behav -key {Behavioral:sim_1:Functional:HintBitPack_tb} -tclbatch {HintBitPack_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source HintBitPack_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 422 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'HintBitPack_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 59483 ; free virtual = 187201
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+$finish called at time : 422 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+relaunch_sim: Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 59506 ; free virtual = 187223
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'HintBitPack_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj HintBitPack_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/HintBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HintBitPack_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto ad3a265808024307845952d4429ad68f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot HintBitPack_tb_behav xil_defaultlib.HintBitPack_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.HintBitPack_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot HintBitPack_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "HintBitPack_tb_behav -key {Behavioral:sim_1:Functional:HintBitPack_tb} -tclbatch {HintBitPack_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source HintBitPack_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 422 ns : File "/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sim_1/new/HintbitPack_tb.sv" Line 77
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'HintBitPack_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 7967.832 ; gain = 0.000 ; free physical = 59483 ; free virtual = 187201
+set_property is_enabled true [get_files  /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/sources_1/new/top.sv]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 16:05:47 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 16:07:40 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Thu Feb 20 16:16:27 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log

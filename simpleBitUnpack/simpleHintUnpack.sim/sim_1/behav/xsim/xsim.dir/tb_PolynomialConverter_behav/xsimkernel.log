@@ -1,7 +1,4 @@
-Running: xsim.dir/tb_PolynomialConverter_behav/xsimk -simmode gui -wdb tb_PolynomialConverter_behav.wdb -simrunnum 0 -socket 44763
+Running: xsim.dir/tb_PolynomialConverter_behav/xsimk -simmode gui -wdb tb_PolynomialConverter_behav.wdb -simrunnum 0 -socket 54573
 Design successfully loaded
-Design Loading Memory Usage: 32376 KB (Peak: 32988 KB)
-Design Loading CPU Usage: 30 ms
-Simulation completed
-Simulation Memory Usage: 114372 KB (Peak: 179648 KB)
-Simulation CPU Usage: 50 ms
+Design Loading Memory Usage: 32512 KB (Peak: 33076 KB)
+Design Loading CPU Usage: 40 ms

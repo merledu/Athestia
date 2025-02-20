@@ -32,7 +32,7 @@ endmodule
 
 
 
-
+//note used packed array for optimization of code because packed array is complete string in bytes form
 
 
 

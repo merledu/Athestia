@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/mlatif/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1'
+HD_PWD='/home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

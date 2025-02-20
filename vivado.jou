@@ -2,16 +2,13 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Mon Feb 10 12:03:41 2025
-# Process ID: 1195716
+# Start of session at: Mon Feb 17 13:22:26 2025
+# Process ID: 2450941
 # Current directory: /home/mlatif/Athestia
 # Command line: vivado
 # Log file: /home/mlatif/Athestia/vivado.log
 # Journal file: /home/mlatif/Athestia/vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.xpr
+open_project /home/mlatif/vaquita64only/vaquita128only.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-source HintBitUnpack_tb.tcl
-close_sim

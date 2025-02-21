@@ -192,3 +192,4 @@ reset_run synth_1
 launch_runs synth_1 -jobs 16
 [Sat Feb 15 11:33:06 2025] Launched synth_1...
 Run output will be captured here: /home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.runs/synth_1/runme.log
+reset_run synth_1

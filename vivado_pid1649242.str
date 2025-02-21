@@ -439,3 +439,49 @@ typeControlKey((HResource) null, "SimpleBitPack.sv", 'c'); // ce (w, ck)
 // HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 43 MB. Current time: 2/20/25 3:15:18 PM PKT
 // HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 43 MB. Current time: 2/20/25 3:45:18 PM PKT
 // HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 43 MB. Current time: 2/20/25 4:15:18 PM PKT
+// Elapsed time: 454546 seconds
+selectCodeEditor("SimpleBitPack.sv", 438, 258); // ce (w, ck)
+selectCodeEditor("SimpleBitPack.sv", 430, 420); // ce (w, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 44 MB. Current time: 2/20/25 4:45:18 PM PKT
+// Elapsed time: 1778 seconds
+selectCodeEditor("SimpleBitPack.sv", 251, 440); // ce (w, ck)
+// Elapsed time: 18 seconds
+selectCodeEditor("SimpleBitPack.sv", 54, 293); // ce (w, ck)
+selectCodeEditor("SimpleBitPack.sv", 86, 333); // ce (w, ck)
+selectCodeEditor("SimpleBitPack.sv", 86, 333); // ce (w, ck)
+selectCodeEditor("SimpleBitPack.sv", 83, 336); // ce (w, ck)
+selectCodeEditor("SimpleBitPack.sv", 83, 336); // ce (w, ck)
+selectCodeEditor("SimpleBitPack.sv", 99, 338); // ce (w, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 91 MB. Current time: 2/20/25 5:15:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 97 MB. Current time: 2/20/25 5:45:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 45 MB. Current time: 2/20/25 6:15:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 96 MB. Current time: 2/20/25 6:45:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 96 MB. Current time: 2/20/25 7:15:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 45 MB. Current time: 2/20/25 7:45:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 44 MB. Current time: 2/20/25 8:15:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 45 MB. Current time: 2/20/25 8:45:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 43 MB. Current time: 2/20/25 9:15:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 44 MB. Current time: 2/20/25 9:45:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 96 MB. Current time: 2/20/25 10:15:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 97 MB. Current time: 2/20/25 10:45:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 45 MB. Current time: 2/20/25 11:15:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 97 MB. Current time: 2/20/25 11:45:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 45 MB. Current time: 2/21/25 12:15:19 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 96 MB. Current time: 2/21/25 12:45:19 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 95 MB. Current time: 2/21/25 1:15:19 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 45 MB. Current time: 2/21/25 1:45:19 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 45 MB. Current time: 2/21/25 2:15:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 98 MB. Current time: 2/21/25 2:45:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 96 MB. Current time: 2/21/25 3:15:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 98 MB. Current time: 2/21/25 3:45:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 98 MB. Current time: 2/21/25 4:15:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 98 MB. Current time: 2/21/25 4:45:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 97 MB. Current time: 2/21/25 5:15:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 98 MB. Current time: 2/21/25 5:45:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 98 MB. Current time: 2/21/25 6:15:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 45 MB. Current time: 2/21/25 6:45:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 97 MB. Current time: 2/21/25 7:15:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 98 MB. Current time: 2/21/25 7:45:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 46 MB. Current time: 2/21/25 8:15:21 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 98 MB. Current time: 2/21/25 8:45:21 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,243 MB. GUI used memory: 63 MB. Current time: 2/21/25 9:15:21 AM PKT

@@ -1,0 +1,157 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Fri Feb 21 09:14:01 2025
+| Host         : merledu1 running 64-bit Ubuntu 22.04.4 LTS
+| Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
+| Design       : top
+| Device       : xc7a100t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    90 |
+| Unused register locations in slices containing registers |    22 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      2 |            2 |
+|      6 |            2 |
+|      8 |            1 |
+|    16+ |           85 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               6 |            2 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               2 |            1 |
+| Yes          | No                    | No                     |               2 |            1 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |            1376 |          192 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+---------------------------------+------------------+------------------+----------------+
+|  Clock Signal  |          Enable Signal          | Set/Reset Signal | Slice Load Count | Bel Load Count |
++----------------+---------------------------------+------------------+------------------+----------------+
+|  clk_IBUF_BUFG |                                 | led_i_1_n_0      |                1 |              2 |
+|  clk_IBUF_BUFG | h[4][2]_i_1_n_0                 |                  |                1 |              2 |
+|  clk_IBUF_BUFG | uut/FSM_onehot_state[3]_i_1_n_0 | rst_IBUF         |                1 |              6 |
+|  clk_IBUF_BUFG |                                 |                  |                2 |              6 |
+|  clk_IBUF_BUFG | uut/i[3]_i_1_n_0                | rst_IBUF         |                2 |              8 |
+|  clk_IBUF_BUFG | uut/y[66][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[0][7]_i_1_n_0             | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[65][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[64][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[63][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[62][7]_i_1_n_0            | rst_IBUF         |                1 |             16 |
+|  clk_IBUF_BUFG | uut/y[61][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[60][7]_i_1_n_0            | rst_IBUF         |                1 |             16 |
+|  clk_IBUF_BUFG | uut/y[5][7]_i_1_n_0             | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[59][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[58][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[57][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[56][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[55][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[54][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[53][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[52][7]_i_1_n_0            | rst_IBUF         |                4 |             16 |
+|  clk_IBUF_BUFG | uut/y[51][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[50][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[4][7]_i_1_n_0             | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[49][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[76][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/index[7]_i_1_n_0            | rst_IBUF         |                4 |             16 |
+|  clk_IBUF_BUFG | uut/y[9][7]_i_1_n_0             | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[8][7]_i_1_n_0             | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[82][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[81][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[80][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[7][7]_i_1_n_0             | rst_IBUF         |                4 |             16 |
+|  clk_IBUF_BUFG | uut/y[79][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[78][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[77][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[67][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[75][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[74][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[73][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[72][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[71][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[70][7]_i_1_n_0            | rst_IBUF         |                4 |             16 |
+|  clk_IBUF_BUFG | uut/y[6][7]_i_1_n_0             | rst_IBUF         |                1 |             16 |
+|  clk_IBUF_BUFG | uut/y[69][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[68][7]_i_1_n_0            | rst_IBUF         |                1 |             16 |
+|  clk_IBUF_BUFG | uut/y[19][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[28][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[27][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[26][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[25][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[24][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[23][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[22][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[21][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[20][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[1][7]_i_1_n_0             | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[29][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[18][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[17][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[16][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[15][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[14][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[13][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[12][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[11][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[10][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[39][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[47][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[46][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[45][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[44][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[43][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[42][7]_i_1_n_0            | rst_IBUF         |                1 |             16 |
+|  clk_IBUF_BUFG | uut/y[41][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[40][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[3][7]_i_1_n_0             | rst_IBUF         |                1 |             16 |
+|  clk_IBUF_BUFG | uut/y[48][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[38][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[37][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[36][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[35][7]_i_1_n_0            | rst_IBUF         |                1 |             16 |
+|  clk_IBUF_BUFG | uut/y[34][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[33][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[32][7]_i_1_n_0            | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/y[31][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[30][7]_i_1_n_0            | rst_IBUF         |                3 |             16 |
+|  clk_IBUF_BUFG | uut/y[2][7]_i_1_n_0             | rst_IBUF         |                2 |             16 |
+|  clk_IBUF_BUFG | uut/j[8]_i_1_n_0                | rst_IBUF         |                4 |             18 |
++----------------+---------------------------------+------------------+------------------+----------------+
+
+

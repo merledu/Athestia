@@ -1078,3 +1078,139 @@ dismissDialog("Synthesis Failed"); // ah (ck)
 // HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 3:03:18 PM PKT
 // HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 3:33:18 PM PKT
 // HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 99 MB. Current time: 2/20/25 4:03:18 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,077 MB. GUI used memory: 98 MB. Current time: 2/20/25 4:33:18 PM PKT
+// Elapsed time: 347823 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 3); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // k (j, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (f)
+// 'k' command handler elapsed time: 4 seconds
+dismissDialog("Launch Runs"); // f (ck)
+// Elapsed time: 22 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack_tb.sv", 2); // k (j, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "simpleBitUnpack.sv", 3); // k (j, ck)
+selectCodeEditor("simpleBitUnpack.sv", 716, 344); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 716, 344); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 716, 344); // ce (w, ck)
+// Elapsed time: 66 seconds
+selectCodeEditor("simpleBitUnpack.sv", 506, 278); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 506, 278); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 506, 278); // ce (w, ck)
+// Elapsed time: 228 seconds
+selectCodeEditor("simpleBitUnpack.sv", 22, 114); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 152, 112); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 152, 112, false, false, false, false, true); // ce (w, ck) - Double Click
+// Elapsed time: 23 seconds
+selectCodeEditor("simpleBitUnpack.sv", 37, 113); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 38, 112); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 39, 113); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'c'); // ce (w, ck)
+// Elapsed time: 477 seconds
+selectCodeEditor("simpleBitUnpack.sv", 255, 240); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 313, 186); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 313, 186); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 313, 186); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 313, 186); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 313, 186); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 313, 186); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 313, 186); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 313, 186); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 313, 186); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+// Elapsed time: 18 seconds
+selectCodeEditor("simpleBitUnpack.sv", 186, 353); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 199, 353); // ce (w, ck)
+// Elapsed time: 67 seconds
+selectCodeEditor("simpleBitUnpack.sv", 375, 338); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("simpleBitUnpack.sv", 244, 292); // ce (w, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 5:03:19 PM PKT
+// Elapsed time: 12 seconds
+selectCodeEditor("simpleBitUnpack.sv", 170, 371); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 121, 386); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 117, 392); // ce (w, ck)
+// Elapsed time: 10 seconds
+selectCodeEditor("simpleBitUnpack.sv", 191, 418); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 142, 381); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 141, 389); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 140, 395); // ce (w, ck)
+// Elapsed time: 13 seconds
+selectCodeEditor("simpleBitUnpack.sv", 5, 34); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 5, 34); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 207, 9); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 20, 36); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 273, 233); // ce (w, ck)
+// Elapsed time: 41 seconds
+selectCodeEditor("simpleBitUnpack.sv", 292, 302); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 292, 302); // ce (w, ck)
+// Elapsed time: 19 seconds
+selectCodeEditor("simpleBitUnpack.sv", 377, 208); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 222, 382); // ce (w, ck)
+// Elapsed time: 49 seconds
+selectCodeEditor("simpleBitUnpack.sv", 411, 277); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 253, 283); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 170, 334); // ce (w, ck)
+// Elapsed time: 15 seconds
+selectCodeEditor("simpleBitUnpack.sv", 183, 175); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 183, 175, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("simpleBitUnpack.sv", 183, 175); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'c'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 187, 126); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 28, 128); // ce (w, ck)
+// Elapsed time: 17 seconds
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("simpleBitUnpack.sv", 210, 230); // ce (w, ck)
+typeControlKey((HResource) null, "simpleBitUnpack.sv", 'v'); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 256, 306); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 161, 311); // ce (w, ck)
+selectCodeEditor("simpleBitUnpack.sv", 166, 307); // ce (w, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 5:33:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 6:03:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 6:33:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 7:03:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 7:33:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 8:03:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 8:33:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 9:03:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 9:33:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 10:03:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 10:33:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 11:03:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/20/25 11:33:19 PM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/21/25 12:03:19 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/21/25 12:33:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/21/25 1:03:19 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/21/25 1:33:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/21/25 2:03:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,082 MB. GUI used memory: 98 MB. Current time: 2/21/25 2:33:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,083 MB. GUI used memory: 98 MB. Current time: 2/21/25 3:03:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,083 MB. GUI used memory: 98 MB. Current time: 2/21/25 3:33:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,084 MB. GUI used memory: 98 MB. Current time: 2/21/25 4:03:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,085 MB. GUI used memory: 98 MB. Current time: 2/21/25 4:33:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,085 MB. GUI used memory: 98 MB. Current time: 2/21/25 5:03:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,086 MB. GUI used memory: 98 MB. Current time: 2/21/25 5:33:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,087 MB. GUI used memory: 98 MB. Current time: 2/21/25 6:03:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,088 MB. GUI used memory: 98 MB. Current time: 2/21/25 6:33:20 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,088 MB. GUI used memory: 98 MB. Current time: 2/21/25 7:03:21 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,089 MB. GUI used memory: 98 MB. Current time: 2/21/25 7:33:21 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,090 MB. GUI used memory: 98 MB. Current time: 2/21/25 8:03:21 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,091 MB. GUI used memory: 98 MB. Current time: 2/21/25 8:33:21 AM PKT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,091 MB. GUI used memory: 98 MB. Current time: 2/21/25 9:03:21 AM PKT

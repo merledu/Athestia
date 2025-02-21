@@ -902,3 +902,26 @@ reset_run synth_1
 launch_runs synth_1 -jobs 16
 [Thu Feb 20 16:16:27 2025] Launched synth_1...
 Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 16
+[Thu Feb 20 16:19:56 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Fri Feb 21 08:47:27 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+export_ip_user_files -of_objects  [get_files /home/mlatif/Downloads/Arty_Master.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 /home/mlatif/Downloads/Arty_Master.xdc
+file mkdir /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1
+file mkdir /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1/new
+close [ open /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1/new/arty7100t.xdc w ]
+add_files -fileset constrs_1 /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1/new/arty7100t.xdc
+close_design
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Fri Feb 21 09:10:12 2025] Launched synth_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/synth_1/runme.log
+[Fri Feb 21 09:10:12 2025] Launched impl_1...
+Run output will be captured here: /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.runs/impl_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Feb 21 09:28:31 2025...

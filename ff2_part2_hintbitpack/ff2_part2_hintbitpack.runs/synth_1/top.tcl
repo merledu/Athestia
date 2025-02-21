@@ -41,8 +41,8 @@ read_verilog -library xil_defaultlib -sv {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/mlatif/Downloads/Arty_Master.xdc
-set_property used_in_implementation false [get_files /home/mlatif/Downloads/Arty_Master.xdc]
+read_xdc /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1/new/arty7100t.xdc
+set_property used_in_implementation false [get_files /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1/new/arty7100t.xdc]
 
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]

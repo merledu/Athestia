@@ -207,3 +207,18 @@ wait_on_run impl_1
 reset_run synth_1
 launch_runs synth_1 -jobs 16
 wait_on_run synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+export_ip_user_files -of_objects  [get_files /home/mlatif/Downloads/Arty_Master.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 /home/mlatif/Downloads/Arty_Master.xdc
+file mkdir /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1
+file mkdir /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1/new
+close [ open /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1/new/arty7100t.xdc w ]
+add_files -fileset constrs_1 /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.srcs/constrs_1/new/arty7100t.xdc
+close_design
+close_sim
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1

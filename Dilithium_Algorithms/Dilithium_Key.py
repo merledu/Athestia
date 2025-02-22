@@ -527,7 +527,7 @@ def KeyGen_internal(ξ):
         s1_ntt.append(NTT(s1[i]))
 
     # for i in range(len(s1_ntt)):
-    #     print(f"\ns1_ntt[{i}] = {s1_ntt[i]}")
+        # print(f"\ns1_ntt[{i}] = {s1_ntt[i]}")
 
     s1_invntt = []
     for i in range(len(s1_ntt)):

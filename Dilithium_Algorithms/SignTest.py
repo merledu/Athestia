@@ -138,20 +138,18 @@ def compute_w(A, y_ntt):
 
 # #---------------------------------------------------- STEP 13 & 14----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
+def modpm(m, alpha):
+    return -((alpha // 2 - m) % alpha) + (alpha // 2)
+
 def Decompose(r):
-    r_1 = (r + 127) >> 7
-    if gamma2 == (q - 1) // 32:
-        r_1 = (r_1 * 1025 + (1 << 21)) >> 22
-        r_1 &= 15
-    elif gamma2 == (q - 1) // 88:
-        r_1 = (r_1 * 11275 + (1 << 23)) >> 24
-        r_1 ^= ((43 - r_1) >> 31) & r_1
-
-    r_0 = r - r_1 * 2 * gamma2
-    r_0 -= (((q - 1) // 2 - r_0) >> 31) & q
-
-    return r_1, r_0
-
+    rp = r % q
+    r0 = modpm(rp, 2*gamma2)
+    if rp - r0 == q - 1:
+        r1 = 0
+        r0 -= 1
+    else:
+        r1 = (rp - r0) // (2*gamma2)
+    return (r1, r0)
 
 def HighBits(w):
     r_1, _ = Decompose(w)
@@ -293,9 +291,6 @@ def compute_r0(w, cs2):
 
 # #---------------------------------------------------- STEP 23----------------------------------------------------#
 #----------------------------------- FUNCTIONS -----------------------------------#
-def modpm(m, alpha):
-    return -((alpha // 2 - m) % q) + (alpha // 2)
-
 def compute_infinity_norm(vector):
     max_value = 0
     for poly in vector:

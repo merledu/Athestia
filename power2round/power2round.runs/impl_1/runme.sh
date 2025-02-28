@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/hshoaib/power2round/power2round.runs/impl_1'
+HD_PWD='/home/hshoaib/Athestia/power2round/power2round.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -38,6 +38,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log Power2round.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Power2round.tcl -notrace
+EAStep vivado -log Top_Power2round.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Top_Power2round.tcl -notrace
 
 

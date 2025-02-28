@@ -1,4 +1,4 @@
-Running: xsim.dir/Top_Power2round_behav/xsimk -simmode gui -wdb Top_Power2round_behav.wdb -simrunnum 0 -socket 38997
+Running: xsim.dir/Top_Power2round_behav/xsimk -simmode gui -wdb Top_Power2round_behav.wdb -simrunnum 0 -socket 48169
 Design successfully loaded
-Design Loading Memory Usage: 32372 KB (Peak: 32988 KB)
-Design Loading CPU Usage: 30 ms
+Design Loading Memory Usage: 32372 KB (Peak: 32992 KB)
+Design Loading CPU Usage: 40 ms

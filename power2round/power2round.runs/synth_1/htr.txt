@@ -6,4 +6,4 @@
 # Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log Power2round.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Power2round.tcl
+vivado -log Top_Power2round.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top_Power2round.tcl

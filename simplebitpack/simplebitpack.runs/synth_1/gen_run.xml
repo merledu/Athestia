@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1734598037">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1740763262">
   <File Type="VDS-TIMING-PB" Name="Top_SimpleBitPack_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="Top_SimpleBitPack_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="Top_SimpleBitPack.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="Top_SimpleBitPack_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="Top_SimpleBitPack_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="Top_SimpleBitPack_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="Top_SimpleBitPack.vds"/>
   <File Type="REPORTS-TCL" Name="Top_SimpleBitPack_reports.tcl"/>
   <File Type="PA-TCL" Name="Top_SimpleBitPack.tcl"/>
-  <File Type="RDS-RDS" Name="Top_SimpleBitPack.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="Top_SimpleBitPack_drc_synth.rpt"/>
-  <File Type="RDS-UTIL" Name="Top_SimpleBitPack_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="Top_SimpleBitPack_utilization_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/SimpleBitPack.sv">
@@ -44,9 +44,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

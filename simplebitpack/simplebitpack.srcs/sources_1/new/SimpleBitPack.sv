@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module SimpleBitPack #(
-    parameter int W_WIDTH = 8  // Width of the coefficients in w
+    parameter int W_WIDTH = 10  // Width of the coefficients in w
 //    parameter int B_WIDTH = 8   // Width of the integer b
 )(
     input logic [W_WIDTH-1:0] w [255:0],  // Input array w of 256 elements
@@ -18,8 +18,8 @@ module SimpleBitPack #(
 //        end
 
         for (int j = 0; j < 256; j++) begin
-//           z_bits[(j * W_WIDTH) +: W_WIDTH] = w[j];
-           z_bits[(j * W_WIDTH) +: W_WIDTH] = w[255 - j];
+           z_bits[(j * W_WIDTH) +: W_WIDTH] = w[j];
+//           z_bits[(j * W_WIDTH) +: W_WIDTH] = w[255 - j];
         end
     end
     assign z = z_bits;

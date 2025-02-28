@@ -2,11 +2,11 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sun Dec 29 00:29:17 2024
-# Process ID: 222919
-# Current directory: /home/hshoaib/power2round/power2round.runs/impl_1
-# Command line: vivado -log Power2round.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Power2round.tcl -notrace
-# Log file: /home/hshoaib/power2round/power2round.runs/impl_1/Power2round.vdi
-# Journal file: /home/hshoaib/power2round/power2round.runs/impl_1/vivado.jou
+# Start of session at: Thu Feb 27 15:51:47 2025
+# Process ID: 553984
+# Current directory: /home/hshoaib/Athestia/power2round/power2round.runs/impl_1
+# Command line: vivado -log Top_Power2round.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Top_Power2round.tcl -notrace
+# Log file: /home/hshoaib/Athestia/power2round/power2round.runs/impl_1/Top_Power2round.vdi
+# Journal file: /home/hshoaib/Athestia/power2round/power2round.runs/impl_1/vivado.jou
 #-----------------------------------------------------------
-source Power2round.tcl -notrace
+source Top_Power2round.tcl -notrace

@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../simplebitpack.srcs/sources_1/new/SimpleBitPack.sv" \
+"../../../../simplebitpack.srcs/sources_1/new/Top_SimpleBitPack.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

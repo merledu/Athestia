@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/hshoaib/power2round/power2round.runs/synth_1'
+HD_PWD='/home/hshoaib/Athestia/power2round/power2round.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log Power2round.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Power2round.tcl
+EAStep vivado -log Top_Power2round.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top_Power2round.tcl

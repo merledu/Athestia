@@ -1,0 +1,7 @@
+Running: xsim.dir/Top_SimpleBitPack_behav/xsimk -simmode gui -wdb Top_SimpleBitPack_behav.wdb -simrunnum 0 -socket 32813
+Design successfully loaded
+Design Loading Memory Usage: 32396 KB (Peak: 33004 KB)
+Design Loading CPU Usage: 50 ms
+Simulation completed
+Simulation Memory Usage: 114132 KB (Peak: 179668 KB)
+Simulation CPU Usage: 70 ms

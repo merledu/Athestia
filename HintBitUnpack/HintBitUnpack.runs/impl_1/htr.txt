@@ -6,4 +6,4 @@
 # Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
+vivado -log HintBitUnpack.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source HintBitUnpack.tcl -notrace

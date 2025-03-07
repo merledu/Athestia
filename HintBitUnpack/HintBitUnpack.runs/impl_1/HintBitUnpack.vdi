@@ -1,0 +1,269 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Mar  6 14:34:18 2025
+# Process ID: 15493
+# Current directory: /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/impl_1
+# Command line: vivado -log HintBitUnpack.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source HintBitUnpack.tcl -notrace
+# Log file: /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/impl_1/HintBitUnpack.vdi
+# Journal file: /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source HintBitUnpack.tcl -notrace
+Command: link_design -top HintBitUnpack -part xc7a100tcsg324-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Netlist 29-17] Analyzing 1084 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'HintBitUnpack' is not ideal for floorplanning, since the cellview 'HintBitUnpack' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/mlatif/Downloads/Arty_Master.xdc]
+Finished Parsing XDC File [/home/mlatif/Downloads/Arty_Master.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+7 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1549.402 ; gain = 334.285 ; free physical = 149056 ; free virtual = 236574
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1625.434 ; gain = 76.031 ; free physical = 149030 ; free virtual = 236549
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 17c8633e9
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:44 . Memory (MB): peak = 2094.934 ; gain = 469.500 ; free physical = 147740 ; free virtual = 235828
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 17c8633e9
+
+Time (s): cpu = 00:00:00.76 ; elapsed = 00:00:00.46 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147672 ; free virtual = 235774
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 17c8633e9
+
+Time (s): cpu = 00:00:00.92 ; elapsed = 00:00:00.62 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147671 ; free virtual = 235773
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 1226ead8a
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.83 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147671 ; free virtual = 235773
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 1226ead8a
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147656 ; free virtual = 235758
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+Phase 5 Shift Register Optimization | Checksum: 1e8fc5ea
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147640 ; free virtual = 235742
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 1e8fc5ea
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147633 ; free virtual = 235735
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147632 ; free virtual = 235734
+Ending Logic Optimization Task | Checksum: 1e8fc5ea
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147632 ; free virtual = 235734
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: 1e8fc5ea
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147615 ; free virtual = 235719
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 1e8fc5ea
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2094.934 ; gain = 0.000 ; free physical = 147615 ; free virtual = 235719
+INFO: [Common 17-83] Releasing license: Implementation
+23 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:48 . Memory (MB): peak = 2094.934 ; gain = 545.531 ; free physical = 147615 ; free virtual = 235719
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/impl_1/HintBitUnpack_opt.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file HintBitUnpack_drc_opted.rpt -pb HintBitUnpack_drc_opted.pb -rpx HintBitUnpack_drc_opted.rpx
+Command: report_drc -file HintBitUnpack_drc_opted.rpt -pb HintBitUnpack_drc_opted.pb -rpx HintBitUnpack_drc_opted.rpx
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/merledu1/tools/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/impl_1/HintBitUnpack_drc_opted.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2158.965 ; gain = 32.016 ; free physical = 147680 ; free virtual = 235782
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2158.965 ; gain = 0.000 ; free physical = 147612 ; free virtual = 235725
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1914a6e4
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2158.965 ; gain = 0.000 ; free physical = 147612 ; free virtual = 235725
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2158.965 ; gain = 0.000 ; free physical = 147612 ; free virtual = 235725
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+ERROR: [Place 30-415] IO Placement failed due to overutilization. This design contains 2715 I/O ports
+ while the target  device: 7a100t package: csg324, contains only 210 available user I/O. The target device has 210 usable I/O pins of which 0 are already occupied by user-locked I/Os.
+ To rectify this issue:
+ 1. Ensure you are targeting the correct device and package.  Select a larger device or different package if necessary.
+ 2. Check the top-level ports of the design to ensure the correct number of ports are specified.
+ 3. Consider design changes to reduce the number of I/Os necessary.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1000 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1001 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1002 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1003 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1004 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1005 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1006 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1007 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1008 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1009 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1010 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1011 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1012 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1013 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1014 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1015 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1016 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1017 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1018 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1019 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1020 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1021 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1022 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1023 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1024 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1025 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1026 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1027 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1028 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1029 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1030 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1031 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1032 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1033 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1034 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1035 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1036 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1037 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1038 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1039 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1040 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1041 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1042 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1043 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1044 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1045 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1046 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1047 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1048 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1049 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1050 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1051 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1052 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1053 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1054 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1055 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1056 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1057 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1058 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1059 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1060 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1061 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1062 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1063 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1064 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1065 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1066 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1067 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1068 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1069 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1070 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1071 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1072 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1073 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1074 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1075 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1076 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1077 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1078 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1079 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1080 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1081 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1082 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1083 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1084 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1085 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1086 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1087 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1088 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1089 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1090 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1091 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1092 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1093 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1094 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1095 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1096 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1097 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1098 (IBUF) is not placed
+ERROR: [Place 30-68] Instance FSM_sequential_state_reg[2]_i_1099 (IBUF) is not placed
+INFO: [Common 17-14] Message 'Place 30-68' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 33445072
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 2158.965 ; gain = 0.000 ; free physical = 147620 ; free virtual = 235739
+Phase 1 Placer Initialization | Checksum: 33445072
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 2158.965 ; gain = 0.000 ; free physical = 147620 ; free virtual = 235739
+ERROR: [Place 30-99] Placer failed with error: 'IO Clock Placer failed'
+Please review all ERROR, CRITICAL WARNING, and WARNING messages during placement to understand the cause for failure.
+Ending Placer Task | Checksum: 33445072
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 2158.965 ; gain = 0.000 ; free physical = 147620 ; free virtual = 235739
+INFO: [Common 17-83] Releasing license: Implementation
+41 Infos, 2 Warnings, 0 Critical Warnings and 103 Errors encountered.
+place_design failed
+ERROR: [Common 17-69] Command failed: Placer could not place all instances
+INFO: [Common 17-206] Exiting Vivado at Thu Mar  6 14:36:16 2025...

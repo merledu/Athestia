@@ -1,74 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1735487482">
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="PA-TCL" Name="SimpleBitPack.tcl"/>
+  <File Type="REPORTS-TCL" Name="SimpleBitPack_reports.tcl"/>
+  <File Type="OPT-DCP" Name="SimpleBitPack_opt.dcp"/>
+  <File Type="OPT-DRC" Name="SimpleBitPack_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="SimpleBitPack.hwdef"/>
+  <File Type="PWROPT-DCP" Name="SimpleBitPack_pwropt.dcp"/>
+  <File Type="PLACE-DCP" Name="SimpleBitPack_placed.dcp"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="SimpleBitPack_incremental_reuse_pre_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="SimpleBitPack_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="SimpleBitPack_physopt.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="SimpleBitPack_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="SimpleBitPack_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="SimpleBitPack_routed_bb.dcp"/>
+  <File Type="BG-BIT" Name="SimpleBitPack.bit"/>
+  <File Type="BG-BIN" Name="SimpleBitPack.bin"/>
+  <File Type="BITSTR-MSK" Name="SimpleBitPack.msk"/>
+  <File Type="ROUTE-TIMING-PB" Name="SimpleBitPack_timing_summary_routed.pb"/>
+  <File Type="BITSTR-RBT" Name="SimpleBitPack.rbt"/>
+  <File Type="BITSTR-NKY" Name="SimpleBitPack.nky"/>
+  <File Type="BITSTR-BMM" Name="SimpleBitPack_bd.bmm"/>
   <File Type="BG-DRC" Name="SimpleBitPack.drc"/>
+  <File Type="BITSTR-MMI" Name="SimpleBitPack.mmi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BG-BGN" Name="SimpleBitPack.bgn"/>
   <File Type="BITSTR-SYSDEF" Name="SimpleBitPack.sysdef"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="SimpleBitPack.ltx"/>
-  <File Type="BITSTR-MMI" Name="SimpleBitPack.mmi"/>
-  <File Type="BITSTR-BMM" Name="SimpleBitPack_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="SimpleBitPack.nky"/>
-  <File Type="BITSTR-RBT" Name="SimpleBitPack.rbt"/>
-  <File Type="BITSTR-MSK" Name="SimpleBitPack.msk"/>
-  <File Type="BG-BIN" Name="SimpleBitPack.bin"/>
-  <File Type="BG-BIT" Name="SimpleBitPack.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="SimpleBitPack_bus_skew_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="SimpleBitPack_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="SimpleBitPack_bus_skew_postroute_physopted.rpt"/>
   <File Type="RDI-RDI" Name="SimpleBitPack.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="SimpleBitPack_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="SimpleBitPack_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="SimpleBitPack_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="SimpleBitPack_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="SimpleBitPack_postroute_physopt.dcp"/>
-  <File Type="ROUTE-BUS-SKEW" Name="SimpleBitPack_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="SimpleBitPack_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="SimpleBitPack_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="SimpleBitPack_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-TIMING-PB" Name="SimpleBitPack_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="SimpleBitPack_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="SimpleBitPack_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="SimpleBitPack_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="SimpleBitPack_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="SimpleBitPack_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="SimpleBitPack_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="SimpleBitPack_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="SimpleBitPack_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="SimpleBitPack_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="SimpleBitPack_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="SimpleBitPack_drc_routed.pb"/>
-  <File Type="ROUTE-DRC" Name="SimpleBitPack_drc_routed.rpt"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="SimpleBitPack_routed_bb.dcp"/>
-  <File Type="ROUTE-DCP" Name="SimpleBitPack_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="SimpleBitPack_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="SimpleBitPack_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="SimpleBitPack_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="SimpleBitPack_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="SimpleBitPack_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="SimpleBitPack_postplace_pwropt.dcp"/>
-  <File Type="PLACE-TIMING" Name="SimpleBitPack_timing_summary_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="SimpleBitPack_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="SimpleBitPack_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="SimpleBitPack_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="SimpleBitPack_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="SimpleBitPack_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="SimpleBitPack_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="SimpleBitPack_io_placed.rpt"/>
-  <File Type="PLACE-DCP" Name="SimpleBitPack_placed.dcp"/>
-  <File Type="PWROPT-TIMING" Name="SimpleBitPack_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="SimpleBitPack_drc_pwropted.rpt"/>
-  <File Type="PWROPT-DCP" Name="SimpleBitPack_pwropt.dcp"/>
-  <File Type="OPT-TIMING" Name="SimpleBitPack_timing_summary_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="SimpleBitPack.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="SimpleBitPack_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="SimpleBitPack_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="SimpleBitPack_opt.dcp"/>
-  <File Type="INIT-TIMING" Name="SimpleBitPack_timing_summary_init.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="SimpleBitPack_bus_skew_routed.rpx"/>
-  <File Type="REPORTS-TCL" Name="SimpleBitPack_reports.tcl"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="SimpleBitPack_bus_skew_routed.pb"/>
-  <File Type="PA-TCL" Name="SimpleBitPack.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/SimpleBitPack.sv">

@@ -1,5 +1,6 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  \
+"../../../../simpleHintUnpack.srcs/sources_1/new/SimpleBitUnpack_top.sv" \
 "../../../../simpleHintUnpack.srcs/sources_1/new/simpleBitUnpack.sv" \
 "../../../../simpleHintUnpack.srcs/sim_1/new/simpleBitUnpack_tb.sv" \
 

@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/mlatif/HintBitUnpack/HintBitUnpack.runs/synth_1'
+HD_PWD='/home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+EAStep vivado -log HintBitUnpack.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source HintBitUnpack.tcl

@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../AGenerate_process_drbg.srcs/sources_1/new/generateProcess.sv" \
+"../../../../AGenerate_process_drbg.srcs/sim_1/new/generateDrbg_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

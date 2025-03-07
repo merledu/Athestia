@@ -1,0 +1,324 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Mar  6 14:31:42 2025
+# Process ID: 13184
+# Current directory: /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/synth_1
+# Command line: vivado -log HintBitUnpack.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source HintBitUnpack.tcl
+# Log file: /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/synth_1/HintBitUnpack.vds
+# Journal file: /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source HintBitUnpack.tcl -notrace
+Command: synth_design -top HintBitUnpack -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 13339 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1308.574 ; gain = 85.871 ; free physical = 149018 ; free virtual = 236506
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'HintBitUnpack' [/home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.srcs/sources_1/new/HintBitUnpack.sv:1]
+	Parameter k bound to: 32'sb00000000000000000000000000001000 
+	Parameter omega bound to: 32'sb00000000000000000000000001001011 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.srcs/sources_1/new/HintBitUnpack.sv:37]
+INFO: [Synth 8-6155] done synthesizing module 'HintBitUnpack' (1#1) [/home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.srcs/sources_1/new/HintBitUnpack.sv:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1358.199 ; gain = 135.496 ; free physical = 148960 ; free virtual = 236449
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1358.199 ; gain = 135.496 ; free physical = 148956 ; free virtual = 236444
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1358.199 ; gain = 135.496 ; free physical = 148956 ; free virtual = 236444
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/mlatif/Downloads/Arty_Master.xdc]
+Finished Parsing XDC File [/home/mlatif/Downloads/Arty_Master.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Constraints 18-5210] No constraint will be written out.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.19 . Memory (MB): peak = 1738.043 ; gain = 0.000 ; free physical = 148435 ; free virtual = 235924
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:46 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 148381 ; free virtual = 235870
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:46 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 148381 ; free virtual = 235869
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:46 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 148381 ; free virtual = 235869
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'HintBitUnpack'
+INFO: [Synth 8-5544] ROM "valid" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+           COMPUTE_OUTER |                              001 |                              001
+           COMPUTE_INNER |                              010 |                              010
+             FINAL_CHECK |                              011 |                              011
+                   ERROR |                              100 |                              101
+                    DONE |                              101 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'HintBitUnpack'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:48 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 148399 ; free virtual = 235888
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 2     
++---Registers : 
+	              256 Bit    Registers := 8     
+	                9 Bit    Registers := 5     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input    256 Bit        Muxes := 19    
+	   6 Input    256 Bit        Muxes := 9     
+	   6 Input      9 Bit        Muxes := 4     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module HintBitUnpack 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 2     
++---Registers : 
+	              256 Bit    Registers := 8     
+	                9 Bit    Registers := 5     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input    256 Bit        Muxes := 19    
+	   6 Input    256 Bit        Muxes := 9     
+	   6 Input      9 Bit        Muxes := 4     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-3886] merging instance 'final_counter_reg[8]' (FDCE) to 'final_counter_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\final_counter_reg[7] )
+INFO: [Synth 8-3886] merging instance 'inner_counter_reg[8]' (FDCE) to 'inner_counter_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\inner_counter_reg[7] )
+WARNING: [Synth 8-3332] Sequential element (inner_counter_reg[7]) is unused and will be removed from module HintBitUnpack.
+WARNING: [Synth 8-3332] Sequential element (final_counter_reg[7]) is unused and will be removed from module HintBitUnpack.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:16 ; elapsed = 00:01:42 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147765 ; free virtual = 235268
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:27 ; elapsed = 00:01:58 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147631 ; free virtual = 235134
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:02:05 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147635 ; free virtual = 235138
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:39 ; elapsed = 00:02:10 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147605 ; free virtual = 235109
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:40 ; elapsed = 00:02:12 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147590 ; free virtual = 235094
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:40 ; elapsed = 00:02:12 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147588 ; free virtual = 235091
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:40 ; elapsed = 00:02:12 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147590 ; free virtual = 235093
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:40 ; elapsed = 00:02:12 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147590 ; free virtual = 235093
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:40 ; elapsed = 00:02:12 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147589 ; free virtual = 235092
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:40 ; elapsed = 00:02:12 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147589 ; free virtual = 235092
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     9|
+|3     |LUT1   |     3|
+|4     |LUT2   |    43|
+|5     |LUT3   |    31|
+|6     |LUT4   |    83|
+|7     |LUT5   |   809|
+|8     |LUT6   |  2026|
+|9     |MUXF7  |   289|
+|10    |MUXF8  |   120|
+|11    |FDCE   |  2098|
+|12    |IBUF   |   666|
+|13    |OBUF   |  2049|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |  8227|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:40 ; elapsed = 00:02:12 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147589 ; free virtual = 235092
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:27 ; elapsed = 00:01:37 . Memory (MB): peak = 1738.043 ; gain = 135.496 ; free physical = 147635 ; free virtual = 235138
+Synthesis Optimization Complete : Time (s): cpu = 00:01:41 ; elapsed = 00:02:12 . Memory (MB): peak = 1738.043 ; gain = 515.340 ; free physical = 147635 ; free virtual = 235138
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1084 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'HintBitUnpack' is not ideal for floorplanning, since the cellview 'HintBitUnpack' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+24 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:46 ; elapsed = 00:02:17 . Memory (MB): peak = 1762.059 ; gain = 550.938 ; free physical = 148746 ; free virtual = 236249
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/synth_1/HintBitUnpack.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file HintBitUnpack_utilization_synth.rpt -pb HintBitUnpack_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.27 ; elapsed = 00:00:00.31 . Memory (MB): peak = 1786.070 ; gain = 0.000 ; free physical = 148768 ; free virtual = 236273
+INFO: [Common 17-206] Exiting Vivado at Thu Mar  6 14:34:16 2025...

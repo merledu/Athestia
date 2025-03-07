@@ -2,11 +2,11 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Mon Dec 23 20:52:56 2024
-# Process ID: 3652871
-# Current directory: /home/mlatif/HintBitUnpack/HintBitUnpack.runs/synth_1
-# Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-# Log file: /home/mlatif/HintBitUnpack/HintBitUnpack.runs/synth_1/top.vds
-# Journal file: /home/mlatif/HintBitUnpack/HintBitUnpack.runs/synth_1/vivado.jou
+# Start of session at: Thu Mar  6 14:31:42 2025
+# Process ID: 13184
+# Current directory: /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/synth_1
+# Command line: vivado -log HintBitUnpack.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source HintBitUnpack.tcl
+# Log file: /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/synth_1/HintBitUnpack.vds
+# Journal file: /home/mlatif/Athestia/HintBitUnpack/HintBitUnpack.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
-source top.tcl -notrace
+source HintBitUnpack.tcl -notrace

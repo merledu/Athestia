@@ -1,13 +1,14 @@
 Vivado Simulator 2018.2
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d819195be721443e9e26acbfcc9d619f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_PolynomialConverter_behav xil_defaultlib.tb_PolynomialConverter xil_defaultlib.glbl -log elaborate.log 
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d819195be721443e9e26acbfcc9d619f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot simpleBitUnpack_tb_behav xil_defaultlib.simpleBitUnpack_tb xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.srcs/sources_1/new/simple_bit_unpack.sv" Line 1. Module simpleBitUnpack(b=1023) doesn't have a timescale but at least one module in design has a timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.PolynomialConverter_default
-Compiling module xil_defaultlib.tb_PolynomialConverter
+Compiling module xil_defaultlib.simpleBitUnpack(b=1023)
+Compiling module xil_defaultlib.simpleBitUnpack_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_PolynomialConverter_behav
+Built simulation snapshot simpleBitUnpack_tb_behav

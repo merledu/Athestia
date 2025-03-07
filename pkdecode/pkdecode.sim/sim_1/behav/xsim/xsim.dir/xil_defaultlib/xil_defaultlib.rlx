@@ -1,0 +1,9 @@
+0.6
+2018.2
+Jun 14 2018
+20:07:38
+/home/mlatif/Athestia/pkdecode/pkdecode.sim/sim_1/behav/xsim/glbl.v,1653850421,verilog,,,,glbl,,,,,,,,
+/home/mlatif/Athestia/pkdecode/pkdecode.srcs/sim_1/new/pkdecode_tb.sv,1740392734,systemVerilog,,/home/mlatif/Athestia/pkdecode/pkdecode.srcs/sources_1/new/pkdecode_top.sv,,tb_pk_decode,,,,,,,,
+/home/mlatif/Athestia/pkdecode/pkdecode.srcs/sources_1/new/pkdecode.sv,1740392847,systemVerilog,,/home/mlatif/Athestia/pkdecode/pkdecode.srcs/sources_1/new/simplebitunpack.sv,,pk_decode,,,,,,,,
+/home/mlatif/Athestia/pkdecode/pkdecode.srcs/sources_1/new/pkdecode_top.sv,1740390306,systemVerilog,,/home/mlatif/Athestia/pkdecode/pkdecode.srcs/sources_1/new/simplebitunpack.sv,,pkdecode_top,,,,,,,,
+/home/mlatif/Athestia/pkdecode/pkdecode.srcs/sources_1/new/simplebitunpack.sv,1740392108,systemVerilog,,/home/mlatif/Athestia/pkdecode/pkdecode.srcs/sim_1/new/pkdecode_tb.sv,,simpleBitUnpack,,,,,,,,

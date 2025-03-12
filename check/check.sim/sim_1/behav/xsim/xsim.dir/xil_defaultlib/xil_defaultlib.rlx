@@ -1,0 +1,9 @@
+0.6
+2018.2
+Jun 14 2018
+20:41:02
+C:/Users/HP/Downloads/check/check.sim/sim_1/behav/xsim/glbl.v,1528975656,verilog,,,,glbl,,,,,,,,
+C:/Users/HP/Downloads/check/check.srcs/sim_1/new/tb_bp.sv,1738063099,systemVerilog,,,,BitPack_tb,,,,,,,,
+C:/Users/HP/Downloads/check/check.srcs/sim_1/new/tb_sk.sv,1738358894,systemVerilog,,,,tb_skEncode,,,,,,,,
+C:/Users/HP/Downloads/check/check.srcs/sources_1/new/bitpack.sv,1738358240,systemVerilog,,C:/Users/HP/Downloads/check/check.srcs/sources_1/new/skEncode.sv,,BitPack,,,,,,,,
+C:/Users/HP/Downloads/check/check.srcs/sources_1/new/skEncode.sv,1738504174,systemVerilog,,C:/Users/HP/Downloads/check/check.srcs/sim_1/new/tb_sk.sv,,skEncode,,,,,,,,

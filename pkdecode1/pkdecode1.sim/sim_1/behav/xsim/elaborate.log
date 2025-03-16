@@ -1,14 +1,7 @@
 Vivado Simulator 2018.2
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 0d4d51252af940a6b1990733286443ef --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_pk_decode_behav xil_defaultlib.tb_pk_decode xil_defaultlib.glbl -log elaborate.log 
+Running: /raptor/tools/Xilinx/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 0d4d51252af940a6b1990733286443ef --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_pk_decode_behav xil_defaultlib.tb_pk_decode xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.simpleBitUnpack_default
-Compiling module xil_defaultlib.pk_decode_default
-Compiling module xil_defaultlib.tb_pk_decode
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_pk_decode_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

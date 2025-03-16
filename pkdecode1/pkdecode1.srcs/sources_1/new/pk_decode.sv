@@ -1,76 +1,92 @@
 `timescale 1ns / 1ps
 
-module pk_decode #(
-    parameter int q = 8380417,       // Modulus
-    parameter int d = 13,           // Security parameter
-    parameter int k = 8            // Number of vectors
-) (
-    input  logic clk,
-    input  logic rst,
-    input  logic start,
-    output logic done,
-    input  logic [total_pk_bits-1:0] pk, // Input public key
-    output logic [255:0] rho,            // Output rho
-    output logic [k-1:0][255:0][coeff_bits-1:0] t1 // Output polynomials
+module pkDecode #(
+    parameter int PK_SIZE = 256,  // Size of pk in bytes
+    parameter int D = 13,        
+    parameter int Q = 3329,
+    parameter k=8     
+)(
+    input  logic clk,                
+    input  logic [8380416:0] pk,   //8*PK_SIZE-1
+    output logic [255:0] rho,          // Extracted 32-byte rho
+    output logic [k-1:0][255:0][9:0] t1 //define b where 9
 );
+//y = bitlen(q - 1)
+//    b = (2 ** (y - d)) - 1
 
-  // Derived Parameters
-  localparam int bitlen_q = $clog2(q);
-  localparam int bitlen_b = 1023;//bitlen_q - d;
-  localparam int coeff_bits = bitlen_q - d;
-  localparam int rho_bits = 256;
-  localparam int zi_bits = 2560;//256 * coeff_bits;  // 256 coefficients per z_i
-  localparam int total_pk_bits = rho_bits + k * zi_bits;
+    // Compute bit length of q - 1
+    function automatic int bitlen(int q);
+        return (q == 0) ? 1 : $clog2(q + 1);
+    endfunction
 
-  // FSM States
-  typedef enum logic [1:0] { IDLE, UNPACK, DONE } state_t;
-  state_t state;
+    localparam int Y = bitlen(Q - 1);
+    localparam int C = (1 << (Y - D)) - 1;
+    localparam int Blen = bitlen(1023);
+    localparam int B = 1023;
+    localparam int POLY_SIZE = 32 * Blen * 8; // 32 coefficients, each of size C bits
 
-  logic [$clog2(k)-1:0] count= 0;  // Counter for polynomials
-  logic [zi_bits-1:0] current_zi=0;
+    logic [7:0][POLY_SIZE-1:0] t1_data;
 
-  // Assign rho from public key
-  assign rho = pk[total_pk_bits-1 : rho_bits];
-
-
-  simpleBitUnpack #(
-    .b(bitlen_b)
-  ) unpacker (
-    .clk(clk),
-    .v(current_zi),
-    .w(t1[0])
-  );
-
-  always_ff @(posedge clk or posedge rst) begin
-    if (rst) begin
-      state <= IDLE;
-      count <= 0;
-      done  <= 0;
-    end else begin
-      case (state)
-        IDLE: begin
-          done <= 0;
-          if (start) begin
-            count <= 0;
-            state <= UNPACK;
-          end
-        end
-
-        UNPACK: begin
-          // Extract the current z_i segment from pk
-          current_zi <= pk[total_pk_bits - rho_bits - 1 * zi_bits : zi_bits];
-          if (count == k - 1) begin
-            state <= DONE;
-          end else begin
-            count <= count + 1;
-          end
-        end
-
-        DONE: begin
-          done <= 1;
-          state <= IDLE;
-        end
-      endcase
+    always_ff @(posedge clk) begin
+        // Extract rho (first 32 bytes)
+        rho <= pk[8*32-1:0];
+        t1_data[0] <= pk[2815:256];   //320 bytes
+        t1_data[1] <= pk[5375 : 2816];  
+        t1_data[2] <= pk[7935 : 5376];
+        t1_data[3] <= pk[10495 : 7936];
+        t1_data[4] <= pk[13055 : 10496];
+        t1_data[5] <= pk[15615 : 13056];
+        t1_data[6] <= pk[18175 : 15616];
+        t1_data[7] <= pk[20735 : 18176];
     end
-  end
+
+    simpleBitUnpack #(.b(B)) unpacker0 (
+        .clk(clk),
+        .v(t1_data[0]),
+        .w(t1[0])
+    );
+
+    simpleBitUnpack #(.b(B)) simpleBitUnpack1 (
+        .clk(clk),
+        .v(t1_data[1]),
+        .w(t1[1])
+    );
+
+    simpleBitUnpack #(.b(B)) simpleBitUnpack2 (
+        .clk(clk),
+        .v(t1_data[2]),
+        .w(t1[2])
+    );
+
+    simpleBitUnpack #(.b(B)) simpleBitUnpack3 (
+        .clk(clk),
+        .v(t1_data[3]),
+        .w(t1[3])
+    );
+
+    simpleBitUnpack #(.b(B)) simpleBitUnpack4 (
+        .clk(clk),
+        .v(t1_data[4]),
+        .w(t1[4])
+    );
+
+    simpleBitUnpack #(.b(B)) simpleBitUnpack5 (
+        .clk(clk),
+        .v(t1_data[5]),
+        .w(t1[5])
+    );
+
+    simpleBitUnpack #(.b(B)) simpleBitUnpack6 (
+        .clk(clk),
+        .v(t1_data[6]),
+        .w(t1[6])
+    );
+
+    simpleBitUnpack #(.b(B)) simpleBitUnpack7 (
+        .clk(clk),
+        .v(t1_data[7]),
+        .w(t1[7])
+    );
+
+
 endmodule

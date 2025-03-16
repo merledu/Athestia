@@ -1,7 +1,0 @@
-Running: xsim.dir/HintBitPack_tb_behav/xsimk -simmode gui -wdb HintBitPack_tb_behav.wdb -simrunnum 0 -socket 40031
-Design successfully loaded
-Design Loading Memory Usage: 32384 KB (Peak: 33000 KB)
-Design Loading CPU Usage: 100 ms
-Simulation completed
-Simulation Memory Usage: 114380 KB (Peak: 179656 KB)
-Simulation CPU Usage: 160 ms

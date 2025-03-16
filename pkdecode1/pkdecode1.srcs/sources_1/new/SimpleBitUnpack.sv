@@ -1,9 +1,8 @@
-`timescale 1ns / 1ps
-
 module simpleBitUnpack #(
-  parameter int b = 1023
+  parameter int b = 10
 ) (
   input  logic clk,
+  input  logic reset,
   input  logic [32 * bitlen(b) * 8 - 1 : 0] v,
   output logic [255:0][bitlen(b)-1:0] w
 );
@@ -25,10 +24,14 @@ module simpleBitUnpack #(
     end
   endgenerate
 
-  always_ff @(posedge clk) begin
+  always_ff @(posedge clk or posedge reset) begin
+    if (reset) begin
+      w <= '0;
+    end else begin
       for (int i = 0; i < 256; i++) begin
-        w[i] <= z[i*c +: c];
+        w[i] <= z[i*c +: 10];
       end
     end
+  end
 
 endmodule

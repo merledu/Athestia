@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Mar 15 23:38:35 2025
+# Process ID: 14720
+# Current directory: C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.runs/synth_1
+# Command line: vivado.exe -log Expand_mask.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Expand_mask.tcl
+# Log file: C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.runs/synth_1/Expand_mask.vds
+# Journal file: C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Expand_mask.tcl -notrace

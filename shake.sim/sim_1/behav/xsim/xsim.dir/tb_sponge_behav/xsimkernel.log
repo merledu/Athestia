@@ -1,0 +1,7 @@
+Running: xsim.dir/tb_sponge_behav/xsimk.exe -simmode gui -wdb tb_sponge_behav.wdb -simrunnum 0 -socket 52206
+Design successfully loaded
+Design Loading Memory Usage: 6328 KB (Peak: 6328 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 7292 KB (Peak: 7292 KB)
+Simulation CPU Usage: 578 ms

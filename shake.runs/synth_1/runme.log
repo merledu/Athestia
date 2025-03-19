@@ -1,0 +1,386 @@
+
+*** Running vivado
+    with args -log topp.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source topp.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source topp.tcl -notrace
+Command: synth_design -top topp -part xc7a50tcsg325-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a50t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a50t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 17644 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 409.434 ; gain = 96.227
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'topp' [E:/shake/shake/shake.srcs/sources_1/new/topp.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'sponge' [E:/shake/shake/shake.srcs/sources_1/new/Shake.sv:1]
+	Parameter msg_len bound to: 1634 - type: integer 
+	Parameter d_len bound to: 4096 - type: integer 
+	Parameter capacity bound to: 512 - type: integer 
+	Parameter r bound to: 1088 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [E:/shake/shake/shake.srcs/sources_1/new/Shake.sv:31]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [E:/shake/shake/shake.srcs/sources_1/new/Shake.sv:32]
+INFO: [Synth 8-6157] synthesizing module 'keccak' [E:/shake/shake/shake.srcs/sources_1/new/Keccak.sv:23]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [E:/shake/shake/shake.srcs/sources_1/new/Keccak.sv:81]
+INFO: [Synth 8-6157] synthesizing module 'Rnd' [E:/shake/shake/shake.srcs/sources_1/new/Round.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'Theta' [E:/shake/shake/shake.srcs/sources_1/new/Theta.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'Theta' (1#1) [E:/shake/shake/shake.srcs/sources_1/new/Theta.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'Rho' [E:/shake/shake/shake.srcs/sources_1/new/Rho.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Rho' (2#1) [E:/shake/shake/shake.srcs/sources_1/new/Rho.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'Pi' [E:/shake/shake/shake.srcs/sources_1/new/Pi.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Pi' (3#1) [E:/shake/shake/shake.srcs/sources_1/new/Pi.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'Chi' [E:/shake/shake/shake.srcs/sources_1/new/Chi.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'Chi' (4#1) [E:/shake/shake/shake.srcs/sources_1/new/Chi.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'Iota' [E:/shake/shake/shake.srcs/sources_1/new/Iota.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Iota' (5#1) [E:/shake/shake/shake.srcs/sources_1/new/Iota.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Rnd' (6#1) [E:/shake/shake/shake.srcs/sources_1/new/Round.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'keccak' (7#1) [E:/shake/shake/shake.srcs/sources_1/new/Keccak.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'pad10_1' [E:/shake/shake/shake.srcs/sources_1/new/Pad10_1.sv:1]
+	Parameter x bound to: 1088 - type: integer 
+	Parameter m bound to: 1634 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pad10_1' (8#1) [E:/shake/shake/shake.srcs/sources_1/new/Pad10_1.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'sponge' (9#1) [E:/shake/shake/shake.srcs/sources_1/new/Shake.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'topp' (10#1) [E:/shake/shake/shake.srcs/sources_1/new/topp.sv:23]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 479.012 ; gain = 165.805
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 479.012 ; gain = 165.805
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 479.012 ; gain = 165.805
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a50tcsg325-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/masfiyan/Downloads/Arty-A7-100-Master.xdc]
+CRITICAL WARNING: [Common 17-69] Command failed: Missing name/value pair in -dict argument. [C:/Users/masfiyan/Downloads/Arty-A7-100-Master.xdc:7]
+Finished Parsing XDC File [C:/Users/masfiyan/Downloads/Arty-A7-100-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/masfiyan/Downloads/Arty-A7-100-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/topp_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/topp_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 964.660 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 964.660 ; gain = 651.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a50tcsg325-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 964.660 ; gain = 651.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 964.660 ; gain = 651.453
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "round_done" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 964.660 ; gain = 651.453
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |keccak        |           5|     14563|
+|2     |sponge__GC0   |           1|     15489|
+|3     |topp__GC0     |           1|      8225|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register h_reg [E:/shake/shake/shake.srcs/sources_1/new/Shake.sv:67]
+INFO: [Synth 8-3538] Detected potentially large (wide) register z_reg [E:/shake/shake/shake.srcs/sources_1/new/Shake.sv:68]
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 5     
++---XORs : 
+	   2 Input   1600 Bit         XORs := 1     
+	   5 Input     64 Bit         XORs := 25    
+	   2 Input     64 Bit         XORs := 280   
++---Registers : 
+	             4353 Bit    Registers := 1     
+	             4096 Bit    Registers := 1     
+	               64 Bit    Registers := 130   
+	                5 Bit    Registers := 5     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input   1600 Bit        Muxes := 1     
+	   2 Input   1088 Bit        Muxes := 4     
+	   2 Input     64 Bit        Muxes := 125   
+	   2 Input      5 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 10    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register h_reg [E:/shake/shake/shake.srcs/sources_1/new/Shake.sv:67]
+INFO: [Synth 8-3538] Detected potentially large (wide) register z_reg [E:/shake/shake/shake.srcs/sources_1/new/Shake.sv:68]
+Hierarchical RTL Component report 
+Module topp 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module Theta 
+Detailed RTL Component Info : 
++---XORs : 
+	   5 Input     64 Bit         XORs := 5     
+	   2 Input     64 Bit         XORs := 30    
+Module Chi 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     64 Bit         XORs := 25    
+Module Iota 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     64 Bit         XORs := 1     
+Module keccak 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               64 Bit    Registers := 26    
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 25    
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module sponge 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input   1600 Bit         XORs := 1     
++---Registers : 
+	             4353 Bit    Registers := 1     
+	             4096 Bit    Registers := 1     
++---Muxes : 
+	   2 Input   1600 Bit        Muxes := 1     
+	   2 Input   1088 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:03 ; elapsed = 00:01:04 . Memory (MB): peak = 964.660 ; gain = 651.453
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |keccak        |           1|     10376|
+|2     |sponge__GC0   |           1|     15211|
+|3     |topp__GC0     |           1|      5147|
+|4     |keccak__1     |           3|     13032|
+|5     |keccak__2     |           1|     13032|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:14 ; elapsed = 00:01:17 . Memory (MB): peak = 964.660 ; gain = 651.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-115] binding instance 'shakei_1' in module 'topp' to reference 'topp_GT0' which has no pins
+WARNING: [Synth 8-115] binding instance 'shakei_2' in module 'topp' to reference 'topp_GT1' which has no pins
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:44 ; elapsed = 00:01:47 . Memory (MB): peak = 1000.762 ; gain = 687.555
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |keccak        |           1|     10376|
+|2     |keccak__1     |           3|     13032|
+|3     |keccak__2     |           1|     13032|
+|4     |topp_GT2      |           1|     20358|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:03 ; elapsed = 00:02:06 . Memory (MB): peak = 1021.738 ; gain = 708.531
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:08 ; elapsed = 00:02:12 . Memory (MB): peak = 1021.738 ; gain = 708.531
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:09 ; elapsed = 00:02:12 . Memory (MB): peak = 1021.738 ; gain = 708.531
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:15 ; elapsed = 00:02:19 . Memory (MB): peak = 1021.738 ; gain = 708.531
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:15 ; elapsed = 00:02:19 . Memory (MB): peak = 1021.738 ; gain = 708.531
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:54 ; elapsed = 00:02:58 . Memory (MB): peak = 1021.738 ; gain = 708.531
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:54 ; elapsed = 00:02:58 . Memory (MB): peak = 1021.738 ; gain = 708.531
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |   342|
+|3     |LUT1   |  2208|
+|4     |LUT2   |  2075|
+|5     |LUT3   | 14616|
+|6     |LUT4   |  2056|
+|7     |LUT5   |  8541|
+|8     |LUT6   |  1967|
+|9     |FDCE   | 16548|
+|10    |FDRE   |     1|
+|11    |IBUF   |     2|
+|12    |OBUF   |     1|
++------+-------+------+
+
+Report Instance Areas: 
++------+----------------+---------+------+
+|      |Instance        |Module   |Cells |
++------+----------------+---------+------+
+|1     |top             |         | 48358|
+|2     |  shake         |sponge   | 48353|
+|3     |    kp          |keccak   |  6975|
+|4     |      u_Rnd     |Rnd_10   |  1600|
+|5     |        u_theta |Theta_11 |  1600|
+|6     |    kp1         |keccak_0 |  7894|
+|7     |      u_Rnd     |Rnd_8    |  1920|
+|8     |        u_theta |Theta_9  |  1920|
+|9     |    kp2         |keccak_1 |  7872|
+|10    |      u_Rnd     |Rnd_6    |  1920|
+|11    |        u_theta |Theta_7  |  1920|
+|12    |    kp3         |keccak_2 |  6092|
+|13    |      u_Rnd     |Rnd_4    |  1920|
+|14    |        u_theta |Theta_5  |  1920|
+|15    |    kp4         |keccak_3 |  7405|
+|16    |      u_Rnd     |Rnd      |  1920|
+|17    |        u_theta |Theta    |  1920|
++------+----------------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:54 ; elapsed = 00:02:58 . Memory (MB): peak = 1021.738 ; gain = 708.531
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:31 ; elapsed = 00:02:40 . Memory (MB): peak = 1021.738 ; gain = 222.883
+Synthesis Optimization Complete : Time (s): cpu = 00:02:54 ; elapsed = 00:02:59 . Memory (MB): peak = 1021.738 ; gain = 708.531
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 344 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+40 Infos, 2 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:03:09 ; elapsed = 00:03:12 . Memory (MB): peak = 1021.738 ; gain = 721.398
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'E:/shake/shake/shake.runs/synth_1/topp.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 1021.738 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file topp_utilization_synth.rpt -pb topp_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.462 . Memory (MB): peak = 1021.738 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 12 12:59:31 2024...

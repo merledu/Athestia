@@ -1,0 +1,553 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Dec 25 07:16:08 2024
+# Process ID: 13344
+# Current directory: G:/pkencode/pkencode.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: G:/pkencode/pkencode.runs/synth_1/top.vds
+# Journal file: G:/pkencode/pkencode.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source top.tcl -notrace
+Command: synth_design -top top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4508 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 408.645 ; gain = 97.559
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [G:/pkencode/pkencode.srcs/sources_1/new/top.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'PkEncode' [G:/pkencode/pkencode.srcs/sources_1/new/pkEncode.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'SimpleBitPack' [G:/pkencode/pkencode.srcs/sources_1/new/simpleBitPack.sv:3]
+	Parameter W_WIDTH bound to: 32'sb00000000000000000000000000001010 
+INFO: [Synth 8-6155] done synthesizing module 'SimpleBitPack' (1#1) [G:/pkencode/pkencode.srcs/sources_1/new/simpleBitPack.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'PkEncode' (2#1) [G:/pkencode/pkencode.srcs/sources_1/new/pkEncode.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'top' (3#1) [G:/pkencode/pkencode.srcs/sources_1/new/top.sv:23]
+WARNING: [Synth 8-3331] design top has unconnected port btn
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 540.746 ; gain = 229.660
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 540.746 ; gain = 229.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 540.746 ; gain = 229.660
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [G:/pkencode/pkencode.srcs/constrs_1/new/constraint.xdc]
+Finished Parsing XDC File [G:/pkencode/pkencode.srcs/constrs_1/new/constraint.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [G:/pkencode/pkencode.srcs/constrs_1/new/constraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 1245.113 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:35 ; elapsed = 00:00:43 . Memory (MB): peak = 1245.113 ; gain = 934.027
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:35 ; elapsed = 00:00:43 . Memory (MB): peak = 1245.113 ; gain = 934.027
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:43 . Memory (MB): peak = 1245.113 ; gain = 934.027
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:44 ; elapsed = 00:00:53 . Memory (MB): peak = 1245.113 ; gain = 934.027
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+----------------+------------+----------+
+|      |RTL Partition   |Replication |Instances |
++------+----------------+------------+----------+
+|1     |datapath__1__GD |           1|    124671|
+|2     |reg__1          |           1|     41728|
+|3     |PkEncode__GB2   |           1|     41472|
+|4     |datapath__2__GD |           1|    124671|
+|5     |PkEncode__GB4   |           1|     18833|
+|6     |datapath__3__GD |           1|     62352|
++------+----------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register pk_reg [G:/pkencode/pkencode.srcs/sources_1/new/pkEncode.sv:48]
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	            20736 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input  20736 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register pk_reg [G:/pkencode/pkencode.srcs/sources_1/new/pkEncode.sv:48]
+Hierarchical RTL Component report 
+Module PkEncode 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	            20736 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input  20736 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3331] design top has unconnected port btn
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\offset_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\offset_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\offset_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\offset_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\offset_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\offset_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\offset_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\offset_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (i_0/\offset_reg[8] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:35 ; elapsed = 00:07:30 . Memory (MB): peak = 1245.113 ; gain = 934.027
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+----------------+------------+----------+
+|      |RTL Partition   |Replication |Instances |
++------+----------------+------------+----------+
+|1     |datapath__1__GD |           1|     98023|
+|2     |reg__1          |           1|     22017|
+|3     |PkEncode__GB2   |           1|     41472|
+|4     |datapath__2__GD |           1|    124671|
+|5     |PkEncode__GB4   |           1|     18734|
+|6     |datapath__3__GD |           1|     26214|
++------+----------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:59 ; elapsed = 00:07:56 . Memory (MB): peak = 1245.113 ; gain = 934.027
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[0]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[0]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[1]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[1]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[2]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[2]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[3]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[3]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[4]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[4]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[5]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[5]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[6]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[6]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[7]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[7]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[8]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[8]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[9]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[9]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[10]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[10]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[11]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[11]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[12]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[12]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[13]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[13]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[14]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[14]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[15]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[15]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[16]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[16]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[17]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[17]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[18]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[18]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[19]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[19]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[20]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[20]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[21]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[21]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[22]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[22]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[23]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[23]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[24]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[24]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[25]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[25]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[26]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[26]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[27]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[27]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[28]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[28]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[29]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[29]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[30]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[30]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[31]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[31]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[32]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[32]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[33]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[33]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[34]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[34]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[35]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[35]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[36]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[36]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[37]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[37]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[38]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[38]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[39]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[39]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[40]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[40]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[41]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[41]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[42]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[42]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[43]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[43]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[44]_P )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[44]_C )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (uuti_1/\pk_reg[45]_P )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[265]' (FDCE) to 'uuti_1/pk_reg[345]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[267]' (FDCE) to 'uuti_1/pk_reg[355]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[270]' (FDCE) to 'uuti_1/pk_reg[311]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[271]' (FDCE) to 'uuti_1/pk_reg[314]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[272]' (FDCE) to 'uuti_1/pk_reg[460]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[273]' (FDCE) to 'uuti_1/pk_reg[435]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[276]' (FDCE) to 'uuti_1/pk_reg[358]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[279]' (FDCE) to 'uuti_1/pk_reg[298]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[282]' (FDCE) to 'uuti_1/pk_reg[304]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[285]' (FDCE) to 'uuti_1/pk_reg[351]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[286]' (FDCE) to 'uuti_1/pk_reg[473]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[287]' (FDCE) to 'uuti_1/pk_reg[380]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[288]' (FDCE) to 'uuti_1/pk_reg[474]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[291]' (FDCE) to 'uuti_1/pk_reg[457]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[294]' (FDCE) to 'uuti_1/pk_reg[333]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[295]' (FDCE) to 'uuti_1/pk_reg[324]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[296]' (FDCE) to 'uuti_1/pk_reg[472]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[299]' (FDCE) to 'uuti_1/pk_reg[395]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[301]' (FDCE) to 'uuti_1/pk_reg[374]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[304]' (FDCE) to 'uuti_1/pk_reg[369]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[306]' (FDCE) to 'uuti_1/pk_reg[308]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[307]' (FDCE) to 'uuti_1/pk_reg[329]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[310]' (FDCE) to 'uuti_1/pk_reg[357]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[312]' (FDCE) to 'uuti_1/pk_reg[371]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[316]' (FDCE) to 'uuti_1/pk_reg[465]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[323]' (FDCE) to 'uuti_1/pk_reg[389]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[324]' (FDCE) to 'uuti_1/pk_reg[341]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[325]' (FDCE) to 'uuti_1/pk_reg[401]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[327]' (FDCE) to 'uuti_1/pk_reg[342]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[329]' (FDCE) to 'uuti_1/pk_reg[419]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[341]' (FDCE) to 'uuti_1/pk_reg[446]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[346]' (FDCE) to 'uuti_1/pk_reg[421]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[349]' (FDCE) to 'uuti_1/pk_reg[360]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[355]' (FDCE) to 'uuti_1/pk_reg[393]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[356]' (FDCE) to 'uuti_1/pk_reg[364]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[359]' (FDCE) to 'uuti_1/pk_reg[486]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[360]' (FDCE) to 'uuti_1/pk_reg[363]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[362]' (FDCE) to 'uuti_1/pk_reg[423]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[363]' (FDCE) to 'uuti_1/pk_reg[485]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[366]' (FDCE) to 'uuti_1/pk_reg[440]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[369]' (FDCE) to 'uuti_1/pk_reg[417]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[374]' (FDCE) to 'uuti_1/pk_reg[454]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[378]' (FDCE) to 'uuti_1/pk_reg[489]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[380]' (FDCE) to 'uuti_1/pk_reg[422]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[387]' (FDCE) to 'uuti_1/pk_reg[394]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[389]' (FDCE) to 'uuti_1/pk_reg[406]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[392]' (FDCE) to 'uuti_1/pk_reg[490]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[393]' (FDCE) to 'uuti_1/pk_reg[459]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[394]' (FDCE) to 'uuti_1/pk_reg[466]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[405]' (FDCE) to 'uuti_1/pk_reg[411]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[406]' (FDCE) to 'uuti_1/pk_reg[437]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[407]' (FDCE) to 'uuti_1/pk_reg[505]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[420]' (FDCE) to 'uuti_1/pk_reg[445]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[421]' (FDCE) to 'uuti_1/pk_reg[479]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[428]' (FDCE) to 'uuti_1/pk_reg[451]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[431]' (FDCE) to 'uuti_1/pk_reg[453]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[433]' (FDCE) to 'uuti_1/pk_reg[503]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[434]' (FDCE) to 'uuti_1/pk_reg[511]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[435]' (FDCE) to 'uuti_1/pk_reg[478]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[437]' (FDCE) to 'uuti_1/pk_reg[477]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[445]' (FDCE) to 'uuti_1/pk_reg[475]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[492]' (FDCE) to 'uuti_1/pk_reg[510]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[513]' (FDCE) to 'uuti_1/pk_reg[642]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[515]' (FDCE) to 'uuti_1/pk_reg[547]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[516]' (FDCE) to 'uuti_1/pk_reg[724]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[517]' (FDCE) to 'uuti_1/pk_reg[616]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[519]' (FDCE) to 'uuti_1/pk_reg[527]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[520]' (FDCE) to 'uuti_1/pk_reg[706]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[522]' (FDCE) to 'uuti_1/pk_reg[583]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[523]' (FDCE) to 'uuti_1/pk_reg[630]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[524]' (FDCE) to 'uuti_1/pk_reg[528]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[526]' (FDCE) to 'uuti_1/pk_reg[628]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[527]' (FDCE) to 'uuti_1/pk_reg[537]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[528]' (FDCE) to 'uuti_1/pk_reg[574]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[530]' (FDCE) to 'uuti_1/pk_reg[580]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[531]' (FDCE) to 'uuti_1/pk_reg[690]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[537]' (FDCE) to 'uuti_1/pk_reg[736]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[545]' (FDCE) to 'uuti_1/pk_reg[689]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[547]' (FDCE) to 'uuti_1/pk_reg[741]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[549]' (FDCE) to 'uuti_1/pk_reg[740]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[551]' (FDCE) to 'uuti_1/pk_reg[658]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[552]' (FDCE) to 'uuti_1/pk_reg[679]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[554]' (FDCE) to 'uuti_1/pk_reg[582]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[562]' (FDCE) to 'uuti_1/pk_reg[621]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[563]' (FDCE) to 'uuti_1/pk_reg[703]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[567]' (FDCE) to 'uuti_1/pk_reg[731]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[574]' (FDCE) to 'uuti_1/pk_reg[637]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[577]' (FDCE) to 'uuti_1/pk_reg[650]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[578]' (FDCE) to 'uuti_1/pk_reg[599]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[579]' (FDCE) to 'uuti_1/pk_reg[592]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[583]' (FDCE) to 'uuti_1/pk_reg[671]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[586]' (FDCE) to 'uuti_1/pk_reg[617]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[588]' (FDCE) to 'uuti_1/pk_reg[720]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[594]' (FDCE) to 'uuti_1/pk_reg[745]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[595]' (FDCE) to 'uuti_1/pk_reg[688]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[599]' (FDCE) to 'uuti_1/pk_reg[655]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[604]' (FDCE) to 'uuti_1/pk_reg[641]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[606]' (FDCE) to 'uuti_1/pk_reg[683]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[608]' (FDCE) to 'uuti_1/pk_reg[625]'
+INFO: [Synth 8-3886] merging instance 'uuti_1/pk_reg[616]' (FDCE) to 'uuti_1/pk_reg[714]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:35:27 ; elapsed = 00:37:31 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+----------------+------------+----------+
+|      |RTL Partition   |Replication |Instances |
++------+----------------+------------+----------+
+|1     |datapath__3__GD |           1|     25684|
+|2     |top_GT1         |           1|       156|
+|3     |top_GT2         |           1|       159|
+|4     |top_GT3         |           1|       254|
+|5     |top_GT4         |           1|       256|
+|6     |top_GT5         |           1|       256|
+|7     |top_GT6         |           1|       256|
+|8     |top_GT7         |           1|       256|
+|9     |top_GT8         |           1|       256|
+|10    |top_GT9         |           1|       256|
+|11    |top_GT10        |           1|       256|
+|12    |top_GT3595      |           1|       256|
+|13    |top_GT3596      |           1|       256|
+|14    |top_GT5901      |           1|       256|
+|15    |top_GT5902      |           1|       256|
+|16    |top_GT9489      |           1|       256|
+|17    |datapath__4__GD |           1|     60806|
+|18    |top_GT0         |           1|       219|
+|19    |top_GT1__1      |           1|       236|
+|20    |top_GT0__3      |           1|       219|
+|21    |top_GT1__2      |           1|        20|
+|22    |top_GT2__2      |           1|        36|
+|23    |top_GT3__1      |           1|    121851|
++------+----------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:36:25 ; elapsed = 00:38:56 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+----------------+------------+----------+
+|      |RTL Partition   |Replication |Instances |
++------+----------------+------------+----------+
+|1     |datapath__3__GD |           1|      8574|
+|2     |top_GT1         |           1|       156|
+|3     |top_GT2         |           1|       159|
+|4     |top_GT3         |           1|       254|
+|5     |top_GT4         |           1|       256|
+|6     |top_GT5         |           1|       256|
+|7     |top_GT6         |           1|       256|
+|8     |top_GT7         |           1|       256|
+|9     |top_GT8         |           1|       256|
+|10    |top_GT9         |           1|       256|
+|11    |top_GT10        |           1|       256|
+|12    |top_GT3595      |           1|       256|
+|13    |top_GT3596      |           1|       256|
+|14    |top_GT5901      |           1|       256|
+|15    |top_GT5902      |           1|       256|
+|16    |top_GT9489      |           1|       256|
+|17    |datapath__4__GD |           1|      8768|
+|18    |top_GT0         |           1|       219|
+|19    |top_GT1__1      |           1|       236|
+|20    |top_GT0__3      |           1|       219|
+|21    |top_GT1__2      |           1|        20|
+|22    |top_GT2__2      |           1|        36|
+|23    |top_GT3__1      |           1|     39993|
++------+----------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:36:54 ; elapsed = 00:39:25 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:36:55 ; elapsed = 00:39:26 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:37:05 ; elapsed = 00:39:37 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:37:06 ; elapsed = 00:39:37 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:38:51 ; elapsed = 00:41:23 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:38:52 ; elapsed = 00:41:23 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |  1713|
+|3     |LUT1   |    34|
+|4     |LUT2   |    45|
+|5     |LUT3   |  7904|
+|6     |LUT4   |  4709|
+|7     |LUT5   |  6083|
+|8     |LUT6   | 34387|
+|9     |FDCE   | 20536|
+|10    |IBUF   |     2|
+|11    |OBUF   |     1|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+---------+------+
+|      |Instance |Module   |Cells |
++------+---------+---------+------+
+|1     |top      |         | 75415|
+|2     |  uut    |PkEncode | 75411|
++------+---------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:38:52 ; elapsed = 00:41:23 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:38:22 ; elapsed = 00:41:07 . Memory (MB): peak = 1755.688 ; gain = 740.234
+Synthesis Optimization Complete : Time (s): cpu = 00:38:52 ; elapsed = 00:41:39 . Memory (MB): peak = 1755.688 ; gain = 1444.602
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1715 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'top' is not ideal for floorplanning, since the cellview 'PkEncode' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+223 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:39:08 ; elapsed = 00:41:56 . Memory (MB): peak = 1755.688 ; gain = 1457.457
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'G:/pkencode/pkencode.runs/synth_1/top.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 1755.688 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.893 . Memory (MB): peak = 1755.688 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 25 07:58:20 2024...

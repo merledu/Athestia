@@ -1,0 +1,4 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Test Case 1: coef = 88676, valid = 1
+$finish called at time : 15 ns : File "E:/coefficientthreebytes/coefficientthreebytes.srcs/sim_1/new/tb.sv" Line 61

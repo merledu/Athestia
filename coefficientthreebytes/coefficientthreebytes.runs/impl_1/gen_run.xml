@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1734596589">
+  <File Type="PA-TCL" Name="CoefFromThreeBytes.tcl"/>
+  <File Type="BITSTR-BMM" Name="CoefFromThreeBytes_bd.bmm"/>
+  <File Type="REPORTS-TCL" Name="CoefFromThreeBytes_reports.tcl"/>
+  <File Type="OPT-DCP" Name="CoefFromThreeBytes_opt.dcp"/>
+  <File Type="OPT-HWDEF" Name="CoefFromThreeBytes.hwdef"/>
+  <File Type="PWROPT-DCP" Name="CoefFromThreeBytes_pwropt.dcp"/>
+  <File Type="PLACE-DCP" Name="CoefFromThreeBytes_placed.dcp"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="CoefFromThreeBytes_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BGN" Name="CoefFromThreeBytes.bgn"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="CoefFromThreeBytes_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="CoefFromThreeBytes.bin"/>
+  <File Type="PHYSOPT-DCP" Name="CoefFromThreeBytes_physopt.dcp"/>
+  <File Type="BITSTR-MSK" Name="CoefFromThreeBytes.msk"/>
+  <File Type="ROUTE-ERROR-DCP" Name="CoefFromThreeBytes_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="CoefFromThreeBytes_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="CoefFromThreeBytes_routed_bb.dcp"/>
+  <File Type="BITSTR-LTX" Name="CoefFromThreeBytes.ltx"/>
+  <File Type="BITSTR-MMI" Name="CoefFromThreeBytes.mmi"/>
+  <File Type="BITSTR-SYSDEF" Name="CoefFromThreeBytes.sysdef"/>
+  <File Type="ROUTE-TIMING-PB" Name="CoefFromThreeBytes_timing_summary_routed.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="CoefFromThreeBytes_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="CoefFromThreeBytes_postroute_physopt_bb.dcp"/>
+  <File Type="BG-BIT" Name="CoefFromThreeBytes.bit"/>
+  <File Type="BITSTR-RBT" Name="CoefFromThreeBytes.rbt"/>
+  <File Type="BITSTR-NKY" Name="CoefFromThreeBytes.nky"/>
+  <File Type="BG-DRC" Name="CoefFromThreeBytes.drc"/>
+  <File Type="RDI-RDI" Name="CoefFromThreeBytes.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/Coefficient_three_bytes.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/topp.sv">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="CoefFromThreeBytes"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/constraint.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../decompose_2.srcs/sources_1/new/decompose.sv" \
+"../../../../decompose_2.srcs/sim_1/new/tb_d.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

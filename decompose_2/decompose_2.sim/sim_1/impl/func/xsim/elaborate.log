@@ -1,0 +1,15 @@
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 4aead4cfdd9741f681dcdf8ba343b54e --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L secureip --snapshot tb_top_three_bytes_func_impl xil_defaultlib.tb_top_three_bytes xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-2572] too many parameters for module instance dut [E:/decompose_2/decompose_2.srcs/sim_1/new/tb.sv:34]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.OBUF
+Compiling module xil_defaultlib.top_three_bytes
+Compiling module xil_defaultlib.tb_top_three_bytes
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_three_bytes_func_impl

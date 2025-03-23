@@ -1,0 +1,9 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"Decompose_tb_func_synth.v" \
+
+sv xil_defaultlib  \
+"../../../../../decompose_2.srcs/sim_1/new/tb_d.sv" \
+
+# Do not sort compile order
+nosort

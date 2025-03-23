@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/decompose_2/decompose_2.sim/sim_1/impl/func/xsim/tb_top_three_bytes_func_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_three_bytes
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/decompose_2/decompose_2.srcs/sim_1/new/tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top_three_bytes

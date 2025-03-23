@@ -1,0 +1,10 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Starting Decompose Testbench
+Test Case 1: r =    9380417
+Result: r1 =           1, r0 =      476224
+Test Case 2: r =    8380416
+Result: r1 =           0, r0 =     -523776
+Test Case 3: r =     522240
+Result: r1 =           0, r0 =      522240
+Testbench completed.

@@ -1,0 +1,607 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Submodule</title>
+    <script>
+
+        
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const alertMessage2 = "{{ alert_message|escapejs }}";
+            if (alertMessage2) {
+                alert(alertMessage2); // Show the alert message if it exists
+            }
+        });
+       function submitForm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Show the loader
+            document.getElementById("loader").style.display = "block";
+            const outputArea = document.getElementById("output");
+            outputArea.textContent = ""; // Clear previous output
+
+            const formData = new FormData(document.getElementById('bitstreamForm'));
+
+            fetch("", {
+                method: "POST",
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide the loader
+                document.getElementById("loader").style.display = "none";
+
+                // Show output based on the response
+                if (data.status === "success") {
+                    outputArea.textContent = "Bitstream generated successfully!\n\n" + data.output;
+                } else {
+                    outputArea.textContent = "Error occurred:\n\n" + (data.error || data.message);
+                }
+            })
+            .catch(error => {
+                // Hide the loader
+                document.getElementById("loader").style.display = "none";
+
+                outputArea.textContent = "An unexpected error occurred.";
+                console.error("Error:", error);
+            });
+        }
+
+
+    
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1e1e2f; /* Dark blue background */
+            margin: 0;
+            padding: 0;
+            color: #ffbe0b; /* Dark yellow text */
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            padding: 1px 1px; /* Adjusted padding */
+            background-image: url("{% static 'b.jpg' %}");
+            background-size: 150px 150px; /* Set the image size (adjust width and height) */
+            background-position: left center; /* Align image to the left */
+            background-repeat: no-repeat;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .title h1 {
+            color: #ffbe0b; /* Dark yellow for heading */
+            font-size: 3em;}
+
+        h1 {
+            color: #ffbe0b; /* Dark yellow */
+            margin-top: 50px;
+            font-size: 2.5em;
+            animation: fadeInDown 1s;
+        }
+
+        form {
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+            background: #2a2a3c; /* Darker blue for form background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+
+        select, input {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ffbe0b;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: transform 0.3s, background-color 0.3s;
+            background-color: #ffffff; /* White background */
+            color: #1e1e2f; /* Dark blue text */
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ffbe0b;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: transform 0.3s, background-color 0.3s;
+            background-color:  #ffbe0b; /* White background */
+            color: #1e1e2f; /* Dark blue text */
+
+        }
+    
+        button:hover, select:focus, input:focus {
+            transform: scale(1.05);
+            border-color: #2a2a3c;
+            background-color: #f0f0f0; /* Light grey on hover */
+        }
+
+        p {
+            color: #ffbe0b;
+            animation: fadeIn 1s;
+        }
+
+        #loader {
+            display: none;
+            border: 6px solid #2a2a3c;
+            border-top: 6px solid #ffbe0b;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #444;
+            background: #1e1e2f; /* Dark blue background */
+            color: #ffbe0b; /* Dark yellow text */
+            white-space: pre-wrap;
+            text-align: left;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffbe0b; /* Dark yellow */
+            font-size: 18px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color:rgb(255, 255, 255); /* Brighter yellow on hover */
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        table, th, td {
+            border: 1px solid white;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style></head>
+<body>
+    <header>
+        <div class="title">
+            <h1></h1>
+        </div>
+        <nav>
+            <a href="{% url 'main_page' %}">HOME</a>
+            <a href="{% url 'about' %}">ABOUT US</a>
+            <a href="#">SERVICES</a>
+            <a href="#">CONTACT</a>
+        </nav>
+    </header>
+   
+
+    <h1>Select a Submodule</h1>
+
+    <form>
+        <select name="submodule">
+            {% for submodule in submodules %}
+                <option value="{{ submodule }}" {% if submodule == selected_submodule %}selected{% endif %}>{{ submodule }}
+            {% endfor %}
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if selected_submodule %}
+        <p>You selected: {{ selected_submodule }}</p>
+
+        {% if show_r_input %}
+        <h2>Decompose Module Inputs</h2>
+        <p>Please enter the following Input for Decompose:</p>
+        <form method="post">
+            {% csrf_token %}
+            <!-- <label for="width">Width:</label> -->
+            <!-- <input type="number" id="width" name="width"><br><br> -->
+            <label for="r2">r:</label>
+            <input type="number" id="r2" name="r2"><br><br>
+            <button method="GET" type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+        </form>
+        <div id="loader"></div>
+
+        <!-- Output Area -->
+        <pre id="output"></pre>
+                {% endif %}
+    {% endif %}
+    
+    {% if show_rz_input %}
+    <h2>Make Hint Module Inputs</h2>
+    <p>Please enter the following Inputs for Make Hint:</p>
+    <form method="post">
+        {% csrf_token %}
+        <label for="r3">r:</label>
+        <input type="number" id="r3" name="r3"><br><br>
+        <label for="z">z:</label>
+        <input type="number" id="z" name="z"><br><br>
+        <button method="GET" type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+        <button method="GET" type="submit" name="action" value="Simulation">Run Simulation</button>
+    </form>
+
+            {% endif %}
+
+            {% if valid %}
+            <h2> SHAKE Module Inputs</h2>
+            <p>Please enter the following Inputs for SHAKE:</p>
+            <form method="post">
+                {% csrf_token %}
+                <label for="r3">Message Length(Bits):</label>
+                <input type="number" id="msg_len" name="msg_len"><br><br>
+                <label for="z">Output Length(Bits):</label>
+                <input type="number" id="d_len" name="d_len"><br><br>
+                <label for="shake">SHAKE Type:</label>
+                    <select id="shake" name="shake">
+                    <option value="128">SHAKE128</option>
+                    <option value="256">SHAKE256</option>
+                    </select>
+                    
+                <label for="z">Input Message:</label>
+                <input type="number" id="msg" name="msg"><br><br>
+                <button method="GET" type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+                <button method="GET" type="submit" name="action" value="Simulation">Run Simulation</button>
+            </form>
+        
+                    {% endif %}
+
+
+                    {% if three_valid %}
+                    <h2> Coefficient Three Bytes Module Inputs</h2>
+                    <p>Please enter the following Inputs for Coefficient Three Bytes:</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <label for="b0">B0:</label>
+                        <input type="number" id="b0" name="b0"><br><br>
+                        <label for="b1">B1:</label>
+                        <input type="number" id="b1" name="b1"><br><br>
+                        <label for="b2">B2:</label>
+                        <input type="number" id="b2" name="b2"><br><br>
+                        <button method="GET" type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+                    </form>
+                
+                            {% endif %}
+
+                    <table id="matrix"></table>
+
+
+                    <!-- {% if pke_v %}
+                    <h2>Here's the Module Inputs</h2>
+                    <p>Due to long input, inputs are predefined:</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <table id="matrix1"></table>
+                        <button type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+                    </form>
+                
+                    <script>
+                        // Populate the matrix table dynamically
+                        const array1 = [
+                        787, 690, 216, 813, 845, 504, 941, 243, 880, 649, 979, 123, 320, 1018, 881, 167, 163, 919, 22, 97, 522, 457, 526, 144, 707, 941, 891, 679, 91, 682, 26, 266, 132, 534, 366, 353, 281, 655, 619, 898, 23, 628, 642, 309, 595, 997, 851, 932, 439, 308, 568, 428, 766, 684, 932, 720, 641, 853, 908, 514, 713, 322, 348, 808, 670, 350, 149, 529, 800, 319, 494, 665, 1012, 122, 647, 830, 373, 358, 697, 678, 565, 827, 985, 277, 332, 555, 446, 241, 361, 915, 456, 460, 919, 298, 867, 965, 829, 630, 523, 532, 700, 89, 639, 947, 645, 604, 575, 201, 173, 206, 418, 988, 105, 436, 510, 120, 443, 172, 1014, 37, 676, 829, 346, 237, 248, 99, 970, 587, 741, 295, 343, 854, 58, 834, 435, 324, 219, 617, 322, 57, 806, 936, 53, 448, 617, 463, 842, 203, 573, 363, 143, 990, 660, 846, 715, 209, 806, 898, 205, 301, 573, 846, 27, 285, 58, 213, 949, 349, 1011, 330, 407, 553, 596, 395, 1017, 787, 664, 406, 899, 272, 908, 721, 718, 637, 557, 767, 790, 357, 807, 702, 370, 990, 231, 188, 390, 588, 254, 928, 226, 470, 750, 445, 851, 404, 61, 874, 627, 206, 997, 302, 80, 964, 318, 116, 348, 838, 484, 144, 809, 140, 917, 298, 887, 645, 798, 611, 738, 844, 178, 757, 772, 572, 725, 565, 438, 325, 815, 224, 485, 75, 394, 446, 291, 258, 952, 237, 477, 138, 80, 410, 165, 884, 155, 645, 919, 83
+                ];
+                
+                        const matrixSize1 = 16; // 16x16 matrix
+                        const table1 = document.getElementById("matrix1");
+                
+                        for (let i = 0; i < array.length; i += matrixSize1) {
+                            const row = document.createElement("tr");
+                            for (let j = 0; j < matrixSize1; j++) {
+                                const cell = document.createElement("td");
+                                cell.textContent = array[i + j];
+                                row.appendChild(cell);
+                            }
+                            table1.appendChild(row);
+                        }
+                    </script>
+                {% endif %} -->
+
+                    {% if simple_v or pke_v %}
+    <h2>Here's the Module Inputs</h2>
+    <p>Due to long input, inputs are predefined:</p>
+    <form method="post">
+        {% csrf_token %}
+        <table id="matrix"></table>
+        <button type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+         {% if pke_v %}
+        <button type="submit" name="action" value="Simulation">Run Simulation</button>
+
+        {% endif %}
+
+    </form>
+
+    <script>
+        // Populate the matrix table dynamically
+        const array = [
+    787, 690, 216, 813, 845, 504, 941, 243,
+    880, 649, 979, 123, 320, 1018, 881, 167,
+    163, 919, 22, 97, 522, 457, 526, 144,
+    707, 941, 891, 679, 91, 682, 26, 266,
+    132, 534, 366, 353, 281, 655, 619, 898,
+    23, 628, 642, 309, 595, 997, 851, 932,
+    439, 308, 568, 428, 766, 684, 932, 720,
+    641, 853, 908, 514, 713, 322, 348, 808,
+    670, 350, 149, 529, 800, 319, 494, 665,
+    1012, 122, 647, 830, 373, 358, 697, 678,
+    565, 827, 985, 277, 332, 555, 446, 241,
+    361, 915, 456, 460, 919, 298, 867, 965,
+    829, 630, 523, 532, 700, 89, 639, 947,
+    645, 604, 575, 201, 173, 206, 418, 988,
+    105, 436, 510, 120, 443, 172, 1014, 37,
+    676, 829, 346, 237, 248, 99, 970, 587,
+    741, 295, 343, 854, 58, 834, 435, 324,
+    219, 617, 322, 57, 806, 936, 53, 448,
+    617, 463, 842, 203, 573, 363, 143, 990,
+    660, 846, 715, 209, 806, 898, 205, 301,
+    573, 846, 27, 285, 58, 213, 949, 349,
+    1011, 330, 407, 553, 596, 395, 1017, 787,
+    664, 406, 899, 272, 908, 721, 718, 637,
+    557, 767, 790, 357, 807, 702, 370, 990,
+    231, 188, 390, 588, 254, 928, 226, 470,
+    750, 445, 851, 404, 61, 874, 627, 206,
+    997, 302, 80, 964, 318, 116, 348, 838,
+    484, 144, 809, 140, 917, 298, 887, 645,
+    798, 611, 738, 844, 178, 757, 772, 572,
+    725, 565, 438, 325, 815, 224, 485, 75,
+    394, 446, 291, 258, 952, 237, 477, 138,
+    80, 410, 165, 884, 155, 645, 919, 83
+];
+
+        const matrixSize = 16; // 16x16 matrix
+        const table = document.getElementById("matrix");
+
+        for (let i = 0; i < array.length; i += matrixSize) {
+            const row = document.createElement("tr");
+            for (let j = 0; j < matrixSize; j++) {
+                const cell = document.createElement("td");
+                cell.textContent = array[i + j];
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+    </script>
+{% endif %}
+{% if w1e_v %}
+    <h2>Here's the Module Inputs</h2>
+    <p>Due to long input, inputs are predefined:</p>
+    <form method="post">
+        {% csrf_token %}
+        <table id="matrix3"></table>
+        <button type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+        <button type="submit" name="action" value="Simulation">Run Simulation</button>
+    </form>
+
+    <script>
+        // Populate the matrix table dynamically
+        const array3 = [
+        9,9,6,14,12,4,2,5,14,8,3,10,13,6,0,11,14,3,5,11,9,5,6,8,9,12,3,2,1,10,10,10,6,14,13,7,8,7,2,14,5,15,5,13,6,7,11,12,6,1,9,13,8,5,9,15,6,2,12,14,7,5,13,13,7,9,12,15,14,9,12,6,3,8,5,1,2,1,7,5,10,12,6,12,14,14,1,8,10,7,4,8,5,5,0,0,12,4,8,2,9,9,2,6,13,10,8,7,3,10,13,1,4,5,8,8,15,5,9,3,10,1,11,9,6,4,12,0,5,8,9,11,12,5,11,2,13,4,13,10,10,9,12,7,13,9,1,7,2,13,15,0,7,0,7,9,14,6,9,5,7,1,14,5,7,8,10,14,9,8,3,0,0,13,15,9,6,2,10,6,0,9,0,6,11,10,12,11,3,12,1,14,6,14,10,9,10,11,8,1,9,2,10,4,13,2,5,7,4,15,11,2,2,0,9,6,15,4,8,1,4,1,8,3,5,0,5,9,2,13,13,7,13,2,1,15,15,14,7,12,0,8,12,15,6,3,11,6,11,7,5,1,10,0,7,5
+];
+
+        const matrixSize3 = 16; // 16x16 matrix
+        const table3 = document.getElementById("matrix3");
+
+        for (let i = 0; i < array3.length; i += matrixSize3) {
+            const row = document.createElement("tr");
+            for (let j = 0; j < matrixSize3; j++) {
+                const cell = document.createElement("td");
+                cell.textContent = array3[i + j];
+                row.appendChild(cell);
+            }
+            table3.appendChild(row);
+        }
+    </script>
+{% endif %}
+
+{% if p_v %}
+    <h2>Here's the Module Inputs</h2>
+    <p>Due to long input, inputs are predefined:</p>
+    <form method="post">
+        {% csrf_token %}
+        <table id="matrix3"></table>
+        <button type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+        <button type="submit" name="action" value="Simulation">Run Simulation</button>
+    </form>
+
+    <script>
+        // Populate the matrix table dynamically
+        const array5 = [
+        9,9,6,14,12,4,2,5,14,8,3,10,13,6,0,11,14,3,5,11,9,5,6,8,9,12,3,2,1,10,10,10,6,14,13,7,8,7,2,14,5,15,5,13,6,7,11,12,6,1,9,13,8,5,9,15,6,2,12,14,7,5,13,13,7,9,12,15,14,9,12,6,3,8,5,1,2,1,7,5,10,12,6,12,14,14,1,8,10,7,4,8,5,5,0,0,12,4,8,2,9,9,2,6,13,10,8,7,3,10,13,1,4,5,8,8,15,5,9,3,10,1,11,9,6,4,12,0,5,8,9,11,12,5,11,2,13,4,13,10,10,9,12,7,13,9,1,7,2,13,15,0,7,0,7,9,14,6,9,5,7,1,14,5,7,8,10,14,9,8,3,0,0,13,15,9,6,2,10,6,0,9,0,6,11,10,12,11,3,12,1,14,6,14,10,9,10,11,8,1,9,2,10,4,13,2,5,7,4,15,11,2,2,0,9,6,15,4,8,1,4,1,8,3,5,0,5,9,2,13,13,7,13,2,1,15,15,14,7,12,0,8,12,15,6,3,11,6,11,7,5,1,10,0,7,5
+];
+
+        const matrixSize5 = 16; // 16x16 matrix
+        const table5 = document.getElementById("matrix3");
+
+        for (let i = 0; i < array3.length; i += matrixSize5) {
+            const row = document.createElement("tr");
+            for (let j = 0; j < matrixSize5; j++) {
+                const cell = document.createElement("td");
+                cell.textContent = array5[i + j];
+                row.appendChild(cell);
+            }
+            table5.appendChild(row);
+        }
+    </script>
+{% endif %}
+{% if hintbitu_v %}
+    <h2>Here's the Module Inputs</h2>
+    <p>Due to long input, inputs are predefined:</p>
+    <form method="post">
+        {% csrf_token %}
+        <table id="matrix3"></table>
+        <button type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+        <button type="submit" name="action" value="Simulation">Run Simulation</button>
+    </form>
+
+    <script>
+        // Populate the matrix table dynamically
+        const array4 = [
+        0x4b, 0x2b, 0x0b, 0x0, 0x0, 0x0, 0x0, 0x0,
+    0xfa, 0xf2, 0xea, 0xe2, 0xda, 0xd2, 0xca, 0xc2,
+    0xba, 0xb2, 0xaa, 0xa2, 0x9a, 0x92, 0x8a, 0x82,
+    0x7a, 0x72, 0x6a, 0x62, 0x5a, 0x52, 0x4a, 0x42,
+    0x3a, 0x32, 0x2a, 0x22, 0x1a, 0x12, 0x0a, 0x02,
+    0xfa, 0xf2, 0xea, 0xe2, 0xda, 0xd2, 0xca, 0xc2,
+    0xba, 0xb2, 0xaa, 0xa2, 0x9a, 0x92, 0x8a, 0x82,
+    0x7a, 0x72, 0x6a, 0x62, 0x5a, 0x52, 0x4a, 0x42,
+    0x3a, 0x32, 0x2a, 0x22, 0x1a, 0x12, 0x0a, 0x02,
+    0x0a, 0x09, 0x08, 0x07, 0x01, 0x00, 0x02, 0x02,
+    0x02, 0x02, 0x05
+];
+
+        const matrixSize4 = 7; // 16x16 matrix
+        const table4 = document.getElementById("matrix3");
+
+        for (let i = 0; i < array4.length; i += matrixSize4) {
+            const row = document.createElement("tr");
+            for (let j = 0; j < matrixSize4; j++) {
+                const cell = document.createElement("td");
+                cell.textContent = array4[i + j];
+                row.appendChild(cell);
+            }
+            table4.appendChild(row);
+        }
+    </script>
+{% endif %}
+                            {% if half_valid %}
+                            <h2> Coefficient Half Bytes Module Inputs</h2>
+                            <p>Please enter the following Inputs for Coefficient Half Bytes:</p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <label for="b3">B0:</label>
+                                <input type="number" id="b3" name="b3"><br><br>
+                                <button method="GET" type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+                            </form>
+                        
+                                    {% endif %}
+
+                                    {% if un_v %}
+                                    <h2> BitUnpack Module Inputs</h2>
+                                    <p>Please enter the following Inputs for BitUnpack :</p>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <label for="v">V:</label>
+                                        <input type="number" id="v" name="v"><br><br>
+                                        <button method="GET" type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+                                    </form>
+                                
+                                            {% endif %}
+
+                                           
+
+                    {% if hint_v %}
+                                            <h2> Hint Bitpack Module Inputs</h2>
+                                            <p>Please enter the following Inputs for Hint Bitpack :</p>
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <label for="h0">h[0]:</label>
+                                                <input type="number" id="h0" name="h0"><br><br>
+                                                <label for="h1">h[1]:</label>
+                                                <input type="number" id="h1" name="h1"><br><br>
+                                                <label for="h2">h[2]:</label>
+                                                <input type="number" id="h2" name="h2"><br><br>
+                                                <label for="h3">h[3]:</label>
+                                                <input type="number" id="h3" name="h3"><br><br>
+                                                <label for="h4">h[4]:</label>
+                                                <input type="number" id="h4" name="h4"><br><br>
+                                                <label for="h5">h[5]:</label>
+                                                <input type="number" id="h5" name="h5"><br><br>
+                                                <label for="h6">h[6]:</label>
+                                                <input type="number" id="h6" name="h6"><br><br>
+                                                <label for="h7">h[7]:</label>
+                                                <input type="number" id="h7" name="h7"><br><br>
+                                                <button method="GET" type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+                                            </form>
+                                        
+                                                    {% endif %}
+
+                                    {% if power_v %}
+                            <h2> Power Two Round Module Inputs</h2>
+                            <p>Please enter the following Inputs for Power To Round:</p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <label for="t">t:</label>
+                                <input type="number" id="t" name="t"><br><br>
+                                <button method="GET" type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+                            </form>
+                        
+                                    {% endif %}
+
+
+                                    {% if usehint_v %}
+                                    <h2> Use Hint Module Inputs</h2>
+                                    <p>Please enter the following Inputs for Use Hint:</p>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <label for="h">h:</label>
+                    <select id="h" name="h">
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                    </select>
+                                        <label for="r4">r:</label>
+                                        <input type="number" id="r4" name="r4"><br><br>
+                                        <button method="GET" type="submit" name="action" value="Bitstream">Generate Bitstream</button>
+                                    </form>
+                                
+                                            {% endif %}
+        
+
+
+    {% if bitstream_file %}
+<p>
+    Bitstream file generated successfully! You can download it:
+    <a href="{% url 'download_bitstream' %}?file={{ bitstream_file }}">Download top.bit</a>
+</p>
+{% endif %}
+{% if bitstream_file_vcd %}
+<p>
+    Simulation completed, VCD generated successfully! You can download it:
+    <a href="{% url 'download_vcd' %}?file={{ bitstream_file_vcd }}">Download makeHint_tb.vcd</a>
+</p>
+{% endif %}
+</body>
+
+</html>
+{% load static %}

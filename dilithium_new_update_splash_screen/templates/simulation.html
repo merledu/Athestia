@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simulation</title>
+  <style>
+    /* Optional styles for formatting the Vivado output */
+    .vivado-output {
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    .vivado-error {
+      color: red;
+      font-weight: bold;
+    }
+    .vivado-warning {
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" name="action" value="run_simulation">Run Simulation</button>
+    <button type="submit" name="action" value="run_synthesis">Run Synthesis</button>
+    <button type="submit" name="action" value="run_implementation">Run Implementation</button>
+    <button type="submit" name="action" value="generate_bitstream">Generate Bitstream</button>
+  </form>
+
+  {% if request.method == 'POST' %}
+    {% if request.POST.action == 'run_synthesis' %}
+      <h2>Synthesis Output</h2>
+      <pre class="vivado-output">
+        {{ vivado_output }}
+      </pre>
+    {% endif %}
+  {% endif %}
+
+</body>
+</html>

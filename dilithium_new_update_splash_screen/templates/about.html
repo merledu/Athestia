@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Post Quantum Cryptography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Decolotype&display=swap" rel="stylesheet"> <!-- Decolotype font -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2f; /* Dark blue background */
+            color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            padding: 1px 1px; /* Adjusted padding */
+            background-image: url("{% static 'C:/Users/HP/Desktop/dilithium_project/dilithium_app/static/images/b.jpg' %}");
+            background-size: 150px 150px; /* Set the image size (adjust width and height) */
+            background-position: left center; /* Align image to the left */
+            background-repeat: no-repeat;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffbe0b; /* Dark yellow */
+            font-size: 18px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgb(255, 255, 255); /* Brighter yellow on hover */
+        }
+
+
+
+        .title h1 {
+            color: #ffbe0b; /* Dark yellow for heading */
+            font-size: 3em;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .heading {
+            font-family: 'Decolotype', sans-serif;
+            color: #ffbe0b;
+            font-size: 4em;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            max-width: 900px;
+            font-size: 18px;
+            color: #f0f0f0;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+
+        .highlight {
+            color: #ffbe0b; /* Highlight key terms */
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: rgba(30, 30, 47, 0.9);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer a {
+            color: #ffbe0b;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    
+        <header>
+            <div class="title">
+                <h1></h1>
+            </div>
+            <nav>
+                <a href={% url 'main_page' %}>HOME</a>
+                <a href={% url 'about' %}>ABOUT US</a>
+                <a href="#">SERVICES</a>
+                <a href="#">CONTACT</a>
+            </nav>
+        </header>
+  
+
+    <div class="main-content">
+        <div class="heading">
+            Post Quantum Cryptography
+        </div>
+        <div class="content">
+            <p><span class="highlight">Post-quantum cryptography (PQC)</span> refers to cryptographic algorithms that are secure against the potential threats posed by quantum computers. Quantum computers, once they reach a certain level of advancement, are expected to break many of the classical cryptographic systems we currently use, such as RSA and ECC (Elliptic Curve Cryptography). The need for PQC is driven by the fact that quantum computers could efficiently solve problems like integer factorization and discrete logarithms, which form the foundation of current public-key cryptosystems.</p>
+
+            <p>The goal of post-quantum cryptography is to develop cryptographic systems that are resistant to both classical and quantum attacks. These systems rely on mathematical problems that are believed to be difficult for quantum computers to solve. Examples of these problems include lattice-based cryptography, hash-based signatures, and multivariate polynomial equations.</p>
+
+            <p>As quantum computers continue to evolve, the cryptographic community is working on standardizing post-quantum algorithms to ensure that our digital systems remain secure in a quantum-enabled future. The National Institute of Standards and Technology (NIST) is leading the effort to evaluate and standardize post-quantum cryptographic algorithms. Several promising algorithms have already been proposed and are undergoing evaluation.</p>
+
+            <p>In summary, post-quantum cryptography is crucial for securing data in a future where quantum computers could break traditional cryptographic methods. By developing and implementing quantum-resistant algorithms, we can ensure the confidentiality and integrity of digital communication, even in a world dominated by quantum computing.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Athestia. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+</body>
+</html>
+{% load static %}

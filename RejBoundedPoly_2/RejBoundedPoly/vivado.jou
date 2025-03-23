@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Mar 23 07:00:32 2025
+# Process ID: 23000
+# Current directory: G:/RejBoundedPoly_2/RejBoundedPoly
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12124 G:\RejBoundedPoly_2\RejBoundedPoly\RejBoundedPoly.xpr
+# Log file: G:/RejBoundedPoly_2/RejBoundedPoly/vivado.log
+# Journal file: G:/RejBoundedPoly_2/RejBoundedPoly\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source ExpandS_tb.tcl
+set_property is_enabled false [get_files  G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/tb_expands.sv]
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1

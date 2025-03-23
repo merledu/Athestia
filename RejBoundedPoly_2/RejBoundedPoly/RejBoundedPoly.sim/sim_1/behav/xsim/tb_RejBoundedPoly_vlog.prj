@@ -1,0 +1,21 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../Chi.sv" \
+"../../../../RejBoundedPoly.srcs/sources_1/new/CoefFromHalfByte.sv" \
+"../../../../RejBoundedPoly.srcs/sources_1/new/Dilithium_pkg.sv" \
+"../../../../Iota.sv" \
+"../../../../Keccak.sv" \
+"../../../../Pad10_1.sv" \
+"../../../../Pi.sv" \
+"../../../../RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv" \
+"../../../../Rho.sv" \
+"../../../../Round.sv" \
+"../../../../Shake.sv" \
+"../../../../Theta.sv" \
+"../../../../RejBoundedPoly.srcs/sim_1/new/tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

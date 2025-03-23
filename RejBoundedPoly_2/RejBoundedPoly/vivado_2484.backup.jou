@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Feb 26 00:33:37 2025
+# Process ID: 2484
+# Current directory: G:/RejBoundedPoly
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16216 G:\RejBoundedPoly\RejBoundedPoly.xpr
+# Log file: G:/RejBoundedPoly/vivado.log
+# Journal file: G:/RejBoundedPoly\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project G:/RejBoundedPoly/RejBoundedPoly.xpr
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top ExpandS [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+report_clock_networks -name {network_1}
+report_clock_interaction -delay_type min_max -significant_digits 3 -name timing_3
+report_clocks
+create_clock -period 10.0 [get_ports clk]

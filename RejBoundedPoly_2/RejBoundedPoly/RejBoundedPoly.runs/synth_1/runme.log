@@ -1,0 +1,725 @@
+
+*** Running vivado
+    with args -log ExpandS.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ExpandS.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source ExpandS.tcl -notrace
+Command: synth_design -top ExpandS -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 7804 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 409.457 ; gain = 98.508
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ExpandS' [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/ExpandS.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'RejBoundedPoly' [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'sponge' [G:/RejBoundedPoly/Shake.sv:1]
+	Parameter msg_len bound to: 532 - type: integer 
+	Parameter d_len bound to: 4096 - type: integer 
+	Parameter capacity bound to: 512 - type: integer 
+	Parameter r bound to: 1088 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [G:/RejBoundedPoly/Shake.sv:32]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [G:/RejBoundedPoly/Shake.sv:33]
+INFO: [Synth 8-6157] synthesizing module 'keccak' [G:/RejBoundedPoly/Keccak.sv:23]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [G:/RejBoundedPoly/Keccak.sv:80]
+INFO: [Synth 8-6157] synthesizing module 'Rnd' [G:/RejBoundedPoly/Round.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'Theta' [G:/RejBoundedPoly/Theta.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'Theta' (1#1) [G:/RejBoundedPoly/Theta.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'Rho' [G:/RejBoundedPoly/Rho.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Rho' (2#1) [G:/RejBoundedPoly/Rho.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'Pi' [G:/RejBoundedPoly/Pi.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Pi' (3#1) [G:/RejBoundedPoly/Pi.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'Chi' [G:/RejBoundedPoly/Chi.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'Chi' (4#1) [G:/RejBoundedPoly/Chi.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'Iota' [G:/RejBoundedPoly/Iota.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Iota' (5#1) [G:/RejBoundedPoly/Iota.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Rnd' (6#1) [G:/RejBoundedPoly/Round.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'keccak' (7#1) [G:/RejBoundedPoly/Keccak.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'pad10_1' [G:/RejBoundedPoly/Pad10_1.sv:1]
+	Parameter x bound to: 1088 - type: integer 
+	Parameter m bound to: 532 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pad10_1' (8#1) [G:/RejBoundedPoly/Pad10_1.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'sponge' (9#1) [G:/RejBoundedPoly/Shake.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'CoefFromHalfByte' [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/CoefFromHalfByte.sv:23]
+	Parameter eta bound to: 32'sb00000000000000000000000000000010 
+INFO: [Synth 8-6155] done synthesizing module 'CoefFromHalfByte' (10#1) [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/CoefFromHalfByte.sv:23]
+WARNING: [Synth 8-5788] Register A_reg[0] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[1] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[2] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[3] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[4] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[5] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[6] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[7] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[8] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[9] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[10] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[11] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[12] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[13] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[14] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[15] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[16] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[17] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[18] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[19] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[20] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[21] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[22] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[23] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[24] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[25] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[26] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[27] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[28] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[29] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[30] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[31] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[32] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[33] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[34] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[35] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[36] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[37] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[38] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[39] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[40] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[41] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[42] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[43] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[44] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[45] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[46] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[47] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[48] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[49] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[50] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[51] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[52] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[53] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[54] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[55] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[56] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[57] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[58] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[59] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[60] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[61] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[62] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[63] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[64] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[65] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[66] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[67] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[68] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[69] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[70] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[71] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[72] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[73] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[74] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[75] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[76] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[77] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[78] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[79] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[80] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[81] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[82] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[83] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[84] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[85] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[86] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[87] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[88] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[89] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[90] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[91] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[92] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[93] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[94] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[95] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[96] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[97] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[98] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+WARNING: [Synth 8-5788] Register A_reg[99] in module RejBoundedPoly is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:74]
+INFO: [Common 17-14] Message 'Synth 8-5788' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'RejBoundedPoly' (11#1) [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/RejBoundedPoly.sv:4]
+INFO: [Synth 8-6155] done synthesizing module 'ExpandS' (12#1) [G:/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/ExpandS.sv:5]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:01:51 ; elapsed = 00:02:10 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:58 ; elapsed = 00:02:23 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:58 ; elapsed = 00:02:23 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "round_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "s1_temp" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s2_temp" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "count2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:26 ; elapsed = 00:04:14 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+---------------------+------------+----------+
+|      |RTL Partition        |Replication |Instances |
++------+---------------------+------------+----------+
+|1     |keccak               |           5|     14563|
+|2     |sponge__GC0          |           1|     12836|
+|3     |RejBoundedPoly__GCB0 |           1|     32640|
+|4     |RejBoundedPoly__GCB1 |           1|      8408|
+|5     |RejBoundedPoly__GCB2 |           1|     10328|
+|6     |RejBoundedPoly__GCB3 |           1|     14280|
+|7     |RejBoundedPoly__GCB4 |           1|     21715|
+|8     |ExpandS__GC0         |           1|     19155|
++------+---------------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register h_reg [G:/RejBoundedPoly/Shake.sv:65]
+INFO: [Synth 8-3538] Detected potentially large (wide) register z_reg [G:/RejBoundedPoly/Shake.sv:66]
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 7     
+	   2 Input      4 Bit       Adders := 4     
++---XORs : 
+	   5 Input     64 Bit         XORs := 25    
+	   2 Input     64 Bit         XORs := 280   
++---Registers : 
+	             4353 Bit    Registers := 1     
+	             4096 Bit    Registers := 1     
+	              528 Bit    Registers := 1     
+	               64 Bit    Registers := 130   
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 5     
+	                4 Bit    Registers := 4098  
+	                1 Bit    Registers := 11    
++---Muxes : 
+	   2 Input   1088 Bit        Muxes := 4     
+	   2 Input    528 Bit        Muxes := 4     
+	   2 Input     64 Bit        Muxes := 125   
+	   2 Input      5 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 257   
+	   2 Input      1 Bit        Muxes := 411   
+	   3 Input      1 Bit        Muxes := 140   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register h_reg [G:/RejBoundedPoly/Shake.sv:65]
+INFO: [Synth 8-3538] Detected potentially large (wide) register z_reg [G:/RejBoundedPoly/Shake.sv:66]
+Hierarchical RTL Component report 
+Module ExpandS 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 2     
++---Registers : 
+	              528 Bit    Registers := 1     
+	                4 Bit    Registers := 3842  
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input    528 Bit        Muxes := 4     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 18    
+	   3 Input      1 Bit        Muxes := 12    
+Module Theta 
+Detailed RTL Component Info : 
++---XORs : 
+	   5 Input     64 Bit         XORs := 5     
+	   2 Input     64 Bit         XORs := 30    
+Module Chi 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     64 Bit         XORs := 25    
+Module Iota 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     64 Bit         XORs := 1     
+Module keccak 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               64 Bit    Registers := 26    
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 25    
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module sponge 
+Detailed RTL Component Info : 
++---Registers : 
+	             4353 Bit    Registers := 1     
+	             4096 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input   1088 Bit        Muxes := 4     
+Module CoefFromHalfByte__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
+Module CoefFromHalfByte 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
+Module RejBoundedPoly 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 256   
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 256   
+	   2 Input      1 Bit        Muxes := 383   
+	   3 Input      1 Bit        Muxes := 128   
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[555] driven by constant 1
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[554] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[553] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[552] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[551] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[550] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[549] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[548] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[547] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[546] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[545] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[544] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[543] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[542] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[541] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[540] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[539] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[538] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[537] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[536] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[535] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[534] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[533] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[532] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[531] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[530] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[529] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[528] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[527] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[526] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[525] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[524] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[523] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[522] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[521] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[520] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[519] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[518] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[517] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[516] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[515] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[514] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[513] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[512] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[511] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[510] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[509] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[508] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[507] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[506] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[505] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[504] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[503] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[502] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[501] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[500] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[499] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[498] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[497] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[496] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[495] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[494] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[493] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[492] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[491] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[490] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[489] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[488] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[487] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[486] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[485] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[484] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[483] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[482] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[481] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[480] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[479] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[478] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[477] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[476] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[475] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[474] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[473] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[472] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[471] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[470] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[469] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[468] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[467] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[466] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[465] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[464] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[463] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[462] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[461] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[460] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[459] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[458] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[457] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[456] driven by constant 0
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\count_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\count_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\count_reg[2] )
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "O2590" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\count2_reg[0] )
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[517]' (FDCE) to 'rho_p_reg[518]'
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[518]' (FDCE) to 'rho_p_reg[519]'
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[519]' (FDCE) to 'rho_p_reg[520]'
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[520]' (FDCE) to 'rho_p_reg[521]'
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[521]' (FDCE) to 'rho_p_reg[522]'
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[522]' (FDCE) to 'rho_p_reg[523]'
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[523]' (FDCE) to 'rho_p_reg[524]'
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[524]' (FDCE) to 'rho_p_reg[525]'
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[525]' (FDCE) to 'rho_p_reg[526]'
+INFO: [Synth 8-3886] merging instance 'rho_p_reg[526]' (FDCE) to 'rho_p_reg[527]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rho_p_reg[527] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (done_reg)
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:09 ; elapsed = 00:06:28 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+---------------------+------------+----------+
+|      |RTL Partition        |Replication |Instances |
++------+---------------------+------------+----------+
+|1     |keccak               |           5|     13032|
+|2     |sponge__GC0          |           1|     12323|
+|3     |RejBoundedPoly__GCB0 |           1|     16266|
+|4     |RejBoundedPoly__GCB1 |           1|      4352|
+|5     |RejBoundedPoly__GCB2 |           1|      1255|
+|6     |RejBoundedPoly__GCB3 |           1|      7182|
+|7     |RejBoundedPoly__GCB4 |           1|      2485|
+|8     |ExpandS__GC0         |           1|     19561|
++------+---------------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:05:17 ; elapsed = 00:06:36 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+---------------------+------------+----------+
+|      |RTL Partition        |Replication |Instances |
++------+---------------------+------------+----------+
+|1     |keccak               |           1|     10872|
+|2     |sponge__GC0          |           1|     12322|
+|3     |RejBoundedPoly__GCB0 |           1|      3968|
+|4     |RejBoundedPoly__GCB1 |           1|      1240|
+|5     |RejBoundedPoly__GCB2 |           1|      1255|
+|6     |RejBoundedPoly__GCB3 |           1|      1736|
+|7     |RejBoundedPoly__GCB4 |           1|      2485|
+|8     |ExpandS__GC0         |           1|     19561|
+|9     |keccak__1            |           1|      9832|
+|10    |keccak__2            |           2|     13032|
+|11    |keccak__3            |           1|     13032|
++------+---------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[0][2]' (FDE) to 'uuti_6/A_reg[0][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[1][2]' (FDE) to 'uuti_6/A_reg[1][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[2][2]' (FDE) to 'uuti_6/A_reg[2][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[3][2]' (FDE) to 'uuti_6/A_reg[3][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[4][2]' (FDE) to 'uuti_6/A_reg[4][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[255][2]' (FDE) to 'uuti_6/A_reg[255][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[254][2]' (FDE) to 'uuti_6/A_reg[254][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[253][2]' (FDE) to 'uuti_6/A_reg[253][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[252][2]' (FDE) to 'uuti_6/A_reg[252][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[251][2]' (FDE) to 'uuti_6/A_reg[251][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[250][2]' (FDE) to 'uuti_6/A_reg[250][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[249][2]' (FDE) to 'uuti_6/A_reg[249][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[248][2]' (FDE) to 'uuti_6/A_reg[248][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[247][2]' (FDE) to 'uuti_6/A_reg[247][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[246][2]' (FDE) to 'uuti_6/A_reg[246][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[245][2]' (FDE) to 'uuti_6/A_reg[245][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[244][2]' (FDE) to 'uuti_6/A_reg[244][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[243][2]' (FDE) to 'uuti_6/A_reg[243][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[242][2]' (FDE) to 'uuti_6/A_reg[242][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[241][2]' (FDE) to 'uuti_6/A_reg[241][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[240][2]' (FDE) to 'uuti_6/A_reg[240][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[239][2]' (FDE) to 'uuti_6/A_reg[239][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[238][2]' (FDE) to 'uuti_6/A_reg[238][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[237][2]' (FDE) to 'uuti_6/A_reg[237][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[236][2]' (FDE) to 'uuti_6/A_reg[236][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[235][2]' (FDE) to 'uuti_6/A_reg[235][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[234][2]' (FDE) to 'uuti_6/A_reg[234][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[233][2]' (FDE) to 'uuti_6/A_reg[233][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[232][2]' (FDE) to 'uuti_6/A_reg[232][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[231][2]' (FDE) to 'uuti_6/A_reg[231][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[230][2]' (FDE) to 'uuti_6/A_reg[230][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[229][2]' (FDE) to 'uuti_6/A_reg[229][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[228][2]' (FDE) to 'uuti_6/A_reg[228][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[227][2]' (FDE) to 'uuti_6/A_reg[227][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[226][2]' (FDE) to 'uuti_6/A_reg[226][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[225][2]' (FDE) to 'uuti_6/A_reg[225][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[224][2]' (FDE) to 'uuti_6/A_reg[224][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[223][2]' (FDE) to 'uuti_6/A_reg[223][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[222][2]' (FDE) to 'uuti_6/A_reg[222][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[221][2]' (FDE) to 'uuti_6/A_reg[221][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[220][2]' (FDE) to 'uuti_6/A_reg[220][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[219][2]' (FDE) to 'uuti_6/A_reg[219][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[218][2]' (FDE) to 'uuti_6/A_reg[218][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[217][2]' (FDE) to 'uuti_6/A_reg[217][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[216][2]' (FDE) to 'uuti_6/A_reg[216][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[215][2]' (FDE) to 'uuti_6/A_reg[215][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[214][2]' (FDE) to 'uuti_6/A_reg[214][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[213][2]' (FDE) to 'uuti_6/A_reg[213][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[212][2]' (FDE) to 'uuti_6/A_reg[212][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[211][2]' (FDE) to 'uuti_6/A_reg[211][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[210][2]' (FDE) to 'uuti_6/A_reg[210][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[209][2]' (FDE) to 'uuti_6/A_reg[209][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[208][2]' (FDE) to 'uuti_6/A_reg[208][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[207][2]' (FDE) to 'uuti_6/A_reg[207][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[206][2]' (FDE) to 'uuti_6/A_reg[206][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[205][2]' (FDE) to 'uuti_6/A_reg[205][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[204][2]' (FDE) to 'uuti_6/A_reg[204][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[203][2]' (FDE) to 'uuti_6/A_reg[203][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[202][2]' (FDE) to 'uuti_6/A_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[201][2]' (FDE) to 'uuti_6/A_reg[201][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[200][2]' (FDE) to 'uuti_6/A_reg[200][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[199][2]' (FDE) to 'uuti_6/A_reg[199][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[198][2]' (FDE) to 'uuti_6/A_reg[198][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[197][2]' (FDE) to 'uuti_6/A_reg[197][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[196][2]' (FDE) to 'uuti_6/A_reg[196][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[195][2]' (FDE) to 'uuti_6/A_reg[195][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[194][2]' (FDE) to 'uuti_6/A_reg[194][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[193][2]' (FDE) to 'uuti_6/A_reg[193][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[192][2]' (FDE) to 'uuti_6/A_reg[192][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[191][2]' (FDE) to 'uuti_6/A_reg[191][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[190][2]' (FDE) to 'uuti_6/A_reg[190][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[189][2]' (FDE) to 'uuti_6/A_reg[189][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[188][2]' (FDE) to 'uuti_6/A_reg[188][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[187][2]' (FDE) to 'uuti_6/A_reg[187][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[186][2]' (FDE) to 'uuti_6/A_reg[186][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[185][2]' (FDE) to 'uuti_6/A_reg[185][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[184][2]' (FDE) to 'uuti_6/A_reg[184][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[183][2]' (FDE) to 'uuti_6/A_reg[183][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[182][2]' (FDE) to 'uuti_6/A_reg[182][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[181][2]' (FDE) to 'uuti_6/A_reg[181][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[180][2]' (FDE) to 'uuti_6/A_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[179][2]' (FDE) to 'uuti_6/A_reg[179][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[178][2]' (FDE) to 'uuti_6/A_reg[178][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[177][2]' (FDE) to 'uuti_6/A_reg[177][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[176][2]' (FDE) to 'uuti_6/A_reg[176][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[175][2]' (FDE) to 'uuti_6/A_reg[175][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[174][2]' (FDE) to 'uuti_6/A_reg[174][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[173][2]' (FDE) to 'uuti_6/A_reg[173][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[172][2]' (FDE) to 'uuti_6/A_reg[172][3]'
+INFO: [Synth 8-3886] merging instance 'uuti_6/A_reg[171][2]' (FDE) to 'uuti_6/A_reg[171][3]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:05:34 ; elapsed = 00:06:54 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+---------------------+------------+----------+
+|      |RTL Partition        |Replication |Instances |
++------+---------------------+------------+----------+
+|1     |keccak               |           1|      6614|
+|2     |sponge__GC0          |           1|     12300|
+|3     |RejBoundedPoly__GCB0 |           1|      1664|
+|4     |RejBoundedPoly__GCB1 |           1|        88|
+|5     |RejBoundedPoly__GCB2 |           1|        15|
+|6     |RejBoundedPoly__GCB4 |           1|      1512|
+|7     |ExpandS__GC0         |           1|     18995|
+|8     |keccak__1            |           1|      6038|
+|9     |keccak__2            |           2|      6806|
+|10    |keccak__3            |           1|      6038|
++------+---------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:05:59 ; elapsed = 00:07:22 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:06:00 ; elapsed = 00:07:23 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:06 ; elapsed = 00:07:29 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:06:06 ; elapsed = 00:07:30 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:06:56 ; elapsed = 00:08:24 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:06:57 ; elapsed = 00:08:25 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    11|
+|3     |LUT1   |   607|
+|4     |LUT2   |  3231|
+|5     |LUT3   | 12542|
+|6     |LUT4   |  2727|
+|7     |LUT5   |  9280|
+|8     |LUT6   |  3381|
+|9     |MUXF7  |   528|
+|10    |FDCE   | 17113|
+|11    |FDPE   |   513|
+|12    |FDRE   | 12301|
+|13    |LDC    |   512|
+|14    |IBUF   |   515|
+|15    |OBUF   | 15361|
++------+-------+------+
+
+Report Instance Areas: 
++------+------------------+---------------+------+
+|      |Instance          |Module         |Cells |
++------+------------------+---------------+------+
+|1     |top               |               | 78623|
+|2     |  uut             |RejBoundedPoly | 48637|
+|3     |    shake256      |sponge         | 46845|
+|4     |      kp          |keccak         |  7126|
+|5     |        u_Rnd     |Rnd_10         |  1728|
+|6     |          u_theta |Theta_11       |  1728|
+|7     |      kp1         |keccak_0       |  7894|
+|8     |        u_Rnd     |Rnd_8          |  1920|
+|9     |          u_theta |Theta_9        |  1920|
+|10    |      kp2         |keccak_1       |  7894|
+|11    |        u_Rnd     |Rnd_6          |  1920|
+|12    |          u_theta |Theta_7        |  1920|
+|13    |      kp3         |keccak_2       |  6040|
+|14    |        u_Rnd     |Rnd_4          |  1920|
+|15    |          u_theta |Theta_5        |  1920|
+|16    |      kp4         |keccak_3       |  7071|
+|17    |        u_Rnd     |Rnd            |  1600|
+|18    |          u_theta |Theta          |  1600|
++------+------------------+---------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:06:57 ; elapsed = 00:08:25 . Memory (MB): peak = 987.301 ; gain = 676.352
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 4199 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:06:57 ; elapsed = 00:08:27 . Memory (MB): peak = 987.301 ; gain = 676.352
+Synthesis Optimization Complete : Time (s): cpu = 00:06:57 ; elapsed = 00:08:27 . Memory (MB): peak = 987.301 ; gain = 676.352
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1566 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 512 instances were transformed.
+  LDC => LDCE: 512 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+158 Infos, 200 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:07:22 ; elapsed = 00:08:56 . Memory (MB): peak = 1004.359 ; gain = 706.098
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'G:/RejBoundedPoly/RejBoundedPoly.runs/synth_1/ExpandS.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 1004.359 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file ExpandS_utilization_synth.rpt -pb ExpandS_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.955 . Memory (MB): peak = 1004.359 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 26 00:44:25 2025...

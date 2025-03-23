@@ -1,0 +1,99 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Feb 26 00:33:37 2025
+# Process ID: 2484
+# Current directory: G:/RejBoundedPoly
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16216 G:\RejBoundedPoly\RejBoundedPoly.xpr
+# Log file: G:/RejBoundedPoly/vivado.log
+# Journal file: G:/RejBoundedPoly\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project G:/RejBoundedPoly/RejBoundedPoly.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:11 . Memory (MB): peak = 866.234 ; gain = 139.426
+update_compile_order -fileset sources_1
+set_property top ExpandS [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Wed Feb 26 00:35:03 2025] Launched synth_1...
+Run output will be captured here: G:/RejBoundedPoly/RejBoundedPoly.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a100tcsg324-1
+INFO: [Netlist 29-17] Analyzing 1054 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:51 ; elapsed = 00:00:36 . Memory (MB): peak = 1430.039 ; gain = 539.172
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:31 ; elapsed = 00:00:17 . Memory (MB): peak = 2090.617 ; gain = 198.344
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_timing_summary: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 2106.379 ; gain = 3.430
+report_clock_networks -name {network_1}
+report_clock_interaction -delay_type min_max -significant_digits 3 -name timing_3
+report_clocks
+WARNING: [Vivado 12-3502] Design has no clocks defined.
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
+| Date         : Wed Feb 26 01:10:42 2025
+| Host         : DESKTOP-6T1AD58 running 64-bit major release  (build 9200)
+| Command      : report_clocks
+| Design       : ExpandS
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.22 2018-03-21
+------------------------------------------------------------------------------------
+
+Clock Report
+
+
+Attributes
+  P: Propagated
+  G: Generated
+  A: Auto-derived
+  R: Renamed
+  V: Virtual
+  I: Inverted
+  S: Pin phase-shifted with Latency mode
+
+Clock  Period(ns)  Waveform(ns)  Attributes  Sources
+
+
+====================================================
+Generated Clocks
+====================================================
+
+
+
+====================================================
+User Uncertainty
+====================================================
+
+
+
+====================================================
+User Jitter
+====================================================
+
+
+create_clock -period 10.0 [get_ports clk]
+clk
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 27 00:24:16 2025...

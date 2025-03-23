@@ -1,0 +1,261 @@
+/*
+
+Xilinx Vivado v2018.2 (64-bit) [Major: 2018, Minor: 2]
+SW Build: 2258646 on Thu Jun 14 20:03:12 MDT 2018
+IP Build: 2256618 on Thu Jun 14 22:10:49 MDT 2018
+
+Process ID: 23000
+License: Customer
+
+Current time: 	Sun Mar 23 07:00:52 PKT 2025
+Time zone: 	Pakistan Time (Asia/Karachi)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1366x768
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 101 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2018.2/tps/win64/jre
+Java executable location: 	C:/Xilinx/Vivado/2018.2/tps/win64/jre/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	masfiyan
+User home directory: C:/Users/masfiyan
+User working directory: G:/RejBoundedPoly_2/RejBoundedPoly
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2018.2
+RDI_DATADIR: C:/Xilinx/Vivado/2018.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2018.2/bin
+
+Vivado preferences file location: C:/Users/masfiyan/AppData/Roaming/Xilinx/Vivado/2018.2/vivado.xml
+Vivado preferences directory: C:/Users/masfiyan/AppData/Roaming/Xilinx/Vivado/2018.2/
+Vivado layouts directory: C:/Users/masfiyan/AppData/Roaming/Xilinx/Vivado/2018.2/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2018.2/lib/classes/planAhead.jar
+Vivado log file location: 	G:/RejBoundedPoly_2/RejBoundedPoly/vivado.log
+Vivado journal file location: 	G:/RejBoundedPoly_2/RejBoundedPoly/vivado.jou
+Engine tmp dir: 	G:/RejBoundedPoly_2/RejBoundedPoly/.Xil/Vivado-23000-DESKTOP-6T1AD58
+
+Xilinx Environment Variables
+----------------------------
+XILINX: C:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2018.2
+XILINX_SDK: C:/Xilinx/SDK/2018.2
+XILINX_VIVADO: C:/Xilinx/Vivado/2018.2
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2018.2
+
+
+GUI allocated memory:	196 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 533 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 66 MB (+66220kb) [00:00:10]
+// [Engine Memory]: 490 MB (+362334kb) [00:00:10]
+// bx (ck):  Open Project : addNotify
+// Opening Vivado Project: G:\RejBoundedPoly_2\RejBoundedPoly\RejBoundedPoly.xpr. Version: Vivado v2018.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'G:/RejBoundedPoly' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// HMemoryUtils.trashcanNow. Engine heap size: 578 MB. GUI used memory: 35 MB. Current time: 3/23/25 7:00:54 AM PKT
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'. 
+// [Engine Memory]: 578 MB (+66734kb) [00:00:16]
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 617 MB (+10563kb) [00:00:24]
+// Project name: RejBoundedPoly; location: G:/RejBoundedPoly_2/RejBoundedPoly; part: xc7a100tcsg324-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 841.570 ; gain = 106.621 
+dismissDialog("Open Project"); // bx (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// [Engine Memory]: 650 MB (+1776kb) [00:00:29]
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// HMemoryUtils.trashcanNow. Engine heap size: 650 MB. GUI used memory: 38 MB. Current time: 3/23/25 7:01:10 AM PKT
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 47 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 4); // B (D, ck)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 5); // B (D, ck)
+// WARNING: HTimer (HSTRUtils Dump STR Log Timer) is taking 737ms to process. Increasing delay to 4000 ms.
+// PAPropertyPanels.initPanels (tb_expands.sv) elapsed time: 0.3s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ExpandS_tb (tb_expands.sv)]", 1, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ExpandS_tb (tb_expands.sv)]", 1, true, false, false, false, false, true); // B (D, ck) - Double Click - Node
+selectCodeEditor("tb_expands.sv", 130, 159); // ce (w, ck)
+// HOptionPane Error: 'The paste failed. The clipboard content is not text. (Paste Error)'
+typeControlKey((HResource) null, "tb_expands.sv", 'v'); // ce (w, ck)
+selectButton("RDIResource.HInputHandler_PASTE_FAILED_CLIPBOARD_CONTENT_OK", "OK"); // JButton (A, G)
+// Elapsed time: 14 seconds
+typeControlKey((HResource) null, "tb_expands.sv", 'v'); // ce (w, ck)
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // B (f, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (O, ck)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ad (aj, ck)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// e (ck):  Run Simulation : addNotify
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in 'G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.sim/sim_1/behav/xsim' INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [SIM-utils-54] Inspecting design source files for 'ExpandS_tb' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... INFO: [USF-XSim-2] XSim::Compile design 
+// Tcl Message: INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.sim/sim_1/behav/xsim' 
+// Tcl Message: "xvlog --incr --relax -prj ExpandS_tb_vlog.prj" 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '3' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.sim/sim_1/behav/xsim' 
+// Tcl Message: Built simulation snapshot ExpandS_tb_behav 
+// Tcl Message:  ****** Webtalk v2018.2 (64-bit)   **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018   **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.  source G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.sim/sim_1/behav/xsim/xsim.dir/ExpandS_tb_behav/webtalk/xsim_webtalk.tcl -notrace 
+// TclEventType: LAUNCH_SIM
+// [GUI Memory]: 76 MB (+7195kb) [00:02:04]
+// TclEventType: LOAD_FEATURE
+// Tcl Message: INFO: [Common 17-206] Exiting Webtalk at Sun Mar 23 07:02:43 2025... 
+// Tcl Message: run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 879.816 ; gain = 0.000 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "ExpandS_tb_behav -key {Behavioral:sim_1:Functional:ExpandS_tb} -tclbatch {ExpandS_tb.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2018.2 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// PAPropertyPanels.initPanels (tb_expands.sv) elapsed time: 0.2s
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// Waveform: addNotify
+// Tcl Message: source ExpandS_tb.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 672 MB. GUI used memory: 45 MB. Current time: 3/23/25 7:02:48 AM PKT
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// [Engine Memory]: 707 MB (+25619kb) [00:02:10]
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// Tcl Message: # run 1000ns 
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: xsim: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 1012.859 ; gain = 133.043 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'ExpandS_tb_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1012.859 ; gain = 133.043 
+// 'd' command handler elapsed time: 20 seconds
+// Elapsed time: 20 seconds
+dismissDialog("Run Simulation"); // e (ck)
+// Elapsed time: 67 seconds
+selectTreeTable(PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, "s1[0:6][0:255][3:0] ; '{1,1,e,f,2,0,1,1,1,1,1,0,0,e,e,e,f,0,e,1,2,e,1,e,2,f,2,1,2,e,2,f,2,2,0,1,0,2,0,e,2,e,2,1,e,f,1,0,e,1,f,e,1,1,0,e,e,2,2,f,0,2,f,1,0,f,f,0,0,f,2,e,0,0,e,f,e,0,e,2,1,2,f,0,f,0,f,e,2,1,2,e,0,1,e,1,0,f,e,f,f,0,0,2,0,e,f,2,0,1,0,e,2,f,0,2,1,f,2,2,2,f,f,1,f,e,e,0,e,f,e,f,f,2,e,f,e,2,1,1,1,e,e,f,1,e,f,0,e,2,2,e,0,f,f,2,e,0,2,e,2,e,1,0,2,e,2,e,2,0,f,f,2,f,f,e,f,1,f,1,f,1,1,0,e,e,f,f,0,1,e,2,0,0,f,2,2,e,2,f,e,f,2,f,e,1,1,2,e,e,e,e,e,1,2,1,e,1,e,e,f,f,0,1,f,2,e,e,f,0,0,1,1,1,0,0,1,f,f,0,f,f,1,0,1,f,e,f,e,f,1,0,e,0,0,f},'{0,1,2,f,f,f,0,2,0,e,f,1,1,f,1,2,f,e,2,f,f,2,0,0,e,1,e,1,2,2,1,2,e,e,0,e,e,e,e,e,e,f,f,f,f,0,e,0,f,1,e,1,2,1,2,e,1,1,e,f,f,f,1,e,1,0,0,e,0,e,0,2,0,2,2,f,0,f,0,0,0,0,f,2,f,2,0,0,1,2,e,1,0,e,1,e,0,0,2,1,2,2,f,e,0,1,0,0,2,2,f,e,f,2,f,1,2,2,0,e,e,0,1,0,f,e,0,f,f,f,1,0,2,0,0,0,2,0,0,0,f,f,1,1,1,2,0,e,0,0,2,2,2,f,e,0,0,f,e,f,1,1,f,0,0,1,f,f,1,2,f,0,1,1,e,2,2,e,0,0,1,2,2,2,2,1,f,1,e,1,e,0,e,2,f,2,2,e,f,2,e,0,0,2,2,e,f,0,f,2,2,f,e,1,e,2,0,0,0,1,1,f,1,2,1,f,1,0,2,2,e,e,1,0,f,2,f,1,2,2,e,f,1,e,1,0,f,f,1,e,e,e,2,f,2,f},'{0,2,1,2,0,0,f,2,f,2,0,f,1,e,e,e,0,0,f,2,2,1,0,2,0,1,e,0,2,0,f,1,f,e,f,f,2,1,f,1,2,f,2,0,1,e,e,e,0,0,0,1,1,1,f,e,0,e,e,0,1,2,2,2,e,1,f,1,f,0,1,0,0,1,e,0,1,f,f,2,1,f,1,0,e,0,1,f,1,1,e,2,e,e,f,0,1,0,1,2,0,1,2,1,1,f,e,f,2,2,f,1,f,0,f,0,1,2,2,1,2,2,0,f,e,f,2,e,1,0,2,2,2,0,e,0,e,0,0,e,1,e,0,e,0,1,0,e,0,f,e,f,e,e,0,e,f,f,1,1,0,0,f,1,f,0,f,1,0,f,2,2,1,e,e,2,1,f,f,e,1,1,e,e,2,f,f,f,2,1,f,e,0,1,1,1,f,2,2,f,1,2,2,1,e,1,0,f,1,2,e,2,0,0,1,f,1,0,e,f,0,2,f,1,0,2,0,0,0,0,2,2,f,0,2,2,e,f,1,1,f,0,f,2,2,2,e,e,2,2,0,f,e,2,f,1},'{1,2,2,1,e,0,2,1,f,1,1,2,1,0,0,e,2,2,1,e,e,e,2,f,e,0,0,f,f,0,e,2,e,0,e,0,1,2,2,0,2,e,f,0,2,e,0,1,e,2,f,f,e,1,1,1,e,f,f,1,f,f,2,1,e,2,e,2,e,1,f,f,0,0,e,e,e,1,1,1,2,f,0,1,f,f,f,e,1,e,1,2,1,0,f,f,f,f,f,0,f,0,0,1,f,2,e,2,0,e,1,2,e,e,0,1,1,0,e,0,0,0,e,0,1,0,0,2,0,2,f,e,0,1,1,1,f,f,0,0,0,0,2,f,0,1,e,2,f,e,e,0,e,f,f,1,f,2,0,e,1,f,f,f,e,1,2,e,0,1,2,2,f,1,1,f,0,0,1,0,2,e,2,0,e,e,f,2,2,2,1,2,e,1,0,e,e,e,f,0,e,0,f,2,0,f,e,f,1,0,2,e,2,0,f,f,e,0,2,0,e,e,1,e,1,2,e,f,1,e,0,f,f,1,e,2,2,e,f,1,0,0,e,e,f,1,1,f,2,0,e,1,e,f,1,f},'{f,f,e,f,1,0,0,f,e,1,e,f,1,0,e,1,1,f,f,2,2,e,e,0,2,f,2,1,1,2,2,1,2,e,0,f,e,0,f,1,2,0,1,e,2,e,e,0,e,1,1,2,f,1,0,2,f,1,e,2,f,f,2,e,e,f,0,0,2,e,0,1,e,e,e,f,f,0,2,f,2,1,e,1,1,f,e,e,1,2,f,0,f,e,e,0,1,e,f,e,2,e,1,f,0,1,f,1,0,0,2,2,0,0,e,1,2,2,f,1,1,e,2,1,f,2,1,e,1,2,f,2,0,e,1,f,1,0,0,f,f,f,e,2,e,0,e,0,2,f,0,f,e,0,0,f,1,0,f,2,2,f,e,2,2,0,1,1,f,1,2,2,e,1,1,f,e,2,1,1,1,e,f,e,1,e,1,2,e,f,e,0,2,f,0,1,1,2,2,e,2,0,0,0,e,f,1,e,0,1,2,1,0,2,e,f,2,2,e,f,1,0,1,0,1,f,0,f,e,1,0,1,f,0,e,0,e,e,f,e,e,2,0,1,2,2,e,2,0,2,2,1,e,1,f,2},'{0,f,f,0,e,f,2,f,0,e,e,e,e,0,1,e,2,e,e,e,2,e,f,0,f,2,1,f,2,f,0,e,f,1,2,0,2,0,1,2,1,2,f,f,e,2,0,0,f,f,1,1,1,0,1,1,0,0,0,1,1,2,f,2,1,1,2,e,0,2,1,1,2,0,0,2,f,0,0,0,0,f,0,2,0,e,1,1,e,e,e,f,1,1,2,1,f,0,0,0,f,2,f,e,1,0,0,2,f,f,e,f,2,f,2,1,f,f,0,e,2,f,2,0,f,e,1,2,1,f,f,e,1,f,1,2,2,e,e,f,e,0,1,2,0,1,f,2,e,1,f,e,e,0,1,e,1,2,f,2,2,f,0,0,2,e,f,e,e,f,0,1,2,f,2,1,2,e,2,2,0,f,e,f,f,f,1,1,1,2,f,1,2,2,1,f,f,f,0,0,e,e,1,0,2,f,f,0,0,e,1,0,f,0,e,f,f,e,f,0,e,f,0,e,2,1,1,e,2,2,f,e,2,0,f,f,0,1,2,f,1,0,1,2,1,2,0,f,e,0,2,2,f,e,e,2},'{e,e,2,1,1,1,2,f,2,e,1,2,f,0,0,0,1,e,f,2,e,1,e,f,2,2,2,0,f,f,e,1,2,f,e,2,1,1,2,0,1,2,2,1,1,f,2,e,0,0,e,e,e,e,e,e,f,f,f,0,2,0,f,1,2,e,f,e,2,1,0,0,1,f,0,e,1,2,1,f,2,1,f,1,2,e,1,0,2,0,1,f,1,e,1,f,1,f,f,e,e,1,2,1,2,2,e,1,1,e,e,2,f,0,0,2,f,f,1,0,2,1,e,f,e,2,f,2,0,1,e,0,e,e,0,2,2,e,1,0,2,0,0,0,1,e,1,e,1,f,f,f,1,f,e,1,e,2,e,1,1,f,e,f,0,e,f,e,e,f,e,e,0,0,1,e,1,0,e,f,1,1,e,e,0,f,0,f,e,f,1,1,e,2,1,e,1,e,0,0,0,e,1,1,2,1,f,2,0,2,e,0,1,f,f,f,f,0,1,2,f,2,f,e,f,0,0,e,e,2,0,1,0,f,f,0,1,1,2,f,e,1,1,2,f,2,f,0,e,e,f,0,0,f,2,2} ; Array", 4, "'{1,1,e,f,2,0,1,1,1,1,1,0,0,e,e,e,f,0,e,1,2,e,1,e,2,f,2,1,2,e,2,f,2,2,0,1,0,2,0,e,2,e,2,1,e,f,1,0,e,1,f,e,1,1,0,e,e,2,2,f,0,2,f,1,0,f,f,0,0,f,2,e,0,0,e,f,e,0,e,2,1,2,f,0,f,0,f,e,2,1,2,e,0,1,e,1,0,f,e,f,f,0,0,2,0,e,f,2,0,1,0,e,2,f,0,2,1,f,2,2,2,f,f,1,f,e,e,0,e,f,e,f,f,2,e,f,e,2,1,1,1,e,e,f,1,e,f,0,e,2,2,e,0,f,f,2,e,0,2,e,2,e,1,0,2,e,2,e,2,0,f,f,2,f,f,e,f,1,f,1,f,1,1,0,e,e,f,f,0,1,e,2,0,0,f,2,2,e,2,f,e,f,2,f,e,1,1,2,e,e,e,e,e,1,2,1,e,1,e,e,f,f,0,1,f,2,e,e,f,0,0,1,1,1,0,0,1,f,f,0,f,f,1,0,1,f,e,f,e,f,1,0,e,0,0,f},'{0,1,2,f,f,f,0,2,0,e,f,1,1,f,1,2,f,e,2,f,f,2,0,0,e,1,e,1,2,2,1,2,e,e,0,e,e,e,e,e,e,f,f,f,f,0,e,0,f,1,e,1,2,1,2,e,1,1,e,f,f,f,1,e,1,0,0,e,0,e,0,2,0,2,2,f,0,f,0,0,0,0,f,2,f,2,0,0,1,2,e,1,0,e,1,e,0,0,2,1,2,2,f,e,0,1,0,0,2,2,f,e,f,2,f,1,2,2,0,e,e,0,1,0,f,e,0,f,f,f,1,0,2,0,0,0,2,0,0,0,f,f,1,1,1,2,0,e,0,0,2,2,2,f,e,0,0,f,e,f,1,1,f,0,0,1,f,f,1,2,f,0,1,1,e,2,2,e,0,0,1,2,2,2,2,1,f,1,e,1,e,0,e,2,f,2,2,e,f,2,e,0,0,2,2,e,f,0,f,2,2,f,e,1,e,2,0,0,0,1,1,f,1,2,1,f,1,0,2,2,e,e,1,0,f,2,f,1,2,2,e,f,1,e,1,0,f,f,1,e,e,e,2,f,2,f},'{0,2,1,2,0,0,f,2,f,2,0,f,1,e,e,e,0,0,f,2,2,1,0,2,0,1,e,0,2,0,f,1,f,e,f,f,2,1,f,1,2,f,2,0,1,e,e,e,0,0,0,1,1,1,f,e,0,e,e,0,1,2,2,2,e,1,f,1,f,0,1,0,0,1,e,0,1,f,f,2,1,f,1,0,e,0,1,f,1,1,e,2,e,e,f,0,1,0,1,2,0,1,2,1,1,f,e,f,2,2,f,1,f,0,f,0,1,2,2,1,2,2,0,f,e,f,2,e,1,0,2,2,2,0,e,0,e,0,0,e,1,e,0,e,0,1,0,e,0,f,e,f,e,e,0,e,f,f,1,1,0,0,f,1,f,0,f,1,0,f,2,2,1,e,e,2,1,f,f,e,1,1,e,e,2,f,f,f,2,1,f,e,0,1,1,1,f,2,2,f,1,2,2,1,e,1,0,f,1,2,e,2,0,0,1,f,1,0,e,f,0,2,f,1,0,2,0,0,0,0,2,2,f,0,2,2,e,f,1,1,f,0,f,2,2,2,e,e,2,2,0,f,e,2,f,1},'{1,2,2,1,e,0,2,1,f,1,1,2,1,0,0,e,2,2,1,e,e,e,2,f,e,0,0,f,f,0,e,2,e,0,e,0,1,2,2,0,2,e,f,0,2,e,0,1,e,2,f,f,e,1,1,1,e,f,f,1,f,f,2,1,e,2,e,2,e,1,f,f,0,0,e,e,e,1,1,1,2,f,0,1,f,f,f,e,1,e,1,2,1,0,f,f,f,f,f,0,f,0,0,1,f,2,e,2,0,e,1,2,e,e,0,1,1,0,e,0,0,0,e,0,1,0,0,2,0,2,f,e,0,1,1,1,f,f,0,0,0,0,2,f,0,1,e,2,f,e,e,0,e,f,f,1,f,2,0,e,1,f,f,f,e,1,2,e,0,1,2,2,f,1,1,f,0,0,1,0,2,e,2,0,e,e,f,2,2,2,1,2,e,1,0,e,e,e,f,0,e,0,f,2,0,f,e,f,1,0,2,e,2,0,f,f,e,0,2,0,e,e,1,e,1,2,e,f,1,e,0,f,f,1,e,2,2,e,f,1,0,0,e,e,f,1,1,f,2,0,e,1,e,f,1,f},'{f,f,e,f,1,0,0,f,e,1,e,f,1,0,e,1,1,f,f,2,2,e,e,0,2,f,2,1,1,2,2,1,2,e,0,f,e,0,f,1,2,0,1,e,2,e,e,0,e,1,1,2,f,1,0,2,f,1,e,2,f,f,2,e,e,f,0,0,2,e,0,1,e,e,e,f,f,0,2,f,2,1,e,1,1,f,e,e,1,2,f,0,f,e,e,0,1,e,f,e,2,e,1,f,0,1,f,1,0,0,2,2,0,0,e,1,2,2,f,1,1,e,2,1,f,2,1,e,1,2,f,2,0,e,1,f,1,0,0,f,f,f,e,2,e,0,e,0,2,f,0,f,e,0,0,f,1,0,f,2,2,f,e,2,2,0,1,1,f,1,2,2,e,1,1,f,e,2,1,1,1,e,f,e,1,e,1,2,e,f,e,0,2,f,0,1,1,2,2,e,2,0,0,0,e,f,1,e,0,1,2,1,0,2,e,f,2,2,e,f,1,0,1,0,1,f,0,f,e,1,0,1,f,0,e,0,e,e,f,e,e,2,0,1,2,2,e,2,0,2,2,1,e,1,f,2},'{0,f,f,0,e,f,2,f,0,e,e,e,e,0,1,e,2,e,e,e,2,e,f,0,f,2,1,f,2,f,0,e,f,1,2,0,2,0,1,2,1,2,f,f,e,2,0,0,f,f,1,1,1,0,1,1,0,0,0,1,1,2,f,2,1,1,2,e,0,2,1,1,2,0,0,2,f,0,0,0,0,f,0,2,0,e,1,1,e,e,e,f,1,1,2,1,f,0,0,0,f,2,f,e,1,0,0,2,f,f,e,f,2,f,2,1,f,f,0,e,2,f,2,0,f,e,1,2,1,f,f,e,1,f,1,2,2,e,e,f,e,0,1,2,0,1,f,2,e,1,f,e,e,0,1,e,1,2,f,2,2,f,0,0,2,e,f,e,e,f,0,1,2,f,2,1,2,e,2,2,0,f,e,f,f,f,1,1,1,2,f,1,2,2,1,f,f,f,0,0,e,e,1,0,2,f,f,0,0,e,1,0,f,0,e,f,f,e,f,0,e,f,0,e,2,1,1,e,2,2,f,e,2,0,f,f,0,1,2,f,1,0,1,2,1,2,0,f,e,0,2,2,f,e,e,2},'{e,e,2,1,1,1,2,f,2,e,1,2,f,0,0,0,1,e,f,2,e,1,e,f,2,2,2,0,f,f,e,1,2,f,e,2,1,1,2,0,1,2,2,1,1,f,2,e,0,0,e,e,e,e,e,e,f,f,f,0,2,0,f,1,2,e,f,e,2,1,0,0,1,f,0,e,1,2,1,f,2,1,f,1,2,e,1,0,2,0,1,f,1,e,1,f,1,f,f,e,e,1,2,1,2,2,e,1,1,e,e,2,f,0,0,2,f,f,1,0,2,1,e,f,e,2,f,2,0,1,e,0,e,e,0,2,2,e,1,0,2,0,0,0,1,e,1,e,1,f,f,f,1,f,e,1,e,2,e,1,1,f,e,f,0,e,f,e,e,f,e,e,0,0,1,e,1,0,e,f,1,1,e,e,0,f,0,f,e,f,1,1,e,2,1,e,1,e,0,0,0,e,1,1,2,1,f,2,0,2,e,0,1,f,f,f,f,0,1,2,f,2,f,e,f,0,0,e,e,2,0,1,0,f,f,0,1,1,2,f,e,1,1,2,f,2,f,0,e,e,f,0,0,f,2,2}", 1, true); // m (c, ck) - Node
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+selectTreeTable(PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, "s1[0:6][0:255][3:0] ; '{1,1,e,f,2,0,1,1,1,1,1,0,0,e,e,e,f,0,e,1,2,e,1,e,2,f,2,1,2,e,2,f,2,2,0,1,0,2,0,e,2,e,2,1,e,f,1,0,e,1,f,e,1,1,0,e,e,2,2,f,0,2,f,1,0,f,f,0,0,f,2,e,0,0,e,f,e,0,e,2,1,2,f,0,f,0,f,e,2,1,2,e,0,1,e,1,0,f,e,f,f,0,0,2,0,e,f,2,0,1,0,e,2,f,0,2,1,f,2,2,2,f,f,1,f,e,e,0,e,f,e,f,f,2,e,f,e,2,1,1,1,e,e,f,1,e,f,0,e,2,2,e,0,f,f,2,e,0,2,e,2,e,1,0,2,e,2,e,2,0,f,f,2,f,f,e,f,1,f,1,f,1,1,0,e,e,f,f,0,1,e,2,0,0,f,2,2,e,2,f,e,f,2,f,e,1,1,2,e,e,e,e,e,1,2,1,e,1,e,e,f,f,0,1,f,2,e,e,f,0,0,1,1,1,0,0,1,f,f,0,f,f,1,0,1,f,e,f,e,f,1,0,e,0,0,f},'{0,1,2,f,f,f,0,2,0,e,f,1,1,f,1,2,f,e,2,f,f,2,0,0,e,1,e,1,2,2,1,2,e,e,0,e,e,e,e,e,e,f,f,f,f,0,e,0,f,1,e,1,2,1,2,e,1,1,e,f,f,f,1,e,1,0,0,e,0,e,0,2,0,2,2,f,0,f,0,0,0,0,f,2,f,2,0,0,1,2,e,1,0,e,1,e,0,0,2,1,2,2,f,e,0,1,0,0,2,2,f,e,f,2,f,1,2,2,0,e,e,0,1,0,f,e,0,f,f,f,1,0,2,0,0,0,2,0,0,0,f,f,1,1,1,2,0,e,0,0,2,2,2,f,e,0,0,f,e,f,1,1,f,0,0,1,f,f,1,2,f,0,1,1,e,2,2,e,0,0,1,2,2,2,2,1,f,1,e,1,e,0,e,2,f,2,2,e,f,2,e,0,0,2,2,e,f,0,f,2,2,f,e,1,e,2,0,0,0,1,1,f,1,2,1,f,1,0,2,2,e,e,1,0,f,2,f,1,2,2,e,f,1,e,1,0,f,f,1,e,e,e,2,f,2,f},'{0,2,1,2,0,0,f,2,f,2,0,f,1,e,e,e,0,0,f,2,2,1,0,2,0,1,e,0,2,0,f,1,f,e,f,f,2,1,f,1,2,f,2,0,1,e,e,e,0,0,0,1,1,1,f,e,0,e,e,0,1,2,2,2,e,1,f,1,f,0,1,0,0,1,e,0,1,f,f,2,1,f,1,0,e,0,1,f,1,1,e,2,e,e,f,0,1,0,1,2,0,1,2,1,1,f,e,f,2,2,f,1,f,0,f,0,1,2,2,1,2,2,0,f,e,f,2,e,1,0,2,2,2,0,e,0,e,0,0,e,1,e,0,e,0,1,0,e,0,f,e,f,e,e,0,e,f,f,1,1,0,0,f,1,f,0,f,1,0,f,2,2,1,e,e,2,1,f,f,e,1,1,e,e,2,f,f,f,2,1,f,e,0,1,1,1,f,2,2,f,1,2,2,1,e,1,0,f,1,2,e,2,0,0,1,f,1,0,e,f,0,2,f,1,0,2,0,0,0,0,2,2,f,0,2,2,e,f,1,1,f,0,f,2,2,2,e,e,2,2,0,f,e,2,f,1},'{1,2,2,1,e,0,2,1,f,1,1,2,1,0,0,e,2,2,1,e,e,e,2,f,e,0,0,f,f,0,e,2,e,0,e,0,1,2,2,0,2,e,f,0,2,e,0,1,e,2,f,f,e,1,1,1,e,f,f,1,f,f,2,1,e,2,e,2,e,1,f,f,0,0,e,e,e,1,1,1,2,f,0,1,f,f,f,e,1,e,1,2,1,0,f,f,f,f,f,0,f,0,0,1,f,2,e,2,0,e,1,2,e,e,0,1,1,0,e,0,0,0,e,0,1,0,0,2,0,2,f,e,0,1,1,1,f,f,0,0,0,0,2,f,0,1,e,2,f,e,e,0,e,f,f,1,f,2,0,e,1,f,f,f,e,1,2,e,0,1,2,2,f,1,1,f,0,0,1,0,2,e,2,0,e,e,f,2,2,2,1,2,e,1,0,e,e,e,f,0,e,0,f,2,0,f,e,f,1,0,2,e,2,0,f,f,e,0,2,0,e,e,1,e,1,2,e,f,1,e,0,f,f,1,e,2,2,e,f,1,0,0,e,e,f,1,1,f,2,0,e,1,e,f,1,f},'{f,f,e,f,1,0,0,f,e,1,e,f,1,0,e,1,1,f,f,2,2,e,e,0,2,f,2,1,1,2,2,1,2,e,0,f,e,0,f,1,2,0,1,e,2,e,e,0,e,1,1,2,f,1,0,2,f,1,e,2,f,f,2,e,e,f,0,0,2,e,0,1,e,e,e,f,f,0,2,f,2,1,e,1,1,f,e,e,1,2,f,0,f,e,e,0,1,e,f,e,2,e,1,f,0,1,f,1,0,0,2,2,0,0,e,1,2,2,f,1,1,e,2,1,f,2,1,e,1,2,f,2,0,e,1,f,1,0,0,f,f,f,e,2,e,0,e,0,2,f,0,f,e,0,0,f,1,0,f,2,2,f,e,2,2,0,1,1,f,1,2,2,e,1,1,f,e,2,1,1,1,e,f,e,1,e,1,2,e,f,e,0,2,f,0,1,1,2,2,e,2,0,0,0,e,f,1,e,0,1,2,1,0,2,e,f,2,2,e,f,1,0,1,0,1,f,0,f,e,1,0,1,f,0,e,0,e,e,f,e,e,2,0,1,2,2,e,2,0,2,2,1,e,1,f,2},'{0,f,f,0,e,f,2,f,0,e,e,e,e,0,1,e,2,e,e,e,2,e,f,0,f,2,1,f,2,f,0,e,f,1,2,0,2,0,1,2,1,2,f,f,e,2,0,0,f,f,1,1,1,0,1,1,0,0,0,1,1,2,f,2,1,1,2,e,0,2,1,1,2,0,0,2,f,0,0,0,0,f,0,2,0,e,1,1,e,e,e,f,1,1,2,1,f,0,0,0,f,2,f,e,1,0,0,2,f,f,e,f,2,f,2,1,f,f,0,e,2,f,2,0,f,e,1,2,1,f,f,e,1,f,1,2,2,e,e,f,e,0,1,2,0,1,f,2,e,1,f,e,e,0,1,e,1,2,f,2,2,f,0,0,2,e,f,e,e,f,0,1,2,f,2,1,2,e,2,2,0,f,e,f,f,f,1,1,1,2,f,1,2,2,1,f,f,f,0,0,e,e,1,0,2,f,f,0,0,e,1,0,f,0,e,f,f,e,f,0,e,f,0,e,2,1,1,e,2,2,f,e,2,0,f,f,0,1,2,f,1,0,1,2,1,2,0,f,e,0,2,2,f,e,e,2},'{e,e,2,1,1,1,2,f,2,e,1,2,f,0,0,0,1,e,f,2,e,1,e,f,2,2,2,0,f,f,e,1,2,f,e,2,1,1,2,0,1,2,2,1,1,f,2,e,0,0,e,e,e,e,e,e,f,f,f,0,2,0,f,1,2,e,f,e,2,1,0,0,1,f,0,e,1,2,1,f,2,1,f,1,2,e,1,0,2,0,1,f,1,e,1,f,1,f,f,e,e,1,2,1,2,2,e,1,1,e,e,2,f,0,0,2,f,f,1,0,2,1,e,f,e,2,f,2,0,1,e,0,e,e,0,2,2,e,1,0,2,0,0,0,1,e,1,e,1,f,f,f,1,f,e,1,e,2,e,1,1,f,e,f,0,e,f,e,e,f,e,e,0,0,1,e,1,0,e,f,1,1,e,e,0,f,0,f,e,f,1,1,e,2,1,e,1,e,0,0,0,e,1,1,2,1,f,2,0,2,e,0,1,f,f,f,f,0,1,2,f,2,f,e,f,0,0,e,e,2,0,1,0,f,f,0,1,1,2,f,e,1,1,2,f,2,f,0,e,e,f,0,0,f,2,2} ; Array", 4, "'{1,1,e,f,2,0,1,1,1,1,1,0,0,e,e,e,f,0,e,1,2,e,1,e,2,f,2,1,2,e,2,f,2,2,0,1,0,2,0,e,2,e,2,1,e,f,1,0,e,1,f,e,1,1,0,e,e,2,2,f,0,2,f,1,0,f,f,0,0,f,2,e,0,0,e,f,e,0,e,2,1,2,f,0,f,0,f,e,2,1,2,e,0,1,e,1,0,f,e,f,f,0,0,2,0,e,f,2,0,1,0,e,2,f,0,2,1,f,2,2,2,f,f,1,f,e,e,0,e,f,e,f,f,2,e,f,e,2,1,1,1,e,e,f,1,e,f,0,e,2,2,e,0,f,f,2,e,0,2,e,2,e,1,0,2,e,2,e,2,0,f,f,2,f,f,e,f,1,f,1,f,1,1,0,e,e,f,f,0,1,e,2,0,0,f,2,2,e,2,f,e,f,2,f,e,1,1,2,e,e,e,e,e,1,2,1,e,1,e,e,f,f,0,1,f,2,e,e,f,0,0,1,1,1,0,0,1,f,f,0,f,f,1,0,1,f,e,f,e,f,1,0,e,0,0,f},'{0,1,2,f,f,f,0,2,0,e,f,1,1,f,1,2,f,e,2,f,f,2,0,0,e,1,e,1,2,2,1,2,e,e,0,e,e,e,e,e,e,f,f,f,f,0,e,0,f,1,e,1,2,1,2,e,1,1,e,f,f,f,1,e,1,0,0,e,0,e,0,2,0,2,2,f,0,f,0,0,0,0,f,2,f,2,0,0,1,2,e,1,0,e,1,e,0,0,2,1,2,2,f,e,0,1,0,0,2,2,f,e,f,2,f,1,2,2,0,e,e,0,1,0,f,e,0,f,f,f,1,0,2,0,0,0,2,0,0,0,f,f,1,1,1,2,0,e,0,0,2,2,2,f,e,0,0,f,e,f,1,1,f,0,0,1,f,f,1,2,f,0,1,1,e,2,2,e,0,0,1,2,2,2,2,1,f,1,e,1,e,0,e,2,f,2,2,e,f,2,e,0,0,2,2,e,f,0,f,2,2,f,e,1,e,2,0,0,0,1,1,f,1,2,1,f,1,0,2,2,e,e,1,0,f,2,f,1,2,2,e,f,1,e,1,0,f,f,1,e,e,e,2,f,2,f},'{0,2,1,2,0,0,f,2,f,2,0,f,1,e,e,e,0,0,f,2,2,1,0,2,0,1,e,0,2,0,f,1,f,e,f,f,2,1,f,1,2,f,2,0,1,e,e,e,0,0,0,1,1,1,f,e,0,e,e,0,1,2,2,2,e,1,f,1,f,0,1,0,0,1,e,0,1,f,f,2,1,f,1,0,e,0,1,f,1,1,e,2,e,e,f,0,1,0,1,2,0,1,2,1,1,f,e,f,2,2,f,1,f,0,f,0,1,2,2,1,2,2,0,f,e,f,2,e,1,0,2,2,2,0,e,0,e,0,0,e,1,e,0,e,0,1,0,e,0,f,e,f,e,e,0,e,f,f,1,1,0,0,f,1,f,0,f,1,0,f,2,2,1,e,e,2,1,f,f,e,1,1,e,e,2,f,f,f,2,1,f,e,0,1,1,1,f,2,2,f,1,2,2,1,e,1,0,f,1,2,e,2,0,0,1,f,1,0,e,f,0,2,f,1,0,2,0,0,0,0,2,2,f,0,2,2,e,f,1,1,f,0,f,2,2,2,e,e,2,2,0,f,e,2,f,1},'{1,2,2,1,e,0,2,1,f,1,1,2,1,0,0,e,2,2,1,e,e,e,2,f,e,0,0,f,f,0,e,2,e,0,e,0,1,2,2,0,2,e,f,0,2,e,0,1,e,2,f,f,e,1,1,1,e,f,f,1,f,f,2,1,e,2,e,2,e,1,f,f,0,0,e,e,e,1,1,1,2,f,0,1,f,f,f,e,1,e,1,2,1,0,f,f,f,f,f,0,f,0,0,1,f,2,e,2,0,e,1,2,e,e,0,1,1,0,e,0,0,0,e,0,1,0,0,2,0,2,f,e,0,1,1,1,f,f,0,0,0,0,2,f,0,1,e,2,f,e,e,0,e,f,f,1,f,2,0,e,1,f,f,f,e,1,2,e,0,1,2,2,f,1,1,f,0,0,1,0,2,e,2,0,e,e,f,2,2,2,1,2,e,1,0,e,e,e,f,0,e,0,f,2,0,f,e,f,1,0,2,e,2,0,f,f,e,0,2,0,e,e,1,e,1,2,e,f,1,e,0,f,f,1,e,2,2,e,f,1,0,0,e,e,f,1,1,f,2,0,e,1,e,f,1,f},'{f,f,e,f,1,0,0,f,e,1,e,f,1,0,e,1,1,f,f,2,2,e,e,0,2,f,2,1,1,2,2,1,2,e,0,f,e,0,f,1,2,0,1,e,2,e,e,0,e,1,1,2,f,1,0,2,f,1,e,2,f,f,2,e,e,f,0,0,2,e,0,1,e,e,e,f,f,0,2,f,2,1,e,1,1,f,e,e,1,2,f,0,f,e,e,0,1,e,f,e,2,e,1,f,0,1,f,1,0,0,2,2,0,0,e,1,2,2,f,1,1,e,2,1,f,2,1,e,1,2,f,2,0,e,1,f,1,0,0,f,f,f,e,2,e,0,e,0,2,f,0,f,e,0,0,f,1,0,f,2,2,f,e,2,2,0,1,1,f,1,2,2,e,1,1,f,e,2,1,1,1,e,f,e,1,e,1,2,e,f,e,0,2,f,0,1,1,2,2,e,2,0,0,0,e,f,1,e,0,1,2,1,0,2,e,f,2,2,e,f,1,0,1,0,1,f,0,f,e,1,0,1,f,0,e,0,e,e,f,e,e,2,0,1,2,2,e,2,0,2,2,1,e,1,f,2},'{0,f,f,0,e,f,2,f,0,e,e,e,e,0,1,e,2,e,e,e,2,e,f,0,f,2,1,f,2,f,0,e,f,1,2,0,2,0,1,2,1,2,f,f,e,2,0,0,f,f,1,1,1,0,1,1,0,0,0,1,1,2,f,2,1,1,2,e,0,2,1,1,2,0,0,2,f,0,0,0,0,f,0,2,0,e,1,1,e,e,e,f,1,1,2,1,f,0,0,0,f,2,f,e,1,0,0,2,f,f,e,f,2,f,2,1,f,f,0,e,2,f,2,0,f,e,1,2,1,f,f,e,1,f,1,2,2,e,e,f,e,0,1,2,0,1,f,2,e,1,f,e,e,0,1,e,1,2,f,2,2,f,0,0,2,e,f,e,e,f,0,1,2,f,2,1,2,e,2,2,0,f,e,f,f,f,1,1,1,2,f,1,2,2,1,f,f,f,0,0,e,e,1,0,2,f,f,0,0,e,1,0,f,0,e,f,f,e,f,0,e,f,0,e,2,1,1,e,2,2,f,e,2,0,f,f,0,1,2,f,1,0,1,2,1,2,0,f,e,0,2,2,f,e,e,2},'{e,e,2,1,1,1,2,f,2,e,1,2,f,0,0,0,1,e,f,2,e,1,e,f,2,2,2,0,f,f,e,1,2,f,e,2,1,1,2,0,1,2,2,1,1,f,2,e,0,0,e,e,e,e,e,e,f,f,f,0,2,0,f,1,2,e,f,e,2,1,0,0,1,f,0,e,1,2,1,f,2,1,f,1,2,e,1,0,2,0,1,f,1,e,1,f,1,f,f,e,e,1,2,1,2,2,e,1,1,e,e,2,f,0,0,2,f,f,1,0,2,1,e,f,e,2,f,2,0,1,e,0,e,e,0,2,2,e,1,0,2,0,0,0,1,e,1,e,1,f,f,f,1,f,e,1,e,2,e,1,1,f,e,f,0,e,f,e,e,f,e,e,0,0,1,e,1,0,e,f,1,1,e,e,0,f,0,f,e,f,1,1,e,2,1,e,1,e,0,0,0,e,1,1,2,1,f,2,0,2,e,0,1,f,f,f,f,0,1,2,f,2,f,e,f,0,0,e,e,2,0,1,0,f,f,0,1,1,2,f,e,1,1,2,f,2,f,0,e,e,f,0,0,f,2,2}", 1, true, false, false, false, true, false); // m (c, ck) - Popup Trigger - Node
+selectMenu((HResource) null, "Radix"); // aa (aj, ck)
+selectMenuItem((HResource) null, "Signed Decimal"); // R (ck)
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// [Engine Memory]: 743 MB (+707kb) [00:03:32]
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 350ms to process. Increasing delay to 2000 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 748 MB. GUI used memory: 53 MB. Current time: 3/23/25 7:05:58 AM PKT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Elapsed time: 115 seconds
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // O (Q, ck)
+// Waveform: addNotify
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+unmaximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // O (Q, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 750 MB. GUI used memory: 51 MB. Current time: 3/23/25 7:05:59 AM PKT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // O (Q, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 751 MB. GUI used memory: 52 MB. Current time: 3/23/25 7:06:03 AM PKT
+unMinimizeFrame(PAResourceOtoP.PAViews_OBJECTS, "Objects"); // aw
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+unMinimizeFrame(PAResourceOtoP.PAViews_SCOPE, "Scopes"); // aw
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 751 MB. GUI used memory: 52 MB. Current time: 3/23/25 7:06:04 AM PKT
+expandTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATE_SCOPE_TABLE, "dut ; ExpandS ; Verilog Module", 1); // d (O, ck)
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATE_SCOPE_TABLE, "uut ; RejBoundedPoly ; Verilog Module", 2, "RejBoundedPoly", 1, true); // d (O, ck) - Node
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATE_SCOPE_TABLE, "uut ; RejBoundedPoly ; Verilog Module", 2, "RejBoundedPoly", 1, true, false, false, false, false, true); // d (O, ck) - Double Click - Node
+// TclEventType: SIMULATION_OPEN_SOURCE
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, ExpandS_tb (tb_expands.sv)]", 6, true, false, false, false, true, false); // B (D, ck) - Popup Trigger - Node
+selectMenuItem(PAResourceCommand.PACommandNames_SRC_DISABLE, "Disable File"); // ad (aj, Popup.HeavyWeightWindow)
+// Run Command: PAResourceCommand.PACommandNames_SRC_DISABLE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: set_property is_enabled false [get_files  G:/RejBoundedPoly_2/RejBoundedPoly/RejBoundedPoly.srcs/sources_1/new/tb_expands.sv] 
+// [GUI Memory]: 80 MB (+997kb) [00:05:34]
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sim_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// D (ck): Invalid Top Module: addNotify
+// [GUI Memory]: 86 MB (+1404kb) [00:06:20]
+// Elapsed time: 51 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (D)
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Invalid Top Module"); // D (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sim_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// [GUI Memory]: 90 MB (+63kb) [00:06:33]

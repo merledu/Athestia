@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Dec 19 14:11:32 2024
+# Process ID: 7016
+# Current directory: E:/coef_half_byte_2/coef_half_byte_2.runs/synth_1
+# Command line: vivado.exe -log top_three_bytes.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_three_bytes.tcl
+# Log file: E:/coef_half_byte_2/coef_half_byte_2.runs/synth_1/top_three_bytes.vds
+# Journal file: E:/coef_half_byte_2/coef_half_byte_2.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source top_three_bytes.tcl -notrace

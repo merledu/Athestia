@@ -2,5 +2,3 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/simpleB
 INFO: [VRFC 10-311] analyzing module simpleBitUnpack
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.srcs/sim_1/new/simpleBitUnpack_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module simpleBitUnpack_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mlatif/Athestia/simpleBitUnpack/simpleHintUnpack.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl

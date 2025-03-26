@@ -1,4 +1,4 @@
-Running: xsim.dir/simpleBitUnpack_tb_behav/xsimk -simmode gui -wdb simpleBitUnpack_tb_behav.wdb -simrunnum 0 -socket 40915
+Running: xsim.dir/simpleBitUnpack_tb_behav/xsimk -simmode gui -wdb simpleBitUnpack_tb_behav.wdb -simrunnum 0 -socket 36427
 Design successfully loaded
-Design Loading Memory Usage: 32552 KB (Peak: 33040 KB)
-Design Loading CPU Usage: 20 ms
+Design Loading Memory Usage: 32372 KB (Peak: 32932 KB)
+Design Loading CPU Usage: 40 ms

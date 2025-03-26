@@ -1,0 +1,25 @@
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /raptor/tools/Xilinx/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 4273fb5fae8c4eeab38a1a47cdd4358c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot verifyInternal_tb_behav xil_defaultlib.verifyInternal_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 256 for port rho [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/verifyInternalModule.sv:41]
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 22528 for port t1 [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/verifyInternalModule.sv:42]
+WARNING: [VRFC 10-278] actual bit length 2816 differs from formal bit length 2560 for port w [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:47]
+WARNING: [VRFC 10-278] actual bit length 2816 differs from formal bit length 2560 for port w [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:53]
+WARNING: [VRFC 10-278] actual bit length 2816 differs from formal bit length 2560 for port w [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:59]
+WARNING: [VRFC 10-278] actual bit length 2816 differs from formal bit length 2560 for port w [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:65]
+WARNING: [VRFC 10-278] actual bit length 2816 differs from formal bit length 2560 for port w [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:71]
+WARNING: [VRFC 10-278] actual bit length 2816 differs from formal bit length 2560 for port w [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:77]
+WARNING: [VRFC 10-278] actual bit length 2816 differs from formal bit length 2560 for port w [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:83]
+WARNING: [VRFC 10-278] actual bit length 2816 differs from formal bit length 2560 for port w [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:89]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.simpleBitUnpack(b=1023)
+Compiling module xil_defaultlib.pkDecode_default
+Compiling module xil_defaultlib.verifyInternalModule
+Compiling module xil_defaultlib.verifyInternal_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot verifyInternal_tb_behav

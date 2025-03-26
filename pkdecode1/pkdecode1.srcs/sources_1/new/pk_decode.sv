@@ -3,7 +3,7 @@
 module pkDecode #(
     parameter int PK_SIZE = 256,  // Size of pk in bytes
     parameter int D = 13,        
-    parameter int Q = 3329,
+    parameter int Q = 8380417,
     parameter k=8     
 )(
     input  logic clk,                

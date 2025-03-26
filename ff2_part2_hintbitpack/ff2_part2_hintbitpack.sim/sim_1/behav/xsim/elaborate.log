@@ -10,5 +10,4 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.HintBitPack
 Compiling module xil_defaultlib.HintBitPack_tb
 Compiling module xil_defaultlib.glbl
-ERROR: [XSIM 43-3409] Failed to compile generated C file xsim.dir/HintBitPack_tb_behav/obj/xsim_1.c.
-ERROR: [XSIM 43-3915] Encountered a fatal error. Cannot continue. Exiting... 
+Built simulation snapshot HintBitPack_tb_behav

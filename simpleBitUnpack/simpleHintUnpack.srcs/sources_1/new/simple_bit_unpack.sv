@@ -1,5 +1,5 @@
 module simpleBitUnpack #(
-  parameter int b = 1
+  parameter int b = 1023
 ) (
   input  logic clk,
   input  logic reset,
@@ -15,21 +15,21 @@ module simpleBitUnpack #(
   localparam int total_bytes = 32 * c;
   localparam int total_bits = total_bytes * 8;
 
-  logic [total_bits-1:0] z;
+//  logic [total_bits-1:0] z;
 
-  generate
-    for (genvar i = 0; i < total_bytes; i++) begin : byte_loop
-      // Correctly reverse byte order without bit reversal within bytes
-      assign z[i*8 +: 8] = v[(total_bytes - 1 - i)*8 +: 8];
-    end
-  endgenerate
+//  generate
+//    for (genvar i = 0; i < total_bytes; i++) begin : byte_loop
+//      // Correctly reverse byte order without bit reversal within bytes
+//      assign z[i*8 +: 8] = v[(total_bytes - 1 - i)*8 +: 8];
+//    end
+//  endgenerate
 
   always_ff @(posedge clk or posedge reset) begin
     if (reset) begin
       w <= '0;
     end else begin
       for (int i = 0; i < 256; i++) begin
-        w[i] <= z[i*c +: c];
+        w[i] <= v[i*c +: c];
       end
     end
   end

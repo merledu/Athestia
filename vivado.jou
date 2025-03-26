@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Mar 10 10:40:30 2025
+# Process ID: 333789
+# Current directory: /home/mlatif/Athestia
+# Command line: vivado
+# Log file: /home/mlatif/Athestia/vivado.log
+# Journal file: /home/mlatif/Athestia/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/mlatif/Athestia/ff2_part2_hintbitpack/ff2_part2_hintbitpack.xpr
+update_compile_order -fileset sources_1

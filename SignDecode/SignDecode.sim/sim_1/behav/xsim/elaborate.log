@@ -1,0 +1,18 @@
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 4f8f5f19e16649cda7309aa130ac62d1 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_SigDecode_behav xil_defaultlib.tb_SigDecode xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 5121 differs from formal bit length 5120 for port v [C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sources_1/new/signDecode.sv:39]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/Wasif Hassan/Desktop/HintBitUnpack/HintBitUnpack.srcs/sources_1/new/HintBitUnpack.sv" Line 1. Module HintBitUnpack doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=5120)
+Compiling module xil_defaultlib.BitUnpack(b_len=20)
+Compiling module xil_defaultlib.HintBitUnpack
+Compiling module xil_defaultlib.SigDecode_default
+Compiling module xil_defaultlib.tb_SigDecode
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_SigDecode_behav

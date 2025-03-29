@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../../../HintBitUnpack/HintBitUnpack.srcs/sources_1/new/HintBitUnpack.sv" \
+"../../../../../upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv" \
+"../../../../SignDecode.srcs/sources_1/new/signDecode.sv" \
+"../../../../../upd_expand_mask/upd_expand_mask.srcs/sources_1/new/swap.sv" \
+"../../../../SignDecode.srcs/sim_1/new/tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

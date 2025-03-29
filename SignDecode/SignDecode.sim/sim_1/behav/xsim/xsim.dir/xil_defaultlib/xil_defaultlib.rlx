@@ -1,0 +1,11 @@
+0.6
+2018.2
+Jun 14 2018
+20:41:02
+C:/Users/Wasif Hassan/Desktop/HintBitUnpack/HintBitUnpack.srcs/sources_1/new/HintBitUnpack.sv,1742842504,systemVerilog,C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sim_1/new/tb.v;C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sources_1/new/signDecode.sv;C:/Users/Wasif Hassan/Desktop/sample/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv;C:/Users/Wasif Hassan/Desktop/sample/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/swap.sv,C:/Users/Wasif Hassan/Desktop/sample/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv,,$unit_HintBitUnpack_sv;HintBitUnpack,,,,,,,,
+C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
+C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sim_1/new/tb.v,1742694783,systemVerilog,,,,tb_SigDecode,,,,,,,,
+C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sim_1/new/tb_hint.sv,1742692810,systemVerilog,,,,HintBitUnpack_tb,,,,,,,,
+C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sources_1/new/signDecode.sv,1742697661,systemVerilog,,C:/Users/Wasif Hassan/Desktop/sample/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/swap.sv,,SigDecode,,,,,,,,
+C:/Users/Wasif Hassan/Desktop/sample/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv,1742052439,systemVerilog,C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sim_1/new/tb.v;C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sources_1/new/signDecode.sv;C:/Users/Wasif Hassan/Desktop/sample/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/swap.sv,C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sources_1/new/signDecode.sv,,BitUnpack,,,,,,,,
+C:/Users/Wasif Hassan/Desktop/sample/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/swap.sv,1741899102,systemVerilog,,C:/Users/Wasif Hassan/Desktop/sample/SignDecode/SignDecode.srcs/sim_1/new/tb.v,,SwapNibbles,,,,,,,,

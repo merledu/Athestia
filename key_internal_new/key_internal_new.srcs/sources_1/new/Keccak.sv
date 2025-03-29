@@ -31,7 +31,6 @@ module keccak(
     
     logic [63:0] A[0:4][0:4];
        always_comb begin
-                $display("AB: %0h",AB);
                 A[0][0] = AB[63:0];
                 
                 A[1][0] = AB[127:64];

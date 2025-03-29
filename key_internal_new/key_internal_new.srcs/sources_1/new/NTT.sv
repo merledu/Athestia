@@ -7,7 +7,6 @@ function automatic signed [31:0] compute_remainder(input signed [63:0] x, input 
     end
 endfunction
 
-
 module NTT #(
     parameter WIDTH = 64
 )(

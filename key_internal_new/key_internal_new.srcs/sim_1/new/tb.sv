@@ -2,7 +2,7 @@
 
 module KeyInternal_tb;
     // Parameter for clock period
-    parameter clock_period = 0.015;
+    parameter clock_period = 0.005;
     
     // DUT Signals
     logic clk;
@@ -41,9 +41,5 @@ module KeyInternal_tb;
         $finish;
     end
 
-    // Monitor changes
-    initial begin
-        $monitor("Time = %0t | clk = %b | rst = %b | zeta = %h", $time, clk, rst, zeta);
-    end
 
 endmodule

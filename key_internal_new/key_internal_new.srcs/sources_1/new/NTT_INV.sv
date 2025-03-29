@@ -1,6 +1,16 @@
 `timescale 1ns / 1ps
 import Dilithium_pkg::*;
 
+
+//function automatic signed [31:0] compute_remainder(input signed [63:0] x, input signed [23:0] N);
+//    begin
+//        compute_remainder = x - ((x / N) * N);
+//        if (compute_remainder < 0)
+//            compute_remainder = compute_remainder + N;
+//    end
+//endfunction
+
+
 module NTT_INV #(
     parameter int WIDTH = 64  
 )(
@@ -54,15 +64,15 @@ module NTT_INV #(
         };
 
     
-    always_ff @(posedge clk or negedge rst) begin
-        if (rst) begin
-            length <= 1;
-            j <= 0;
-            start2 <= 0;
-            m <= 255;
-            k <= 0;
-            done <= 0;
-            q_1 <= q;
+    always_ff @(posedge clk) begin
+            if (rst) begin  // Active-low reset
+                length <= 1;
+                j <= 0;
+                start2 <= 0;
+                m <= 255;
+                k <= 0;
+                done <= 0;
+                q_1 <= q;
         end else begin
 //            if (length == 128 && j == 127) begin
 //                        length <= 'x;
@@ -102,13 +112,15 @@ module NTT_INV #(
                 end
                 
         end
+        check1 = compute_remainder(8347681*8192337,q);
         if (length == 128 && j == 127) begin
                                 length <= 'x;
                                 j <= 'x;
                                 start2 <= 'x;
+                                w[255] <= compute_remainder(8347681*w[255],q);
                                                     m <= 'x;
                                                     k <= 'x;
-                                                    for (int i = 0; i < 256; i++) begin
+                                                    for (int i = 0; i < 255; i++) begin
                                                                                         w[i] = compute_remainder(8347681*w[i],q);
                                                                                     end
                                                     

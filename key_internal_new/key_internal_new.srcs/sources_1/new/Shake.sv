@@ -57,19 +57,16 @@ always_comb begin
     str = 1600'b0 ^ {zeros, k[r - 1:0]};
 
     if (d_len > r && n == 1) begin
-        $display("str2: %h", str2);
         strr = str2;
     end else if (d_len > r && n == 2) begin
         strr = s2;
     end
 
     if (d_len > (r * 2) - 1) begin
-        $display("str2 3: %0h", str2);
         strrr = str3;
     end
 
     if (d_len > (r * 3) - 1) begin
-        $display("str2 4: %0h", str2);
         strrrr = str4;
     end
     if(d_len > (r*4)-1)begin
@@ -112,7 +109,6 @@ always_ff @(posedge clk or posedge reset) begin
         end
 
         if (don1 == 1'b1) begin
-            $display("str3 : %0h", str3);
             h[(r * 2) - 1:r] <= str3[r - 1:0];
         end else begin
             h[(r * 2) - 1:r] <= '0;
@@ -172,7 +168,6 @@ always_ff @(posedge clk or posedge reset) begin
                                                                                     
               
 
-        $display("z :%0h", z);
     end
    // done=1;
 end

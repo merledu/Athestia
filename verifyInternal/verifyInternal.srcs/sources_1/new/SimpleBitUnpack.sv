@@ -2,7 +2,7 @@ module simpleBitUnpack #(
   parameter int b = 10
 ) (
   input  logic clk,
-  input  logic reset,
+  input  logic rst,
   input  logic [32 * bitlen(b) * 8 - 1 : 0] v,
   output logic [255:0][bitlen(b)-1:0] w
 );
@@ -24,8 +24,8 @@ module simpleBitUnpack #(
     end
   endgenerate
 
-  always_ff @(posedge clk or posedge reset) begin
-    if (reset) begin
+  always_ff @(posedge clk or posedge rst) begin
+    if (rst) begin
       w <= '0;
     end else begin
       for (int i = 0; i < 256; i++) begin

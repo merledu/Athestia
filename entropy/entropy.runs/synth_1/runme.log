@@ -1,0 +1,48 @@
+
+*** Running vivado
+    with args -log SanityCheck.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SanityCheck.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source SanityCheck.tcl -notrace
+Command: synth_design -top SanityCheck -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1421771 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1308.574 ; gain = 86.922 ; free physical = 368 ; free virtual = 43231
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'SanityCheck' [/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/sanityCheck.sv:22]
+	Parameter N bound to: 32'sb00000000000000000000001111101000 
+	Parameter ALPHA bound to: 0.000005 - type: float 
+
+*** Running vivado
+    with args -log SanityCheck.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SanityCheck.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source SanityCheck.tcl -notrace
+Command: synth_design -top SanityCheck -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1428585 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1308.570 ; gain = 86.922 ; free physical = 29180 ; free virtual = 44658
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'SanityCheck' [/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/sanityCheck.sv:22]
+	Parameter N bound to: 32'sb00000000000000000000001111101000 
+	Parameter ALPHA bound to: 0.000005 - type: float 
+/raptor/tools/Xilinx/Xilinx/Vivado/2018.2/bin/rdiArgs.sh: line 194: 1428573 Killed                  "$RDI_PROG" "$@"
+Parent process (pid 1428573) has died. This helper process will now exit

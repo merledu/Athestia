@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Mar 30 03:14:54 2025
+# Process ID: 1421752
+# Current directory: /home/mlatif/Athestia/entropy/entropy.runs/synth_1
+# Command line: vivado -log SanityCheck.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SanityCheck.tcl
+# Log file: /home/mlatif/Athestia/entropy/entropy.runs/synth_1/SanityCheck.vds
+# Journal file: /home/mlatif/Athestia/entropy/entropy.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source SanityCheck.tcl -notrace
+Command: synth_design -top SanityCheck -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1421771 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1308.574 ; gain = 86.922 ; free physical = 368 ; free virtual = 43231
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'SanityCheck' [/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/sanityCheck.sv:22]
+	Parameter N bound to: 32'sb00000000000000000000001111101000 
+	Parameter ALPHA bound to: 0.000005 - type: float 

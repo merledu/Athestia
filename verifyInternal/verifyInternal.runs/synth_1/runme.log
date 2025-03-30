@@ -1,0 +1,467 @@
+
+*** Running vivado
+    with args -log verifyInternalModule.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source verifyInternalModule.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source verifyInternalModule.tcl -notrace
+Command: synth_design -top verifyInternalModule -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1189227 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1308.578 ; gain = 86.922 ; free physical = 463 ; free virtual = 43826
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'verifyInternalModule' [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/verifyInternalModule.sv:24]
+	Parameter PK_SIZE bound to: 32'sb00000000000000000101000100000000 
+	Parameter MSG_MAX_SIZE bound to: 32'sb00000000000000000000010000000000 
+	Parameter SIG_SIZE bound to: 32'sb00000000000000001001000010011000 
+INFO: [Synth 8-6157] synthesizing module 'pkDecode' [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:3]
+	Parameter PK_SIZE bound to: 32'sb00000000000000000000000100000000 
+	Parameter D bound to: 32'sb00000000000000000000000000001101 
+	Parameter Q bound to: 32'sb00000000011111111110000000000001 
+	Parameter k bound to: 8 - type: integer 
+	Parameter b bound to: 1023 - type: integer 
+	Parameter Y bound to: 32'sb00000000000000000000000000010111 
+	Parameter C bound to: 32'sb00000000000000000000001111111111 
+	Parameter Blen bound to: 32'sb00000000000000000000000000001010 
+	Parameter B bound to: 32'sb00000000000000000000001111111111 
+	Parameter POLY_SIZE bound to: 32'sb00000000000000000000101000000000 
+INFO: [Synth 8-6157] synthesizing module 'simpleBitUnpack' [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:1]
+	Parameter b bound to: 32'sb00000000000000000000001111111111 
+	Parameter c bound to: 32'sb00000000000000000000000000001010 
+	Parameter total_bytes bound to: 32'sb00000000000000000000000101000000 
+	Parameter total_bits bound to: 32'sb00000000000000000000101000000000 
+INFO: [Synth 8-6155] done synthesizing module 'simpleBitUnpack' (1#1) [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'pkDecode' (2#1) [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:3]
+WARNING: [Synth 8-6014] Unused sequential element t1_data_reg was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/verifyInternalModule.sv:39]
+WARNING: [Synth 8-3848] Net valid in module/entity verifyInternalModule does not have driver. [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/verifyInternalModule.sv:33]
+INFO: [Synth 8-6155] done synthesizing module 'verifyInternalModule' (3#1) [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/verifyInternalModule.sv:24]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port valid
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port rst
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1023]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1022]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1021]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1020]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1019]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1018]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1017]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1016]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1015]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1014]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1013]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1012]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1011]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1010]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1009]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1008]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1007]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1006]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1005]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1004]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1003]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1002]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1001]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[1000]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[999]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[998]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[997]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[996]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[995]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[994]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[993]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[992]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[991]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[990]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[989]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[988]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[987]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[986]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[985]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[984]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[983]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[982]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[981]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[980]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[979]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[978]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[977]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[976]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[975]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[974]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[973]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[972]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[971]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[970]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[969]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[968]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[967]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[966]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[965]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[964]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[963]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[962]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[961]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[960]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[959]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[958]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[957]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[956]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[955]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[954]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[953]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[952]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[951]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[950]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[949]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[948]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[947]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[946]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[945]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[944]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[943]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[942]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[941]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[940]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[939]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[938]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[937]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[936]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[935]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[934]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[933]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[932]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[931]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[930]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[929]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[928]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[927]
+WARNING: [Synth 8-3331] design verifyInternalModule has unconnected port M[926]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1378.914 ; gain = 157.258 ; free physical = 446 ; free virtual = 43810
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1378.914 ; gain = 157.258 ; free physical = 454 ; free virtual = 43818
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1386.918 ; gain = 165.262 ; free physical = 454 ; free virtual = 43818
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1394.926 ; gain = 173.270 ; free physical = 408 ; free virtual = 43773
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[7] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[6] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[5] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[4] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[3] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[2] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[1] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[0] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+Detailed RTL Component Info : 
++---Registers : 
+	             2560 Bit    Registers := 8     
+	              256 Bit    Registers := 1     
+	               10 Bit    Registers := 2048  
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[7] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[6] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[5] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[4] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[3] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[2] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[1] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+INFO: [Synth 8-3538] Detected potentially large (wide) register t1_data_reg[0] [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/PKDecode.sv:35]
+Hierarchical RTL Component report 
+Module simpleBitUnpack 
+Detailed RTL Component Info : 
++---Registers : 
+	               10 Bit    Registers := 256   
+Module pkDecode 
+Detailed RTL Component Info : 
++---Registers : 
+	             2560 Bit    Registers := 8     
+	              256 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[255] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[254] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[253] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[252] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[251] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[250] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[249] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[248] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[247] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[246] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[245] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[244] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[243] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[242] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[241] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[240] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[239] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[238] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[237] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[236] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[235] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[234] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[233] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[232] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[231] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[230] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[229] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[228] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[227] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[226] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[225] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[224] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[223] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[222] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[221] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[220] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[219] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[218] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[217] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[216] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[215] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[214] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[213] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[212] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[211] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[210] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[209] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[208] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[207] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[206] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[205] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[204] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[203] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[202] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[201] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[200] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[199] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[198] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[197] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[196] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[195] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[194] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[193] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[192] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[191] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[190] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[189] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[188] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[187] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[186] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[185] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[184] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[183] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[182] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[181] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[180] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[179] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[178] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[177] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[176] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[175] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[174] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[173] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[172] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[171] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[170] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[169] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[168] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[167] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[166] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[165] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[164] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[163] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[162] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[161] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[160] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[159] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[158] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+WARNING: [Synth 8-6014] Unused sequential element u_pkDecode/simpleBitUnpack0/w_reg[157] was removed.  [/home/mlatif/Athestia/verifyInternal/verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv:29]
+INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3330] design verifyInternalModule has an empty top module
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:24 . Memory (MB): peak = 1531.184 ; gain = 309.527 ; free physical = 364 ; free virtual = 43678
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:24 . Memory (MB): peak = 1531.184 ; gain = 309.527 ; free physical = 364 ; free virtual = 43678
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:25 . Memory (MB): peak = 1538.363 ; gain = 316.707 ; free physical = 360 ; free virtual = 43674
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1545.543 ; gain = 323.887 ; free physical = 359 ; free virtual = 43673
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1545.543 ; gain = 323.887 ; free physical = 359 ; free virtual = 43673
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1545.543 ; gain = 323.887 ; free physical = 359 ; free virtual = 43673
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1545.543 ; gain = 323.887 ; free physical = 359 ; free virtual = 43673
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1545.543 ; gain = 323.887 ; free physical = 359 ; free virtual = 43673
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1545.543 ; gain = 323.887 ; free physical = 359 ; free virtual = 43673
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |OBUFT |     1|
++------+------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |     1|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1545.543 ; gain = 323.887 ; free physical = 359 ; free virtual = 43673
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 98881 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1545.543 ; gain = 323.887 ; free physical = 359 ; free virtual = 43673
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1545.551 ; gain = 323.887 ; free physical = 359 ; free virtual = 43673
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+31 Infos, 202 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:27 . Memory (MB): peak = 1610.543 ; gain = 401.418 ; free physical = 397 ; free virtual = 43629
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/mlatif/Athestia/verifyInternal/verifyInternal.runs/synth_1/verifyInternalModule.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file verifyInternalModule_utilization_synth.rpt -pb verifyInternalModule_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.16 . Memory (MB): peak = 1640.555 ; gain = 0.000 ; free physical = 385 ; free virtual = 43616
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 28 19:18:32 2025...

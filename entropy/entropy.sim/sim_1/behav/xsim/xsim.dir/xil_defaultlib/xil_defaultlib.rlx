@@ -1,0 +1,10 @@
+0.6
+2018.2
+Jun 14 2018
+20:07:38
+/home/mlatif/Athestia/entropy/entropy.sim/sim_1/behav/xsim/glbl.v,1740151405,verilog,,,,glbl,,,,,,,,
+/home/mlatif/Athestia/entropy/entropy.srcs/sim_1/new/sanityCheck_tb.sv,1743308223,systemVerilog,,,,SanityCheck_tb,,,,,,,,
+/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/ringOscillator.sv,1743316877,systemVerilog,,/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/ringOscillatorTop.sv,,ring_oscillator,,,,,,,,
+/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/ringOscillatorTop.sv,1743315591,systemVerilog,,/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/ringOscillatorTop_tb.sv,,ringOscillatorTop,,,,,,,,
+/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/ringOscillatorTop_tb.sv,1743315591,systemVerilog,,/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/sanityCheck.sv,,ringOscillatorTop_tb,,,,,,,,
+/home/mlatif/Athestia/entropy/entropy.srcs/sources_1/new/sanityCheck.sv,1743308618,systemVerilog,,/home/mlatif/Athestia/entropy/entropy.srcs/sim_1/new/sanityCheck_tb.sv,,SanityCheck,,,,,,,,

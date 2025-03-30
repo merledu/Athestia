@@ -1,7 +1,20 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  \
+"../../../../verifyInternal.srcs/sources_1/new/Chi.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Coefficient_three_bytes.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Dilithium_pkg.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/ExpandA.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Iota.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Keccak.sv" \
 "../../../../verifyInternal.srcs/sources_1/new/PKDecode.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Pad10_1.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Pi.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/RejNttPoly.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Rho.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Round.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Shake.sv" \
 "../../../../verifyInternal.srcs/sources_1/new/SimpleBitUnpack.sv" \
+"../../../../verifyInternal.srcs/sources_1/new/Theta.sv" \
 "../../../../verifyInternal.srcs/sources_1/new/verifyInternalModule.sv" \
 "../../../../verifyInternal.srcs/sim_1/new/verifyInternal_tb.sv" \
 

@@ -7,7 +7,7 @@ module pkDecode #(
     parameter k=8,
     parameter b=1023     
 )(
-    input  logic clk,                
+    input  logic clk,rst,                
     input  logic [20735:0] pk,   //8*PK_SIZE-1
     output logic [255:0] rho,          // Extracted 32-byte rho
     output logic [k-1:0][255:0][bitlen(b+1)-1:0] t1
@@ -28,8 +28,14 @@ module pkDecode #(
 
     logic [7:0][POLY_SIZE-1:0] t1_data;
 
-    always_ff @(posedge clk) begin
-        // Extract rho (first 32 bytes)
+    always_ff @(posedge clk or negedge rst) begin
+            
+            if (rst) begin
+            rho     <= 0;
+            t1_data <=0;
+//            t1      <=0;
+            
+            end else begin
         rho <= pk[8*32-1:0];
         t1_data[0] <= pk[2815:256];   //320 bytes
         t1_data[1] <= pk[5375 : 2816];  
@@ -40,33 +46,39 @@ module pkDecode #(
         t1_data[6] <= pk[18175 : 15616];
         t1_data[7] <= pk[20735 : 18176];
     end
+    end
 
     simpleBitUnpack #(.b(B)) simpleBitUnpack0 (
         .clk(clk),
+        .rst(rst),
         .v(t1_data[0]),
         .w(t1[0])
     );
 
     simpleBitUnpack #(.b(B)) simpleBitUnpack1 (
         .clk(clk),
+        .rst(rst),
         .v(t1_data[1]),
         .w(t1[1])
     );
 
     simpleBitUnpack #(.b(B)) simpleBitUnpack2 (
         .clk(clk),
+        .rst(rst),
         .v(t1_data[2]),
         .w(t1[2])
     );
 
     simpleBitUnpack #(.b(B)) simpleBitUnpack3 (
         .clk(clk),
+        .rst(rst),
         .v(t1_data[3]),
         .w(t1[3])
     );
 
     simpleBitUnpack #(.b(B)) simpleBitUnpack4 (
         .clk(clk),
+        .rst(rst),
         .v(t1_data[4]),
         .w(t1[4])
     );
@@ -79,12 +91,14 @@ module pkDecode #(
 
     simpleBitUnpack #(.b(B)) simpleBitUnpack6 (
         .clk(clk),
+        .rst(rst),
         .v(t1_data[6]),
         .w(t1[6])
     );
 
     simpleBitUnpack #(.b(B)) simpleBitUnpack7 (
         .clk(clk),
+        .rst(rst),
         .v(t1_data[7]),
         .w(t1[7])
     );

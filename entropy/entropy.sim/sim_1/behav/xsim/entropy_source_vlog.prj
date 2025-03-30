@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../entropy.srcs/sources_1/new/ringOscillator.sv" \
+"../../../../entropy.srcs/sources_1/new/ringOscillatorTop.sv" \
+"../../../../entropy.srcs/sources_1/new/ringOscillatorTop_tb.sv" \
+"../../../../entropy.srcs/sources_1/new/sanityCheck.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -2,3 +2,6 @@ Running: xsim.dir/pkDecode_behav/xsimk -simmode gui -wdb pkDecode_behav.wdb -sim
 Design successfully loaded
 Design Loading Memory Usage: 35160 KB (Peak: 35168 KB)
 Design Loading CPU Usage: 40 ms
+Simulation completed
+Simulation Memory Usage: 130052 KB (Peak: 182432 KB)
+Simulation CPU Usage: 240 ms

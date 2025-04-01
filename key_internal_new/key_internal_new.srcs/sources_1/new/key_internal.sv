@@ -34,7 +34,7 @@ module key_internal(
         .out(swapOut)
     );
 
-    logic shakeDone, shakeStart, expandA_rst, expanda_done, s1_ntt_done, compute_t, shakeDone2;
+    logic shakeDone, shakeRst, expandA_rst, expanda_done, s1_ntt_done, compute_t, shakeDone2, shakeStart;
     logic ntt_module_rst, t_ntt_done, nttinv_done, nttinv_rst, nttnew_done, pk_rst;
     logic [271:0] shakeIn;
     logic [511:0] shakeOut2;
@@ -190,13 +190,15 @@ end else if (j == 7 && countA == 256) begin
     end
 end
 
-if (pk_done && shakeStart === 'x) begin
-    $display("pk: %h",pk);
+if (pk_done && shakeRst === 'x) begin
     shakeIn2 <= pk;
-    shakeStart <= 1;
+    shakeRst <= 1;
 end
-if (shakeStart) begin
-    shakeStart <= 0;
+if (shakeRst) begin
+    shakeRst <= 0;
+end
+if (pk_done && shakeRst == 0) begin
+    shakeStart <= 1;
 end
         end
     end
@@ -267,14 +269,14 @@ end
                 .valid(pk_done)
             );       
     
-    sponge #(
+    spongee #(
                     .msg_len(20740),
                     .d_len(512),
                     .capacity(512)
                 ) shake256_compute_tr (
                     .clk(clk),
-                    .reset(shakeStart),
-                    .start(1'b1),
+                    .reset(shakeRst),
+                    .start(shakeStart),
                     .message({4'b1111, shakeIn2}),
                     .z(shakeOut2),
                     .done(shakeDone2)

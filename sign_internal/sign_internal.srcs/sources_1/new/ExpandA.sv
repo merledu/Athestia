@@ -64,6 +64,9 @@ module ExpandA(
                     s2 <= 0;       
                     r2 <= r2 + 1;
             end
+            if (r2 == k - 1 && s2 == l - 1 && done_poly2) begin
+                                    done <= 1;
+                                end
             
         end
         

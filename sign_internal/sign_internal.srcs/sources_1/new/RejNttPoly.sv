@@ -94,7 +94,7 @@ module RejNttPoly(
             b1={z0[15:12],z0[11:8]};
             b2={z0[23:20],z0[19:16]};
             
-            if (count2 == 255) begin
+            if (count2 == 256) begin
                         done = 1;
                     end
 //            t1 = (count/24)-1;

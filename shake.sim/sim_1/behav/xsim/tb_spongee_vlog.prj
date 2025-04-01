@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../shake.srcs/sources_1/new/Chi.sv" \
+"../../../../shake.srcs/sources_1/new/Iota.sv" \
+"../../../../shake.srcs/sources_1/new/Keccak.sv" \
+"../../../../shake.srcs/sources_1/new/Pad10_1.sv" \
+"../../../../shake.srcs/sources_1/new/Pi.sv" \
+"../../../../shake.srcs/sources_1/new/Rho.sv" \
+"../../../../shake.srcs/sources_1/new/Round.sv" \
+"../../../../shake.srcs/sources_1/new/Theta.sv" \
+"../../../../shake.srcs/sources_1/new/shake2.sv" \
+"../../../../shake.srcs/sim_1/new/tb_shake2.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

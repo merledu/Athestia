@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a50tcsg325-1" LaunchTime="1733990160">
-  <File Type="PA-TCL" Name="topp.tcl"/>
   <File Type="BITSTR-BMM" Name="topp_bd.bmm"/>
-  <File Type="REPORTS-TCL" Name="topp_reports.tcl"/>
+  <File Type="PA-TCL" Name="topp.tcl"/>
   <File Type="OPT-DCP" Name="topp_opt.dcp"/>
+  <File Type="REPORTS-TCL" Name="topp_reports.tcl"/>
   <File Type="OPT-HWDEF" Name="topp.hwdef"/>
-  <File Type="PWROPT-DCP" Name="topp_pwropt.dcp"/>
   <File Type="BG-BGN" Name="topp.bgn"/>
+  <File Type="PWROPT-DCP" Name="topp_pwropt.dcp"/>
   <File Type="PLACE-DCP" Name="topp_placed.dcp"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="topp_incremental_reuse_pre_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="topp_postplace_pwropt.dcp"/>

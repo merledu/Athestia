@@ -14,17 +14,13 @@ module BitUnpack #(
      input logic [(b_len * 256) - 1:0] v,
      output logic [w_len-1:0] w[0:255]
     );
-    logic [(b_len * 256) - 1:0] out;
-    SwapNibbles #(b_len * 256) uut (
-            .in(v),
-            .out(out)
-        );
+
     logic [$clog2((b_len * 256)):0] count;
 
     always_comb begin
         count = 0;
         for (int i = 0; i < 256; i++) begin
-            w[i] = b - out[count +: b_len];
+            w[i] = b - v[count +: b_len];
             count += b_len; 
         end
         

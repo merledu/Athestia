@@ -49,7 +49,6 @@ module skDecode(
     logic count_track;
     
     always_comb begin
-        $display(v1);
         offset = 1024;
         
         for (int i = 0; i < Dilithium_pkg::l; i++) begin

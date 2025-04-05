@@ -1,4 +1,4 @@
-module spongeee
+module sponge
 #(parameter msg_len = 9, parameter d_len = 7000, capacity = 256, parameter r = 1600 - capacity)
 (
     input logic clk,
@@ -24,11 +24,12 @@ int count;
 int count2;
 logic k_strt;
 always_comb begin
-    $display("str1: %h",str);
     k = {pad, message};
-    $display("zeros: %h",zeros);
-    $display("k: %h",k);
     n = $bits(k) / r;
+    
+             if (count== n)begin
+             done = 1;
+             end
       
    end
  
@@ -40,6 +41,7 @@ always_ff @(posedge clk ) begin
         store <= 1600'b0;
         count <= 0;
         count2 <= 0;
+        done <= 0;
     end 
     else if (reset == 0 && start == 1 ) begin
   //----------------------------------------------------------------Absorbing---------------------------------------------------
@@ -61,7 +63,6 @@ always_ff @(posedge clk ) begin
                           
    //------------------------------------------------------------squeezing-----------------------------------------------------------------------     
       if(count2 < (d_len/r)+1 && d_len >r  && count==n)begin
-          $display("don", count2);
          
           str <= store2;
           if (don) begin
@@ -74,12 +75,11 @@ always_ff @(posedge clk ) begin
           end
       else  begin 
             z=h[d_len-1:0];
-            $display("hash : %h",z);
-           end      
-
-         if (count2== (d_len/r)+1)begin
-         done <= 1;
-         end
+           end
+//         checking <= (d_len/r)+2;      
+//         if (count== (d_len/r)+2)begin
+//         done <= 1;
+//         end
   end
   end
 

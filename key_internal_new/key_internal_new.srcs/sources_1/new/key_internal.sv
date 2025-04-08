@@ -68,6 +68,7 @@ module key_internal(
             j = 0;
             countA = 0;
             nttinv_count <= 0;
+            
             for (int m = 0; m < k; m = m + 1) begin
                 for (int n = 0; n < 256; n = n + 1) begin
                     t_ntt[m][n] <= 32'd0;
@@ -169,7 +170,18 @@ module key_internal(
 //                nttinv_count <= 0;
 //            end
 //pkencode_t1 <= power_t1;
+    
     if (pk_rst && nttinv_count == 3) begin
+        integer t19,j19;
+        for (t19 = 0; t19 <= 7; t19 = t19 + 1) begin
+        $display("Row %0d:", t19);
+        for (j19 = 0; j19 <= 255; j19 = j19 + 1) begin
+          $write("%0d ", t[t19][j19]);
+          if ((j19 + 1) % 16 == 0) 
+            $write("\n");
+        end
+        $write("\n");
+      end
         pkencode_rho <= shakeOut[255:0];
         pkencode_t1 <= power_t1;
     end
@@ -191,11 +203,13 @@ end else if (j == 7 && countA == 256) begin
 end
 
 if (pk_done && shakeRst === 'x) begin
-    shakeIn2 <= pk;
+    
     shakeRst <= 1;
 end
 if (shakeRst) begin
     shakeRst <= 0;
+//    $display("hello: %h",pk);
+    shakeIn2 <= pk;
 end
 if (pk_done && shakeRst == 0) begin
     shakeStart <= 1;
@@ -269,7 +283,7 @@ end
                 .valid(pk_done)
             );       
     
-    spongee #(
+    sponge #(
                     .msg_len(20740),
                     .d_len(512),
                     .capacity(512)

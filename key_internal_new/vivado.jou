@@ -1,0 +1,84 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Apr  5 16:46:34 2025
+# Process ID: 13228
+# Current directory: H:/Athestia/key_internal_new
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21316 H:\Athestia\key_internal_new\key_internal_new.xpr
+# Log file: H:/Athestia/key_internal_new/vivado.log
+# Journal file: H:/Athestia/key_internal_new\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project H:/Athestia/key_internal_new/key_internal_new.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source KeyInternal_tb.tcl
+relaunch_sim
+current_wave_config {Untitled 1}
+add_wave {{/KeyInternal_tb/uut/shake256/reset}} 
+current_wave_config {Untitled 1}
+add_wave {{/KeyInternal_tb/uut/shake256/message}} 
+current_wave_config {Untitled 1}
+add_wave {{/KeyInternal_tb/uut/shake256/start}} 
+current_wave_config {Untitled 1}
+add_wave {{/KeyInternal_tb/uut/shake256/z}} 
+current_wave_config {Untitled 1}
+add_wave {{/KeyInternal_tb/uut/shake256/done}} 
+relaunch_sim
+close_sim
+launch_simulation
+source KeyInternal_tb.tcl
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+source KeyInternal_tb.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/shake256/reset}} 
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/shake256/message}} 
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/shake256/start}} 
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/shake256/z}} 
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/shake256/done}} 
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/PkEncode/rho}} 
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/power2round_t}} 
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/t}} 
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/t[0]}} 
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/s2}} 
+relaunch_sim
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/uut/t}} 
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/uut/t0}} 
+relaunch_sim
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/countA}} 
+relaunch_sim
+current_wave_config {Untitled 3}
+add_wave {{/KeyInternal_tb/uut/uut/t1}} 
+relaunch_sim
+relaunch_sim
+relaunch_sim

@@ -23,7 +23,7 @@ module NTT_INV #(
 );
     
     logic signed [63:0] t11, q_1, t111,zeta;
-    logic [7:0] length;
+    logic [8:0] length;
     logic [31:0] start2,j,m,k,t2,t3;
     logic [63:0] t1,check1,check2,check3;
     logic done_loop;
@@ -65,6 +65,20 @@ module NTT_INV #(
 
     
     always_ff @(posedge clk) begin
+    
+                     if (length == 128 && j == 127) begin
+                      length = 'x;
+                      j = 'x;
+                      start2 = 'x;
+                                          m = 'x;
+                                          k = 'x;
+                                            for (int i = 0; i < 256; i++) begin
+                                                                                w[i] = compute_remainder(8347681*w[i],q);
+                                                                            end
+                                          
+                      done_loop = 1;
+                      
+                  end
             if (rst) begin  // Active-low reset
                 length <= 1;
                 j <= 0;
@@ -74,15 +88,15 @@ module NTT_INV #(
                 done <= 0;
                 q_1 <= q;
         end else begin
-//            if (length == 128 && j == 127) begin
+//            if (length == 256 && j == 0) begin
 //                        length <= 'x;
 //                        j <= 'x;
 //                        start2 <= 'x;
 //                                            m <= 'x;
 //                                            k <= 'x;
-//                                            for (int i = 0; i < 256; i++) begin
-//                                                                                w[i] = compute_remainder(8347681*w[i],q);
-//                                                                            end
+////                                            for (int i = 0; i < 256; i++) begin
+////                                                                                w[i] = compute_remainder(8347681*w[i],q);
+////                                                                            end
                                             
 //                        done_loop <= 1;
                         
@@ -112,27 +126,30 @@ module NTT_INV #(
                 end
                 
         end
-        check1 = compute_remainder(8347681*8192337,q);
-        if (length == 128 && j == 127) begin
-                                length <= 'x;
-                                j <= 'x;
-                                start2 <= 'x;
-                                w[255] <= compute_remainder(8347681*w[255],q);
-                                                    m <= 'x;
-                                                    k <= 'x;
-                                                    for (int i = 0; i < 255; i++) begin
-                                                                                        w[i] = compute_remainder(8347681*w[i],q);
-                                                                                    end
+
+//        if (length == 128 && j == 127 && done_loop === 'x && done == 0 ) begin
+//                                length <= 'x;
+//                                j <= 'x;
+//                                start2 <= 'x;
+//                                w[255] <= compute_remainder(8347681*w[255],q);
+//                                                    m <= 'x;
+//                                                    k <= 'x;
+//                                                    for (int i = 0; i < 255; i++) begin
+////                                                                                        w[i] = compute_remainder(8347681*w[i],q);
+//w[i] = 8347681*w[i];
+//                                                                                    end
                                                     
-                                done_loop <= 1;
+//                                done_loop <= 1;
                                 
-                            end
+//                            end
     end
     always_comb begin
         for (int i = 0; i < 256; i++) begin
             if (rst) 
                  w[i] = w_hat[i];
             end
+         
+
             
 
         
@@ -146,7 +163,8 @@ module NTT_INV #(
 //            w[j + length] = compute_remainder((8347681*compute_remainder((zeta*compute_remainder((t1 - w[j + length]),q)),q)),q);
 //        end else begin
             w[j + length] = compute_remainder((zeta*compute_remainder((t1 - w[j + length]),q)),q);
-//        end
+            
+//          end
     end
     end
 

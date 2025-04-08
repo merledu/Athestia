@@ -8,243 +8,103 @@ module sponge
     output logic [d_len - 1: 0] z,
     output logic done
 );
-logic [(msg_len+4) - 1: 0] msg_use;
+
 logic [1599:0] str;
-logic [1599:0] strr;
-logic [1599:0] strrr;
-logic [1599:0] strrrr;
 logic [1599:0] str2;
-logic [1599:0] str3;
-logic [1599:0] str4;
-logic [1599:0] str5;
-logic [1599:0] s1;
-logic [1599:0] s2;
-logic [1599:0] Keccak_in;
 logic don;
-logic don1;
-logic don2;
-logic don3;
+logic k_reset;
 logic [capacity - 1:0] zeros = '0;
 logic [((-msg_len - 2) % r + r) % r + 1:0] pad;
-logic [(r * 7):0] h;
-logic chk;
-logic [31:0] len = r + msg_len;
+logic [r * ((d_len/r)+1):0] h;
 (* keep = "true" *) logic [((-msg_len - 2) % r + r) % r + 1 + msg_len:0] k;
 (* keep = "true" *) logic [31:0] n;
-logic [1599:0] strng;
-//-------------------------------------------
-logic [1599:0] strEx1;
-logic [1599:0] strEx2;
-logic [1599:0] strEx3;
-
-logic [1599:0] str2Ex1;
-logic [1599:0] str2Ex2;
-logic [1599:0] str2Ex3;
-
-logic don6;
-logic don7;
-logic don8;
-
-
-
-
-//-------------------------------------------
-
+logic [1599:0] store;
+logic [1599:0] store2;
+int count;
+int count2;
+logic k_strt;
 always_comb begin
-//    msg_use = {4'b1111,message};
     k = {pad, message};
     n = $bits(k) / r;
-    str = 1600'b0 ^ {zeros, k[r - 1:0]};
-
-    if (d_len > r && n == 1) begin
-        strr = str2;
-    end else if (d_len > r && n == 2) begin
-        strr = s2;
-    end
-
-    if (d_len > (r * 2) - 1) begin
-        strrr = str3;
-    end
-
-    if (d_len > (r * 3) - 1) begin
-        strrrr = str4;
-    end
-    if(d_len > (r*4)-1)begin
-         strEx1=str5;
-    
-    end
-        if(d_len > (r*5)-1)begin
-         strEx2=str2Ex1;
-    
-    end
-        if(d_len > (r*6)-1)begin
-         strEx3=str2Ex2;
-    
-    end
-    if(d_len > (r*7)-1)begin
-             z=0;
-        
-        end
-        
-
-    if (don && n == 2) begin
-        s1 = str2 ^ {zeros, k[(r * 2) - 1:r]};
-    end else begin
-        s1 = 0;
-    end
-end
-
+//    if (capacity == 256) begin
+//        if (count2== (d_len/r)+1)begin
+//             done <= 1;
+//             end
+//    end else begin
+             if (count== n && d_len <= r)begin
+             done = 1;
+             end 
+             if (count2== (d_len/r)+1) begin
+             done = 1;
+             end
+//    end             
+      
+   end
+ 
 always_ff @(posedge clk or posedge reset) begin
     if (reset) begin
         h <= '0;
         z <= '0;
+        k_reset<=1;
+        store <= 1600'b0;
+        count <= 0;
+        count2 <= 0;
         done <= 0;
-    end else if (reset == 0 && start == 1) begin
-        //k = {pad, message};
-        z <= h[d_len - 1:0];
-        if (don5 && n==2) begin
-            h[r - 1:0] <= s2[r - 1:0];
-        end else begin
-            h[r - 1:0] <= str2[r - 1:0];
-        end
+    end 
+    else if (reset == 0 && start == 1 ) begin
+  //----------------------------------------------------------------Absorbing---------------------------------------------------
+           if (count < n)begin 
+           
+           str <= store ^ {zeros, k[count * r +: r]};
+           end
+           k_strt <=1;
+           if (don && count < n ) begin
+           store <= str2;
+            h[r-1:0] <= str2[r-1:0];
+            store2<= str2;
+           count <= count +1;
+           k_reset <= 1;
+            end 
+            if (k_reset)  begin
+               k_reset <= 0;
+           end 
+                          
+   //------------------------------------------------------------squeezing-----------------------------------------------------------------------     
+      if(count2 < (d_len/r)+1 && d_len >r  && count==n)begin
+         
+          str <= store2;
+          if (don) begin
+          h[(count2 * r) + r +: r] <= str2[r - 1 : 0];
+           count2 <= count2+1;
+           store2<= str2;
+           
+           k_reset <= 1;
+          end
+          end
+      else  begin 
+            z=h[d_len-1:0];
+           end
+//         checking <= (d_len/r)+2;      
+//         if (count== (d_len/r)+2)begin
+//         done <= 1;
+//         end
+  end
+  end
 
-        if (don1 == 1'b1) begin
-            h[(r * 2) - 1:r] <= str3[r - 1:0];
-        end else begin
-            h[(r * 2) - 1:r] <= '0;
-        end
-
-        if (don2 == 1'b1) begin
-            h[(r * 3) - 1:r * 2] <= str4[r - 1:0];
-        end else begin
-            h[(r * 3) - 1:r * 2] <= '0;
-        end
-
-        if (don3 == 1'b1) begin
-            h[(r * 4) - 1:r * 3] <= str5[r - 1:0];
-        end else begin
-            h[(r * 4) - 1:r * 3] <= '0;
-        end
-        
-        if (don6 ==1'b1)begin
-             h[(r * 5) - 1:r * 4] <= str2Ex1[r - 1:0];
-              end else begin
-                  h[(r * 5) - 1:r * 4] <= '0;
-              end
-         if (don7 ==1'b1)begin
-                          h[(r * 6) - 1:r * 5] <= str2Ex2[r - 1:0];
-                           end else begin
-                               h[(r * 6) - 1:r * 5] <= '0;
-                           end  
-          if (don8 ==1'b1)begin
-                       h[(r * 7) - 1:r * 6] <= str2Ex3[r - 1:0];
-                          end else begin
-                                    h[(r * 7) - 1:r * 6] <= '0;
-                                        end                    
-        if((d_len <r || d_len == r ) && don==1 && n==1 ) begin
-                                                    done<=1;
-                                                   end   
-                                                   if((d_len <r || d_len == r ) && don5==1 && n==2 ) begin
-                                                               done<=1;
-                                                              end   
-                                                   else if((d_len > r &&(d_len <r*2 || d_len==r*2) ) && don1==1) begin
-                                                               done<=1;
-                                                              end 
-                                                    else if((d_len > r*2 &&(d_len <r*3 || d_len==r*3) ) && don2==1) begin
-                                                                                    done<=1;
-                                                                                   end
-                                                     else if((d_len > r*3 &&(d_len <r*4 || d_len==r*4) ) && don3==1) begin
-                                                         done<=1;
-                                                        end 
-                                                      else if((d_len > r*4 &&(d_len <r*5 || d_len==r*5) ) && don6==1) begin
-                                                                        done<=1;
-                                                                       end
-                                                       else if((d_len > r*5 &&(d_len <r*6 || d_len==r*6) ) && don7==1) begin
-                                                                                                      done<=1;
-                                                                                                     end
-                                                        else if((d_len > r*6 &&(d_len <r*7 || d_len==r*7) ) && don8==1) begin
-                                                                                                                                    done<=1;
-                                                                                                                                   end                                                                  
-                                                                                    
-              
-
-    end
-   // done=1;
-end
 
 keccak kp (
     .clk(clk),
-    .rst(reset),
-    .round_start(1'b1),
+    .rst(k_reset || reset ),
+    .round_start(k_strt),
     .AB(str),
     .X(str2),
     .round_done(don)
 );
 
-keccak kp4 (
-    .clk(clk),
-    .rst(reset),
-    .round_start(don),
-    .AB(s1),
-    .X(s2),
-    .round_done(don5)
-);
-
-keccak kp1 (
-    .clk(clk),
-    .rst(reset),
-    .round_start(don5),
-    .AB(strr),
-    .X(str3),
-    .round_done(don1)
-);
-
-keccak kp2 (
-    .clk(clk),
-    .rst(reset),
-    .round_start(don1),
-    .AB(strrr),
-    .X(str4),
-    .round_done(don2)
-);
-
-keccak kp3 (
-    .clk(clk),
-    .rst(reset),
-    .round_start(don2),
-    .AB(strrrr),
-    .X(str5),
-    .round_done(don3)
-);
-//--------------------------------------------------------------
-keccak kp5 (
-    .clk(clk),
-    .rst(reset),
-    .round_start(don3),
-    .AB(strEx1),
-    .X(str2Ex1),
-    .round_done(don6)
-);
-keccak kp6 (
-    .clk(clk),
-    .rst(reset),
-    .round_start(don6),
-    .AB(strEx2),
-    .X(str2Ex2),
-    .round_done(don7)
-);
-keccak kp7 (
-    .clk(clk),
-    .rst(reset),
-    .round_start(don7),
-    .AB(strEx3),
-    .X(str2Ex3),
-    .round_done(don8)
-);
-//-----------------------------------------------------------
 
 pad10_1 #(.x(r), .m(msg_len)) pd (
     .p(pad)
 );
 
 endmodule
+//Suthor = Amir jawed ---licensed ------ ---------------------------

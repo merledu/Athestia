@@ -10337,3 +10337,6 @@ selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 1512, 598); // n (o, c
 // TclEventType: SIMULATION_UPDATE_OBJECT_TREE
 // TclEventType: WAVEFORM_UPDATE_WAVEFORM
 unmaximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // O (Q, ck)
+// Elapsed time: 203 seconds
+closeMainWindow("key_internal_new - [H:/Athestia/key_internal_new/key_internal_new.xpr] - Vivado 2018.2"); // ck
+// A (ck): Exit Vivado: addNotify

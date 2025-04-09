@@ -1,0 +1,9 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Starting Testbench...
+Time=0 | h=0 | r=100000 | r1=0
+Time=10000 | h=1 | r=100000 | r1=1
+Time=20000 | h=1 | r=-50000 | r1=-8
+Time=30000 | h=0 | r=8380416 | r1=0
+Time=40000 | h=1 | r=0 | r1=-1
+Testbench Completed.

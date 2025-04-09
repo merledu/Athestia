@@ -23,7 +23,7 @@
 module Sample_in_ball#(parameter lmbda=256 , parameter t=60)( 
 input logic  clk,
 input logic  rst,
-input logic  done,
+output logic  done,
 input logic [(lmbda/4)-1:0] in,
 input logic start,
 output logic signed [0:1] out [255:0]= '{default: 0}
@@ -132,8 +132,12 @@ end
                 
                  
        
-//     end   
+//     end
+ if(counts == 255)begin
+ done <= 1;
+    end   
      end
+    
      end 
      
   endmodule

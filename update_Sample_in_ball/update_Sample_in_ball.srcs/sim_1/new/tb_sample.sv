@@ -38,7 +38,7 @@ module tb_Sample_in_ball;
   initial begin
     // Initialize signals
     rst   = 1;    // Assert reset
-    done  = 0;
+//    done  = 0;
     in    = 64'd0;  // Clear input initially
     
     // Wait 20 ns, then deassert reset

@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../Decompose.srcs/sources_1/new/Dilithium_pkg.sv" \
+"../../../../Decompose.srcs/sources_1/new/Decompose.sv" \
+"../../../../Decompose.srcs/sources_1/new/Top_Decompose.sv" \
+"../../../../Decompose.srcs/sim_1/new/tb_Top.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

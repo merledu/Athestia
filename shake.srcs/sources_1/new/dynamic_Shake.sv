@@ -26,14 +26,22 @@ logic k_strt;
 always_comb begin
     k = {pad, message};
     n = $bits(k) / r;
-    
-             if (count== n)begin
+//    if (capacity == 256) begin
+//        if (count2== (d_len/r)+1)begin
+//             done <= 1;
+//             end
+//    end else begin
+             if (count== n && d_len <= r)begin
+             done = 1;
+             end 
+             if (count2== (d_len/r)+1) begin
              done = 1;
              end
+//    end             
       
    end
  
-always_ff @(posedge clk ) begin
+always_ff @(posedge clk or posedge reset) begin
     if (reset) begin
         h <= '0;
         z <= '0;
@@ -47,7 +55,7 @@ always_ff @(posedge clk ) begin
   //----------------------------------------------------------------Absorbing---------------------------------------------------
            if (count < n)begin 
            
-           str <= store ^ {zeros, k[count * 1088 +: 1088]};
+           str <= store ^ {zeros, k[count * r +: r]};
            end
            k_strt <=1;
            if (don && count < n ) begin
@@ -66,7 +74,7 @@ always_ff @(posedge clk ) begin
          
           str <= store2;
           if (don) begin
-          h[(count2 * r) + 1088 +: r] <= str2[r - 1 : 0];
+          h[(count2 * r) + r +: r] <= str2[r - 1 : 0];
            count2 <= count2+1;
            store2<= str2;
            

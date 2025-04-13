@@ -1,0 +1,17 @@
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /raptor/tools/Xilinx/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto c90e3161155d4eac84cf31edf69b290b --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=5120)
+Compiling module xil_defaultlib.BitPack(a=524287,b=524288)
+Compiling module xil_defaultlib.Swap20Bits_default
+Compiling module xil_defaultlib.HintBitPack
+Compiling module xil_defaultlib.sigEncode_default
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav

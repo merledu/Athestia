@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../signEncode.srcs/sources_1/new/Dilithium_pkg.sv" \
+"../../../../signEncode.srcs/sources_1/new/HintBitPack.sv" \
+"../../../../signEncode.srcs/sources_1/new/SigEncode.sv" \
+"../../../../signEncode.srcs/sources_1/new/SwapNibbles.sv" \
+"../../../../signEncode.srcs/sources_1/new/SwapNibblesTwenty.sv" \
+"../../../../signEncode.srcs/sources_1/new/bitpack.sv" \
+"../../../../signEncode.srcs/sim_1/new/tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

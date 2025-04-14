@@ -1,0 +1,1410 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Apr 14 19:58:30 2025
+# Process ID: 4049693
+# Current directory: /home/masfiyan/Athestia/key_internal_new
+# Command line: vivado
+# Log file: /home/masfiyan/Athestia/key_internal_new/vivado.log
+# Journal file: /home/masfiyan/Athestia/key_internal_new/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/masfiyan/Athestia/key_internal_new/key_internal_new.xpr
+INFO: [Project 1-313] Project file moved from 'H:/key_internal_new' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/merledu1/tools/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:26 ; elapsed = 00:00:18 . Memory (MB): peak = 6266.766 ; gain = 184.109 ; free physical = 69350 ; free virtual = 166174
+update_compile_order -fileset sources_1
+close [ open /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv w ]
+add_files /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv w ]
+add_files -fileset sim_1 /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv
+update_compile_order -fileset sim_1
+set_property top topp_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/CoefFromHalfByte.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromHalfByte
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Coefficient_three_bytes.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromThreeBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandA.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandS.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejBoundedPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejBoundedPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejNttPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejNttPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/pkEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PkEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/rand.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module random_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/swapbits.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SwapNibbles
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d25fce0b283a4d23a00f0806838dc56c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot topp_tb_behav xil_defaultlib.topp_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.random_module
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=1024,ca...
+Compiling module xil_defaultlib.pad10_1(x=1344,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=6501)
+Compiling module xil_defaultlib.CoefFromThreeBytes
+Compiling module xil_defaultlib.RejNttPoly
+Compiling module xil_defaultlib.ExpandA
+Compiling module xil_defaultlib.pad10_1(x=1088,m=532)
+Compiling module xil_defaultlib.sponge(msg_len=532,d_len=4096,ca...
+Compiling module xil_defaultlib.CoefFromHalfByte
+Compiling module xil_defaultlib.RejBoundedPoly
+Compiling module xil_defaultlib.ExpandS
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyGen
+Compiling module xil_defaultlib.topp
+Compiling module xil_defaultlib.topp_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot topp_tb_behav
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim/xsim.dir/topp_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Mon Apr 14 20:07:55 2025...
+run_program: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 6452.641 ; gain = 0.000 ; free physical = 69130 ; free virtual = 166170
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "topp_tb_behav -key {Behavioral:sim_1:Functional:topp_tb} -tclbatch {topp_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source topp_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Time=0 | rst=1 | led=x
+Time=0 | rst=1 | led=0
+Time=2000 | rst=0 | led=0
+Simulation finished
+$finish called at time : 102 ns : File "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" Line 33
+run: Time (s): cpu = 00:00:03 ; elapsed = 00:00:12 . Memory (MB): peak = 6488.246 ; gain = 0.000 ; free physical = 68994 ; free virtual = 166041
+xsim: Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 6488.246 ; gain = 35.605 ; free physical = 68991 ; free virtual = 166038
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'topp_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:21 ; elapsed = 00:00:29 . Memory (MB): peak = 6488.246 ; gain = 35.605 ; free physical = 68991 ; free virtual = 166038
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/CoefFromHalfByte.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromHalfByte
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Coefficient_three_bytes.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromThreeBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandA.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandS.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejBoundedPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejBoundedPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejNttPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejNttPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/pkEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PkEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/rand.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module random_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/swapbits.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SwapNibbles
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d25fce0b283a4d23a00f0806838dc56c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot topp_tb_behav xil_defaultlib.topp_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.random_module
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=1024,ca...
+Compiling module xil_defaultlib.pad10_1(x=1344,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=6501)
+Compiling module xil_defaultlib.CoefFromThreeBytes
+Compiling module xil_defaultlib.RejNttPoly
+Compiling module xil_defaultlib.ExpandA
+Compiling module xil_defaultlib.pad10_1(x=1088,m=532)
+Compiling module xil_defaultlib.sponge(msg_len=532,d_len=4096,ca...
+Compiling module xil_defaultlib.CoefFromHalfByte
+Compiling module xil_defaultlib.RejBoundedPoly
+Compiling module xil_defaultlib.ExpandS
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyGen
+Compiling module xil_defaultlib.topp
+Compiling module xil_defaultlib.topp_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot topp_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Time=0 | rst=1 | led=x
+Time=0 | rst=1 | led=0
+Time=2000 | rst=0 | led=0
+Simulation finished
+$finish called at time : 102 ns : File "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" Line 33
+run: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 6546.273 ; gain = 0.000 ; free physical = 68890 ; free virtual = 165939
+relaunch_xsim_kernel: Time (s): cpu = 00:00:01 ; elapsed = 00:00:13 . Memory (MB): peak = 6546.273 ; gain = 0.000 ; free physical = 68890 ; free virtual = 165939
+relaunch_sim: Time (s): cpu = 00:00:27 ; elapsed = 00:00:23 . Memory (MB): peak = 6546.273 ; gain = 0.000 ; free physical = 68890 ; free virtual = 165939
+set_property top KeyGen_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'KeyGen_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj KeyGen_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/final_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d25fce0b283a4d23a00f0806838dc56c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot KeyGen_tb_behav xil_defaultlib.KeyGen_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.random_module
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=1024,ca...
+Compiling module xil_defaultlib.pad10_1(x=1344,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=6501)
+Compiling module xil_defaultlib.CoefFromThreeBytes
+Compiling module xil_defaultlib.RejNttPoly
+Compiling module xil_defaultlib.ExpandA
+Compiling module xil_defaultlib.pad10_1(x=1088,m=532)
+Compiling module xil_defaultlib.sponge(msg_len=532,d_len=4096,ca...
+Compiling module xil_defaultlib.CoefFromHalfByte
+Compiling module xil_defaultlib.RejBoundedPoly
+Compiling module xil_defaultlib.ExpandS
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyGen
+Compiling module xil_defaultlib.KeyGen_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot KeyGen_tb_behav
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim/xsim.dir/KeyGen_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Mon Apr 14 20:11:15 2025...
+run_program: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 6555.285 ; gain = 0.000 ; free physical = 68899 ; free virtual = 165959
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "KeyGen_tb_behav -key {Behavioral:sim_1:Functional:KeyGen_tb} -tclbatch {KeyGen_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source KeyGen_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run: Time (s): cpu = 00:00:23 ; elapsed = 00:00:52 . Memory (MB): peak = 6585.914 ; gain = 8.004 ; free physical = 68430 ; free virtual = 165493
+INFO: [Common 17-344] 'run' was cancelled
+INFO: [Common 17-344] 'source' was cancelled
+xsim: Time (s): cpu = 00:00:30 ; elapsed = 00:00:56 . Memory (MB): peak = 6585.914 ; gain = 30.629 ; free physical = 68429 ; free virtual = 165492
+INFO: [Common 17-344] 'xsim' was cancelled
+INFO: [Vivado 12-5357] 'simulate' step aborted
+launch_simulation: Time (s): cpu = 00:00:38 ; elapsed = 00:01:04 . Memory (MB): peak = 6585.914 ; gain = 30.629 ; free physical = 68429 ; free virtual = 165492
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+set_property top topp_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+current_sim simulation_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/CoefFromHalfByte.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromHalfByte
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Coefficient_three_bytes.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromThreeBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandA.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandS.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejBoundedPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejBoundedPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejNttPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejNttPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/pkEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PkEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/rand.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module random_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/swapbits.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SwapNibbles
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d25fce0b283a4d23a00f0806838dc56c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot topp_tb_behav xil_defaultlib.topp_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.random_module
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=1024,ca...
+Compiling module xil_defaultlib.pad10_1(x=1344,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=6501)
+Compiling module xil_defaultlib.CoefFromThreeBytes
+Compiling module xil_defaultlib.RejNttPoly
+Compiling module xil_defaultlib.ExpandA
+Compiling module xil_defaultlib.pad10_1(x=1088,m=532)
+Compiling module xil_defaultlib.sponge(msg_len=532,d_len=4096,ca...
+Compiling module xil_defaultlib.CoefFromHalfByte
+Compiling module xil_defaultlib.RejBoundedPoly
+Compiling module xil_defaultlib.ExpandS
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyGen
+Compiling module xil_defaultlib.topp
+Compiling module xil_defaultlib.topp_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot topp_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "topp_tb_behav -key {Behavioral:sim_1:Functional:topp_tb} -tclbatch {topp_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source topp_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Time=0 | rst=1 | led=x
+Time=0 | rst=1 | led=0
+Time=15000 | rst=0 | led=0
+Simulation finished
+$finish called at time : 115 ns : File "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" Line 33
+run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 6644.945 ; gain = 0.000 ; free physical = 68413 ; free virtual = 165477
+xsim: Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 6644.945 ; gain = 0.000 ; free physical = 68412 ; free virtual = 165476
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'topp_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 6644.945 ; gain = 0.000 ; free physical = 68412 ; free virtual = 165476
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/CoefFromHalfByte.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromHalfByte
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Coefficient_three_bytes.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromThreeBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandA.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandS.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejBoundedPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejBoundedPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejNttPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejNttPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/pkEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PkEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/rand.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module random_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/swapbits.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SwapNibbles
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d25fce0b283a4d23a00f0806838dc56c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot topp_tb_behav xil_defaultlib.topp_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.random_module
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=1024,ca...
+Compiling module xil_defaultlib.pad10_1(x=1344,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=6501)
+Compiling module xil_defaultlib.CoefFromThreeBytes
+Compiling module xil_defaultlib.RejNttPoly
+Compiling module xil_defaultlib.ExpandA
+Compiling module xil_defaultlib.pad10_1(x=1088,m=532)
+Compiling module xil_defaultlib.sponge(msg_len=532,d_len=4096,ca...
+Compiling module xil_defaultlib.CoefFromHalfByte
+Compiling module xil_defaultlib.RejBoundedPoly
+Compiling module xil_defaultlib.ExpandS
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyGen
+Compiling module xil_defaultlib.topp
+Compiling module xil_defaultlib.topp_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot topp_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Time=0 | rst=1 | led=x
+Time=0 | rst=1 | led=0
+Time=15000 | rst=0 | led=0
+sk_t0[0]: 2138 3613 1906 4032 -2702 -3595 3972 935 -2420 -431 408 274 4027 258 -2360 1537 -1506 -779 -3137 -2490 -734 -3624 4091 -284 -2027 3593 1850 -970 -533 -901 -1472 1250 2270 -3938 3934 3982 1297 -7 -3819 838 -3593 -1969 -2577 -2374 -3331 1110 1648 -3117 2463 -4095 2066 3905 215 -1627 -2820 -1717 -1219 -2841 -2752 2439 1657 -2675 716 3915 -492 2642 1654 -1027 -1958 3491 2317 -3544 -1572 3237 1016 -2820 1106 82 -1481 2720 1449 3359 2287 1170 3286 -3801 1619 -2030 -2434 3970 -431 -2327 -13 1577 -3954 2020 -1292 536 -3645 -501 3910 -1034 2355 107 -3784 2343 -1495 -3203 -2789 3585 -3553 -703 -1433 -3244 2105 -1123 -3115 -2608 -1043 -3596 -3660 -2604 1395 895 -748 -2288 1698 -1604 -3606 -2254 -1903 -3618 -1535 -988 -1024 -1327 3680 3288 3 1657 698 -2770 -3168 -2001 -1720 3654 -389 1429 -1278 -1857 198 -2875 -168 1709 -278 2398 -2986 -1974 -266 -3182 2124 3347 -2573 -2681 -1362 3517 -3799 -317 -2501 -1643 1713 -1666 28 2447 -1263 -2006 -2992 -1345 1682 -729 -2575 1513 -2223 3831 3846 -3142 -1126 -3873 -3405 2390 -243 3154 -228 -1125 -1765 3073 2250 2689 -2112 -1201 2364 1370 -2900 -3100 1551 -520 2298 126 -1659 1894 -1644 3389 -2215 -1625 -4087 4085 -26 3235 398 1242 -3774 3339 568 1760 2911 2328 -118 -31 2925 -526 1527 -348 -1546 1094 880 1368 -1098 -3175 -652 3182 -1951 -901 479 3868 -2116 -1254 -3542 -1471 -4084 2245 -145 -839 2593 -29 3918 1824 
+sk_t0[1]: -2259 -3789 -1621 -429 453 272 900 1095 -401 2632 -1572 30 2406 -3562 -398 -3857 542 -2772 -4031 -204 2874 1248 -2614 -3915 1439 3623 2120 2951 1437 -2338 -2046 2435 2604 3036 -343 1065 -1193 3182 2417 -2354 72 -160 -3822 3170 -1934 -2689 108 3362 -1670 -1484 1654 1923 2076 2705 3611 -3023 2864 -1501 -1180 4058 -1608 -2695 3912 -1868 -3248 3471 953 2728 -2533 -62 964 -436 3168 3928 3406 2938 -2578 2055 3286 3983 -567 1028 -2172 -2671 -477 2814 -1157 1500 3646 -1654 4044 572 1423 2934 3929 1879 2063 3926 1890 2138 1273 -942 2932 -2590 -2882 -2421 2670 4033 2227 -253 -922 1033 3036 293 -558 -357 -475 -2304 -1227 1199 -1460 1778 4020 -2261 2405 -1765 -2032 -639 -2800 3293 -1692 -2290 2298 -3090 2746 -2332 -2942 -1910 395 2444 -2980 3535 2339 1221 3649 -1759 2078 -1082 3507 3114 3639 -2297 2952 -876 -1103 -2217 -2360 1550 -255 -2811 2552 -3116 -2938 3965 -1891 -659 2634 3558 -2438 -2262 2865 1288 -1537 -2984 3052 3571 1891 1439 -1546 646 -287 -858 3340 1509 1537 -413 1937 -591 2561 -3865 503 -295 319 54 -1318 1656 4019 -2500 2609 378 3226 2675 1926 -3841 -1524 3552 -2208 -817 -3037 3 69 3702 3197 1521 -3030 -3413 2752 2433 3328 2374 -1172 404 2394 3174 3968 -3483 -2948 1330 3367 1092 -944 -15 -2421 -1549 -1654 1623 3511 511 151 3299 2642 1859 991 878 985 -1050 -527 -3772 1571 -3839 -3283 -3826 -995 1629 -1164 506 
+sk_t0[2]: 2798 3566 1406 3546 378 -345 3987 3533 1192 -3664 553 1926 3436 -3897 1191 1054 2048 -28 1306 1532 -3319 -2187 1049 -523 -3078 -3838 2814 -3929 -2449 3615 146 1299 -1626 2769 -2975 -4000 -469 483 2603 192 567 -3577 -904 3309 767 -2233 1143 -1627 -1333 -1061 -3477 3894 3483 2614 1559 3762 -1920 -3009 -2978 3742 2761 3163 -781 2943 3136 -3051 -2389 2905 916 162 1560 -1504 1974 2528 -3846 -3508 3696 3259 3952 -584 1038 339 -1653 -2489 -3574 3366 3434 -1123 3779 3691 -1593 -2302 2611 -2567 3827 -1081 -525 -372 3965 3510 289 202 3296 143 -2571 -1423 2147 -2065 3921 -3323 3113 -558 -398 -1449 -866 3565 -1022 1989 -1819 2966 2414 -636 4018 527 2017 1861 3001 736 2681 3098 -3713 -1787 1062 -3495 2664 2536 3752 3731 3273 -2189 -3602 -1188 1124 -272 -3533 3381 1432 3592 -1761 -116 -610 -300 3206 -606 -2921 -3372 546 -4003 -3034 2677 -4060 -2538 -4071 -1854 2134 2509 -2981 3559 -3242 761 1063 -784 -2439 1805 -3338 77 -1809 481 2334 3550 229 3527 -3778 125 -2557 -1045 -2997 -2798 -657 -957 -1680 2462 2909 1495 169 2313 2661 1170 3410 -3276 -2816 -3366 3107 137 -2389 -1177 -691 1122 -3453 875 -2812 -4079 -2970 1748 7 -3459 -1593 -3041 -3571 3739 604 -623 3822 3615 -3032 356 -3032 -719 1847 -2625 -2714 948 -3091 -2174 4019 3973 -846 -2630 -1138 4011 -3289 -1331 -1847 2577 260 -2886 -2666 -3428 -3771 -3926 -406 3269 -1843 4033 108 2666 
+sk_t0[3]: -2489 1805 1053 3363 -461 3268 629 -1342 -1169 3444 -2093 3418 -768 -3443 -2875 439 80 -1866 2893 372 -3704 1904 634 1532 -2548 1652 129 -608 -3804 -132 1827 2930 391 -273 1486 -1586 -3669 4008 -713 489 -1805 -3569 -540 -733 3887 262 228 3968 1991 -2003 -333 -154 -829 -1424 -256 2966 1002 -514 3733 3495 -47 -783 -1 2982 -3281 -2903 47 880 1477 2594 -2673 3366 -2043 400 3781 -859 1568 1824 2861 -1684 645 -101 -180 -3724 -907 -3167 2314 -2022 -3335 -3244 -1981 3391 -894 -3564 -1796 -2012 -1609 3610 2511 3423 -4030 -169 590 358 -1092 -368 -1771 -3780 -1412 4017 3894 -2956 -3383 -2333 -1796 -1730 -1404 -4057 -3879 -2023 -553 -379 3981 1189 3214 -2884 -338 846 -518 702 -3518 2384 1747 417 -2432 -422 -4017 2100 1202 229 836 3571 -2806 -2839 224 2678 252 2968 -844 -3799 -1288 -290 -1183 3299 1270 -2647 1339 -3789 1036 -783 522 2107 3744 792 -2999 -663 -856 3935 -2263 -785 2072 948 -2542 3981 -3327 -2777 -613 -632 -2257 1053 2427 3733 2096 1689 -485 2160 -76 3727 -1156 -1114 3034 -3074 286 -2428 -653 -1778 -3325 865 -2614 -3226 -1986 2664 -3853 -1442 1645 -4069 -3802 -2023 -3320 1583 -767 1481 -3925 -958 2699 -3988 -401 182 2775 227 879 30 -501 583 876 -3373 678 -3684 1840 -2954 2319 -3992 3857 929 3290 -3625 1996 -658 3938 2086 -2009 3548 -4032 3453 2134 2652 3961 -1333 -3918 -3985 -1166 -2495 -2442 20 2009 -696 
+sk_t0[4]: -2451 3447 2003 -1618 -2426 -1184 -1193 677 3879 1418 -992 646 919 943 -1976 -611 323 661 1595 -2181 2037 741 -331 -1667 -2017 -885 2338 -3042 -338 -2441 -1195 -1831 -3254 -3700 4058 -278 191 -48 1906 -4059 1470 1868 -3797 3957 1469 12 -3004 841 3439 2900 2960 -417 -241 81 340 -3856 1907 -3843 268 483 -3202 1188 -2767 -1765 -550 41 4044 -1621 -3135 159 3809 -1700 150 1562 485 3075 1812 472 3849 -3455 1663 1122 -2601 -389 -1524 -758 -1337 616 -586 -3102 -1157 -2039 -670 -1884 2540 -844 -2174 -3987 -3323 -3768 -492 1774 1410 1056 -3511 -1957 282 -1200 -2623 182 903 3485 -3418 -2436 -2898 827 3651 -1193 4045 2394 -2326 -1915 -70 -3009 1106 4079 -1002 -1662 1285 -3247 -2198 3350 3018 -1107 2168 2415 -3919 -2588 2978 -3460 1271 3004 -2265 -3455 -1677 -1685 -637 657 780 -3107 2559 -3225 2667 2081 814 -821 -410 -190 1642 -1472 -2653 -3658 -181 518 2606 2045 -891 1571 1482 1587 974 -3492 2437 3196 -2142 3238 -1702 2374 -518 -2456 3276 -486 -3268 235 1181 3354 -158 3007 -514 1960 3617 -2284 -3982 -3878 -1652 1794 2923 -635 1886 2589 -624 -3572 3619 1474 -3447 -3275 2272 161 440 -3953 -2473 -2475 -1858 2183 -2615 1737 2581 2906 1486 2153 3451 -2728 -1285 -1784 2299 -2461 1015 164 -1107 -712 4092 -2011 -398 -239 2288 1410 2153 -2149 -1523 -1822 -555 3093 371 -2036 2944 1320 2446 2710 -311 119 4089 -4044 2312 -2868 3544 3871 
+sk_t0[5]: 1229 884 -2041 3415 -333 -3123 3791 560 -2022 2321 -2910 -2699 856 -3169 -352 -3354 2398 2749 -1634 4035 -2715 1597 314 -3229 -1941 -3548 -1872 605 -861 -2132 -1266 1884 -1374 716 -2732 3287 -3662 2163 670 -2132 -1831 -358 1873 -3115 -771 2065 3567 -842 439 760 420 -3888 1376 2263 1124 2462 -442 2689 -1701 1325 815 2150 1401 -1600 3839 -446 -1300 -951 -1899 -2676 2019 -445 -73 -1468 -3473 -3500 -687 -1028 220 -234 -2332 3681 2413 2048 -3569 -3782 -3120 -945 -3047 -3153 2288 -1324 -1031 2165 2345 1796 969 -2312 -535 3501 -983 3488 1517 -1736 2764 2622 1547 3532 3278 3056 3053 2834 2644 -111 -848 773 2885 3807 173 -1456 659 2148 -322 -856 -1548 -1064 844 -701 -2730 -2483 1631 -3307 433 1822 -1634 1655 -3535 -1667 3668 3284 -1309 637 4014 -3219 2526 -1954 1681 406 -3291 -2646 1527 377 -2441 3024 2383 -1873 -444 1758 -285 1056 -915 -2583 -2135 -1354 3403 -2000 -553 2988 1545 -1568 4019 -1686 -3742 -4076 3771 1085 1739 -3349 -3745 -326 -3998 -2227 1330 4059 -1981 -388 1748 -2911 55 -3788 -295 -3836 3127 74 -686 1192 2379 1768 870 -662 3789 2826 -2164 1405 2607 3137 3382 1228 1623 1002 1058 212 -177 -3716 -4067 -2730 -2782 1896 -1906 2859 1508 1246 3956 2548 -1242 -625 -692 1349 -1645 -3154 -300 1731 1545 -3026 -1288 -3953 -3997 -3681 131 -3002 2863 485 -2731 -2042 133 -4031 3791 3009 -3584 -1588 -538 2525 -871 -1326 3351 4012 
+sk_t0[6]: 251 -1833 -2228 -1020 453 1782 -1383 -2924 3572 980 684 -2881 2117 2447 2198 3973 2132 -2387 -3209 1075 3258 2954 3177 -1282 3555 2820 -2117 -83 -797 -1538 3606 3306 1240 125 3336 -2783 -1514 3571 2069 -14 888 3109 -4018 2547 -1574 -1663 -2219 -3180 -2849 2730 -2959 1169 3529 -1593 3417 -3168 554 1568 -211 -2872 -1509 2640 -3750 2825 2494 3497 -3732 -778 3237 2370 -2855 2697 3717 -3765 -3273 -1968 3605 -3543 -1135 4054 3136 2719 -2846 -449 -1429 -1043 -2607 1060 3043 3514 -3924 -3679 -2176 2767 3085 -3959 2423 -1203 2549 -2463 -1470 1643 2641 -4002 625 -3655 -3501 -3551 4029 -2565 -2889 -2220 97 4082 -1692 -3495 65 1134 424 1734 -2300 -3108 1072 3433 -3973 -3461 2406 3003 4064 1776 2024 3996 -3239 3746 -268 -2352 -3065 2045 -231 -1253 2284 1541 -765 1174 -3 2826 -1751 2777 -3144 3263 -2362 2808 2699 2099 -843 178 -2042 3894 -3744 -668 3131 -1227 -2734 -1652 -1844 -3714 -2170 -1314 2 -3906 783 339 -2181 349 3568 -2092 283 3050 2987 -1047 -2757 4090 1887 -2630 1236 2176 -2774 -3639 662 1832 -2146 1075 -819 1362 667 289 -430 -987 -4090 -1894 3939 -543 3277 2024 -1304 -3659 -1422 2744 -1441 -971 -562 4072 1776 1260 2170 -3298 -135 -3286 3209 2015 -2863 -1650 2800 2578 1572 3367 -2674 3794 2709 2506 3930 -2915 3541 1121 -69 -1536 1980 3925 1712 2555 -2138 -2081 -2163 -1816 -716 -1866 1867 1251 2454 2967 1616 1632 -1791 2029 3847 -3838 
+sk_t0[7]: -2033 -3906 1653 3180 -3824 -2327 1227 -1325 -2196 1929 -1476 1797 3525 279 -1610 750 -2246 -1089 -2752 2027 705 2034 3105 -150 -3600 904 3636 -1141 1720 2012 720 168 -4050 2260 2906 683 -313 3310 1486 1092 2914 2708 -1646 -2200 -1171 3264 -862 -131 -2037 -3074 3052 -3963 1562 2805 2221 -3753 -3926 1928 4086 2847 -3104 2002 3841 -4040 435 2720 -3862 2939 -3721 -3827 -1665 1508 2236 663 2761 -2179 1039 3713 -3950 2100 10 -3998 -3374 -1470 -2062 3896 -909 3458 -2601 3614 1175 4060 -1241 -945 1818 -3239 -2126 2148 2962 1548 -1703 -247 1907 -305 -2016 -129 -1746 2374 -872 -171 71 1479 3225 3420 3009 3478 3166 -199 -1441 -473 477 -2129 2570 2461 -62 1357 -2742 1249 -1482 842 2330 198 1634 -3185 3911 1566 -2395 -2907 1245 1042 3839 4069 3057 -3621 2247 -2217 1372 -3107 376 3727 -3126 1997 2236 -3724 -2777 -1484 440 -3354 -3905 -1079 1303 1677 -856 -1408 3271 390 -4023 -544 984 1521 -107 3514 -671 3444 -869 -866 2798 2549 3959 2575 1418 -1613 -820 -2607 993 -3999 -3249 -1959 -717 -3971 56 3832 619 506 -3252 2758 2838 -1967 935 -1135 3473 -3390 -3706 -2376 3191 502 1513 799 -3227 -2093 2598 -1916 3111 -4008 3545 -1749 3466 -1221 2286 -4060 -1999 -2804 2674 -667 -3430 -2803 -1624 -1167 -368 1421 -212 -3173 -2602 -95 -1885 -3373 -2298 2166 1887 1243 1002 1997 -1153 -1640 -3720 -1803 -2483 2260 2234 -1867 -1476 -2379 818 -358 3334 -1841 
+run: Time (s): cpu = 00:00:08 ; elapsed = 00:01:29 . Memory (MB): peak = 6659.945 ; gain = 0.000 ; free physical = 67567 ; free virtual = 164867
+relaunch_xsim_kernel: Time (s): cpu = 00:00:08 ; elapsed = 00:01:30 . Memory (MB): peak = 6659.945 ; gain = 0.000 ; free physical = 67567 ; free virtual = 164867
+relaunch_sim: Time (s): cpu = 00:00:27 ; elapsed = 00:01:38 . Memory (MB): peak = 6659.945 ; gain = 0.000 ; free physical = 67567 ; free virtual = 164867
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/CoefFromHalfByte.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromHalfByte
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Coefficient_three_bytes.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromThreeBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandA.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandS.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejBoundedPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejBoundedPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejNttPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejNttPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/pkEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PkEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/rand.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module random_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/swapbits.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SwapNibbles
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d25fce0b283a4d23a00f0806838dc56c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot topp_tb_behav xil_defaultlib.topp_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.random_module
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=1024,ca...
+Compiling module xil_defaultlib.pad10_1(x=1344,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=6501)
+Compiling module xil_defaultlib.CoefFromThreeBytes
+Compiling module xil_defaultlib.RejNttPoly
+Compiling module xil_defaultlib.ExpandA
+Compiling module xil_defaultlib.pad10_1(x=1088,m=532)
+Compiling module xil_defaultlib.sponge(msg_len=532,d_len=4096,ca...
+Compiling module xil_defaultlib.CoefFromHalfByte
+Compiling module xil_defaultlib.RejBoundedPoly
+Compiling module xil_defaultlib.ExpandS
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyGen
+Compiling module xil_defaultlib.topp
+Compiling module xil_defaultlib.topp_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot topp_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Time=0 | rst=1 | led=x
+Time=0 | rst=1 | led=0
+Time=15000 | rst=0 | led=0
+sk_t0[0]: 2138 3613 1906 4032 -2702 -3595 3972 935 -2420 -431 408 274 4027 258 -2360 1537 -1506 -779 -3137 -2490 -734 -3624 4091 -284 -2027 3593 1850 -970 -533 -901 -1472 1250 2270 -3938 3934 3982 1297 -7 -3819 838 -3593 -1969 -2577 -2374 -3331 1110 1648 -3117 2463 -4095 2066 3905 215 -1627 -2820 -1717 -1219 -2841 -2752 2439 1657 -2675 716 3915 -492 2642 1654 -1027 -1958 3491 2317 -3544 -1572 3237 1016 -2820 1106 82 -1481 2720 1449 3359 2287 1170 3286 -3801 1619 -2030 -2434 3970 -431 -2327 -13 1577 -3954 2020 -1292 536 -3645 -501 3910 -1034 2355 107 -3784 2343 -1495 -3203 -2789 3585 -3553 -703 -1433 -3244 2105 -1123 -3115 -2608 -1043 -3596 -3660 -2604 1395 895 -748 -2288 1698 -1604 -3606 -2254 -1903 -3618 -1535 -988 -1024 -1327 3680 3288 3 1657 698 -2770 -3168 -2001 -1720 3654 -389 1429 -1278 -1857 198 -2875 -168 1709 -278 2398 -2986 -1974 -266 -3182 2124 3347 -2573 -2681 -1362 3517 -3799 -317 -2501 -1643 1713 -1666 28 2447 -1263 -2006 -2992 -1345 1682 -729 -2575 1513 -2223 3831 3846 -3142 -1126 -3873 -3405 2390 -243 3154 -228 -1125 -1765 3073 2250 2689 -2112 -1201 2364 1370 -2900 -3100 1551 -520 2298 126 -1659 1894 -1644 3389 -2215 -1625 -4087 4085 -26 3235 398 1242 -3774 3339 568 1760 2911 2328 -118 -31 2925 -526 1527 -348 -1546 1094 880 1368 -1098 -3175 -652 3182 -1951 -901 479 3868 -2116 -1254 -3542 -1471 -4084 2245 -145 -839 2593 -29 3918 1824 
+sk_t0[1]: -2259 -3789 -1621 -429 453 272 900 1095 -401 2632 -1572 30 2406 -3562 -398 -3857 542 -2772 -4031 -204 2874 1248 -2614 -3915 1439 3623 2120 2951 1437 -2338 -2046 2435 2604 3036 -343 1065 -1193 3182 2417 -2354 72 -160 -3822 3170 -1934 -2689 108 3362 -1670 -1484 1654 1923 2076 2705 3611 -3023 2864 -1501 -1180 4058 -1608 -2695 3912 -1868 -3248 3471 953 2728 -2533 -62 964 -436 3168 3928 3406 2938 -2578 2055 3286 3983 -567 1028 -2172 -2671 -477 2814 -1157 1500 3646 -1654 4044 572 1423 2934 3929 1879 2063 3926 1890 2138 1273 -942 2932 -2590 -2882 -2421 2670 4033 2227 -253 -922 1033 3036 293 -558 -357 -475 -2304 -1227 1199 -1460 1778 4020 -2261 2405 -1765 -2032 -639 -2800 3293 -1692 -2290 2298 -3090 2746 -2332 -2942 -1910 395 2444 -2980 3535 2339 1221 3649 -1759 2078 -1082 3507 3114 3639 -2297 2952 -876 -1103 -2217 -2360 1550 -255 -2811 2552 -3116 -2938 3965 -1891 -659 2634 3558 -2438 -2262 2865 1288 -1537 -2984 3052 3571 1891 1439 -1546 646 -287 -858 3340 1509 1537 -413 1937 -591 2561 -3865 503 -295 319 54 -1318 1656 4019 -2500 2609 378 3226 2675 1926 -3841 -1524 3552 -2208 -817 -3037 3 69 3702 3197 1521 -3030 -3413 2752 2433 3328 2374 -1172 404 2394 3174 3968 -3483 -2948 1330 3367 1092 -944 -15 -2421 -1549 -1654 1623 3511 511 151 3299 2642 1859 991 878 985 -1050 -527 -3772 1571 -3839 -3283 -3826 -995 1629 -1164 506 
+sk_t0[2]: 2798 3566 1406 3546 378 -345 3987 3533 1192 -3664 553 1926 3436 -3897 1191 1054 2048 -28 1306 1532 -3319 -2187 1049 -523 -3078 -3838 2814 -3929 -2449 3615 146 1299 -1626 2769 -2975 -4000 -469 483 2603 192 567 -3577 -904 3309 767 -2233 1143 -1627 -1333 -1061 -3477 3894 3483 2614 1559 3762 -1920 -3009 -2978 3742 2761 3163 -781 2943 3136 -3051 -2389 2905 916 162 1560 -1504 1974 2528 -3846 -3508 3696 3259 3952 -584 1038 339 -1653 -2489 -3574 3366 3434 -1123 3779 3691 -1593 -2302 2611 -2567 3827 -1081 -525 -372 3965 3510 289 202 3296 143 -2571 -1423 2147 -2065 3921 -3323 3113 -558 -398 -1449 -866 3565 -1022 1989 -1819 2966 2414 -636 4018 527 2017 1861 3001 736 2681 3098 -3713 -1787 1062 -3495 2664 2536 3752 3731 3273 -2189 -3602 -1188 1124 -272 -3533 3381 1432 3592 -1761 -116 -610 -300 3206 -606 -2921 -3372 546 -4003 -3034 2677 -4060 -2538 -4071 -1854 2134 2509 -2981 3559 -3242 761 1063 -784 -2439 1805 -3338 77 -1809 481 2334 3550 229 3527 -3778 125 -2557 -1045 -2997 -2798 -657 -957 -1680 2462 2909 1495 169 2313 2661 1170 3410 -3276 -2816 -3366 3107 137 -2389 -1177 -691 1122 -3453 875 -2812 -4079 -2970 1748 7 -3459 -1593 -3041 -3571 3739 604 -623 3822 3615 -3032 356 -3032 -719 1847 -2625 -2714 948 -3091 -2174 4019 3973 -846 -2630 -1138 4011 -3289 -1331 -1847 2577 260 -2886 -2666 -3428 -3771 -3926 -406 3269 -1843 4033 108 2666 
+sk_t0[3]: -2489 1805 1053 3363 -461 3268 629 -1342 -1169 3444 -2093 3418 -768 -3443 -2875 439 80 -1866 2893 372 -3704 1904 634 1532 -2548 1652 129 -608 -3804 -132 1827 2930 391 -273 1486 -1586 -3669 4008 -713 489 -1805 -3569 -540 -733 3887 262 228 3968 1991 -2003 -333 -154 -829 -1424 -256 2966 1002 -514 3733 3495 -47 -783 -1 2982 -3281 -2903 47 880 1477 2594 -2673 3366 -2043 400 3781 -859 1568 1824 2861 -1684 645 -101 -180 -3724 -907 -3167 2314 -2022 -3335 -3244 -1981 3391 -894 -3564 -1796 -2012 -1609 3610 2511 3423 -4030 -169 590 358 -1092 -368 -1771 -3780 -1412 4017 3894 -2956 -3383 -2333 -1796 -1730 -1404 -4057 -3879 -2023 -553 -379 3981 1189 3214 -2884 -338 846 -518 702 -3518 2384 1747 417 -2432 -422 -4017 2100 1202 229 836 3571 -2806 -2839 224 2678 252 2968 -844 -3799 -1288 -290 -1183 3299 1270 -2647 1339 -3789 1036 -783 522 2107 3744 792 -2999 -663 -856 3935 -2263 -785 2072 948 -2542 3981 -3327 -2777 -613 -632 -2257 1053 2427 3733 2096 1689 -485 2160 -76 3727 -1156 -1114 3034 -3074 286 -2428 -653 -1778 -3325 865 -2614 -3226 -1986 2664 -3853 -1442 1645 -4069 -3802 -2023 -3320 1583 -767 1481 -3925 -958 2699 -3988 -401 182 2775 227 879 30 -501 583 876 -3373 678 -3684 1840 -2954 2319 -3992 3857 929 3290 -3625 1996 -658 3938 2086 -2009 3548 -4032 3453 2134 2652 3961 -1333 -3918 -3985 -1166 -2495 -2442 20 2009 -696 
+sk_t0[4]: -2451 3447 2003 -1618 -2426 -1184 -1193 677 3879 1418 -992 646 919 943 -1976 -611 323 661 1595 -2181 2037 741 -331 -1667 -2017 -885 2338 -3042 -338 -2441 -1195 -1831 -3254 -3700 4058 -278 191 -48 1906 -4059 1470 1868 -3797 3957 1469 12 -3004 841 3439 2900 2960 -417 -241 81 340 -3856 1907 -3843 268 483 -3202 1188 -2767 -1765 -550 41 4044 -1621 -3135 159 3809 -1700 150 1562 485 3075 1812 472 3849 -3455 1663 1122 -2601 -389 -1524 -758 -1337 616 -586 -3102 -1157 -2039 -670 -1884 2540 -844 -2174 -3987 -3323 -3768 -492 1774 1410 1056 -3511 -1957 282 -1200 -2623 182 903 3485 -3418 -2436 -2898 827 3651 -1193 4045 2394 -2326 -1915 -70 -3009 1106 4079 -1002 -1662 1285 -3247 -2198 3350 3018 -1107 2168 2415 -3919 -2588 2978 -3460 1271 3004 -2265 -3455 -1677 -1685 -637 657 780 -3107 2559 -3225 2667 2081 814 -821 -410 -190 1642 -1472 -2653 -3658 -181 518 2606 2045 -891 1571 1482 1587 974 -3492 2437 3196 -2142 3238 -1702 2374 -518 -2456 3276 -486 -3268 235 1181 3354 -158 3007 -514 1960 3617 -2284 -3982 -3878 -1652 1794 2923 -635 1886 2589 -624 -3572 3619 1474 -3447 -3275 2272 161 440 -3953 -2473 -2475 -1858 2183 -2615 1737 2581 2906 1486 2153 3451 -2728 -1285 -1784 2299 -2461 1015 164 -1107 -712 4092 -2011 -398 -239 2288 1410 2153 -2149 -1523 -1822 -555 3093 371 -2036 2944 1320 2446 2710 -311 119 4089 -4044 2312 -2868 3544 3871 
+sk_t0[5]: 1229 884 -2041 3415 -333 -3123 3791 560 -2022 2321 -2910 -2699 856 -3169 -352 -3354 2398 2749 -1634 4035 -2715 1597 314 -3229 -1941 -3548 -1872 605 -861 -2132 -1266 1884 -1374 716 -2732 3287 -3662 2163 670 -2132 -1831 -358 1873 -3115 -771 2065 3567 -842 439 760 420 -3888 1376 2263 1124 2462 -442 2689 -1701 1325 815 2150 1401 -1600 3839 -446 -1300 -951 -1899 -2676 2019 -445 -73 -1468 -3473 -3500 -687 -1028 220 -234 -2332 3681 2413 2048 -3569 -3782 -3120 -945 -3047 -3153 2288 -1324 -1031 2165 2345 1796 969 -2312 -535 3501 -983 3488 1517 -1736 2764 2622 1547 3532 3278 3056 3053 2834 2644 -111 -848 773 2885 3807 173 -1456 659 2148 -322 -856 -1548 -1064 844 -701 -2730 -2483 1631 -3307 433 1822 -1634 1655 -3535 -1667 3668 3284 -1309 637 4014 -3219 2526 -1954 1681 406 -3291 -2646 1527 377 -2441 3024 2383 -1873 -444 1758 -285 1056 -915 -2583 -2135 -1354 3403 -2000 -553 2988 1545 -1568 4019 -1686 -3742 -4076 3771 1085 1739 -3349 -3745 -326 -3998 -2227 1330 4059 -1981 -388 1748 -2911 55 -3788 -295 -3836 3127 74 -686 1192 2379 1768 870 -662 3789 2826 -2164 1405 2607 3137 3382 1228 1623 1002 1058 212 -177 -3716 -4067 -2730 -2782 1896 -1906 2859 1508 1246 3956 2548 -1242 -625 -692 1349 -1645 -3154 -300 1731 1545 -3026 -1288 -3953 -3997 -3681 131 -3002 2863 485 -2731 -2042 133 -4031 3791 3009 -3584 -1588 -538 2525 -871 -1326 3351 4012 
+sk_t0[6]: 251 -1833 -2228 -1020 453 1782 -1383 -2924 3572 980 684 -2881 2117 2447 2198 3973 2132 -2387 -3209 1075 3258 2954 3177 -1282 3555 2820 -2117 -83 -797 -1538 3606 3306 1240 125 3336 -2783 -1514 3571 2069 -14 888 3109 -4018 2547 -1574 -1663 -2219 -3180 -2849 2730 -2959 1169 3529 -1593 3417 -3168 554 1568 -211 -2872 -1509 2640 -3750 2825 2494 3497 -3732 -778 3237 2370 -2855 2697 3717 -3765 -3273 -1968 3605 -3543 -1135 4054 3136 2719 -2846 -449 -1429 -1043 -2607 1060 3043 3514 -3924 -3679 -2176 2767 3085 -3959 2423 -1203 2549 -2463 -1470 1643 2641 -4002 625 -3655 -3501 -3551 4029 -2565 -2889 -2220 97 4082 -1692 -3495 65 1134 424 1734 -2300 -3108 1072 3433 -3973 -3461 2406 3003 4064 1776 2024 3996 -3239 3746 -268 -2352 -3065 2045 -231 -1253 2284 1541 -765 1174 -3 2826 -1751 2777 -3144 3263 -2362 2808 2699 2099 -843 178 -2042 3894 -3744 -668 3131 -1227 -2734 -1652 -1844 -3714 -2170 -1314 2 -3906 783 339 -2181 349 3568 -2092 283 3050 2987 -1047 -2757 4090 1887 -2630 1236 2176 -2774 -3639 662 1832 -2146 1075 -819 1362 667 289 -430 -987 -4090 -1894 3939 -543 3277 2024 -1304 -3659 -1422 2744 -1441 -971 -562 4072 1776 1260 2170 -3298 -135 -3286 3209 2015 -2863 -1650 2800 2578 1572 3367 -2674 3794 2709 2506 3930 -2915 3541 1121 -69 -1536 1980 3925 1712 2555 -2138 -2081 -2163 -1816 -716 -1866 1867 1251 2454 2967 1616 1632 -1791 2029 3847 -3838 
+sk_t0[7]: -2033 -3906 1653 3180 -3824 -2327 1227 -1325 -2196 1929 -1476 1797 3525 279 -1610 750 -2246 -1089 -2752 2027 705 2034 3105 -150 -3600 904 3636 -1141 1720 2012 720 168 -4050 2260 2906 683 -313 3310 1486 1092 2914 2708 -1646 -2200 -1171 3264 -862 -131 -2037 -3074 3052 -3963 1562 2805 2221 -3753 -3926 1928 4086 2847 -3104 2002 3841 -4040 435 2720 -3862 2939 -3721 -3827 -1665 1508 2236 663 2761 -2179 1039 3713 -3950 2100 10 -3998 -3374 -1470 -2062 3896 -909 3458 -2601 3614 1175 4060 -1241 -945 1818 -3239 -2126 2148 2962 1548 -1703 -247 1907 -305 -2016 -129 -1746 2374 -872 -171 71 1479 3225 3420 3009 3478 3166 -199 -1441 -473 477 -2129 2570 2461 -62 1357 -2742 1249 -1482 842 2330 198 1634 -3185 3911 1566 -2395 -2907 1245 1042 3839 4069 3057 -3621 2247 -2217 1372 -3107 376 3727 -3126 1997 2236 -3724 -2777 -1484 440 -3354 -3905 -1079 1303 1677 -856 -1408 3271 390 -4023 -544 984 1521 -107 3514 -671 3444 -869 -866 2798 2549 3959 2575 1418 -1613 -820 -2607 993 -3999 -3249 -1959 -717 -3971 56 3832 619 506 -3252 2758 2838 -1967 935 -1135 3473 -3390 -3706 -2376 3191 502 1513 799 -3227 -2093 2598 -1916 3111 -4008 3545 -1749 3466 -1221 2286 -4060 -1999 -2804 2674 -667 -3430 -2803 -1624 -1167 -368 1421 -212 -3173 -2602 -95 -1885 -3373 -2298 2166 1887 1243 1002 1997 -1153 -1640 -3720 -1803 -2483 2260 2234 -1867 -1476 -2379 818 -358 3334 -1841 
+Time=395000 | rst=0 | led=1
+run: Time (s): cpu = 00:00:08 ; elapsed = 00:01:26 . Memory (MB): peak = 6673.957 ; gain = 0.000 ; free physical = 68061 ; free virtual = 165332
+relaunch_xsim_kernel: Time (s): cpu = 00:00:09 ; elapsed = 00:01:27 . Memory (MB): peak = 6673.957 ; gain = 0.000 ; free physical = 68061 ; free virtual = 165332
+relaunch_sim: Time (s): cpu = 00:01:45 ; elapsed = 00:01:36 . Memory (MB): peak = 6673.957 ; gain = 0.000 ; free physical = 68061 ; free virtual = 165332
+set_property top topp [current_fileset]
+update_compile_order -fileset sources_1
+file mkdir /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/constrs_1
+file mkdir /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/constrs_1/new
+close [ open /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/constrs_1/new/constraint.xdc w ]
+add_files -fileset constrs_1 /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/constrs_1/new/constraint.xdc
+set_property is_enabled false [get_files  /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/final_tb.sv]
+launch_runs synth_1 -jobs 16
+[Mon Apr 14 20:23:17 2025] Launched synth_1...
+Run output will be captured here: /home/masfiyan/Athestia/key_internal_new/key_internal_new.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Apr 14 20:26:39 2025] Launched synth_1...
+Run output will be captured here: /home/masfiyan/Athestia/key_internal_new/key_internal_new.runs/synth_1/runme.log
+update_compile_order -fileset sources_1
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+ERROR: [VRFC 10-600] elements must both be signed or both be unsigned [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:127]
+ERROR: [VRFC 10-330] arrays have different elements [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:127]
+ERROR: [VRFC 10-2787] module key_internal ignored due to previous errors [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:24]
+run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 6843.766 ; gain = 0.000 ; free physical = 75712 ; free virtual = 165654
+INFO: [USF-XSim-69] 'compile' step finished in '6' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 6843.766 ; gain = 0.000 ; free physical = 75712 ; free virtual = 165654
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/pkEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PkEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/rand.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module random_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/swapbits.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SwapNibbles
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 6843.766 ; gain = 0.000 ; free physical = 75680 ; free virtual = 165624
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d25fce0b283a4d23a00f0806838dc56c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot topp_tb_behav xil_defaultlib.topp_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.random_module
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyGen
+Compiling module xil_defaultlib.topp
+Compiling module xil_defaultlib.topp_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot topp_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Time=0 | rst=1 | led=x
+Time=0 | rst=1 | led=0
+Time=15000 | rst=0 | led=0
+relaunch_sim: Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 6843.766 ; gain = 0.000 ; free physical = 75655 ; free virtual = 165607
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Apr 14 21:46:31 2025] Launched synth_1...
+Run output will be captured here: /home/masfiyan/Athestia/key_internal_new/key_internal_new.runs/synth_1/runme.log
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+ERROR: [VRFC 10-600] elements must both be signed or both be unsigned [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:126]
+ERROR: [VRFC 10-330] arrays have different elements [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:126]
+ERROR: [VRFC 10-600] elements must both be signed or both be unsigned [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:135]
+ERROR: [VRFC 10-330] arrays have different elements [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:135]
+ERROR: [VRFC 10-2787] module key_internal ignored due to previous errors [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:24]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+ERROR: [VRFC 10-600] elements must both be signed or both be unsigned [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:129]
+ERROR: [VRFC 10-330] arrays have different elements [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:129]
+ERROR: [VRFC 10-2787] module key_internal ignored due to previous errors [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv:24]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/pkEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PkEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/rand.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module random_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/swapbits.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SwapNibbles
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp_tb
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d25fce0b283a4d23a00f0806838dc56c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot topp_tb_behav xil_defaultlib.topp_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.random_module
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyGen
+Compiling module xil_defaultlib.topp
+Compiling module xil_defaultlib.topp_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot topp_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "topp_tb_behav -key {Behavioral:sim_1:Functional:topp_tb} -tclbatch {topp_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source topp_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Time=0 | rst=1 | led=x
+Time=0 | rst=1 | led=0
+Time=15000 | rst=0 | led=0
+xsim: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 6909.430 ; gain = 14.812 ; free physical = 75494 ; free virtual = 165462
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'topp_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 6909.430 ; gain = 14.812 ; free physical = 75494 ; free virtual = 165462
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+[Mon Apr 14 21:53:20 2025] Launched synth_1...
+Run output will be captured here: /home/masfiyan/Athestia/key_internal_new/key_internal_new.runs/synth_1/runme.log
+reset_run synth_1
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'topp_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj topp_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/CoefFromHalfByte.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromHalfByte
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Coefficient_three_bytes.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromThreeBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandA.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandS.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/KeyGen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyGen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejBoundedPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejBoundedPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejNttPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejNttPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/pkEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PkEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/rand.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module random_module
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/swapbits.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SwapNibbles
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/topp.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module topp_tb
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/masfiyan/Athestia/key_internal_new/key_internal_new.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /merledu1/tools/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto d25fce0b283a4d23a00f0806838dc56c --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot topp_tb_behav xil_defaultlib.topp_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.random_module
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=1024,ca...
+Compiling module xil_defaultlib.pad10_1(x=1344,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=6501)
+Compiling module xil_defaultlib.CoefFromThreeBytes
+Compiling module xil_defaultlib.RejNttPoly
+Compiling module xil_defaultlib.ExpandA
+Compiling module xil_defaultlib.pad10_1(x=1088,m=532)
+Compiling module xil_defaultlib.sponge(msg_len=532,d_len=4096,ca...
+Compiling module xil_defaultlib.CoefFromHalfByte
+Compiling module xil_defaultlib.RejBoundedPoly
+Compiling module xil_defaultlib.ExpandS
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyGen
+Compiling module xil_defaultlib.topp
+Compiling module xil_defaultlib.topp_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot topp_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+Time=0 | rst=1 | led=x
+Time=0 | rst=1 | led=0
+Time=15000 | rst=0 | led=0
+relaunch_xsim_kernel: Time (s): cpu = 00:00:00.72 ; elapsed = 00:00:05 . Memory (MB): peak = 6973.461 ; gain = 0.000 ; free physical = 75484 ; free virtual = 165454
+relaunch_sim: Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 6973.461 ; gain = 0.000 ; free physical = 75484 ; free virtual = 165454
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 16
+[Mon Apr 14 21:58:05 2025] Launched synth_1...
+Run output will be captured here: /home/masfiyan/Athestia/key_internal_new/key_internal_new.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a100tcsg324-1
+INFO: [Netlist 29-17] Analyzing 108 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.2
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/constrs_1/new/constraint.xdc]
+CRITICAL WARNING: [Designutils 20-1307] Command 'constaint' is not supported in the xdc constraint file. [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/constrs_1/new/constraint.xdc:1]
+Finished Parsing XDC File [/home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/constrs_1/new/constraint.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:37 ; elapsed = 00:00:55 . Memory (MB): peak = 7429.863 ; gain = 455.395 ; free physical = 74987 ; free virtual = 165129
+set_property is_enabled false [get_files  /home/masfiyan/Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/topp_tb.sv]
+launch_runs impl_1 -jobs 16
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.48 ; elapsed = 00:00:00.15 . Memory (MB): peak = 7732.094 ; gain = 0.000 ; free physical = 74619 ; free virtual = 164792
+[Tue Apr 15 00:38:41 2025] Launched impl_1...
+Run output will be captured here: /home/masfiyan/Athestia/key_internal_new/key_internal_new.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 7732.094 ; gain = 0.000 ; free physical = 74600 ; free virtual = 164774
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Tue Apr 15 00:42:31 2025] Launched impl_1...
+Run output will be captured here: /home/masfiyan/Athestia/key_internal_new/key_internal_new.runs/impl_1/runme.log

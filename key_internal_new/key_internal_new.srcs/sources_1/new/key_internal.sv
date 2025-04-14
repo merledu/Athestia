@@ -46,9 +46,11 @@ module key_internal(
     logic signed [($clog2(eta)+1):0] s1 [0:l-1] [0:255];
     logic signed [($clog2(eta)+1):0] s2 [0:k-1] [0:255];
     logic expands_done, rst_ntt, nttdone, ntt_disabler;
-    logic signed [63:0] w [0:255], nttinv_w [0:255], checking [0:255];
+    logic signed [63:0] w [0:255] , checking [0:255];
+    logic [63:0] nttinv_w [0:255];
     logic signed [31:0] w_hat [0:255], s1_ntt [0:l-1] [0:255];
-    logic signed [63:0] nttinv_w_hat [0:255], t_ntt [0:k-1] [0:255];
+    logic [63:0] t_ntt [0:k-1] [0:255];
+    logic [63:0] nttinv_w_hat [0:255];
     logic [2:0] i, j;
     logic [8:0] countA;
     logic [63:0] power2round_t;
@@ -61,7 +63,7 @@ module key_internal(
     logic [255:0] pkencode_rho;
     logic [9:0] pkencode_t1 [0:k-1] [0:255];       
     logic pk_done;   
-    logic signed [63:0] t [0:k-1] [0:255];
+    logic [63:0] t [0:k-1] [0:255];
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -123,8 +125,7 @@ module key_internal(
             nttinv_rst <= nttinv_done || t_ntt_done;
             nttinv_w_hat <= t_ntt[nttinv_count2];
             if (nttinv_done && ~nttinv_rst) begin
-                t[nttinv_count2] <= nttinv_w;
-                checking <= t_ntt[1];
+                t[nttinv_count2] <= nttinv_w;                
                 nttinv_count2 <= nttinv_count2 + 1;
             end
 //            $display("hello",t_ntt[0]);

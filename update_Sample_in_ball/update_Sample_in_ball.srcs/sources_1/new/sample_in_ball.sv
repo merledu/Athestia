@@ -24,7 +24,7 @@ module Sample_in_ball#(parameter lmbda=256 , parameter t=60)(
 input logic  clk,
 input logic  rst,
 output logic  done,
-input logic [(lmbda/4)-1:0] in,
+input logic [((lmbda/4)*8)-1:0] in,
 input logic start,
 output logic signed [0:1] out [255:0]= '{default: 0}
 
@@ -48,7 +48,7 @@ int iter = 0;
 int temp_f ; 
     
 sponge #(
-.msg_len((lmbda/4)+4),
+.msg_len(((lmbda/4)*8)+4),
 .d_len(5000),
 .capacity(512),
 .r(1600-512)

@@ -1,0 +1,135 @@
+/*
+
+Xilinx Vivado v2018.2 (64-bit) [Major: 2018, Minor: 2]
+SW Build: 2258646 on Thu Jun 14 20:03:12 MDT 2018
+IP Build: 2256618 on Thu Jun 14 22:10:49 MDT 2018
+
+Process ID: 11120
+License: Customer
+
+Current time: 	Tue Apr 15 17:17:05 PKT 2025
+Time zone: 	Pakistan Time (Asia/Karachi)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1366x768
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 9 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	E:/Vivado/2018.2/tps/win64/jre
+Java executable location: 	E:/Vivado/2018.2/tps/win64/jre/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	Amir Leelya
+User home directory: C:/Users/Wasif Hassan
+User working directory: C:/Users/Wasif Hassan/Documents/GitHub/Athestia/update_Sample_in_ball
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: E:/Vivado
+HDI_APPROOT: E:/Vivado/2018.2
+RDI_DATADIR: E:/Vivado/2018.2/data
+RDI_BINDIR: E:/Vivado/2018.2/bin
+
+Vivado preferences file location: C:/Users/Wasif Hassan/AppData/Roaming/Xilinx/Vivado/2018.2/vivado.xml
+Vivado preferences directory: C:/Users/Wasif Hassan/AppData/Roaming/Xilinx/Vivado/2018.2/
+Vivado layouts directory: C:/Users/Wasif Hassan/AppData/Roaming/Xilinx/Vivado/2018.2/layouts
+PlanAhead jar file location: 	E:/Vivado/2018.2/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/Wasif Hassan/Documents/GitHub/Athestia/update_Sample_in_ball/vivado.log
+Vivado journal file location: 	C:/Users/Wasif Hassan/Documents/GitHub/Athestia/update_Sample_in_ball/vivado.jou
+Engine tmp dir: 	C:/Users/Wasif Hassan/Documents/GitHub/Athestia/update_Sample_in_ball/.Xil/Vivado-11120-DESKTOP-OHJPDMI
+
+Xilinx Environment Variables
+----------------------------
+XILINX: E:/Vivado/2018.2/ids_lite/ISE
+XILINX_DSP: E:/Vivado/2018.2/ids_lite/ISE
+XILINX_PLANAHEAD: E:/Vivado/2018.2
+XILINX_SDK: E:/SDK/2018.2
+XILINX_VIVADO: E:/Vivado/2018.2
+XILINX_VIVADO_HLS: E:/Vivado/2018.2
+
+
+GUI allocated memory:	188 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 527 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// [GUI Memory]: 66 MB (+66247kb) [00:00:11]
+// TclEventType: PROJECT_OPEN_DIALOG
+// [Engine Memory]: 472 MB (+342964kb) [00:00:11]
+// TclEventType: PROJECT_OPEN_DIALOG
+// bx (ck):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\Wasif Hassan\Documents\GitHub\Athestia\update_Sample_in_ball\update_Sample_in_ball.xpr. Version: Vivado v2018.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project {C:/Users/Wasif Hassan/Documents/GitHub/Athestia/update_Sample_in_ball/update_Sample_in_ball.xpr} 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project {C:/Users/Wasif Hassan/Documents/GitHub/Athestia/update_Sample_in_ball/update_Sample_in_ball.xpr} 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'C:/Users/Wasif Hassan/Downloads/update_Sample_in_ball' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// HMemoryUtils.trashcanNow. Engine heap size: 571 MB. GUI used memory: 34 MB. Current time: 4/15/25 5:17:07 PM PKT
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Vivado/2018.2/data/ip'. 
+// [Engine Memory]: 575 MB (+83746kb) [00:00:17]
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 605 MB (+1726kb) [00:00:20]
+// Tcl Message: open_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:09 . Memory (MB): peak = 828.438 ; gain = 122.895 
+// Project name: update_Sample_in_ball; location: C:/Users/Wasif Hassan/Documents/GitHub/Athestia/update_Sample_in_ball; part: xc7vx485tffg1157-1
+dismissDialog("Open Project"); // bx (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+// PAPropertyPanels.initPanels (sample_in_ball.sv) elapsed time: 0.4s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Sample_in_ball (sample_in_ball.sv)]", 1, true); // B (D, ck) - Node
+// [Engine Memory]: 636 MB (+53kb) [00:00:30]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Sample_in_ball (sample_in_ball.sv)]", 1, true, false, false, false, false, true); // B (D, ck) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Sample_in_ball (sample_in_ball.sv)]", 1, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Sample_in_ball (sample_in_ball.sv)]", 1, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Sample_in_ball (sample_in_ball.sv)]", 1, true); // B (D, ck) - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 644 MB. GUI used memory: 39 MB. Current time: 4/15/25 5:17:23 PM PKT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Sample_in_ball (sample_in_ball.sv)]", 1, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Sample_in_ball (sample_in_ball.sv)]", 1, true); // B (D, ck) - Node
+// Elapsed time: 21 seconds
+selectCodeEditor("sample_in_ball.sv", 120, 146); // ce (w, ck)
+selectCodeEditor("sample_in_ball.sv", 117, 147, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("sample_in_ball.sv", 119, 147); // ce (w, ck)
+typeControlKey((HResource) null, "sample_in_ball.sv", 'v'); // ce (w, ck)
+selectCodeEditor("sample_in_ball.sv", 124, 138); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 4); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_Sample_in_ball (tb_sample.sv)]", 6, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_Sample_in_ball (tb_sample.sv)]", 6, true, false, false, false, false, true); // B (D, ck) - Double Click - Node
+selectCodeEditor("tb_sample.sv", 115, 110); // ce (w, ck)
+// [GUI Memory]: 70 MB (+1303kb) [00:01:17]
+selectCodeEditor("tb_sample.sv", 272, 106); // ce (w, ck)
+typeControlKey((HResource) null, "tb_sample.sv", 'v'); // ce (w, ck)
+selectCodeEditor("tb_sample.sv", 212, 88); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 13 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_Sample_in_ball (tb_sample.sv)]", 6); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_Sample_in_ball (tb_sample.sv), dut : Sample_in_ball (sample_in_ball.sv), shake : sponge (sponge.sv)]", 8, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_Sample_in_ball (tb_sample.sv), dut : Sample_in_ball (sample_in_ball.sv), shake : sponge (sponge.sv), kp4 : keccak (Keccak.sv)]", 10, true, false, false, false, false, true); // B (D, ck) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, tb_Sample_in_ball (tb_sample.sv), dut : Sample_in_ball (sample_in_ball.sv), shake : sponge (sponge.sv), kp4 : keccak (Keccak.sv)]", 10, true); // B (D, ck) - Node
+// [GUI Memory]: 75 MB (+1704kb) [00:01:44]

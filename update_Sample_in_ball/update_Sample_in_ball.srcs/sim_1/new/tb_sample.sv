@@ -12,7 +12,7 @@ module tb_Sample_in_ball;
   logic done;
   // Assuming a 64-bit input (even though the module declaration is [lmbda/4:0])
   // You may adjust the range in the DUT if needed.
-  logic [63:0] in;
+  logic [511:0] in;
   // The module output is defined as an array of 256 2-bit vectors.
   logic [0:1] out [255:0];
   
@@ -35,11 +35,11 @@ module tb_Sample_in_ball;
   end
   
   // Test stimulus
-  initial begin
+  initial begin 
     // Initialize signals
     rst   = 1;    // Assert reset
 //    done  = 0;
-    in    = 64'd0;  // Clear input initially
+    in    = 512'd0;  // Clear input initially
     
     // Wait 20 ns, then deassert reset
     #20;
@@ -48,7 +48,7 @@ module tb_Sample_in_ball;
     
     // Provide the test input: hex "1234567890abcdef"
     // This is a 64-bit value.
-    in = 64'h72696d6172696d61;
+    in = 512'h9820C322AAF6432C358FE43FCFE839A579A3188ED17CBC21C9CFE410AC8ADCB80F0B5C5AB88023225E3BC1FC45AABA386442FC58FCE5B72AA191E9DE6A5183C8;
     
     // Optionally, trigger any start or done signals if required by your design.
     // For example, if a 'start' signal was required you could drive it here.

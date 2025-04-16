@@ -1,0 +1,74 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Apr 16 14:10:49 2025
+# Process ID: 13148
+# Current directory: H:/New_folder/sign_internal
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14124 H:\New_folder\sign_internal\sign_internal.xpr
+# Log file: H:/New_folder/sign_internal/vivado.log
+# Journal file: H:/New_folder/sign_internal\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project H:/New_folder/sign_internal/sign_internal.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source sign.tcl
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/w_ntt_inv_done}} 
+relaunch_sim
+relaunch_sim
+close [ open H:/New_folder/sign_internal/sign_internal.srcs/sources_1/new/W1Encode.sv w ]
+add_files H:/New_folder/sign_internal/sign_internal.srcs/sources_1/new/W1Encode.sv
+update_compile_order -fileset sources_1
+close [ open H:/New_folder/sign_internal/sign_internal.srcs/sources_1/new/SimpleBitPack.sv w ]
+add_files H:/New_folder/sign_internal/sign_internal.srcs/sources_1/new/SimpleBitPack.sv
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/compute_commit_hash/z}} 
+close [ open H:/New_folder/sign_internal/sign_internal.srcs/sources_1/new/SampleInBall.sv w ]
+add_files H:/New_folder/sign_internal/sign_internal.srcs/sources_1/new/SampleInBall.sv
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+relaunch_sim
+relaunch_sim
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/Sampleinball_done}} 
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/Sampleinball_out}} 
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/ntt_disabler}} 
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/nttinv_rst}} 
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/rst_ntt}} 
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/nttdone}} 
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/v_c_hat_done}} 
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/v_c_hat}} 
+relaunch_sim
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/NTT/w}} 
+current_wave_config {Untitled 1}
+add_wave {{/sign/uut/NTT/w_hat}} 
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim

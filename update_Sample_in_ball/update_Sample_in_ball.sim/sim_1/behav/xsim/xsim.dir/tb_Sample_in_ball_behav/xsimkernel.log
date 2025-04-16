@@ -1,4 +1,4 @@
-Running: xsim.dir/tb_Sample_in_ball_behav/xsimk.exe -simmode gui -wdb tb_Sample_in_ball_behav.wdb -simrunnum 0 -socket 54041
+Running: xsim.dir/tb_Sample_in_ball_behav/xsimk.exe -simmode gui -wdb tb_Sample_in_ball_behav.wdb -simrunnum 0 -socket 52151
 Design successfully loaded
-Design Loading Memory Usage: 7304 KB (Peak: 7304 KB)
-Design Loading CPU Usage: 46 ms
+Design Loading Memory Usage: 6332 KB (Peak: 6332 KB)
+Design Loading CPU Usage: 15 ms

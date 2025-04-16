@@ -48,7 +48,7 @@ module tb_Sample_in_ball;
     
     // Provide the test input: hex "1234567890abcdef"
     // This is a 64-bit value.
-    in = 512'h9820C322AAF6432C358FE43FCFE839A579A3188ED17CBC21C9CFE410AC8ADCB80F0B5C5AB88023225E3BC1FC45AABA386442FC58FCE5B72AA191E9DE6A5183C8;
+    in = 512'h0c46517c423cb6bf0a9dc780882e5059f4fc955532feb2e9a508ba1e0efb977fc62431be91d428a3a300d5cc8470597516c93eda31186551ef7e9b947d1cd135;
     
     // Optionally, trigger any start or done signals if required by your design.
     // For example, if a 'start' signal was required you could drive it here.

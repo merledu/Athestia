@@ -75,6 +75,11 @@ module sign_internal2
     logic signed [1:0] Sampleinball_out [0:255];
     logic signed [31:0] v_c_hat [0:255];
     
+    //---------------------- amir ---------------------
+    logic signed [31:0]  poly_m1 [0:255];
+    logic signed [31:0]  poly_m2_s1 [0:Dilithium_pkg::l-1] [0:255];
+    logic signed [63:0]   result  [0:Dilithium_pkg::l-1] [0:255];
+//    int [31:0] m2_size_s1=Dilithium_pkg::l;
     
     
 
@@ -358,6 +363,11 @@ module sign_internal2
                 v_c_hat <= w_hat;                   
                 v_c_hat_done <= 1;             
             end
+            
+            //------------------------------------------------
+               poly_m1 <= v_c_hat;
+               poly_m2_s1 <=  s1_ntt;
+               
         end
     end
     sponge #(
@@ -452,5 +462,18 @@ module sign_internal2
         .in(shakeOut3),
         .out(Sampleinball_out)
     );
+    poly_multiplier#(
+      .m2_size(7)
+      )
+      mutliplier(
+      .m1( poly_m1),
+      .m2( poly_m2_s1),
+      .result(result)
+      );
+//     poly_multiplier (
+//        c_hat   ,
+//       input  logic signed [31:0] s1_hat  [0:6][0:255],
+//       output logic signed [63:0] result  [0:6][0:255]
+//   );
 endmodule
 

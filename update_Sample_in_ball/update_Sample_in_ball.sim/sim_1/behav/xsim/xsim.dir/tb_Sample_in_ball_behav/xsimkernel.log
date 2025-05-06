@@ -2,3 +2,6 @@ Running: xsim.dir/tb_Sample_in_ball_behav/xsimk.exe -simmode gui -wdb tb_Sample_
 Design successfully loaded
 Design Loading Memory Usage: 6332 KB (Peak: 6332 KB)
 Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 7272 KB (Peak: 7272 KB)
+Simulation CPU Usage: 202 ms

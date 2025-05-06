@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Apr 16 19:48:16 2025
+# Process ID: 10444
+# Current directory: C:/Users/Wasif Hassan/Documents/GitHub/Athestia/sign_internal
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2364 C:\Users\Wasif Hassan\Documents\GitHub\Athestia\sign_internal\sign_internal.xpr
+# Log file: C:/Users/Wasif Hassan/Documents/GitHub/Athestia/sign_internal/vivado.log
+# Journal file: C:/Users/Wasif Hassan/Documents/GitHub/Athestia/sign_internal\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Wasif Hassan/Documents/GitHub/Athestia/sign_internal/sign_internal.xpr}
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+close [ open {C:/Users/Wasif Hassan/Documents/GitHub/Athestia/sign_internal/sign_internal.srcs/sources_1/new/poly_multiplier.sv} w ]
+add_files {{C:/Users/Wasif Hassan/Documents/GitHub/Athestia/sign_internal/sign_internal.srcs/sources_1/new/poly_multiplier.sv}}
+update_compile_order -fileset sources_1

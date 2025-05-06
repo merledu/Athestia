@@ -23,6 +23,7 @@ sv xil_defaultlib  \
 "../../../../sign_internal.srcs/sources_1/new/Theta.sv" \
 "../../../../sign_internal.srcs/sources_1/new/W1Encode.sv" \
 "../../../../sign_internal.srcs/sources_1/new/check.sv" \
+"../../../../sign_internal.srcs/sources_1/new/poly_multiplier.sv" \
 "../../../../sign_internal.srcs/sources_1/new/skDecode.sv" \
 "../../../../sign_internal.srcs/sources_1/new/swapbits.sv" \
 "../../../../sign_internal.srcs/sim_1/new/tb_sign.sv" \

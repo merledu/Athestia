@@ -17,3 +17,4 @@ source tb_Sample_in_ball.tcl
 relaunch_sim
 relaunch_sim
 relaunch_sim
+close_sim

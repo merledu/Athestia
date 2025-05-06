@@ -9,13 +9,13 @@ module HintBitPack_tb;
     logic clk;
     logic rst;
     logic  h[K-1:0][COEFF_WIDTH-1:0];
-    logic [7:0] y[W+K-1:0];
+    logic [663:0] y; //[W+K-1:0];
     logic startpin;
     logic endpin;
 
     HintBitPack #(
         .K(K),
-        .COEFF_WIDTH(COEFF_WIDTH),
+//        .COEFF_WIDTH(COEFF_WIDTH),
         .W(W)
     ) uut (
         .clk(clk),

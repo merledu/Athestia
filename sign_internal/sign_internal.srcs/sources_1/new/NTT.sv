@@ -9,10 +9,10 @@ endfunction
 
 
 module NTT #(
-    parameter int WIDTH = 23
+    parameter int WIDTH = 32
 )(
-    input logic signed [WIDTH-1:0] w [0:255],
-    output logic signed [31:0] w_hat [0:255],
+    input  logic signed [WIDTH-1:0] w     [0:255],
+    output logic signed [WIDTH-1:0] w_hat [0:255],
     input logic clk,
     input logic rst,
     input logic disabler,

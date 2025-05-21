@@ -13,7 +13,7 @@ module sign;
     // Clock generation
     initial begin
         clk = 0;
-        forever #0.01 clk = ~clk; // 100 MHz clock
+        forever #0.005 clk = ~clk; // 100 MHz clock
     end
 
     // DUT instantiation

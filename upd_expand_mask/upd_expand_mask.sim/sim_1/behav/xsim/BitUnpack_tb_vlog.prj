@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../upd_expand_mask.srcs/sources_1/new/bitUnpack.sv" \
+"../../../../upd_expand_mask.srcs/sources_1/new/swap.sv" \
+"../../../../upd_expand_mask.srcs/sim_1/new/tb_bp.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

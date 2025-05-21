@@ -1,0 +1,970 @@
+
+*** Running vivado
+    with args -log Expand_mask.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Expand_mask.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source Expand_mask.tcl -notrace
+create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 299.141 ; gain = 70.410
+Command: synth_design -top Expand_mask -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 13484 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 408.715 ; gain = 96.852
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Expand_mask' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/Expand_mask.sv:26]
+	Parameter gamma1 bound to: 32'sb00000000000000001100110100000111 
+	Parameter cols_l bound to: 32'sb00000000000000000000000000000111 
+INFO: [Synth 8-6157] synthesizing module 'sponge' [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:1]
+	Parameter msg_len bound to: 532 - type: integer 
+	Parameter d_len bound to: 5120 - type: integer 
+	Parameter capacity bound to: 512 - type: integer 
+	Parameter r bound to: 1088 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:32]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:33]
+INFO: [Synth 8-6157] synthesizing module 'keccak' [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Keccak.sv:23]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Keccak.sv:81]
+INFO: [Synth 8-6157] synthesizing module 'Rnd' [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Round.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'Theta' [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Theta.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'Theta' (1#1) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Theta.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'Rho' [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Rho.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Rho' (2#1) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Rho.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'Pi' [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Pi.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Pi' (3#1) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Pi.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'Chi' [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Chi.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'Chi' (4#1) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Chi.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'Iota' [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Iota.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Iota' (5#1) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Iota.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'Rnd' (6#1) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Round.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'keccak' (7#1) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Keccak.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'pad10_1' [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Pad10_1.sv:1]
+	Parameter x bound to: 1088 - type: integer 
+	Parameter m bound to: 532 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pad10_1' (8#1) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/Pad10_1.sv:1]
+WARNING: [Synth 8-3848] Net strEx2 in module/entity sponge does not have driver. [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:37]
+WARNING: [Synth 8-3848] Net strEx3 in module/entity sponge does not have driver. [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:38]
+INFO: [Synth 8-6155] done synthesizing module 'sponge' (9#1) [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'BitUnpack' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:8]
+	Parameter a bound to: 32'sb00000000000001111111111111111111 
+	Parameter b bound to: 32'sb00000000000010000000000000000000 
+	Parameter b_len bound to: 32'sb00000000000000000000000000010100 
+	Parameter w_len bound to: 32'sb00000000000000000000000000100000 
+INFO: [Synth 8-6157] synthesizing module 'SwapNibbles' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/swap.sv:1]
+	Parameter WIDTH bound to: 5120 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'SwapNibbles' (10#1) [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/swap.sv:1]
+WARNING: [Synth 8-87] always_comb on 'w_reg[0]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[1]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[2]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[3]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[4]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[5]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[6]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[7]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[8]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[9]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[10]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[11]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[12]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[13]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[14]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[15]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[16]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[17]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[18]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[19]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[20]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[21]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[22]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[23]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[24]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[25]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[26]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[27]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[28]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[29]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[30]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[31]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[32]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[33]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[34]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[35]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[36]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[37]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[38]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[39]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[40]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[41]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[42]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[43]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[44]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[45]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[46]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[47]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[48]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[49]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[50]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[51]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[52]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[53]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[54]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[55]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[56]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[57]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[58]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[59]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[60]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[61]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[62]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[63]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[64]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[65]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[66]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[67]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[68]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[69]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[70]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[71]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[72]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[73]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[74]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[75]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[76]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[77]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[78]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[79]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[80]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[81]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[82]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[83]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[84]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[85]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[86]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[87]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[88]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[89]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[90]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[91]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[92]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[93]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[94]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[95]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[96]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[97]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[98]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-87] always_comb on 'w_reg[99]' did not result in combinational logic [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+INFO: [Common 17-14] Message 'Synth 8-87' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'BitUnpack' (11#1) [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:8]
+WARNING: [Synth 8-6014] Unused sequential element count2_reg was removed.  [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/Expand_mask.sv:96]
+WARNING: [Synth 8-6014] Unused sequential element twobyte_reg was removed.  [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/Expand_mask.sv:99]
+INFO: [Synth 8-6155] done synthesizing module 'Expand_mask' (12#1) [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/Expand_mask.sv:26]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[31]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[30]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[29]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[28]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[27]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[26]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[25]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[24]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[23]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[22]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[21]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[20]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[19]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[18]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[17]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[16]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 687.137 ; gain = 375.273
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 687.137 ; gain = 375.273
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 687.137 ; gain = 375.273
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "round_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "outputt_reg[0][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[1][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[2][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[3][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[4][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[5][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[6][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[0]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[1]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[2]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[3]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[4]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[5]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[6]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[7]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[8]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[9]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[10]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[11]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[12]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[13]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[14]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[15]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[16]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[17]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[18]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[19]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[20]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[21]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[22]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[23]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[24]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[25]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[26]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[27]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[28]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[29]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[30]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[31]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[32]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[33]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[34]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[35]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[36]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[37]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[38]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[39]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[40]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[41]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[42]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[43]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[44]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[45]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[46]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[47]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[48]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[49]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[50]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[51]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[52]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[53]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[54]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[55]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[56]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[57]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[58]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[59]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[60]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[61]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[62]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[63]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[64]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[65]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[66]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[67]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[68]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[69]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[70]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[71]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[72]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[73]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[74]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[75]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[76]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[77]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[78]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[79]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[80]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[81]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[82]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[83]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[84]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[85]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[86]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[87]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[88]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[89]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[90]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[91]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[92]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[93]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[94]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[95]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[96]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[97]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[98]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg[99]' [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/bitUnpack.sv:29]
+INFO: [Common 17-14] Message 'Synth 8-327' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:03 ; elapsed = 00:01:02 . Memory (MB): peak = 803.152 ; gain = 491.289
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |keccak            |           8|     14563|
+|2     |sponge__GC0       |           1|     20387|
+|3     |BitUnpack__GB0    |           1|     19962|
+|4     |BitUnpack__GB1    |           1|      4350|
+|5     |BitUnpack__GB2    |           1|      6030|
+|6     |BitUnpack__GB3    |           1|      7290|
+|7     |Expand_mask__GCB0 |           1|     27776|
+|8     |Expand_mask__GCB1 |           1|     19901|
+|9     |Expand_mask__GCB2 |           1|     21056|
++------+------------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register h_reg [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:106]
+INFO: [Synth 8-3538] Detected potentially large (wide) register z_reg [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:107]
+INFO: [Synth 8-3538] Detected potentially large (wide) register in_reg [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/Expand_mask.sv:77]
+INFO: [Synth 8-3538] Detected potentially large (wide) register sn_reg [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/Expand_mask.sv:83]
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 256   
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 8     
++---XORs : 
+	   5 Input     64 Bit         XORs := 40    
+	   2 Input     64 Bit         XORs := 448   
++---Registers : 
+	             7617 Bit    Registers := 1     
+	             5120 Bit    Registers := 3     
+	              528 Bit    Registers := 1     
+	               64 Bit    Registers := 208   
+	               32 Bit    Registers := 1792  
+	                5 Bit    Registers := 8     
+	                1 Bit    Registers := 13    
++---Muxes : 
+	   2 Input   1088 Bit        Muxes := 7     
+	   2 Input     64 Bit        Muxes := 200   
+	   2 Input      5 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 24    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3538] Detected potentially large (wide) register h_reg [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:106]
+INFO: [Synth 8-3538] Detected potentially large (wide) register z_reg [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:107]
+INFO: [Synth 8-3538] Detected potentially large (wide) register in_reg [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/Expand_mask.sv:77]
+INFO: [Synth 8-3538] Detected potentially large (wide) register sn_reg [C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.srcs/sources_1/new/Expand_mask.sv:83]
+Hierarchical RTL Component report 
+Module Expand_mask 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 1     
++---Registers : 
+	             5120 Bit    Registers := 2     
+	              528 Bit    Registers := 1     
+	               32 Bit    Registers := 1792  
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 8     
+Module Theta 
+Detailed RTL Component Info : 
++---XORs : 
+	   5 Input     64 Bit         XORs := 5     
+	   2 Input     64 Bit         XORs := 30    
+Module Chi 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     64 Bit         XORs := 25    
+Module Iota 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     64 Bit         XORs := 1     
+Module keccak 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               64 Bit    Registers := 26    
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 25    
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module sponge 
+Detailed RTL Component Info : 
++---Registers : 
+	             7617 Bit    Registers := 1     
+	             5120 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input   1088 Bit        Muxes := 7     
+Module BitUnpack 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 256   
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[31]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[30]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[29]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[28]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[27]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[26]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[25]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[24]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[23]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[22]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[21]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[20]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[19]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[18]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[17]
+WARNING: [Synth 8-3331] design Expand_mask has unconnected port k[16]
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][20]' (LD) to 'bpi_5/w_reg[166][21]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][21]' (LD) to 'bpi_5/w_reg[166][22]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][22]' (LD) to 'bpi_5/w_reg[166][23]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][23]' (LD) to 'bpi_5/w_reg[166][24]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][24]' (LD) to 'bpi_5/w_reg[166][25]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][25]' (LD) to 'bpi_5/w_reg[166][26]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][26]' (LD) to 'bpi_5/w_reg[166][27]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][27]' (LD) to 'bpi_5/w_reg[166][28]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][28]' (LD) to 'bpi_5/w_reg[166][29]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][29]' (LD) to 'bpi_5/w_reg[166][30]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[166][30]' (LD) to 'bpi_5/w_reg[166][31]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][20]' (LD) to 'bpi_5/w_reg[75][21]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][21]' (LD) to 'bpi_5/w_reg[75][22]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][22]' (LD) to 'bpi_5/w_reg[75][23]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][23]' (LD) to 'bpi_5/w_reg[75][24]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][24]' (LD) to 'bpi_5/w_reg[75][25]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][25]' (LD) to 'bpi_5/w_reg[75][26]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][26]' (LD) to 'bpi_5/w_reg[75][27]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][27]' (LD) to 'bpi_5/w_reg[75][28]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][28]' (LD) to 'bpi_5/w_reg[75][29]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][29]' (LD) to 'bpi_5/w_reg[75][30]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[75][30]' (LD) to 'bpi_5/w_reg[75][31]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][20]' (LD) to 'bpi_5/w_reg[84][21]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][21]' (LD) to 'bpi_5/w_reg[84][22]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][22]' (LD) to 'bpi_5/w_reg[84][23]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][23]' (LD) to 'bpi_5/w_reg[84][24]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][24]' (LD) to 'bpi_5/w_reg[84][25]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][25]' (LD) to 'bpi_5/w_reg[84][26]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][26]' (LD) to 'bpi_5/w_reg[84][27]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][27]' (LD) to 'bpi_5/w_reg[84][28]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][28]' (LD) to 'bpi_5/w_reg[84][29]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][29]' (LD) to 'bpi_5/w_reg[84][30]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[84][30]' (LD) to 'bpi_5/w_reg[84][31]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][20]' (LD) to 'bpi_5/w_reg[127][21]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][21]' (LD) to 'bpi_5/w_reg[127][22]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][22]' (LD) to 'bpi_5/w_reg[127][23]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][23]' (LD) to 'bpi_5/w_reg[127][24]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][24]' (LD) to 'bpi_5/w_reg[127][25]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][25]' (LD) to 'bpi_5/w_reg[127][26]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][26]' (LD) to 'bpi_5/w_reg[127][27]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][27]' (LD) to 'bpi_5/w_reg[127][28]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][28]' (LD) to 'bpi_5/w_reg[127][29]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][29]' (LD) to 'bpi_5/w_reg[127][30]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[127][30]' (LD) to 'bpi_5/w_reg[127][31]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][20]' (LD) to 'bpi_5/w_reg[211][21]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][21]' (LD) to 'bpi_5/w_reg[211][22]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][22]' (LD) to 'bpi_5/w_reg[211][23]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][23]' (LD) to 'bpi_5/w_reg[211][24]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][24]' (LD) to 'bpi_5/w_reg[211][25]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][25]' (LD) to 'bpi_5/w_reg[211][26]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][26]' (LD) to 'bpi_5/w_reg[211][27]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][27]' (LD) to 'bpi_5/w_reg[211][28]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][28]' (LD) to 'bpi_5/w_reg[211][29]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][29]' (LD) to 'bpi_5/w_reg[211][30]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[211][30]' (LD) to 'bpi_5/w_reg[211][31]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][20]' (LD) to 'bpi_5/w_reg[210][21]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][21]' (LD) to 'bpi_5/w_reg[210][22]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][22]' (LD) to 'bpi_5/w_reg[210][23]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][23]' (LD) to 'bpi_5/w_reg[210][24]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][24]' (LD) to 'bpi_5/w_reg[210][25]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][25]' (LD) to 'bpi_5/w_reg[210][26]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][26]' (LD) to 'bpi_5/w_reg[210][27]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][27]' (LD) to 'bpi_5/w_reg[210][28]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][28]' (LD) to 'bpi_5/w_reg[210][29]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][29]' (LD) to 'bpi_5/w_reg[210][30]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[210][30]' (LD) to 'bpi_5/w_reg[210][31]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][20]' (LD) to 'bpi_5/w_reg[130][21]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][21]' (LD) to 'bpi_5/w_reg[130][22]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][22]' (LD) to 'bpi_5/w_reg[130][23]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][23]' (LD) to 'bpi_5/w_reg[130][24]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][24]' (LD) to 'bpi_5/w_reg[130][25]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][25]' (LD) to 'bpi_5/w_reg[130][26]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][26]' (LD) to 'bpi_5/w_reg[130][27]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][27]' (LD) to 'bpi_5/w_reg[130][28]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][28]' (LD) to 'bpi_5/w_reg[130][29]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][29]' (LD) to 'bpi_5/w_reg[130][30]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[130][30]' (LD) to 'bpi_5/w_reg[130][31]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][20]' (LD) to 'bpi_5/w_reg[131][21]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][21]' (LD) to 'bpi_5/w_reg[131][22]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][22]' (LD) to 'bpi_5/w_reg[131][23]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][23]' (LD) to 'bpi_5/w_reg[131][24]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][24]' (LD) to 'bpi_5/w_reg[131][25]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][25]' (LD) to 'bpi_5/w_reg[131][26]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][26]' (LD) to 'bpi_5/w_reg[131][27]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][27]' (LD) to 'bpi_5/w_reg[131][28]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][28]' (LD) to 'bpi_5/w_reg[131][29]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][29]' (LD) to 'bpi_5/w_reg[131][30]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[131][30]' (LD) to 'bpi_5/w_reg[131][31]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][20]' (LD) to 'bpi_5/w_reg[132][21]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][21]' (LD) to 'bpi_5/w_reg[132][22]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][22]' (LD) to 'bpi_5/w_reg[132][23]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][23]' (LD) to 'bpi_5/w_reg[132][24]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][24]' (LD) to 'bpi_5/w_reg[132][25]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][25]' (LD) to 'bpi_5/w_reg[132][26]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][26]' (LD) to 'bpi_5/w_reg[132][27]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][27]' (LD) to 'bpi_5/w_reg[132][28]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][28]' (LD) to 'bpi_5/w_reg[132][29]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][29]' (LD) to 'bpi_5/w_reg[132][30]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[132][30]' (LD) to 'bpi_5/w_reg[132][31]'
+INFO: [Synth 8-3886] merging instance 'bpi_5/w_reg[133][20]' (LD) to 'bpi_5/w_reg[133][21]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[555] driven by constant 1
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[554] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[553] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[552] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[551] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[550] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[549] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[548] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[547] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[546] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[545] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[544] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[543] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[542] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[541] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[540] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[539] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[538] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[537] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[536] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[535] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[534] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[533] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[532] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[531] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[530] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[529] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[528] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[527] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[526] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[525] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[524] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[523] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[522] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[521] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[520] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[519] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[518] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[517] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[516] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[515] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[514] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[513] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[512] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[511] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[510] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[509] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[508] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[507] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[506] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[505] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[504] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[503] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[502] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[501] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[500] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[499] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[498] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[497] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[496] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[495] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[494] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[493] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[492] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[491] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[490] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[489] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[488] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[487] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[486] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[485] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[484] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[483] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[482] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[481] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[480] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[479] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[478] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[477] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[476] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[475] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[474] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[473] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[472] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[471] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[470] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[469] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[468] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[467] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[466] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[465] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[464] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[463] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[462] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[461] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[460] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[459] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[458] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[457] driven by constant 0
+WARNING: [Synth 8-3917] design sponge__GC0 has port p[456] driven by constant 0
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5545] ROM "outputt_reg[3][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[5][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[2][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[6][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[4][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[1][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "outputt_reg[0][0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:57 ; elapsed = 00:02:25 . Memory (MB): peak = 803.152 ; gain = 491.289
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |keccak            |           8|     13032|
+|2     |sponge__GC0       |           1|     15394|
+|3     |BitUnpack__GB0    |           1|      6428|
+|4     |BitUnpack__GB1    |           1|      1326|
+|5     |BitUnpack__GB2    |           1|      1818|
+|6     |BitUnpack__GB3    |           1|      2246|
+|7     |Expand_mask__GCB0 |           1|     27776|
+|8     |Expand_mask__GCB1 |           1|     19432|
+|9     |Expand_mask__GCB2 |           1|     21056|
++------+------------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][63]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][62]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][61]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][60]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][59]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][58]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][57]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][56]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][55]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][54]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][53]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][52]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][51]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][50]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][49]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][48]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][47]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][46]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][45]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][44]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][43]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][42]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][41]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][40]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][39]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][38]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][37]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][36]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][35]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][34]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][33]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][32]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][31]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][30]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][29]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][28]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][27]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][26]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][25]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][24]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][23]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][22]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][21]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][20]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][19]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][18]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][17]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][16]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][15]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][14]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][13]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][12]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][11]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][10]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][9]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][8]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][7]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][6]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][5]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][4]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][3]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][2]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][1]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][0][0]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][63]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][62]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][61]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][60]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][59]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][58]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][57]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][56]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][55]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][54]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][53]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][52]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][51]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][50]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][49]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][48]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][47]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][46]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][45]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][44]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][43]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][42]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][41]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][40]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][39]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][38]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][37]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][36]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][35]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][34]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][33]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][32]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][31]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][30]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][29]) is unused and will be removed from module keccak__4.
+WARNING: [Synth 8-3332] Sequential element (temp_in_reg[0][1][28]) is unused and will be removed from module keccak__4.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:17 ; elapsed = 00:02:45 . Memory (MB): peak = 830.594 ; gain = 518.730
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |keccak            |           1|     10894|
+|2     |sponge__GC0       |           1|     15394|
+|3     |BitUnpack__GB0    |           1|      6406|
+|4     |BitUnpack__GB1    |           1|      1326|
+|5     |BitUnpack__GB2    |           1|      1817|
+|6     |BitUnpack__GB3    |           1|      2246|
+|7     |Expand_mask__GCB0 |           1|     18228|
+|8     |Expand_mask__GCB1 |           1|     16506|
+|9     |Expand_mask__GCB2 |           1|     13818|
+|10    |keccak__1         |           1|      9832|
+|11    |keccak__2         |           3|     13032|
+|12    |keccak__3         |           1|     13032|
+|13    |keccak__4         |           1|       158|
+|14    |keccak__5         |           1|       157|
++------+------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:54 ; elapsed = 00:03:26 . Memory (MB): peak = 873.406 ; gain = 561.543
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |keccak            |           1|      6614|
+|2     |sponge__GC0       |           1|     15370|
+|3     |BitUnpack__GB0    |           1|      6406|
+|4     |BitUnpack__GB1    |           1|      1326|
+|5     |BitUnpack__GB2    |           1|      1817|
+|6     |BitUnpack__GB3    |           1|      2246|
+|7     |Expand_mask__GCB0 |           1|     18228|
+|8     |Expand_mask__GCB1 |           1|     16468|
+|9     |Expand_mask__GCB2 |           1|     13818|
+|10    |keccak__1         |           1|      6038|
+|11    |keccak__2         |           3|      6806|
+|12    |keccak__3         |           1|      5974|
+|13    |keccak__4         |           1|        84|
+|14    |keccak__5         |           1|        82|
++------+------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:03:20 ; elapsed = 00:03:53 . Memory (MB): peak = 968.324 ; gain = 656.461
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:23 ; elapsed = 00:03:56 . Memory (MB): peak = 968.324 ; gain = 656.461
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:31 ; elapsed = 00:04:04 . Memory (MB): peak = 968.324 ; gain = 656.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:32 ; elapsed = 00:04:05 . Memory (MB): peak = 968.324 ; gain = 656.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:35 ; elapsed = 00:05:09 . Memory (MB): peak = 968.324 ; gain = 656.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:37 ; elapsed = 00:05:11 . Memory (MB): peak = 968.324 ; gain = 656.461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |  1296|
+|3     |LUT1   |  5714|
+|4     |LUT2   |  3308|
+|5     |LUT3   | 15136|
+|6     |LUT4   |  2114|
+|7     |LUT5   | 10980|
+|8     |LUT6   |  1870|
+|9     |FDCE   | 20400|
+|10    |FDRE   | 48436|
+|11    |LD     |  5376|
+|12    |IBUF   |   530|
+|13    |OBUF   | 57344|
++------+-------+------+
+
+Report Instance Areas: 
++------+----------------+----------+-------+
+|      |Instance        |Module    |Cells  |
++------+----------------+----------+-------+
+|1     |top             |          | 172506|
+|2     |  bp            |BitUnpack |  11776|
+|3     |  shake         |sponge    |  54341|
+|4     |    kp          |keccak    |   6614|
+|5     |      u_Rnd     |Rnd_15    |   1728|
+|6     |        u_theta |Theta_16  |   1728|
+|7     |    kp1         |keccak_0  |   7894|
+|8     |      u_Rnd     |Rnd_13    |   1920|
+|9     |        u_theta |Theta_14  |   1920|
+|10    |    kp2         |keccak_1  |   7894|
+|11    |      u_Rnd     |Rnd_11    |   1920|
+|12    |        u_theta |Theta_12  |   1920|
+|13    |    kp3         |keccak_2  |   7894|
+|14    |      u_Rnd     |Rnd_9     |   1920|
+|15    |        u_theta |Theta_10  |   1920|
+|16    |    kp4         |keccak_3  |   7063|
+|17    |      u_Rnd     |Rnd_7     |   1600|
+|18    |        u_theta |Theta_8   |   1600|
+|19    |    kp5         |keccak_4  |   5975|
+|20    |      u_Rnd     |Rnd       |   1920|
+|21    |        u_theta |Theta     |   1920|
+|22    |    kp6         |keccak_5  |     84|
+|23    |    kp7         |keccak_6  |     82|
++------+----------------+----------+-------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:37 ; elapsed = 00:05:11 . Memory (MB): peak = 968.324 ; gain = 656.461
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3849 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:04:37 ; elapsed = 00:05:12 . Memory (MB): peak = 968.324 ; gain = 656.461
+Synthesis Optimization Complete : Time (s): cpu = 00:04:37 ; elapsed = 00:05:12 . Memory (MB): peak = 968.324 ; gain = 656.461
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 7202 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 3 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 5376 instances were transformed.
+  LD => LDCE: 5376 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+167 Infos, 436 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:05:38 ; elapsed = 00:06:16 . Memory (MB): peak = 1265.848 ; gain = 966.707
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.runs/synth_1/Expand_mask.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 1268.832 ; gain = 2.984
+INFO: [runtcl-4] Executing : report_utilization -file Expand_mask_utilization_synth.rpt -pb Expand_mask_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1268.832 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 15 23:45:48 2025...

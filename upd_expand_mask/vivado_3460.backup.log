@@ -1,0 +1,51 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Mar 13 00:57:56 2025
+# Process ID: 3460
+# Current directory: C:/Users/Wasif Hassan/Desktop/upd_expand_mask
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2876 C:\Users\Wasif Hassan\Desktop\upd_expand_mask\upd_expand_mask.xpr
+# Log file: C:/Users/Wasif Hassan/Desktop/upd_expand_mask/vivado.log
+# Journal file: C:/Users/Wasif Hassan/Desktop/upd_expand_mask\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:12 . Memory (MB): peak = 860.984 ; gain = 154.227
+update_compile_order -fileset sources_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'Expand_mask_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj Expand_mask_tb_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 8f3526fcc20d444d9712250c57bee6ab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot Expand_mask_tb_behav xil_defaultlib.Expand_mask_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-597] element index 2175 into k is out of bounds [C:/Users/Wasif Hassan/Desktop/Expand_mask/Expand_mask.srcs/sources_1/new/shake.sv:94]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+ERROR: [XSIM 43-3356]  Could not open file xsim.dir/Expand_mask_tb_behav/xsim.type for writing.
+ERROR: [XSIM 43-3915] Encountered a fatal error. Cannot continue. Exiting... 
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/Wasif Hassan/Desktop/upd_expand_mask/upd_expand_mask.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 868.664 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 13 01:04:26 2025...

@@ -1,0 +1,4 @@
+Running: xsim.dir/Expand_mask_tb_behav/xsimk.exe -simmode gui -wdb Expand_mask_tb_behav.wdb -simrunnum 0 -socket 63470
+Design successfully loaded
+Design Loading Memory Usage: 6676 KB (Peak: 6676 KB)
+Design Loading CPU Usage: 15 ms

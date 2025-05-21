@@ -1,7 +1,0 @@
-Running: xsim.dir/sponge_behav/xsimk.exe -simmode gui -wdb sponge_behav.wdb -simrunnum 0 -socket 62005
-Design successfully loaded
-Design Loading Memory Usage: 6780 KB (Peak: 6780 KB)
-Design Loading CPU Usage: 46 ms
-Simulation completed
-Simulation Memory Usage: 7668 KB (Peak: 7668 KB)
-Simulation CPU Usage: 62 ms

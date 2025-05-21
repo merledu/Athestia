@@ -1,7 +1,0 @@
-Running: xsim.dir/BitUnpack_tb_behav/xsimk.exe -simmode gui -wdb BitUnpack_tb_behav.wdb -simrunnum 0 -socket 60177
-Design successfully loaded
-Design Loading Memory Usage: 6116 KB (Peak: 6116 KB)
-Design Loading CPU Usage: 46 ms
-Simulation completed
-Simulation Memory Usage: 7120 KB (Peak: 7120 KB)
-Simulation CPU Usage: 46 ms

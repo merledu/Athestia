@@ -11,7 +11,7 @@ input clk,
 input rst,
  input logic [511:0] rho_double_prime,
  input logic [31:0]  k,
- output logic signed [31:0] outputt [0:l-1] [0:255],
+ output logic [31:0] outputt [0:6] [0:255],
  output logic done 
 );
 logic h_done;
@@ -34,7 +34,7 @@ logic [5119:0]sn;
 logic[5119:0] sout;
 
 //logic h_don;
-sponge #(
+expandmask_shake #(
 .msg_len(512+16+4),
 .d_len(5120),
 //.d_len(690),
@@ -49,7 +49,7 @@ sponge #(
 .done(h_done)) ;
 
 
- BitUnpack2 #(
+ BitUnpack3 #(
  .a(524287),
  .b(524288),
  .b_len(($clog2((gamma1-1) + (gamma1))+3)),
@@ -71,7 +71,12 @@ always_ff @(posedge clk  ) begin
     shk_strt <=0;
      shk_reset <=1; 
      bp_strt <= 0 ;
-     count2 <= 0;
+     done <= 0;
+     for (int i=0; i<=6; i++)begin
+        for (int j = 0; j<= 255; j++ )begin
+            outputt[i][j] <= 0;
+        end
+     end 
 //     hash <=0;  
  end
  else if (!rst && count <= 8) begin
@@ -87,7 +92,7 @@ always_ff @(posedge clk  ) begin
        
            end 
            h_done2 <=  h_done==1;     
-        if (h_done2==1 && count <= l+1 && shk_strt) begin
+        if (h_done2==1 && count <= 8 && shk_strt) begin
                          sn <= hash;
                           bp_strt <= 1;
                          in <= sout;
@@ -105,7 +110,7 @@ always_ff @(posedge clk  ) begin
 //                            if (shk_strt== 0) begin    
                            count <= count + 1;
 //                           end
- if (count ==l+1) begin
+ if (count ==8) begin
  done <= 1;
  end
  else begin

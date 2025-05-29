@@ -1,15 +1,26 @@
 `timescale 1ns / 1ps
 import Dilithium_pkg::*;
 
-function automatic logic [23:0] extend_bits(
-    input logic [13:0] value,  // Handles both 4-bit and 14-bit inputs
-    input bit is_signed
+function automatic signed [31:0] modpm(input signed [31:0] m, input signed [31:0] alpha);
+            logic signed [31:0] half_alpha;
+            begin
+                half_alpha = alpha >>> 1; // alpha // 2
+                modpm = -(compute_remainder5((half_alpha - m) , alpha)) + half_alpha;
+            end
+        endfunction
+
+
+function automatic logic [31:0] extend_bits(
+    input logic [13:0] value,       // Input value (up to 14 bits)
+    input bit is_signed            // 1 = signed extension, 0 = zero extension
+    
 );
-    logic [23:0] extended_value;
-    extended_value[13:0]  = value;  // Assign directly (works for both cases)
-    extended_value[23:14] = is_signed ? {10{value[13]}} : 10'b0; // Sign or zero extension
-    return extended_value;
+    logic sign_bit;
+    sign_bit = is_signed ? value[14 - 1] : 1'b0;
+    return {{(32 - 14){sign_bit}}, value[14 - 1:0]};
 endfunction
+
+
 
 function automatic logic [31:0] extend_bits2(
     input logic [1:0] value,  // Handles both 4-bit and 14-bit inputs
@@ -18,6 +29,16 @@ function automatic logic [31:0] extend_bits2(
     logic [31:0] extended_value;
     extended_value[1:0]  = value;  // Assign directly (works for both cases)
     extended_value[31:2] = is_signed ? {30{value[1]}} : 30'b0; // Sign or zero extension
+    return extended_value;
+endfunction
+
+function automatic logic [31:0] extend_bits3(
+    input logic [3:0] value,  // Handles both 4-bit and 14-bit inputs
+    input bit is_signed
+);
+    logic [31:0] extended_value;
+    extended_value[3:0]  = value;  // Assign directly (works for both cases)
+    extended_value[31:2] = is_signed ? {30{value[3]}} : 30'b0; // Sign or zero extension
     return extended_value;
 endfunction
 
@@ -32,21 +53,21 @@ module sign_internal2
                                          + (Dilithium_pkg::d * Dilithium_pkg::k))) - 1 : 0] sk,
     input  logic [(16+(ctx_len*8)+(msg_len*8))-1:0] msg,
     input  logic [(rnd_len*8)-1:0] rnd,                                                                           
-    input  clk,
-    input  rst      
+    input  logic clk,
+    input  logic rst,
+    output logic [37015:0] sign
 );    
-    logic skdone, initiator, nttdone, rst_ntt, ntt_disabler, s1_ntt_done, s2_ntt_done, shakeRst2, shakeDone2,w_ntt_inv_done,w1encode_done,shakeRst3,shakeDone3,Sampleinball_rst,poly_multiplier_done;
-    logic expandmask_rst, expandmask_done, nttinv_rst, inv_disabler, nttinv_done, t0_ntt_done, y_ntt_done, w_ntt_done, expanda_done,decompose_w_done,Sampleinball_done,v_c_hat_done,poly_done,cs1_done;
+    logic skdone, initiator, nttdone, rst_ntt, ntt_disabler, s1_ntt_done, s2_ntt_done, shakeRst2, shakeDone2,w_ntt_inv_done,w1encode_done,shakeRst3,shakeDone3,Sampleinball_rst,poly_multiplier_done,mul_rst_s1,mul_done2,signers_rst,compute_r0_done,norm_done,norm_condition_check,compute_w_rst,highbits_done,w1_rst,prev_w1_done,hash_rst,ball_done,inntt_done,ins1_rst,ins2_done,incsigners_done,inccompute_done,new_ntt,int0_rst,hint_done,sign_done;
+    logic expandmask_rst, expandmask_done, nttinv_rst, inv_disabler, nttinv_done, t0_ntt_done, y_ntt_done, w_ntt_done, expanda_done,decompose_w_done,Sampleinball_done,v_c_hat_done,poly_done,cs1_done,mul_done,mul_rst_s2,signers_done,compute_r0_rst,norm_rst,if_done,if_rst,y_rst,y_done,compute_w_done,highbits_rst,w1_done,hash_done,ball_rst,inntt_rst,ins1_done,ins2_rst,incsigners_rst,inccompute_rst,final_condition,int0_done,hint_rst,sign_rst;
     logic signed [31:0] expandmask_output [0:l-1] [0:255];
-    logic signed [31:0] expandmask_output2 [0:l-1] [0:255] = '{'{-517093, -117469, -450538, 446415, -56282, 487574, 504295, -298334, -287820, -59252, -343617, 443080, -386079, 212586, 296703, 29121, 264205, -9221, -364136, -504348, -522692, 283968, -53343, 207628, 434610, 275619, 236524, -425194, -464995, 164204, 300180, -524082, 323742, 240125, 283661, 145533, -346461, 140190, 317903, -353061, 507427, 244559, 462286, 44599, -513934, 327215, -12601, -501294, -398565, -60694, 349755, -291660, -34315, -85125, -466336, 285766, -442165, -303678, 450336, -409032, -522031, 164540, -216488, -383560, 483865, -214641, 77972, 246652, -30166, 105204, 365815, -2559, -327423, -507812, 55456, 449308, -267313, 63766, 31498, -4752, -62271, 130537, 123511, 425817, -471467, -429672, -110214, -453911, 224651, -398194, 178595, -179860, 255280, -9018, 347892, -407315, 378845, -98469, -217128, 395067, 258297, 485491, -272178, -81307, -417024, -192404, 364308, -336505, 88502, 483951, -288050, 194111, 32754, -408735, 470297, -4700, 90166, -465762, -114355, -100535, 442136, -317682, -359991, 199668, -129590, 106955, 70327, 160003, 318552, 397829, 377165, 313869, -45918, -182455, -354120, 29507, -201197, 93053, 476562, 488211, 81040, -422509, 437550, 306352, 116550, -403017, 490021, 516981, 52372, 312027, 185706, -87860, -83524, 74657, -515991, -445277, 324912, 66243, 392249, -321244, -434354, -486034, -63845, 395512, 116448, -479641, -285837, 85128, -454872, 252630, 506567, 111934, -146493, -74798, -444313, -192943, 278735, -215575, 481125, 61964, 3182, -174150, 164850, 150850, 58540, -140626, 297275, -450020, 120919, 19701, -404572, -143220, 294562, 110920, 394570, 54898, -124952, -502475, 514060, 363894, 41820, -482743, -301639, -132398, -431267, -450184, 479802, 61528, 426148, -421250, 434626, 205952, 322169, 199944, 191991, -505941, -64672, -466549, 484365, 410272, -364590, -445509, -81487, 257257, 314770, 410865, 191874, 109685, 297793, -163524, 503423, 33649, -228338, -315943, 36618, 368363, 16106, -307586, -132147, 185693, 137014, -3218, 303292, -300558, -452807, -363223, 46909, 25468, -415126, 179896, -498504, 452336, -142505, -106188, -191579, -366494}, '{421226, -349206, -393480, 466051, 232109, -481225, -244979, 467869, -95794, 150428, -149896, -183607, -505067, -50037, -201497, -372901, 147195, 258360, -31920, -239223, -203739, 196556, -495458, -304853, -290400, 298630, -201495, -506726, 423993, -451978, 359933, -507505, -307229, 353059, 298738, 480766, -338143, 156012, 70190, 399929, -30039, -462616, 26947, -125203, 444246, 28975, -121455, -247102, 475059, 460975, -1755, -134422, -167055, 443151, -333950, 330737, -200823, -192951, 303359, -194109, -106270, 248886, 305694, -309307, -6939, -64262, 289201, -22665, 437924, -146443, 87053, -248438, -522936, 250724, -486894, 266584, 520830, 223033, -235177, -511250, 390654, 104831, 282837, 289194, 379902, 418792, 125666, 116866, -329774, 516309, -92719, 22845, 150077, 193207, 389514, 163267, -441874, 176584, -123941, -355414, -422735, 313481, 259241, -74702, -312449, 288247, -435157, -281077, 316426, 17535, 498169, 38790, 225003, 218564, -264684, -264850, -264759, -87811, -95550, 416168, 180711, 183526, 372811, 285835, -189686, 495398, 48748, -97390, 438733, 507286, 91984, 46291, 447866, 204412, -338538, -224193, -176822, -241289, 247568, -306063, -378409, 241442, -205355, -158726, -247203, 424435, -260622, 297640, -101421, -232377, -457186, -142243, 395545, -410206, -280998, -153198, -442719, -7499, 434029, 196465, -204220, 31099, -196930, -186042, 189068, 483, 286109, 436391, -10068, 172578, -102566, 509580, -425785, 279463, 444007, 14905, 108297, -154857, 336136, 60158, 485113, -45849, -337814, -83996, -41412, -219308, -102278, -259141, -514384, -90489, 20747, -127423, 466861, -251515, -427278, 452330, 265140, -98579, 82155, -178645, 378108, -477663, 407124, -74258, 256826, 100467, 117220, -297871, 68570, 355463, -46236, 39806, -303943, 169053, 78864, 220875, 125633, 269058, 227840, 393237, -228582, -452817, -196038, -399501, 344446, -299890, 476990, -25001, 372371, 494426, -17975, -358663, 21724, -362185, 246988, -223136, 406082, -135048, 53656, -405225, -429672, -438276, -441874, -384269, 
-        -507284, 101676, -126513, -225488, -283176, 425950, -74499, 210867, -182000, -475241, -124388, 65098}, '{-295046, 465185, 277218, -337557, 233580, -142863, 224955, -363971, -508342, -99, -515138, 193192, -399662, 65388, -88030, -460183, 420215, -163892, -420394, 181276, 135683, 404479, 91158, -477767, -319213, 432778, -443078, 300886, 321985, -332964, -155976, -400964, -378068, 158006, -226381, 399395, -113169, -499189, 332846, -390830, 84851, -51581, -303219, 424325, 487252, 414643, 240365, -48273, 419167, 444170, 208279, -130165, 506323, 486573, 465169, -407986, 479918, 45736, -233921, -215864, -84744, 107888, 263379, 160011, 148111, -396280, -139587, 508294, -149201, 136430, 521857, -511540, -39856, -35924, -119344, -317532, 35502, 204565, -12940, 394468, -186287, 24884, 314394, -27243, 108447, -94398, 208069, 494952, 16076, 298540, -90108, 246080, 293976, 486524, 124749, -62521, 141892, 216411, -153155, -371659, 171973, -406150, -460240, 95559, 389059, -317728, 170827, -360101, -270455, 55133, -420986, -403432, -62155, -147543, 202566, 73361, 460888, -231565, -42037, 380121, 175352, 393858, -507908, -274519, -254822, -294644, 72466, 510796, -180268, -108478, -46347, -436388, -134252, 274933, -30144, -423515, 74089, 42215, -490053, 358807, -143480, 97514, -340940, -204787, 298848, -164303, -218926, -288210, -219286, -196715, -389724, 181449, 495661, -31980, -236050, 391131, 87045, 204082, -356778, 49882, 409316, 89388, 17860, -173658, 174256, 522913, 481154, 98697, -487506, -365535, -461483, 357159, -141510, -150727, -20726, 399121, -131176, 131761, 468225, -218881, -174028, 62461, 190802, -296211, -366879, -339163, 505618, 165099, 478699, -76519, 364483, -212073, 177304, 348641, 312055, 182673, 220661, -125477, 66874, 299761, 359961, 320922, 179731, 487480, 326521, 52891, 51871, -43282, -78423, 74972, 56999, 6064, -249578, -242449, 71381, -382335, -93533, 219972, 173697, -427463, -205758, 195555, 342739, -457961, 438975, -462809, -157161, -38179, 159509, 409142, -33856, 515057, -420711, 513612, 100621, 122099, 6604, -134662, -454425, -205693, -260564, -194612, 66391, -498665, -84134, -41402, -85017, 257116, 42947, 343417, -466927, -4989, -207227, -264453, -357442, -134176}, '{384917, -258748, 176053, 327602, -169246, -334087, 234581, 519313, -474537, -305621, -259562, 447661, -290235, -125024, -92160, 165957, -49441, -134049, 14741, -298675, 457275, -435909, -125906, 30519, -447043, -522871, 242837, -237245, 212770, 118619, -494961, 47998, 382227, 297558, -259107, 340712, 327729, 250641, -477993, 88702, 343507, -123674, 439391, -430181, -289631, 310098, 33691, -209360, -457417, -23043, -350609, 431414, 317176, 109165, -30899, 459200, -222293, 283571, -221306, -470443, -184927, 126874, -222212, 450108, -60889, 319884, 83266, -27941, 53484, -110861, 450500, -223462, 103888, 185707, -25189, 509024, 225337, -203544, 316842, 282866, -215837, 459669, 411181, -239392, 31711, 264187, -489229, 56736, 87176, 442630, 436648, 296029, 468982, -509130, -517744, -360703, -162435, -187023, -132986, -28778, -448018, -9827, 13553, 410498, 210226, 277053, -174702, 215884, -225840, 98343, -255502, -96000, 411834, 452069, -421580, 329030, -246870, 239854, 225648, -368163, -69665, -299192, -194658, -199312, 385276, -98763, 383122, -379976, 460884, -410678, -435005, -1204, 502650, 401141, -216741, -268862, -284117, 63859, -306330, 79902, 60978, 111424, 206565, 484022, 376089, 506229, 291242, -394880, 86628, 199396, 32111, -199890, -468997, 202681, 246338, -382853, -64653, -25617, 116149, -172652, -103312, -306376, -442646, 149886, -8977, -270157, 218544, 
-        -280253, -261404, -292745, -285463, 276272, -266109, 133561, 264974, -445820, 143881, 338264, -414797, -291933, -244646, 108592, -383376, -447162, 36230, 24219, 350345, -447536, 457794, -445105, 461622, 17172, 233767, -213048, -234452, 83931, 282185, -240547, 177495, -29290, 430103, -326852, -166527, -21860, -156470, 202145, -143216, -153818, 464103, 369768, -369279, 83473, 192915, -74112, -476358, 189548, 10247, -410713, 129828, -269025, -158477, 273052, 363587, 85655, 165401, 146249, 159201, -126875, -240005, -386447, 108742, -380474, -172561, -78467, 14565, 377632, 309243, -82237, -461710, 149498, -236300, 487759, 274941, -468919, 245, 265432, -503454, -179593, -313214, 458912, -494841, 134731, -450284, -505908, -354355, 353440}, '{-376448, 312949, 474610, -52388, -389029, -139249, -252225, 130304, 469289, 149990, -255385, -345375, -97724, 128662, 195927, 522828, 69091, 221352, 437023, 268390, 510797, -397154, -54734, 266296, 163781, 405925, 31336, -511670, -390859, 210911, 357372, 425544, 87183, 25290, 326254, -338049, -170357, -433572, -150679, 464895, -242655, 31395, 362511, 67622, -440437, -509276, 503871, 246491, 222014, -364615, -790, -232883, 187652, -62613, -38547, 287566, -454217, -79272, -355293, 120305, -237917, -10378, -514697, -90505, 250497, -188322, -418811, -13677, 337772, -223118, -181993, -142281, 464198, -266851, 503815, 333229, -14021, -322063, -512116, 357800, -448290, -383897, -108021, 461047, -29672, -148776, 415768, -365615, -231072, 350608, 252895, 172418, -447776, -243396, -287408, -499661, -436981, 35463, -357026, -385939, 11457, 157005, 36752, 501218, 393312, -183269, -301036, -178356, -398894, 492083, 374677, 302386, 366258, -105768, 10441, 427347, -363763, 197094, 135534, -126560, 437614, -431558, -483813, -261145, 91747, 126368, -207983, -258789, 252130, -133159, -512056, -174374, -455112, -308242, -449861, 456262, 36886, -43278, 335832, 470886, 254311, -493673, -313964, 167113, -391937, -321137, 228201, 110030, 237003, -302040, 285121, -351345, 124551, 370674, -153618, 98550, 478545, 98540, -363171, 376872, 29582, 35418, 7805, 357858, -288774, 204735, 76292, -168051, -416346, 42054, -366039, 363910, -4674, -154751, -474781, 479889, -240944, 452728, 253735, 275072, 237405, -329925, 218497, 512717, -355890, 393310, 201220, -321171, 247488, 127075, -175007, 30925, 410098, -172996, 227859, 269314, 14988, -215756, -17848, 160511, -134842, 210764, -205232, 68843, 328633, 22729, 181765, 62098, -421116, -144324, -312635, 266964, 523397, 44648, 287184, 334758, 361573, -344308, 32429, 442363, 156034, 465025, 113415, -438053, -335568, -208725, -322813, -376466, -444171, -297110, 115357, 229550, -33334, 43636, -194316, -37862, -212679, -11444, -177473, -188253, 23455, 260239, -124224, 58795, 986, -305409, 214776, -521063, -199474, 33737, -257293, 470446, -265752, 461830, -348694, 268218}, '{370303, 251004, 2113, -67034, 275237, 324771, 183165, -93539, 113876, -140019, 179781, -133445, 197839, -347615, 57581, 106990, 40590, 445869, 432689, -27242, 2245, 496870, -276008, 478280, 110973, 43162, 1408, -177165, -254701, 470140, -50100, 361319, -487622, -401633, 364261, 342998, -163551, 411617, 38864, -16243, -273191, -456323, 165415, -60642, -383884, -54094, -189421, -117521, 202075, 136834, 64300, -401742, 187714, 477336, 288294, -286955, 245136, 473928, 78730, 494676, -280082, -281886, -449988, -315589, -19923, 505082, -313943, -495402, 170890, 482152, -469313, 477956, 7382, 242938, 348105, -71077, 59597, -213332, -485345, -217170, 225404, 183240, -383798, -309112, 13074, 74005, 425722, 161901, -99914, -188973, -26799, 329249, -56354, -368123, -498833, 12448, -427562, 41541, 430422, 348304, -342255, 343527, 107757, 222007, -195705, -236353, -453007, -334495, -499827, -21545, 106242, -105745, 312304, 262789, -233883, -358910, -103527, -23452, -182459, -310578, 514436, 403047, -389465, 364999, -62476, 221428, -467151, -415469, 307542, -109891, 479381, -275313, 107615, -35126, -386512, 454547, 317598, 565, -125428, -435242, -413775, 323976, -112408, -385792, 367477, -303854, -94739, -506601, 298493, -19154, 446897, 421923, 185271, -301318, 389622, 29372, 197581, -22635, -134824, 465452, 140842, 382136, -240866, 231148, -117232, -523966, 68550, 28985, -388915, 439456, 304816, -84972, -249010, 210162, -89911, -193258, 501854, -484225, 397818, 135737, 273146, 453973, -186386, 179272, -131746, -4610, -467495, 354506, -362708, 284014, -420484, -307826, -391382, 331785, -272064, 79922, -196662, 113675, -58055, 266241, -173414, -521213, -332644, -409027, -376366, 517306, -92455, 345755, 185941, -145634, -301138, 505507, 68136, 301372, 411555, 75533, 325743, -339618, -381532, -475080, -168934, 493480, 232386, -407443, 299495, 35766, -84484, -274096, 106926, 195604, 212438, 476779, 189539, -50836, 52527, 87619, -231737, 131645, 40905, -397197, 189747, -63916, 207790, -16727, -323409, -398535, 296810, 302187, -363609, -352204, 53296, 255069, 75376, -236966, 110266, 482248}, '{-127794, 308049, -328707, 523389, -458702, -513805, 138755, 515647, -326700, -458710, 259505, -417085, 162292, 449832, 321834, -235014, 405453, 250730, -226688, 453045, 157708, 23532, 249128, 316479, 46433, -347406, 242213, 219020, 389745, -120223, 7053, 127801, -386908, 43618, -262688, -243389, -46481, 411642, 2115, 192792, -289180, 371656, -510216, 207806, 272342, -80077, -232538, -232284, 405007, -462203, 52601, 145601, 
-        84755, -318665, -289326, 223594, -228858, 254546, -223847, 501945, 498562, 507283, 216299, 393745, 495511, 185257, -29865, 413491, 459337, -388915, 114077, 249567, -175934, -443985, 491440, -492410, 196882, -205551, 238828, 213410, 85211, -48566, -521643, 330985, -276128, 183611, -227220, -224941, -361833, 89277, -24217, -255487, -402633, -447757, -371911, -422995, -435318, 103329, 254635, -451263, 26877, 100466, -205887, -96415, -220684, -179513, -198999, -472481, -194727, 235702, -179866, 521859, -480804, 403130, -389216, 86721, -4412, -372055, -322134, 233947, -522864, -335054, -335763, -457493, -102065, -460981, -126141, 125303, -468111, -79162, 297891, -226867, 392205, 333511, 113566, -250938, 510768, -405501, -355948, 415281, -400010, -109378, -322650, 370168, 41331, -219452, -354632, -187436, -108815, -505731, 2914, 138883, 118068, 235183, -345032, -101524, 190630, 62551, 41275, 75404, 458304, 270022, 97267, -274701, 198266, -89809, 366389, -508161, -76611, 336352, -340662, 222807, -396664, 55776, -198896, -15431, -114092, 67578, -39737, -205455, -387838, -301214, -285675, -56093, 343046, 236946, -137955, 332288, 52992, 344102, 42674, -102446, 149637, -417764, 454640, 390380, 73163, 337281, -405587, 249733, -117835, -374892, -179286, 19942, -420297, 467922, 263566, -477769, 513006, -238091, 132186, 193524, -329830, 104921, -385603, 454892, -180639, 320816, 95358, -440054, 514690, 220542, -189316, -103278, -483878, -500383, 149293, -149910, -24316, -263465, -136651, -120867, 106859, 113634, 174694, 83217, 60421, 408579, 212550, 138239, 351924, -83426, 222033, -356300, 502233, -210112, -85566, -448034, -248610, -147618, 418092, 114327, -336162, -19485, -324635, -434911}};
+    
     logic [31:0] expandmask_k;
     logic [3:0] counts1;
     logic [4:0] count_rst;
     logic signed [63:0] nttinv_w [0:255];
+    logic signed [31:0] ntt_w [0:255];
     logic signed [63:0] nttinv_w_hat [0:255];
+    logic signed [31:0] ntt_w_hat [0:255];
     logic signed [31:0] w [0:255];
     logic signed [31:0] w_hat [0:255];
     logic signed [3:0] s1 [0:Dilithium_pkg::l-1][0:255];
@@ -66,22 +87,42 @@ module sign_internal2
     logic signed [63:0] cs1 [0:k-1][0:255];
     logic signed [63:0] w_ntt_inv [0:k-1][0:255];
     logic signed [3:0] decompose_w [0:k-1][0:255];
-    logic signed [31:0] y_ntt [0:Dilithium_pkg::l-1][0:255];
+    logic signed [31:0] y_ntt  [0:Dilithium_pkg::l-1][0:255];  
+    logic signed [31:0] y_ntt_out  [0:Dilithium_pkg::l-1][0:255];
+    logic signed[63:0] w_out  [0:Dilithium_pkg::k-1][0:255];
+    logic signed [3:0] highbits_w  [0:Dilithium_pkg::k-1][0:255];
+    logic [3:0] new_w  [0:Dilithium_pkg::k-1][0:255];
     logic [2:0] i, j;
     logic [8:0] countA;
     logic [63:0] decompose_r;
     logic [63:0] decompose_r1;
-    logic [8191:0] w1_hat;
-    logic [((lambda/4)*8)-1:0] shakeOut3;    
+    logic [8191:0] w1_hat,encode_hat;
+    logic [((lambda/4)*8)-1:0] shakeOut3,hash_out;    
     logic signed [1:0] Sampleinball_out [0:255];
+    logic signed [1:0] ball_out [0:255];
     logic signed [31:0] v_c_hat [0:255];
+    logic signed [63:0] v_c_hat_s1_ntt [0:Dilithium_pkg::l-1][0:255]; 
+    logic signed [63:0] ins1_out [0:Dilithium_pkg::l-1][0:255];
+    logic signed [63:0] v_c_hat_s2_ntt [0:Dilithium_pkg::k-1][0:255]; 
+    logic signed [63:0] ins2_out [0:Dilithium_pkg::k-1][0:255];
+    logic signed [63:0] int0_out [0:Dilithium_pkg::k-1][0:255];
+    logic signed [31:0] singers_out [0:l-1][0:255];
+//    logic signed [31:0] vector [0:l-1][0:255];
+    logic signed [31:0] incsingers_out [0:l-1][0:255];
+    logic signed [19:0] new_z [0:l-1][0:255];
+    logic signed [31:0] vector2 [0:l-1][0:255];
+    logic signed [31:0] compute_r0_out [0:k-1][0:255];
+    logic signed [31:0] vector1 [0:k-1][0:255];
+    logic signed [31:0] inccompute_r0_out [0:k-1][0:255];
+    logic [31:0] norm_max;
+    logic [31:0] loop_increment,kappa;
+    logic [3:0] increment_ntt_count;
+    logic signed h [0:Dilithium_pkg::k-1][0:255];
+//    logic [8191:0] encode_hat;
     
-    //---------------------- amir ---------------------
-    logic signed [31:0]  poly_m1 [0:255];
-    logic signed [31:0]  poly_m2_s1 [0:Dilithium_pkg::l-1] [0:255];
-    logic signed [63:0]  poly_nttinv [0:Dilithium_pkg::l-1] [0:255];
-    logic signed [63:0]   result  [0:Dilithium_pkg::l-1] [0:255];
-//    int [31:0] m2_size_s1=Dilithium_pkg::l;
+//    logic signed [31:0] compute_r0_out [0:k-1][0:255];
+    
+
     
     
 
@@ -111,7 +152,8 @@ module sign_internal2
 
     always_ff @(posedge clk) begin
         if (skdone && expandA_rst === 'x) begin
-            expandA_rst <= 1;        
+            expandA_rst <= 1;    
+                
         end
         if (expandA_rst) begin
             expandA_rst <= 0;
@@ -136,14 +178,18 @@ module sign_internal2
 
     logic [511:0] shakeOut, shakeOut2, expandmask_in;
     logic shakeDone, shakeStart;
+    
+    logic checking,checking2;
 
     always_ff @(posedge clk) begin
+        rst_ntt <= initiator || nttdone;
         if (rst) begin
             count_rst       <= 0;
             initiator       <= 0;
             counts1         <= 0;   
             s1_ntt_done     <= 0;
-            s2_ntt_done     <= 0;    
+            s2_ntt_done     <= 0;  
+            t0_ntt_done     <= 0;    
             expandmask_k    <= 0; 
             v_c_hat_done <= 0;
             for (int m = 0; m < k; m = m + 1) begin
@@ -151,13 +197,18 @@ module sign_internal2
                     w_ntt[m][n] <= 32'd0;
                 end
             end
+            expandmask_in <= 0;
+            kappa <= 0;
+            loop_increment <= 0;
+            y_ntt_done <= 0;
+//            y_rst <= 0;
         end else begin
-            rst_ntt <= initiator || nttdone;                                                   
+                                                                 
             if (skdone && counts1 < Dilithium_pkg::l) begin
                 count_rst <= count_rst + 1;
                 initiator <= 1;                   
                 for (int i = 0; i < 256; i++) begin
-                    w[i] <= extend_bits(s1[counts1][i], 1);
+                    w[i] <= extend_bits3(s1[counts1][i], 1);
                 end
             end
 
@@ -165,7 +216,7 @@ module sign_internal2
                 count_rst <= count_rst + 1;
                 initiator <= 1;                   
                 for (int i = 0; i < 256; i++) begin
-                    w[i] <= extend_bits(s2[counts1][i], 1);
+                    w[i] <= extend_bits3(s2[counts1][i], 1);
                 end
             end 
 
@@ -173,15 +224,20 @@ module sign_internal2
                 count_rst <= count_rst + 1;
                 initiator <= 1;                   
                 for (int i = 0; i < 256; i++) begin
-                    w[i] <= extend_bits(t0[counts1][i], 1);
+                        w[i] <= extend_bits(t0[counts1][i], 1);
                 end
             end
 
-            if (t0_ntt_done && counts1 < Dilithium_pkg::l) begin
+
+
+//            if (rst_ntt) begin
+//                rst_ntt <= 0;
+//            end
+            if (t0_ntt_done && counts1 < Dilithium_pkg::l && expandmask_done) begin
                 count_rst <= count_rst + 1;
                 initiator <= 1;          
-                w <= expandmask_output2[counts1];                             
-            end
+                w <= expandmask_output[counts1];                             
+            end  
             
 
                                     
@@ -202,12 +258,12 @@ module sign_internal2
                 s2_ntt[counts1]   <= w_hat;                                
             end
 
-            if (nttdone && counts1 < Dilithium_pkg::k && ~rst_ntt && s1_ntt_done && s2_ntt_done) begin
+            if (nttdone && counts1 < Dilithium_pkg::k && ~rst_ntt && s1_ntt_done && s2_ntt_done && ~t0_ntt_done) begin
                 counts1           <= counts1 + 1;
                 t0_ntt[counts1]   <= w_hat; 
             end    
 
-            if (nttdone && counts1 < Dilithium_pkg::l && ~rst_ntt && t0_ntt_done) begin
+            if (nttdone && counts1 < Dilithium_pkg::l && ~rst_ntt && t0_ntt_done && ~y_ntt_done) begin
                 counts1           <= counts1 + 1;
                 y_ntt[counts1]    <= w_hat; 
             end         
@@ -248,12 +304,10 @@ module sign_internal2
 
             if (shakeDone2 && expandmask_rst === 'x) begin
                 expandmask_rst    <= 1;
-                expandmask_k      <= 0;
-                expandmask_in     <= 512'he80621459b826e15f0ecbc1d3f96ef97282edc413e22da4c53a582807940cb1f7d3601f9adb7f669fff9ec4db6008be271bf417076c98a53babf38cd5a552e0b; // shakeOut2;
+                expandmask_k      <= kappa;
+//                expandmask_in     <= 512'he80621459b826e15f0ecbc1d3f96ef97282edc413e22da4c53a582807940cb1f7d3601f9adb7f669fff9ec4db6008be271bf417076c98a53babf38cd5a552e0b;
             end
-            if (expandmask_rst) begin
-                expandmask_rst    <= 0;                        
-            end  
+              
 
             if (expanda_done && y_ntt_done && w_ntt_done === 'x) begin
                 w_ntt[i][countA-1] <= w_ntt[i][countA-1] + (A[i][j][countA-1] * y_ntt[j][countA-1]);
@@ -351,7 +405,7 @@ module sign_internal2
                 Sampleinball_rst <= 0;
             end
             
-            if (Sampleinball_done && ntt_disabler) begin
+            if (Sampleinball_done && ntt_disabler && ~v_c_hat_done) begin
                 ntt_disabler <= 0;
                 rst_ntt <= 1;
                 for (int p = 0; p < 256; p++ ) begin
@@ -364,32 +418,252 @@ module sign_internal2
                 ntt_disabler <= 1; 
                 v_c_hat <= w_hat;                   
                 v_c_hat_done <= 1;
-                counts1 <= 0;                
+                counts1 <= 'x;                
                 nttinv_rst <= 1; 
                 inv_disabler <= 0;                 
-//                i <= 0;
-//                j <= 0;
-//                countA <= 0;                           
+                i <= 'x;
+                j <= 'x;
+                countA <= 'x;                           
             end
             
             
-            //------------------------------------------------
             
-            poly_m1 <= v_c_hat;
-            poly_m2_s1 <=  s1_ntt;
-               
-            if (v_c_hat_done) begin
-                nttinv_rst <= 0; 
-                nttinv_w_hat <= result[counts1];                                                             
-            end 
-            
-            if (v_c_hat_done && nttinv_done && counts1 < l) begin
-                counts1 <= counts1 + 1;
-                poly_nttinv[counts1] <= nttinv_w;                                                                 
-            end else if (nttinv_done && v_c_hat_done && counts1 == l) begin
-                inv_disabler <= 1;
+            if (v_c_hat_done && mul_rst_s1 === 'x) begin
+                mul_rst_s1 <= 1;
+            end else if (mul_rst_s1) begin
+                mul_rst_s1 <= 0;
             end
             
+            if (mul_done && mul_rst_s2 === 'x) begin
+                mul_rst_s2 <= 1;
+            end else if (mul_rst_s2) begin
+                mul_rst_s2 <= 0;
+            end
+            
+            if (mul_done && signers_rst === 'x) begin
+                signers_rst <= 1;
+            end else if (signers_rst) begin
+                signers_rst <= 0;
+            end
+            
+            if (mul_done2 && w_ntt_inv_done && compute_r0_rst === 'x) begin
+                compute_r0_rst <= 1;
+            end else if (compute_r0_rst) begin
+                compute_r0_rst <= 0;
+            end
+            
+            if (compute_r0_done && norm_rst === 'x) begin
+                norm_rst <= 1;
+            end else if (norm_rst && loop_increment == 0) begin
+                norm_rst <= 0;
+            end
+            
+//            highbits_w <= new_w;
+            
+            if (norm_condition_check && loop_increment == 0) begin
+                norm_rst <= 1;
+                expandmask_rst    <= 1;                
+//                y_ntt_done <= 0;
+//                counts1 <= 0;
+//                ntt_disabler <= 0;
+//                count_rst <= 0;
+//                initiator <= 0;
+                loop_increment <= loop_increment + 1;
+                
+            end
+            
+            
+//            if (compute_w_rst)begin
+//                compute_w_rst <= 0;
+//            end
+            
+            if (kappa == 7) begin
+                
+                if (expandmask_done && y_rst === 'x) begin
+                    y_rst <= 1;
+                end else if (y_rst) begin
+                    y_rst <= 0;
+                end
+                
+                if (y_done && compute_w_rst === 'x) begin
+                    compute_w_rst <= 1;
+                end else if ( compute_w_rst) begin
+                    compute_w_rst <=0;
+                end    
+                
+                if (compute_w_done && highbits_rst === 'x) begin
+                    highbits_rst <= 1;
+                end else if (highbits_rst) begin
+                    highbits_rst <= 0;
+                end    
+                
+                if (highbits_done && w1_rst === 'x) begin
+                    w1_rst <= 1;
+                end else if (w1_rst) begin
+                    w1_rst <= 0;
+                end   
+                
+                if (w1_done && hash_rst === 'x) begin
+                    hash_rst <= 1;                    
+                end else if (hash_rst) begin
+                    hash_rst <= 0;
+                end             
+                
+                if (hash_done && ball_rst === 'x) begin
+                    ball_rst <= 1;
+                end else if (ball_rst) begin
+                    ball_rst <= 0;
+                end
+                increment_ntt_count <= increment_ntt_count + 1;
+                if (ball_done && inntt_rst === 'x) begin
+                    inntt_rst <= 1;
+                    increment_ntt_count <= 0;
+                    for (int p = 0; p < 256; p++ ) begin
+                         ntt_w[p] <= extend_bits2(ball_out[p],1);
+                    end
+                end else if (inntt_rst && increment_ntt_count == 2) begin
+                    inntt_rst <= 0;
+                end
+                
+                if (inntt_done && ins1_rst === 'x) begin
+                    ins1_rst <= 1;
+                end else if (ins1_rst) begin
+                    ins1_rst <=0;
+                end
+                
+                if (inntt_done && ins2_rst==='x) begin
+                    ins2_rst <= 1;
+                end else if (ins2_rst) begin
+                    ins2_rst <= 0;
+                end
+                
+                if (ins1_done && incsigners_rst==='x) begin
+                    incsigners_rst <= 1;
+                end else if (incsigners_rst) begin
+                    incsigners_rst <= 0;
+                end
+                
+                if (ins2_done && inccompute_rst==='x) begin
+                    inccompute_rst <= 1;
+                end else if (inccompute_rst) begin
+                    inccompute_rst <= 0;
+                end
+                
+                
+                if(inccompute_done) begin
+                    norm_rst <= 0;
+                    expandmask_rst <= 'x;
+                    y_rst <= 'x;
+                    compute_w_rst <= 'x;
+                end                                                
+            end
+            
+            if (expandmask_done && y_rst) begin
+                y_rst <=0;
+            end
+                        
+            if ( y_done && compute_w_rst) begin
+                    compute_w_rst <=0;
+                end   
+            if (compute_w_done && highbits_rst) begin
+                highbits_rst <= 0;
+            end   
+            if (highbits_done && w1_rst) begin                                
+                w1_rst <= 0;
+            end  
+            if (w1_done && hash_rst) begin                                
+                hash_rst <= 0;
+            end    
+            if (hash_done && ball_rst) begin                                
+                ball_rst <= 0;
+            end
+            if (ball_done && inntt_rst && new_ntt==='x) begin
+                for (int p = 0; p < 256; p++ ) begin
+                                     ntt_w[p] <= extend_bits2(ball_out[p],1);
+                                end
+                new_ntt <= 1;
+            end else if (new_ntt && inntt_rst) begin
+                inntt_rst <= 0;
+            end
+            
+            if (inntt_done && ins1_rst) begin                                
+                                ins1_rst <=0;
+                            end
+            if (inntt_done && ins2_rst) begin                                
+                ins2_rst <=0;
+            end
+            
+            if (ins1_done && incsigners_rst) begin
+
+                                incsigners_rst <= 0;
+                            end
+                            
+                            if (ins2_done && inccompute_rst) begin
+                                inccompute_rst <= 0;
+                            end
+                            
+                            if (inccompute_done) begin
+                                norm_rst <= 0;                                
+                            end
+            if (norm_condition_check && if_done && kappa >= 7) begin
+//                norm_rst <= 0;
+                norm_rst <= 1;
+                expandmask_rst <= 1; 
+                y_rst <= 1;
+                compute_w_rst <= 1;
+                highbits_rst <= 1;
+                w1_rst <= 1;
+                hash_rst <= 1;
+                ball_rst <= 1;
+                inntt_rst <= 1;
+                new_ntt <= 'x;
+                ins2_rst <= 1;
+                ins1_rst <= 1;
+                incsigners_rst <= 1;
+                inccompute_rst <= 1;
+            end
+            
+            if (expandmask_rst && norm_condition_check) begin
+                kappa <= kappa + l;
+            end
+            
+            if (expandmask_rst) begin
+                expandmask_rst    <= 0; 
+                
+            end
+            
+//            checking <= norm_condition_check && if_done && kappa >= 7;
+//            checking2 <= nttdone && counts1 < Dilithium_pkg::l && ~rst_ntt && t0_ntt_done && ~y_ntt_done;
+            if (loop_increment == 0) begin
+                vector1 <= compute_r0_out ;
+                                     vector2<=singers_out;
+            end else if (loop_increment > 0) begin
+                vector1 <= inccompute_r0_out ;
+                vector2<=incsingers_out;
+            end
+            
+            if (~norm_condition_check && if_done && int0_rst==='x)begin
+                int0_rst <= 1;
+            end else if (int0_rst) begin
+                int0_rst <= 0;
+            end
+            
+            if (int0_done && hint_rst==='x) begin
+                hint_rst <= 1;
+            end else if (hint_rst) begin
+                hint_rst <= 0;
+            end
+                   
+            if (hint_done && sign_rst === 'x) begin
+                for (int m = 0; m < l; m = m + 1) begin
+                            for (int n = 0; n < 256; n = n + 1) begin          
+                                new_z[m][n] <= modpm(incsingers_out[m][n],q);
+                            end
+                        end
+                sign_rst <= 1;                        
+            end else if (sign_rst) begin
+                sign_rst <=0;
+            end
             
                                          
                
@@ -398,6 +672,10 @@ module sign_internal2
                
         end
     end
+    
+//    always_comb begin
+//        rst_ntt = initiator || nttdone;
+//    end
     sponge #(
              .msg_len((ctx_len*8)+(msg_len*8)+532),
              .d_len(512),
@@ -425,13 +703,14 @@ module sign_internal2
     );
                      
     Expand_mask #(
-             .gamma1(gamma1),
+             .gamma1(52487),
              .cols_l(l)
     ) Expand_mask (
              .clk(clk),
              .rst(expandmask_rst),
-             .rho_double_prime(expandmask_in),
-             .k(expandmask_k),
+//             .rho_double_prime(expandmask_in),
+             .rho_double_prime(shakeOut2),
+             .k(kappa),
              .outputt(expandmask_output),
              .done(expandmask_done)
     );
@@ -490,19 +769,188 @@ module sign_internal2
         .in(shakeOut3),
         .out(Sampleinball_out)
     );
-    poly_multiplier#(
-      .m2_size(7)
-      )
-      mutliplier(
-      .m1( poly_m1),
-      .m2( poly_m2_s1),
-      .result(result),
-      .done(poly_multiplier_done)
-      );
-//     poly_multiplier (
-//        c_hat   ,
-//       input  logic signed [31:0] s1_hat  [0:6][0:255],
-//       output logic signed [63:0] result  [0:6][0:255]
-//   );
+
+    multiply_vc_s1 multiply_vc_s1 (
+        .clk(clk),
+        .rst(mul_rst_s1),
+        .v_c_hat(v_c_hat),
+        .s1_ntt(s1_ntt),
+        .v_c_hat_s1_ntt(v_c_hat_s1_ntt),
+        .mul_done(mul_done)
+    );
+    multiply_vc_s2 multiply_vc_s2 (
+     .clk(clk),
+     .rst(mul_rst_s2),
+     .v_c_hat(v_c_hat),
+     .s2_ntt(s2_ntt),
+     .v_c_hat_s2_ntt(v_c_hat_s2_ntt),
+     .mul_done(mul_done2)
+        );
+        
+    compute_signers_response_z compute_signers_response_z (
+     .clk(clk),
+     .rst(signers_rst),
+     .y(expandmask_output),
+     .cs1(v_c_hat_s1_ntt),
+     .z(singers_out),
+     .done(signers_done)
+    );
+    
+    compute_r0 compute_r0 (
+         .clk(clk),
+         .rst(compute_r0_rst),
+         .w(w_ntt_inv),
+         .cs2(v_c_hat_s2_ntt),
+         .results(compute_r0_out),
+         .done(compute_r0_done)
+        );
+        
+//    compute_infinity_norm #(.k(l)) compute_infinity_norm (
+//             .clk(clk),
+//             .rst(norm_rst),
+//             .vector(compute_r0_out),
+//             .max_value(norm_max),
+//             .done(norm_done)
+//            );
+   
+    norm_if norm_if (
+                         .clk(clk),
+                         .rst(norm_rst),
+                         .vector(vector1),
+                         .vector2(vector2),
+                         .norm_condition_check(norm_condition_check),
+                         .done(if_done)
+                        );
+                        
+                        
+    increment_y_ntt increment_y_ntt (
+        .clk(clk),
+        .rst(y_rst),
+        .y_in(expandmask_output),
+        .y_out(y_ntt_out),
+        .done(y_done)
+    );
+    
+    increment_compute_w increment_compute_w (
+        .clk(clk),
+        .rst(compute_w_rst),
+        .Y(y_ntt_out),
+        .A(A),
+        .W(w_out),
+        .final_done(compute_w_done)        
+    );
+    
+    increment_highbits increment_highbits(
+        .clk(clk),
+        .rst(highbits_rst),
+        .w_in(w_out),
+        .w_out(highbits_w),
+        .done(highbits_done)        
+    );
+    
+    increment_w1 #(
+            .k(k), 
+            .q(q), 
+            .gamma(gamma2), 
+            .widht(4)
+        ) increment_w1 (
+            .clk(clk),
+            .reset(w1_rst),
+            .start(highbits_done),
+            .w1(highbits_w),
+            .done(w1_done),
+            .w1_hat(encode_hat)
+        );
+    
+    increment_has increment_has (
+        .clk(clk),
+        .rst(hash_rst),
+        .encode_hat(encode_hat),
+        .shakeOut(shakeOut),
+        .shakeOut3(hash_out),
+        .done(hash_done)                
+    );
+    
+    Sample_in_ball #(
+            .lmbda(lambda),
+            .t(60)
+        ) increment_hash (
+            .clk(clk),
+            .rst(ball_rst),        
+            .done(ball_done),
+            .in(hash_out),
+            .out(ball_out)
+        );
+    
+    NTT #(.width(32)) increment_NTT (
+                .clk(clk),
+                .rst(inntt_rst),
+                .w(ntt_w),
+                .w_hat(ntt_w_hat),
+                .done(inntt_done)                
+            );
+    multiply_vc_s1 increment_multiply_vc_s1 (
+                    .clk(clk),
+                    .rst(ins1_rst),
+                    .v_c_hat(ntt_w_hat),
+                    .s1_ntt(s1_ntt),
+                    .v_c_hat_s1_ntt(ins1_out),
+                    .mul_done(ins1_done)
+                );          
+                
+    multiply_vc_s2 increment_multiply_vc_s2 (
+                     .clk(clk),
+                     .rst(ins2_rst),
+                     .v_c_hat(ntt_w_hat),
+                     .s2_ntt(s2_ntt),
+                     .v_c_hat_s2_ntt(ins2_out),
+                     .mul_done(ins2_done)
+                        );                
+
+    compute_signers_response_z increment_compute_signers_response_z (
+     .clk(clk),
+     .rst(incsigners_rst),
+     .y(expandmask_output),
+     .cs1(ins1_out),
+     .z(incsingers_out),
+     .done(incsigners_done)
+    );
+    
+    compute_r0 increment_compute_r0 (
+             .clk(clk),
+             .rst(inccompute_rst),
+             .w(w_out),
+             .cs2(ins2_out),
+             .results(inccompute_r0_out),
+             .done(inccompute_done)
+            );
+            
+multiply_vc_t0 increment_multiply_vc_t0 (
+                                 .clk(clk),
+                                 .rst(int0_rst),
+                                 .v_c_hat(ntt_w_hat),
+                                 .s2_ntt(t0_ntt),
+                                 .v_c_hat_s2_ntt(int0_out),
+                                 .mul_done(int0_done)
+                                    );                
+compute_hints compute_hints (
+    .clk(clk),
+    .rst(hint_rst),
+    .int0_out(int0_out),
+    .w_out(w_out),
+    .ins2_out(ins2_out),
+    .done(hint_done),
+    .h(h)    
+);                
+
+signencode signencode (
+    .clk(clk),
+    .rst(sign_rst),
+    .c_h(hash_out),
+    .z(new_z),
+    .h(h),
+    .done(sign_done),
+    .sigma(sign)    
+);
 endmodule
 

@@ -72,24 +72,32 @@ end
 
     
     if (rst) begin
-    i <= 0;
-    counts<=196;
-     non_zero_count <=0; 
-     f <=0;
-     max_iter <= 16; 
-     iter <= 0;
-    signs <=0;
-     signs1 <=0;
-  
+//        j <= 0;
+//        hash <= 0;
+        i <= 0;
+        counts <= 196;
+        non_zero_count <= 0; 
+        f <= 0;
+        max_iter <= 16; 
+        iter <= 0;
+        signs <= hash[63:0];
+        signs1 <= 0;
+        enable <= 0;
+        done <= 0;
+        for (int k = 0; k < 256; k++) begin
+            out[k] <= 0;
+        end
+      
     end
      else if (!rst && h_done && (i < 60) )  begin //255-t
-      if (i==0) begin
+        
+//      if (i==0) begin
        
        
-//       signs <={hash[7:0],hash[15:8],hash[23:16],hash[31:24]} ;
-//      signs <= {hash[31:24], hash[23:16], hash[15:8], hash[7:0]}; // Big-endian
-        signs <= hash[63:0];
-       end
+////       signs <={hash[7:0],hash[15:8],hash[23:16],hash[31:24]} ;
+////      signs <= {hash[31:24], hash[23:16], hash[15:8], hash[7:0]}; // Big-endian
+//        signs <= hash[63:0];
+//       end
 //       signs <= 'h6057c2e1;
 //       signs1 <= signs; 
        i <= i+1;
@@ -110,7 +118,7 @@ end
       
       if (j<=counts )begin
       out[counts] <= out[j];
-      $display("%d  %d",counts,j);
+//      $display("%d  %d",counts,j);
                                       
       out[j] <= 1 - (2 * (signs & 1)); 
         signs <= signs >> 1 ;
@@ -134,10 +142,15 @@ end
        
 //     end
  if(counts == 255)begin
+  j <= 255;
  done <= 1;
     end   
      end
     
      end 
-     
+     always_comb begin
+        if (i==0 && h_done) begin
+            signs = hash[63:0];
+        end
+     end
   endmodule

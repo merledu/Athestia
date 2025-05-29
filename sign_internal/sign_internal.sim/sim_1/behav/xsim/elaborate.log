@@ -1,9 +1,0 @@
-Vivado Simulator 2018.2
-Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto c627d3d1b0814b82a6c575b1a6371563 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot sign_behav xil_defaultlib.sign xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-WARNING: [VRFC 10-2534] module NTT does not have a parameter named width [H:/Store_Athestia/Athestia/sign_internal/sign_internal.srcs/sources_1/new/SignInternal2.sv:103]
-WARNING: [VRFC 10-278] actual bit length 64 differs from formal bit length 5 for port r1 [H:/Store_Athestia/Athestia/sign_internal/sign_internal.srcs/sources_1/new/SignInternal2.sv:453]
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

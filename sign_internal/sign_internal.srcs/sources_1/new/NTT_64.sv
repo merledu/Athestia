@@ -1,14 +1,14 @@
 import Dilithium_pkg::*;
-function automatic signed [31:0] compute_remainder(input signed [63:0] x, input signed [23:0] N);
+function automatic signed [200:0] compute_remainder2(input signed [200:0] x, input signed [23:0] N);
     begin
-        compute_remainder = x - ((x / N) * N);
-        if (compute_remainder < 0)
-            compute_remainder = compute_remainder + N;
+        compute_remainder2 = x - ((x / N) * N);
+        if (compute_remainder2 < 0)
+            compute_remainder2 = compute_remainder2 + N;
     end
 endfunction
 
 
-module NTT #(
+module NTT_64 #(
     parameter int WIDTH = 32
 )(
     input  logic signed [WIDTH-1:0] w     [0:255],
@@ -18,10 +18,13 @@ module NTT #(
     input logic disabler,
     output logic done
 );
+//logic [200:0] checking;
+//logic [200:0] checking2;
+//logic [200:0] checking3,checking4;
 logic [8:0] length;
 logic [8:0] start2,j,m,k;
 logic signed [23:0] zeta;
-logic signed [31:0] t1;
+logic signed [200:0] t1;
 logic signed [23:0] zetas [0:255] = '{
         0, 4808194, 3765607, 3761513, 5178923, 5496691, 5234739, 5178987,
         7778734, 3542485, 2682288, 2129892, 3764867, 7375178, 557458, 7159240,
@@ -107,13 +110,15 @@ always_comb begin
 //    end 
 
 if (!done && !rst) begin
-        zeta = zetas[m];
-        t1 = compute_remainder(zeta * w_hat[j + length],q);
-        w_hat[j + length] = compute_remainder((w_hat[j] - t1),q);
-        w_hat[j] = compute_remainder((w_hat[j] + t1),q);
+        zeta = zetas[m];                       
+        t1 = compute_remainder2(zeta * w_hat[j + length],q);        
+//        checking = (w_hat[j]);
+//        checking2 = (w_hat[j+length]);
+        w_hat[j + length] = compute_remainder2((w_hat[j] - t1),q);
+        w_hat[j] = compute_remainder2((w_hat[j] + t1),q);
+//        checking3 = w_hat[j];
+//        checking4 = w_hat[j+length];
     end
 end
 
 endmodule
-
-

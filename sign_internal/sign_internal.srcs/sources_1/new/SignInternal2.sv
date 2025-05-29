@@ -44,23 +44,25 @@ endfunction
 
 module sign_internal2
 #(
-    parameter msg_len = 32,
+    parameter msg_len = 3577,
     parameter ctx_len = 77,
     parameter rnd_len = 32
 )
 (
     input  logic [8*(32 + 32 + 64 + 32 * (((Dilithium_pkg::l + Dilithium_pkg::k) * ($clog2(2 * Dilithium_pkg::eta) + 1)) 
                                          + (Dilithium_pkg::d * Dilithium_pkg::k))) - 1 : 0] sk,
-    input  logic [(16+(ctx_len*8)+(msg_len*8))-1:0] msg,
-    input  logic [(rnd_len*8)-1:0] rnd,                                                                           
+    input  logic [(msg_len*8)-1:0] n_msg,
+    input  logic [(rnd_len*8)-1:0] rnd,
+    input  logic [(ctx_len*8)-1:0] ctx,                                                                           
     input  logic clk,
     input  logic rst,
-    output logic [37015:0] sign
+    output logic [37015:0] sign,
+    output logic sign_done
 );    
-    logic skdone, initiator, nttdone, rst_ntt, ntt_disabler, s1_ntt_done, s2_ntt_done, shakeRst2, shakeDone2,w_ntt_inv_done,w1encode_done,shakeRst3,shakeDone3,Sampleinball_rst,poly_multiplier_done,mul_rst_s1,mul_done2,signers_rst,compute_r0_done,norm_done,norm_condition_check,compute_w_rst,highbits_done,w1_rst,prev_w1_done,hash_rst,ball_done,inntt_done,ins1_rst,ins2_done,incsigners_done,inccompute_done,new_ntt,int0_rst,hint_done,sign_done;
+    logic skdone, initiator, nttdone, rst_ntt, ntt_disabler, s1_ntt_done, s2_ntt_done, shakeRst2, shakeDone2,w_ntt_inv_done,w1encode_done,shakeRst3,shakeDone3,Sampleinball_rst,poly_multiplier_done,mul_rst_s1,mul_done2,signers_rst,compute_r0_done,norm_done,norm_condition_check,compute_w_rst,highbits_done,w1_rst,prev_w1_done,hash_rst,ball_done,inntt_done,ins1_rst,ins2_done,incsigners_done,inccompute_done,new_ntt,int0_rst,hint_done;
     logic expandmask_rst, expandmask_done, nttinv_rst, inv_disabler, nttinv_done, t0_ntt_done, y_ntt_done, w_ntt_done, expanda_done,decompose_w_done,Sampleinball_done,v_c_hat_done,poly_done,cs1_done,mul_done,mul_rst_s2,signers_done,compute_r0_rst,norm_rst,if_done,if_rst,y_rst,y_done,compute_w_done,highbits_rst,w1_done,hash_done,ball_rst,inntt_rst,ins1_done,ins2_rst,incsigners_rst,inccompute_rst,final_condition,int0_done,hint_rst,sign_rst;
     logic signed [31:0] expandmask_output [0:l-1] [0:255];
-    
+    logic [(16+(ctx_len*8)+(msg_len*8))-1:0] msg;
     logic [31:0] expandmask_k;
     logic [3:0] counts1;
     logic [4:0] count_rst;
@@ -80,6 +82,7 @@ module sign_internal2
     logic [31:0] A [0:k-1][0:l-1][0:255];
     logic [511:0] tr;
     logic [255:0] K;
+//    logic [(msg_len*8)+511:0] shakeIn;
     logic [(ctx_len*8)+(msg_len*8)+527:0] shakeIn;
     logic [767+(rnd_len*8):0] shakeIn2;
     logic [8703:0] shakeIn3;
@@ -184,6 +187,9 @@ module sign_internal2
     always_ff @(posedge clk) begin
         rst_ntt <= initiator || nttdone;
         if (rst) begin
+//        {8'd0, ctx_len[7:0], ctx_le, n_msg_le};
+//            msg <= {n_msg,ctx,ctx_len,0};
+                msg <= {n_msg,ctx,ctx_len[7:0],8'd0};            
             count_rst       <= 0;
             initiator       <= 0;
             counts1         <= 0;   
@@ -949,7 +955,7 @@ signencode signencode (
     .c_h(hash_out),
     .z(new_z),
     .h(h),
-    .done(sign_done),
+    .hint_done(sign_done),
     .sigma(sign)    
 );
 endmodule

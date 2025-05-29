@@ -29,7 +29,7 @@ module verifyInternalModule #(
 typedef enum logic [3:0] {
     IDLE, DECODE_PK, DECODE_SIG, CHECK_H, EXPAND_A, 
     HASH_TR, HASH_MU, SAMPLE_C, NTT_OPS, USE_HINT, 
-    ENCODE_W1, HASH_CTILDE, CHECKS, DONE
+    ENCODE_W1, HASH_CTILDE, INFINTY_NORM, DONE
 } state_t;
 state_t current_state;
 
@@ -51,15 +51,16 @@ logic norm_valid, hash_match;
 
 logic [0:28187] mu_ShakeIn;//mu_msg_len+d_len+3
 logic [0:PK_SIZE+3] ShakeIn;
-logic [0:PK_SIZE+3] ShakeIn_c_tilde;
+logic [0:PK_SIZE+3] ShakeIn_c_tilde;  
+logic [31:0] max_value_result;
 
 // Control Signals
 logic sig_decode_start, expandA_start;
 logic shake_pk_start, shake_mu_start, sample_start;
-logic ntt_start, usehint_start, w1encode_start, hashc_start;
+logic ntt_start, usehint_start, w1encode_start, hashc_start,infinity_start;
 logic pk_decode_done, sig_decode_done, expandA_done;
 logic shake_pk_done, shake_mu_done, sample_done;
-logic ntt_done, usehint_done, w1encode_done, hashc_done;
+logic ntt_done, usehint_done, w1encode_done, hashc_done,infinity_done;
 
 // Main Control FSM
 always_ff @(posedge clk or posedge rst) begin
@@ -75,10 +76,12 @@ always_ff @(posedge clk or posedge rst) begin
         usehint_start     <= 0;
         w1encode_start    <= 0;
         hashc_start       <= 0;
+        infinity_start    <= 0; 
         valid             <= 0;
         ShakeIn <= 0;
         mu_ShakeIn <= 0;
         ShakeIn_c_tilde <= 0;
+        
     end else begin
 
         case (current_state)
@@ -155,13 +158,20 @@ always_ff @(posedge clk or posedge rst) begin
 //                {4'hf, w1_encoded,mu};
 //                 $display("Hex value shake mu = %h", mu_ShakeIn);
                 if (hashc_done)begin
-                    current_state <= DONE;//SAMPLE_C;
+                    current_state <= INFINTY_NORM;
+                end
+            end
+            
+            INFINTY_NORM: begin
+                infinity_start <= 1;
+                if (infinity_done) begin
+                    current_state <= DONE;
                 end
             end
             
             
             DONE: begin
-            if (c_tilde_prime==c_tilde)begin
+            if ((max_value_result < (gamma1 - beta)) &&c_tilde_prime==c_tilde)begin
                 valid <=1;
                 done <= 1;
             
@@ -294,10 +304,13 @@ sponge #(.d_len(lambda*2),//lambda/4 =64bytes  then convert into 512 bits
     .done(hashc_done)
 );
 
-//InfinityNormCheck norm_check (
-//    .z(z),
-//    .valid(norm_valid)
-//);
+compute_infinity_norm norm_check (
+    .clk(clk),
+    .vector(z), //input
+    .max_value(max_value_result),     //output
+    .rst(!infinity_start),
+    .done(infinity_done)
+);
 
 //    case(current_state)
 ////        DECODE_PK: pk_decode_start = 1;
@@ -319,3 +332,4 @@ sponge #(.d_len(lambda*2),//lambda/4 =64bytes  then convert into 512 bits
 //end
 
 endmodule
+

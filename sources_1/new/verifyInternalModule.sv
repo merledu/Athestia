@@ -332,4 +332,3 @@ compute_infinity_norm norm_check (
 //end
 
 endmodule
-

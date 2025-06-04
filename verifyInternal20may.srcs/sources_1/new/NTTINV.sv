@@ -149,6 +149,7 @@ module NTT_INV #(
     end
     always_comb begin
     if (rst) begin
+        
         for (int i = 0; i < 256; i++) begin
                  w[i] = w_hat[i];
                  end

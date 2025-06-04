@@ -21,7 +21,7 @@ module HintBitUnpack #(
     logic [8:0] outer_counter;
     logic [8:0] inner_counter;
     logic [8:0] final_counter;
-    logic [0:7] y_byte [0:omega+k];
+    logic [7:0] y_byte [0:omega+k-1];
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -185,12 +185,13 @@ module HintBitUnpack #(
                 DONE: begin
                     valid <= 1;
                     done  <= 1;
-                    state <= IDLE;
+//                    state <= IDLE;
                 end
 
                 ERROR: begin
                     valid <= 0;
-                    state <= IDLE;
+                    done  <= 1;
+//                    state <= IDLE;
                 end
 
             endcase

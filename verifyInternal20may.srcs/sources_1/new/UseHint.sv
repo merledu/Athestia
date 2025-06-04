@@ -17,8 +17,8 @@ module UseHint #(
     localparam int m = (q - 1) / (2 * gamma2);
 
     // Counters for polynomial (i) and coefficient index (j)
-    logic [$clog2(k)-1:0] i_counter;
-    logic [$clog2(255):0] j_counter;
+    logic [$clog2(k)-1:0] i_counter=0;
+    logic [$clog2(255):0] j_counter=0;
 
     // Wires for the outputs of the Decompose unit
     logic signed [r_width-1:0] r1;
@@ -34,14 +34,40 @@ module UseHint #(
         .r1(r1),
         .r0(r0)
     );
+    typedef enum logic [3:0] {
+        IDLE,PROCESS,DONE} state_t;
+        state_t current_state;
+
+//always_ff @(posedge clk or posedge reset) begin
+//case (current_state)
+//            IDLE: begin
+//                i_counter <= 0;
+//                        j_counter <= 0;
+//                        done      <= 0;
+//            end
+//            endcase
+//   end
+
+
 
     // Sequential logic using counters instead of a full FSM
     always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
-            i_counter <= 0;
-            j_counter <= 0;
-            done      <= 0;
+                i_counter <= 0;
+                j_counter <= 0;
+                done      <= 0;
+                current_state <= IDLE;
+            
         end else begin
+        case (current_state)
+                    IDLE: begin
+                        i_counter <= 0;
+                        j_counter <= 0;
+                        done      <= 0;
+                        current_state <= PROCESS;
+                    end
+                   PROCESS: begin
+        
             // Process the current coefficient using the decompose outputs.
             // Check the hint and adjust r1 accordingly.
             if (h[i_counter][j_counter] == 1) begin
@@ -59,7 +85,8 @@ module UseHint #(
                 j_counter <= 0;
                 if (i_counter == k - 1) begin
                     i_counter <= 0;
-                    done      <= 1;  // Indicate complete processing for the entire matrix.
+//                    current_state <= PROCESS;  // Indicate complete processing for the entire matrix.
+                    current_state <= DONE;
                 end else begin
                     i_counter <= i_counter + 1;
                 end
@@ -67,6 +94,14 @@ module UseHint #(
                 j_counter <= j_counter + 1;
             end
         end
+                    DONE: begin
+       
+            done <= 1;
+            
+            end
+        
+        endcase
+    end
     end
 
 endmodule

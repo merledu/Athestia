@@ -185,7 +185,7 @@ endfunction
                     for (int i = 0; i < 256; i++) begin
                         w_out[i] = w[i];
                     end
-                    state <= DONE; // stay here
+//                    state <= DONE; // stay here
                 end
             endcase
         end

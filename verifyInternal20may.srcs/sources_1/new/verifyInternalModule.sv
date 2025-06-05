@@ -14,8 +14,6 @@ module verifyInternalModule #(
     parameter mu_capacity = 512,
     parameter mu_r = 1600 - mu_capacity,
     parameter msg_len_c_tilde = 8708
-    
-
 )(
     input logic clk, rst,initial_start,
     input logic [0:PK_SIZE-1] pk,
@@ -49,7 +47,7 @@ logic [3:0] w1_prime [0:k-1][0:255];
 logic [256*k*4-1:0] w1_encoded,store_w1_encoded;
 logic norm_valid, hash_match;
 
-logic [0:28187] mu_ShakeIn;//mu_msg_len+d_len+3
+logic [0:mu_msg_len+d_len+3] mu_ShakeIn;//mu_msg_len+d_len+3
 logic [PK_SIZE+3:0] ShakeIn;
 logic [0:8707] ShakeIn_c_tilde;  
 logic [PK_SIZE+3:0] wait_ShakeIn_c_tilde;  

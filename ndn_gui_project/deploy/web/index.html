@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATHESIA - NDN with Dilithium</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #1e3c72;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .screenshot {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .btn {
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.jpeg" alt="ATHESIA Logo" class="logo">
+        <h1>ATHESIA</h1>
+        <p>Clean slate application using NDN with Dilithium to enhance security in future internet architecture</p>
+        <p>Welcome to the Named Data Network with Dilithium GUI, a tool for simulating Named Data Networking with Dilithium cryptographic algorithms. This application allows you to create and manage NDN topologies, simulate packet traversal, and verify data integrity using post-quantum cryptography.</p>
+        <p>Features include drag-and-drop topology creation, multiple Certificate Authorities, simulation/emulation modes, and detailed state inspection.</p>
+        <img src="screenshot.jpeg" alt="Screenshot" class="screenshot">
+        <div class="buttons">
+            <a href="windows/main.exe" class="btn" download>Download for Windows</a>
+            <a href="linux/main.AppImage" class="btn" download>Download for Linux</a>
+        </div>
+    </div>
+</body>
+</html>

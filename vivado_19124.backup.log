@@ -1,0 +1,175 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Fri May 30 12:44:34 2025
+# Process ID: 19124
+# Current directory: C:/Users/Asfiyan/Desktop/hafsa_Athestia
+# Command line: vivado.exe -mode batch -source run_simulation.tcl
+# Log file: C:/Users/Asfiyan/Desktop/hafsa_Athestia/vivado.log
+# Journal file: C:/Users/Asfiyan/Desktop/hafsa_Athestia\vivado.jou
+#-----------------------------------------------------------
+source run_simulation.tcl
+# set tb_file [file normalize {C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/tb.sv}]
+# set design_file [file normalize {C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv}]
+# set vcd_file [file normalize {keyinternal_tb_output.vcd}]
+# set pkg_file [file normalize {C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv}]
+# set all [file normalize {C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new}]
+# create_project -force keyinternal_project {C:/Users/Asfiyan/Desktop/hafsa_Athestia/vivado_sim}
+# add_files $all
+# add_files $pkg_file
+WARNING: [filemgmt 56-12] File 'C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv' cannot be added to the project because it already exists in the project, skipping this file
+# add_files $tb_file
+# add_files $design_file
+WARNING: [filemgmt 56-12] File 'C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv' cannot be added to the project because it already exists in the project, skipping this file
+# set_property top KeyInternal_tb [get_filesets sim_1]
+# launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Asfiyan/Desktop/hafsa_Athestia/vivado_sim/keyinternal_project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'KeyInternal_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Asfiyan/Desktop/hafsa_Athestia/vivado_sim/keyinternal_project.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj KeyInternal_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Bitpack_new.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BitPack_new
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Chi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/CoefFromHalfByte.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromHalfByte
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Coefficient_three_bytes.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CoefFromThreeBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Dilithium_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandA.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/ExpandS.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ExpandS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Iota.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Iota
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Keccak.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module keccak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/NTT_INV.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module NTT_INV
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pad10_1.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pad10_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Pi.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Power2round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Power2round
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejBoundedPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejBoundedPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/RejNttPoly.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RejNttPoly
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Rho.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rho
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Round.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rnd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SKEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module skEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Shake.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sponge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/SimpleBitPack.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleBitPack
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/Theta.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/key_internal.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module key_internal
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/pkEncode.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PkEncode
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sources_1/new/swapbits.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SwapNibbles
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyInternal_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Asfiyan/Desktop/hafsa_Athestia/vivado_sim/keyinternal_project.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Asfiyan/Desktop/hafsa_Athestia/vivado_sim/keyinternal_project.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 5c7d6efc66904453a6cc909c1a225a4f --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot KeyInternal_tb_behav xil_defaultlib.KeyInternal_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.SwapNibbles(WIDTH=256)
+Compiling module xil_defaultlib.Theta
+Compiling module xil_defaultlib.Rho
+Compiling module xil_defaultlib.Pi
+Compiling module xil_defaultlib.Chi
+Compiling module xil_defaultlib.Iota
+Compiling module xil_defaultlib.Rnd
+Compiling module xil_defaultlib.keccak
+Compiling module xil_defaultlib.pad10_1(x=1088,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=1024,ca...
+Compiling module xil_defaultlib.pad10_1(x=1344,m=276)
+Compiling module xil_defaultlib.sponge(msg_len=276,d_len=6501)
+Compiling module xil_defaultlib.CoefFromThreeBytes
+Compiling module xil_defaultlib.RejNttPoly
+Compiling module xil_defaultlib.ExpandA
+Compiling module xil_defaultlib.pad10_1(x=1088,m=532)
+Compiling module xil_defaultlib.sponge(msg_len=532,d_len=4096,ca...
+Compiling module xil_defaultlib.CoefFromHalfByte
+Compiling module xil_defaultlib.RejBoundedPoly
+Compiling module xil_defaultlib.ExpandS
+Compiling module xil_defaultlib.NTT
+Compiling module xil_defaultlib.NTT_INV
+Compiling module xil_defaultlib.Power2round(T_WIDTH=64)
+Compiling module xil_defaultlib.SimpleBitPack(W_WIDTH=10)
+Compiling module xil_defaultlib.PkEncode
+Compiling module xil_defaultlib.pad10_1(x=1088,m=20740)
+Compiling module xil_defaultlib.sponge(msg_len=20740,d_len=512,c...
+Compiling module xil_defaultlib.BitPack_new_default
+Compiling module xil_defaultlib.BitPack_new(a=4095,b=4096,b_len=...
+Compiling module xil_defaultlib.skEncode
+Compiling module xil_defaultlib.key_internal
+Compiling module xil_defaultlib.KeyInternal_tb
+Compiling module xil_defaultlib.glbl
+Compiling package xil_defaultlib.Dilithium_pkg
+Compiling package xil_defaultlib.$unit_Bitpack_new_sv
+Built simulation snapshot KeyInternal_tb_behav
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/Asfiyan/Desktop/hafsa_Athestia/vivado_sim/keyinternal_project.sim/sim_1/behav/xsim/xsim.dir/KeyInternal_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Fri May 30 12:44:48 2025...
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Asfiyan/Desktop/hafsa_Athestia/vivado_sim/keyinternal_project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "KeyInternal_tb_behav -key {Behavioral:sim_1:Functional:KeyInternal_tb} -tclbatch {KeyInternal_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source KeyInternal_tb.tcl
+## current_wave_config
+sk_t0[0]: -21 -3946 1554 -59 2361 -2024 -2288 -3343 1843 -111 1886 2186 4058 -3131 -1052 -872 -2517 3354 47 2500 3139 -2690 1323 -489 -162 -390 2813 1535 -2205 2683 -2315 209 1511 836 -259 1599 2057 -3935 947 3572 3725 -980 -94 -295 905 1165 -372 -814 -3678 -2413 -1629 3777 -3982 -2781 -3986 1793 168 -2015 1640 -2863 -1491 1846 343 -2616 -924 -3 -2493 -558 425 -2211 -368 -176 3369 -978 1432 -3177 1675 2843 3513 1121 1427 -71 743 -3436 1189 -2551 -3704 1605 3817 1818 1329 -726 1498 -2573 -1851 382 -482 1504 -3776 4026 1723 -4019 3956 -2652 3882 -3809 -222 -2667 -4022 -2917 -662 -2957 -1722 -3023 665 626 3347 -2931 265 486 873 -2407 -1781 1979 -2264 -757 -3789 1687 4016 2505 1246 3455 -3936 466 -2951 2129 438 3978 -692 1939 -3631 1017 4064 1358 4034 3529 -3886 3471 728 -2504 548 799 -1790 -855 3150 -2097 2978 3213 -3512 3400 278 -892 1604 3617 949 1263 -3647 -4034 -754 -472 2274 2698 -2361 -2541 3961 184 4000 -633 -1597 -2630 -370 -2374 4011 -270 -3939 -2981 -812 2852 -1181 3675 454 -2200 1344 2038 -1085 -3751 1858 -439 -1892 3500 2811 -2723 2671 -1233 2025 1816 869 1925 2244 320 1358 -2892 -2435 -936 -3417 -1654 -766 2657 -164 -135 1893 2743 3661 -684 1146 4016 3571 -2317 -23 -2098 32 2188 3983 -2036 3613 -1687 -3990 -3269 -2997 2273 3099 -779 -3509 -1908 -931 3561 3100 -2933 3583 1395 -1889 -3110 -3243 -1756 -3397 -1577 
+sk_t0[1]: 2699 3005 4055 -3736 3464 2204 -578 -702 -282 -3607 -3513 -2375 -3670 2697 3583 -1785 -2476 -606 2286 673 1991 -3145 -1756 1548 -2154 -2463 -3086 -2929 -41 -1037 -4020 1919 -873 2429 -1043 1203 3846 2403 415 -2074 1552 -942 -3781 871 2300 -3914 2453 1379 -1628 2594 -1972 1162 -1380 893 -249 -1047 -2188 2099 2243 242 -545 -321 -2622 2054 -763 -333 -2124 3801 1803 -2042 -3923 -1038 -1364 4012 -1225 1549 964 1483 456 -3953 3298 594 946 3186 103 4050 3243 506 2571 -1053 -2347 3253 2739 1001 3908 3747 255 -1723 -1339 -1988 3151 -977 488 1156 1315 -3982 -2803 -212 -561 -3414 2684 1349 3406 535 -1509 3571 -1464 1167 -548 1195 2744 -1584 -2134 -2083 -2994 -3239 -1079 -2389 -471 2389 -3106 -3862 -2993 -2241 960 251 -1081 -1103 3877 934 -2216 644 860 552 -2372 -838 -103 -1761 3130 3078 -381 -3059 -2631 2847 -44 977 794 -2802 3120 1599 -3820 3318 -380 1603 -326 1800 1390 -2713 3646 2723 1099 -3055 -2620 1336 -2439 76 794 2687 144 212 -1930 -2684 3817 4011 1497 1074 -161 1836 -3531 -3811 3040 906 -3957 2088 3827 -36 -3267 -1050 -2139 2456 -3725 226 3966 -3453 -3446 -2853 1301 -3390 2942 -3542 3883 -1331 3303 -420 -1624 2383 -3178 2539 -3620 581 -2416 2057 4065 2302 -3774 -94 -1423 -3603 -3314 -1205 -3678 -1007 1239 714 -115 1109 3363 -1199 3571 -3835 987 -506 -470 3500 206 -476 719 2740 3611 -247 1370 -739 -2589 -2424 -1755 -728 
+sk_t0[2]: -3660 -2220 -3255 -3350 -566 1559 2686 -3 -315 117 -2191 184 586 197 3282 -1919 3070 -3642 2260 3686 -2354 1597 -3016 -40 -449 -3683 3439 -11 716 -1160 -3503 1044 -2198 1694 1567 -1725 -181 -3874 -1388 -1912 -1700 3510 1763 1969 -1306 -193 -2927 2942 -2354 -1758 3923 -3674 2157 -1931 -2586 2458 -57 -27 -177 1272 3280 2398 1849 -1909 -715 522 -3694 -3403 3596 1453 3040 3301 -1774 1981 366 -4075 3816 466 768 -2781 -2153 2294 -3762 -237 2591 -721 666 2579 1045 2663 -3749 3776 -54 1288 -3441 2364 -859 3198 -2103 -358 -2010 1032 -1017 -670 -2775 -1752 -3157 -3082 2936 -1925 -4006 -424 2786 -1049 664 1673 1771 -854 -555 3919 3379 -1831 -3534 1411 -2543 523 3982 825 -3655 1950 113 547 -2078 -3067 -647 -3833 2987 4019 -3775 2882 2850 -2390 -3875 3356 741 4041 -1029 2801 -2636 1300 1686 2790 -1715 54 3600 -3309 2245 -1484 2862 818 932 1862 2351 -3611 1079 808 2262 -1030 3658 1222 -2758 -3455 3482 2003 853 -3735 -3620 1436 -619 -903 -2113 -1149 -1133 -2184 3808 -3256 567 -2866 -2945 3206 745 -281 3038 2397 -2398 -795 -1247 -2372 3333 -3825 1217 1444 1274 1472 -3334 400 -103 -2814 -375 617 -3760 2058 -719 2449 -3514 -3106 1285 -3134 2313 -457 303 755 4045 2652 3682 -4012 748 -2546 -3722 1480 3320 -4082 -3801 2761 2438 861 144 -2888 171 2065 4094 2099 3498 -2878 -3655 1008 -1142 840 -2446 -858 -2682 -1192 -1811 -3208 -3149 506 
+sk_t0[3]: -971 -844 -1897 1820 -4043 734 1068 -3922 1594 1638 -629 -527 2283 3241 2325 -3196 -3375 -2105 2110 -1550 -1710 3390 -1108 911 613 -601 -86 2159 -220 1411 -3009 -2067 -2992 -3762 -2072 2703 -3011 1826 457 496 619 -714 2719 3722 -2054 -2696 2579 1142 1768 1504 946 -2112 1340 -1147 -1658 131 -1875 -4059 -3799 -1613 -1871 3285 1824 -3632 -1043 522 3095 -1641 -3292 257 3543 2381 -533 3184 -2227 2794 -2333 -909 -272 -397 -8 4030 2587 404 -1939 3303 -893 -711 1256 3848 4085 -2464 -3962 2367 -3605 -1062 -3653 3700 -1681 3913 2233 -892 -3021 -1238 2738 -3690 3411 2476 -2772 -2680 1709 -3496 -3754 85 915 2329 109 3480 2236 -3721 2062 3520 3656 -1319 1152 469 1798 -3726 -2515 -292 2442 -757 -3652 699 -3905 2448 -2314 445 3024 3154 -3315 -2114 -1027 2277 -2026 -2076 -1173 2154 4051 -3387 354 1944 1334 -742 3925 2920 1358 2029 -688 -1334 379 469 -435 -3026 -1577 615 -2242 2487 564 -881 -82 -2253 -2366 -3176 -1955 -2035 -1490 1951 2100 2474 -2149 -3549 -4022 1163 712 -910 3275 1556 1740 2030 -855 -3913 156 2584 -3594 -2722 1683 -2223 685 -3032 3587 2649 1207 -1064 3654 -980 3379 -2251 1983 2338 -3069 2171 -3350 1396 735 -2913 -1053 616 3702 3023 -1883 -947 -3515 422 -952 2507 -1992 2074 138 2323 1098 3769 -653 3646 -2700 709 -2615 2465 6 2632 1812 -2171 -1065 1371 -911 638 -3905 2650 -1591 -2960 627 -2170 -125 1862 -698 3602 
+sk_t0[4]: -3662 634 1693 3455 -3929 -1545 589 -1934 -1047 1738 215 3792 2567 -3072 1392 -225 -1797 2838 -329 -805 2026 -3492 1373 3490 -3373 3788 402 2803 -477 1221 4073 2646 -442 -2249 -197 2024 1001 3295 -981 -1651 2191 -3591 3038 -819 -524 2782 1567 -2728 -3859 -1286 1449 2776 -3084 -2076 3347 -3792 971 2821 -180 3706 -812 -1606 1609 -420 -2167 -2250 -99 -2769 -514 -1984 -3678 -2419 3028 -1701 874 3354 -4034 -504 122 1829 -1617 2909 3624 1835 3961 1118 -3151 -2463 2175 3593 -1201 -907 -184 -2818 3222 -1414 3556 281 3734 -180 -22 -3777 -3722 3507 2147 -584 -2326 1027 568 -4029 713 -989 -2013 301 -2963 3771 2659 -40 1384 172 -1335 138 882 1348 -1429 955 -2909 175 -3494 -2979 3766 -3371 -651 -1779 443 -3568 -261 280 601 1556 652 1199 -2371 -1628 2336 -2280 1248 -1542 716 1972 -3161 2534 -3807 3493 -4084 580 -2496 311 1433 -2473 1923 -3666 -2287 -139 949 -4048 1975 -1280 2771 931 -1006 1711 3743 -125 38 2934 -1535 -2167 1371 3880 -3787 -2723 567 -1156 3457 1998 -2725 -803 -2959 -852 -2335 -2811 205 -3370 -338 -4058 3386 643 -252 2980 -1253 -866 3648 -1298 1412 -3881 -1424 1178 887 3614 1498 -3666 -1050 2288 2496 -1136 -2238 -2977 -1829 -2818 3877 -2771 -519 -2496 -520 1557 -3834 -587 -2325 -2325 148 -2487 -3146 -1561 3477 3488 993 -1369 2908 -3027 -2971 -2107 -234 481 -1765 -562 308 -723 3453 -3662 588 1565 -923 2695 -3858 1277 
+sk_t0[5]: 4085 2831 3066 -3146 2500 2120 -2167 823 124 -2021 2912 1671 -611 -3403 3499 141 -1586 -3195 1010 1759 229 479 -732 -3238 3647 735 -2524 11 3890 2331 -1388 -1973 -2413 1790 -3825 3469 -886 1888 1775 3543 2144 -3366 -1422 -135 3804 -2549 831 772 1976 -2378 -549 -2621 223 4073 3398 1285 -1944 528 1755 1156 2062 57 2836 -501 -1550 -2508 -665 -3583 -379 958 1694 648 -158 706 -2692 -1862 1553 691 2649 -1850 3583 2317 -680 3944 2069 1044 -564 2340 -907 3854 -258 -1160 2933 -3434 -3181 2884 3271 2066 -1034 -846 -201 -2736 1217 3788 3121 1387 -3980 -2183 1999 -1861 2876 3813 -1081 -3439 3502 2778 3532 -3033 -1526 2035 932 -3681 -1373 1713 3202 -1681 3113 2808 4071 -2633 -2463 -505 29 -2616 598 1280 -2142 -3580 2571 -55 885 -1672 3060 -1831 -3666 -662 3607 -91 1069 3934 -2937 -1845 3789 -615 3498 -2431 2835 -2497 -1938 -2072 -258 -1777 3468 -879 644 3534 2474 -1688 -2752 -1763 -3820 3206 2252 -991 2914 2953 2694 774 830 3427 3844 3700 1181 2868 3451 -2879 -3634 3609 2236 -1872 863 -1782 721 -4045 -3640 -2690 -3665 968 -1285 -1613 955 318 -278 2372 4084 1684 -1472 -1845 -3828 381 -2733 2071 -3160 208 -2506 -460 1160 1419 -369 -1453 -3717 2418 2541 1253 1339 -2288 -2368 595 2793 -2820 -948 -2014 -1480 1556 814 -3777 -2416 -1975 -1916 1109 -1994 -1750 3813 3700 529 -3563 1738 -898 -988 -512 676 -2169 626 -1310 3900 315 
+sk_t0[6]: -3370 2785 -3882 -1771 -3057 -1414 953 1119 2596 -1794 742 -367 -969 -1395 472 140 -722 -3248 -3139 4 2833 -1380 -4040 -3089 333 -1624 885 1487 1978 147 -3993 1057 2729 -2108 2488 -2579 -70 -389 3646 2199 -2470 1549 -3259 2032 3643 -687 -3014 737 -650 961 1676 477 3221 2247 1577 -3602 3780 -3024 3338 3420 -2586 -3524 -2160 -3973 -1464 1080 -895 3201 -3021 -1082 -2350 3798 -2235 -3601 900 1458 14 1879 2258 2574 1302 2709 86 892 -2623 -1120 225 3279 733 670 -1407 -850 892 2889 2388 -1589 876 1200 -3550 3934 2551 4090 2338 2091 257 -1104 -2520 -837 -248 3006 994 -3891 1801 2401 -1783 1266 419 2286 2478 3502 -48 786 -1409 888 -2089 -2252 -200 2239 -3177 991 -2238 1768 616 2835 -2490 -2612 18 -791 -3101 -13 -1609 667 -769 758 -1683 658 -3722 143 934 -2954 -3223 2953 459 1868 1842 1758 2842 229 -2711 1328 2761 3466 1620 -3474 -3977 -813 892 2045 2892 1492 3815 -409 -799 -2105 2073 -353 -3400 1220 453 11 -2638 3922 382 1447 1811 1170 973 -820 -1634 -2969 2336 -2264 -2319 3338 -3009 3839 -550 -2786 1432 1874 3683 189 -2990 -2896 187 -2409 -2317 3849 3420 -3059 -2933 2562 75 3225 -4058 3754 -2067 -648 2509 3756 3269 1520 -2890 -3391 1282 -3076 -1262 3732 459 2281 827 2165 -1908 3128 -2631 -3449 -3049 -2160 1073 -2906 1837 70 781 3319 -1581 -2420 -2137 1179 -1411 -984 3864 -4088 4009 1086 -3101 3183 
+sk_t0[7]: 758 -2660 283 3114 1611 3085 -3476 157 597 132 2135 -3734 1626 -389 1917 535 -3391 1874 3831 2184 -3634 3050 272 3218 -1589 -2309 -696 -2638 1504 182 2384 -3941 3770 2481 -479 -2199 2238 3403 1512 3463 -1336 -2322 3359 -1570 2354 -652 1695 -2061 1046 3405 -1414 -2367 1807 -712 3118 -428 968 3484 885 3346 2083 1286 -1057 103 521 -687 2120 -3577 256 -812 3137 2995 921 -2253 -4082 1483 3661 -537 -828 -3508 -3718 305 257 411 -3175 -3103 -375 -787 -1887 -3739 -3017 -2242 532 -1334 -4015 4071 666 1573 -464 1245 -3592 -3586 -3949 -372 750 3662 500 -177 1832 -3263 -2127 -1631 -1113 -3085 219 -2393 2269 1934 -2979 -1343 3329 3902 2404 -50 -3644 1886 -670 -142 -3986 -3592 -2320 3193 -2070 -1545 -3531 -38 -1804 2662 3580 3197 -8 483 2489 1320 3877 -646 -1871 1727 -1917 515 239 3403 28 -3605 2725 -1018 -3367 2142 2216 345 61 910 172 -3664 -302 -3215 -1438 -1334 1254 -3708 -746 -2565 -2469 -210 740 -3761 3465 -1679 -2792 -2673 -2898 -413 597 -3328 -573 3045 1543 1590 -2111 -192 -1444 -325 1445 -3243 1293 -1935 -1612 2591 -1463 4084 2465 -4083 -663 1460 548 -2345 -2946 -4090 3313 -222 3671 -2746 3874 -2642 1638 -518 -3308 4062 -1912 -3055 2702 -3068 1737 1157 -1405 -795 2908 3262 633 -2294 2254 -2523 -2137 1343 2253 -72 -376 -3408 3098 -3223 -2598 1589 1649 2116 2837 -1300 1212 1569 -2179 3252 -3095 2747 1606 3815 507 442 
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:02:04 . Memory (MB): peak = 318.000 ; gain = 0.051
+xsim: Time (s): cpu = 00:00:00 ; elapsed = 00:02:06 . Memory (MB): peak = 318.000 ; gain = 5.949
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'KeyInternal_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:02:16 . Memory (MB): peak = 318.000 ; gain = 15.500
+# add_wave /KeyInternal_tb/*
+# open_vcd $vcd_file
+# log_vcd /KeyInternal_tb/*
+# run all
+$finish called at time : 1000005 ps : File "C:/Users/Asfiyan/Desktop/hafsa_Athestia/key_internal_new/key_internal_new.srcs/sim_1/new/tb.sv" Line 28
+# close_vcd
+# close_project
+# exit
+INFO: [Common 17-206] Exiting Vivado at Fri May 30 12:46:57 2025...

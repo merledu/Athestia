@@ -81,6 +81,7 @@ always_ff @(posedge clk or posedge rst) begin
         mu_ShakeIn <= 0;
         ShakeIn_c_tilde <= 0;
         valid_ctilde_input <=0;
+        done <=0;
         
     end else begin
 

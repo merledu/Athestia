@@ -105,12 +105,16 @@ module VerifyTop #(
                    
     //{8'd0,($bits(ctx) / 8),ctx,M};//  // {0 , ($bits(ctx) / 8), ctx , M};
       $display("Hex value M_prime = %h", M_prime);
+      if (rst) begin
+        done = 0;
+        end else begin
         if (ctx_len > 255) begin
             valid = 0;
                     done = 1;
         end else begin
             valid = internal_verify_valid;
             done = internal_done;
+        end
         end
     end
 

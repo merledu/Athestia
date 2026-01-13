@@ -1,0 +1,6 @@
+numpy==1.26.4
+pycryptodome==3.14.1
+PyQt5==5.15.11
+# PyQt5-Qt5==5.15.17
+PyQt5_sip==12.17.0
+vcdvcd

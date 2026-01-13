@@ -1,0 +1,13 @@
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Users/msame/Downloads/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto c627d3d1b0814b82a6c575b1a6371563 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot sign_behav xil_defaultlib.sign xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-2534] module NTT does not have a parameter named width [C:/Users/msame/Desktop/Athestia/sign_internal/sign_internal.srcs/sources_1/new/SignInternal2.sv:147]
+WARNING: [VRFC 10-2534] module NTT does not have a parameter named width [C:/Users/msame/Desktop/Athestia/sign_internal/sign_internal.srcs/sources_1/new/increment_y_ntt.sv:18]
+WARNING: [VRFC 10-2534] module NTT does not have a parameter named width [C:/Users/msame/Desktop/Athestia/sign_internal/sign_internal.srcs/sources_1/new/SignInternal2.sv:891]
+WARNING: [VRFC 10-278] actual bit length 64 differs from formal bit length 5 for port r1 [C:/Users/msame/Desktop/Athestia/sign_internal/sign_internal.srcs/sources_1/new/SignInternal2.sv:738]
+WARNING: [VRFC 10-278] actual bit length 64 differs from formal bit length 5 for port r1 [C:/Users/msame/Desktop/Athestia/sign_internal/sign_internal.srcs/sources_1/new/increment_highbits.sv:37]
+WARNING: [VRFC 10-597] element index 2175 into k is out of bounds [C:/Users/msame/Desktop/Athestia/sign_internal/sign_internal.srcs/sources_1/new/shake2.sv:94]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
